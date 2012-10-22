@@ -1,0 +1,70 @@
+/*	=MEDIUM SIZED SCREENS
+----------------------------------------------------------------------*/
+
+
+@media only screen and (max-width: 70em) {
+	
+	[role="navigation"] {
+		float: none;
+		width: 100%;
+		margin: $lineheight 0 0;
+
+		li {
+			display: inline-block;
+			float: none;
+		}
+
+		a {
+			padding-top: .5em;
+			padding-bottom: .5em;
+		}
+	}
+
+	[role="banner"] {
+		h1 {
+			position: static;
+		}
+
+		.logo {
+			background-position: center;
+			width: 100%;
+		}
+
+		.inner-bar {
+			margin-top: 0;
+		}
+	}
+
+	.main-col.module {
+		width: percentage(8 / 12);
+	}
+
+	.module.side-nav {
+		width: percentage(4 / 12);
+	}
+
+	.col3,
+	.col4 {
+		width: percentage(5 / 12);
+	}
+
+	.col5 {
+		width: percentage(7 / 12);
+	}
+
+	
+	.sidebar.module {
+		@include span;
+		clear: left;
+		
+		.box {
+			@include clearfix;
+		}
+		
+		.node {
+			float: left;
+			width: 33.333333%;
+			padding: 0 $gutter-width;
+		}
+	}
+}

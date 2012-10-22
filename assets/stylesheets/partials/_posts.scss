@@ -1,0 +1,59 @@
+[role="article"] {
+	header {
+		.meta {
+			font-size: .9em;
+			margin: $lineheight 0;
+		}
+	}
+
+	img {
+		display: block;
+		margin-top: $lineheight / 2;
+		margin-bottom: $lineheight / 2;
+	}
+
+	h2 {
+		margin-bottom: $lineheight;
+	}
+
+	footer {
+		nav {
+			margin: $lineheight 0;
+			font-size: to_em(13);
+		}
+
+		.tags {
+			font-size: .8em;
+			background-color: lighten($teal, 65%);
+			padding: .5em;
+
+			a {
+				@include plain-links;
+				@include transition(color .15s ease-out);
+			}
+
+			&:hover a {
+				color: $comp;
+			}	
+		}
+		
+	}
+}
+
+/* SINGLE POST */
+
+.single {
+	[role="article"] {
+		@include box;
+	}
+
+	[role="article"] {
+		padding: 2em;
+	}
+
+	[role="complementary"] {
+		@include clearfix;
+
+		
+	}
+}

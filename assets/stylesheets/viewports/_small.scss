@@ -1,0 +1,55 @@
+/*	=SMALL SCREEN STYLES
+----------------------------------------------------------------------*/
+
+@media only screen and (max-width: 50em) {
+	.module {
+		@include span;
+		clear: both;
+	}
+
+	.main-col.module,
+	.module.side-nav {
+		width: 100%;
+	}
+
+	.module.side-nav {
+		
+	}
+
+
+	[role="banner"] {
+		height: 18em;
+
+		nav {
+			width: 75%;
+			font-size: .9em;
+			margin: 0;
+		}
+
+		h1 {
+			position: relative;
+			float: left;
+			width: 70px;
+			height: 70px;
+			top: 1em;
+		}
+
+		.logo {
+			background-position: left top;
+			background-size: 250px;
+		}
+
+		& > .wrapper {
+			height: 18em;
+		}
+
+		.hero-image {
+			max-width: none;
+			position: absolute;
+			left: -50%;
+			top: -20%;
+			z-index: -1;
+		}
+	}
+
+}

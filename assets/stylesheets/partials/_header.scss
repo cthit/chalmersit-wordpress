@@ -1,0 +1,68 @@
+/*	=HEADER
+----------------------------------------------------------------------*/
+
+@import "navigation";
+
+
+[role="banner"] {
+	@include box-shadow(rgba(#000, .3) 0 1px 10px);
+	border-bottom: 1px solid rgba(#000, .4);
+
+	background: transparent image-url("header-2.jpg") no-repeat center center;
+	background-size: cover;
+	height: 15em;
+	margin-bottom: $lineheight / 2;
+
+	h1 {
+		margin: 0;
+		position: absolute;
+		top: .2em;
+	}
+
+	.logo {
+		display: block;
+		background: transparent image-url("logo.png") no-repeat;
+		width: image-width("logo.png");
+		height: image-height("logo.png");
+		text-indent: -999em;
+
+		&:active {
+			opacity: .9;
+		}
+	}
+	
+	nav {
+		float: right;
+	}
+	
+	.wrapper {
+		padding: 0 $lineheight / 2;
+	}
+	
+	[role="search"] {
+		position: relative;
+		padding-top: $lineheight / 2;
+		font-size: .9em;
+		
+		input {
+			position: absolute;
+			right: 2em;
+		}
+	}
+}
+
+.top-bar {
+	background-color: #000;
+	background-color: rgba(#000, .4);
+	padding: 0 0 $lineheight*2;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.inner-bar {
+	background-color: #000;
+	background-color: rgba(#000, .7);
+	margin-top: $lineheight;
+}

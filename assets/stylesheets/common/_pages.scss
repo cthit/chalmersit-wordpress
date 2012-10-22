@@ -1,0 +1,41 @@
+/*	=PAGES
+----------------------------------------------------------------------*/
+
+.page {
+	.main-col.box, .main-col .box {
+		padding: 2% 5% 5%;
+	}
+	
+	[role="main"] nav.box {
+		padding-right: 0;
+		padding-left: $gutter-width*2;
+	}
+	
+	[role="main"] nav {
+		
+		a {
+			color: #000;
+			font-weight: 500;
+			display: block;
+			padding: .1em 5px;
+			-webkit-font-smoothing: antialiased;
+		}
+		
+		li.current-page a,
+		a:hover {
+			background-color: saturate(lighten($teal, 63%), 10%);
+			text-decoration: none;
+			color: darken($teal, 10%);
+		}
+
+		a:active {
+			background-color: saturate(lighten($teal, 60%), 13%);
+			color: darken($teal, 10%);	
+		}
+		
+		ul {
+			font-size: 1.1em;
+			margin: 1em 0 $lineheight;
+		}
+	}
+}

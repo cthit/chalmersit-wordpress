@@ -1,0 +1,56 @@
+/*	=MAIN SITE STYLES
+----------------------------------------------------------------------*/
+
+html {
+	width: 100%;
+	background-color: $bg;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font: #{$fontsize}/#{($leading/$base-size)} $sans;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: $smurf;
+	color: $bodycolor;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	@include clearfix;
+	margin: 0 5%;
+}
+
+.article-content {
+	font-family: $bodyfont;
+	color: #444;
+}
+
+// ELEMENTS
+// Include stuff like headings, links, buttons, forms, element styling ..
+
+@import "common/headings";
+@import "common/forms";
+@import "common/pages";
+@import "common/buttons";
+@import "common/elements";
+
+
+// PARTIALS
+// Different areas of the site layout, ex. header, sidebars.
+
+@import "partials/header";
+@import "partials/footer";
+@import "partials/posts";
+
+// VIEWS
+// Different views, ex. home, profile page, etc.
+
+@import "views/home";
+@import "views/news";
+
+// RESPONSIVE STYLES
+
+@import "viewports/medium";
+@import "viewports/small";

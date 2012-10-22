@@ -1,0 +1,83 @@
+/*	=BUTTONS
+----------------------------------------------------------------------*/
+
+@mixin states($color, 
+		$hover: darken($color, 20%), 
+		$disabled: #ddd) {
+
+	$bg: $color;
+	$bgalt: darken($bg, 8%);
+	$border: darken($bg, 20%);
+
+	border: solid darken($bg, 10%);
+	border-width: 1px 1px 0 1px;
+	background-color: $color;
+	@include background(linear-gradient($color, $bgalt));
+	@include transition(text-shadow .15s ease-out);
+	@include box-shadow(
+		$border 0 3px 0, 
+		rgba(0,0,0, 0.1) 0 2px 8px);
+	
+	&:hover {
+		background-color: $hover;
+		text-decoration: none;
+		@include background(linear-gradient(darken($color, 2%),
+			darken($bgalt, 3%)));
+	}
+	
+	&:active {
+		top: 1px;
+		@include box-shadow($border 0 2px 0);
+	}
+	
+	&[disabled] {
+		background-color: $disabled;
+		color: #777;
+	}
+}
+
+.btn,
+button,
+input[type="submit"] {
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	display: inline-block;
+	padding: .5em 1.5em;
+
+	color: #fff;
+	font: bold 1em/1 $sans;
+	text-align: center;
+	
+	@include border-radius(.2em);
+	@include states($btn-color);
+	
+	&.large {
+		padding: .6em 1.5em;
+		font-size: to_em(20);
+		font-weight: 500;
+	}
+	
+	&.wide {
+		@extend .btn.large;
+		width: 100%;
+	}
+
+	&[rel="prev"]::before {
+		content: "‹ ";
+	}
+
+	&[rel="next"]::after {
+		content: " ›";
+	}
+}
+
+.btn-alt {
+	@extend .btn;
+	@include states($comp);
+}
+
+.btn-boring {
+	@extend .btn;
+	@include states($light);
+}

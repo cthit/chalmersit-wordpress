@@ -1,0 +1,62 @@
+/*	=HEADINGS
+----------------------------------------------------------------------*/
+
+.huge {
+	font-size: 3.4em;
+	font-weight: 500;
+	letter-spacing: -1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: 500;
+	
+	.detail {
+		color: $grey;
+		font-size: .618em;
+		font-weight: 300;
+		white-space: nowrap;
+		font-style: italic;
+	}
+}
+
+hgroup.page-title {
+	margin-bottom: $lineheight*2;
+	
+	h1 {
+		@extend .huge;
+		margin-bottom: .1em;
+	}
+	
+	h2 {
+		color: $light;
+		font-weight: 500;
+		font-size: to_em(17);
+	}
+}
+
+
+h1 {
+	font-size: to_em(30);
+	line-height: 1;
+}
+
+h2 {
+	font-size: to_em(18);
+	margin-bottom: 0.618em;
+}
+
+h3 {
+	color: $grey;
+}
+
+h4 {
+	text-transform: uppercase;
+	color: $grey;
+	font-size: to_em(12);
+	font-weight: 500;
+}
+
+h5 {
+	
+}

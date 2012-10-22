@@ -1,0 +1,23 @@
+/*
+Theme Name: Chalmers.it
+Theme URI: http://chalmers.it
+Author: Johan Brook (digIT 11/12)
+Author URI: http://johanbrook.com
+Version: 1.0
+*/
+
+// Setup
+
+@import "compass/css3";
+@import "settings";
+
+// Lib files
+
+@import "lib/reset";
+@import "lib/mixins";
+@import "lib/helpers";
+@import "lib/animations";
+
+// Main site styles
+
+@import "main";

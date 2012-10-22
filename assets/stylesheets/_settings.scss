@@ -1,0 +1,25 @@
+// Variables
+
+$smurf:		#09cdda;
+$comp:		#f34924;
+$dark: 		#002224;
+$bg:		#f1f1f1;
+$grey:		#697273;
+$light:		#8b8b8b;
+$teal:		#3c5c5e;
+
+$bodycolor:	#323232;
+$btn-color: #44AEDB;
+
+// Typography
+
+$sans:		"Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$bodyfont:	"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$base-size:		14;
+$leading:		21;
+
+$fontsize:		$base-size/16 * 1em;
+$lineheight:	($leading/$base-size) * 1em;
+
+$gutter-width:	$lineheight / 2;
