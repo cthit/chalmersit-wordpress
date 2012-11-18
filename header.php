@@ -1,3 +1,14 @@
+<?php
+	global $post;
+
+	$header_image = null;
+	
+	if(has_post_thumbnail($post->ID)) {
+		$header_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'banner');
+		$header_image = $header_image[0];
+	}
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -16,7 +27,7 @@
 
 <body <?php body_class();?>>
 
-	<header role="banner">
+	<header role="banner" <?php if($header_image) echo 'style="background-image: url('.$header_image.');"'; ?>>
 		
 		<div class="top-bar">
 			<div class="inner-bar">

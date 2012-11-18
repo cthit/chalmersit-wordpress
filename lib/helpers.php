@@ -22,6 +22,10 @@ function get_sep($symbol = "|") {
 	return '<span class="sep">'.$symbol.'</span>';
 }
 
+function pluralize($count, $word, $ending) {
+	echo $count ." ". (($count > 1) ? $word.$ending : $word);
+}
+
 function show_categories($count = 0, $template) {
 	$cats = get_categories(array("number" => $count, "orderby" => "count"));
 	if($cats) {
@@ -35,7 +39,6 @@ function show_categories($count = 0, $template) {
 
 function author_info($post) {
 	$meta = get_user_meta($post->post_author);
-	Debug($meta);
 }
 
 function formatted_tags($class_name, $wrap = "li") {
@@ -54,10 +57,10 @@ function formatted_tags($class_name, $wrap = "li") {
 *	Echoes 'class="current"' if the provided post/page ID matches the current one.
 *
 *	@param Int $id. The id to check for.
-*	@param String $classname. The classname to be printed. Defaults to 'current'.
+*	@param String $classname. The classname to be printed. Defaults to 'current_page_item'.
 *	@param Bool $echo. Print the class string? Defaults to 'true'.
 */
-function is_current($id, $classname = "current", $echo = true){
+function is_current($id, $classname = "current_page_item", $echo = true){
 	global $post;
 	if($post->ID == $id){
 		if($echo)	printf('class="%s"', $classname);

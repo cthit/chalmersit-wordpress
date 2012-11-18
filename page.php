@@ -6,7 +6,11 @@
 ?>
 
 <aside class="module col3 side-nav">
-	<?php get_sidebar("nav"); ?>
+	<?php if(is_page("sektionen") || get_page($post->post_parent)->post_name == "sektionen") : ?>
+		<?php get_sidebar("nav"); ?>	
+	<?php else:?>
+		<?php get_sidebar("children"); ?>
+	<?php endif;?>
 </aside>
 
 <section class="module col6 main-col">

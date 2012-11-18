@@ -23,22 +23,43 @@
 	
 	.page-title {
 		text-align: center;
+		margin-top: -$lineheight * 2 + .5em;
+		margin-bottom: 0;
+	}
+
+	.quick-buttons .box,
+	.login .box{
+		height: $lineheight * 4;
 	}
 	
 	.quick-buttons {
-		font-size: .9em;
+
+		ul {
+			padding: $lineheight / 2 $gutter-width;
+		}
 
 		li {
 			display: inline-block;
 			width: 32%;
+			padding: 2% 1%;
+			font-size: .9em;
 		}
 		
 		a {
 			display: block;
 			text-align: center;
-			color: $grey;
+			color: $teal;
 			font-weight: 500;
 			text-decoration: none;
+			padding-top: $lineheight*2;
+			background-position: center top;
+			opacity: .8;
+			width: 100%;
+			height: auto;
+
+			&:hover {
+				opacity: 1.0;
+			}
 		}
 	}
 	
@@ -47,9 +68,18 @@
 		input[type="password"] {
 			width: 49%;
 		}
+
+		input[type="submit"] {
+			float: right;
+		}
+
+		label {
+			font-size: to_em(12);
+			margin-left: 1%;
+		}
 		
 		p {
-			margin-bottom: 1em;
+			margin-bottom: .5em;
 		}
 	}
 	

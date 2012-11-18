@@ -1,0 +1,13 @@
+/*
+	ARCHIVE VIEW
+*/
+
+.archive {
+	.main-col > header {
+		padding: $lineheight / 2 0;
+	}
+
+	[role="article"] {
+		margin-bottom: $lineheight*2;
+	}
+}

@@ -13,7 +13,8 @@
 	li {
 		float: left;
 
-		&.current_page_item a {
+		&.current_page_item a,
+		&.current-page-ancestor a {
 			$bg: lighten($comp, 2%);
 
 			background-color: $bg;

@@ -80,6 +80,7 @@
 		font-weight: 500;
 		text-transform: uppercase;
 		letter-spacing: 1px;
+		margin-bottom: 0;
 	}
 }
 
@@ -103,6 +104,27 @@
 	}
 }
 
+/* Icons */
+
+%icon {
+	background-repeat: no-repeat;
+	display: block;
+}
+
+.schedule-icon {
+	@extend %icon;
+	@include icon("icon-schedule.svg", 32px, 32px);
+}
+
+.print-icon {
+	@extend %icon;
+	@include icon("icon-printer.svg", 32px, 32px);
+}
+
+.group-icon {
+	@extend %icon;
+	@include icon("icon-group.svg", 32px, 32px);
+}
 
 /* Grid */
 

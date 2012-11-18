@@ -23,6 +23,17 @@
 	width: 100%;
 }
 
+@mixin icon($url, $w: image-width($url), $h: image-height($url), $inline: true) {
+	@if $inline == true {
+		background-image: inline-image($url);
+	}	
+	@else {
+		background-image: image-url($url);
+	}
+	width: $w;
+	height: $h;
+}
+
 @mixin arrow-down($size: 20px, $color: #f00) {
 	width: 0; 
 	height: 0; 
@@ -34,7 +45,7 @@
 @mixin box {
 	background-color: #fff;
 	@include box-shadow(rgba(#000, .3) 0 1px 3px);
-	padding: 1em $gutter-width;
+	padding: $lineheight / 2 $gutter-width;
 	margin-bottom: $lineheight;
 }
 

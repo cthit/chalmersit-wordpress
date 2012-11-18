@@ -9,9 +9,9 @@
 	
 	<div class="quick-buttons module col4">
 		<ul class="box list">
-			<li><a href="#">Schema</a></li>
-			<li><a href="#">Boka grupprum</a></li>
-			<li><a href="#">Skriv ut</a></li>
+			<li><a href="#" class="schedule-icon">Schema</a></li>
+			<li><a href="#" class="group-icon">Boka grupprum</a></li>
+			<li><a href="#" class="print-icon">Skriv ut</a></li>
 		</ul>
 	</div>
 	
@@ -22,8 +22,10 @@
 				<input type="password" placeholder="Lösenord" />
 			</p>
 			<p>
-				<label><input type="checkbox" /> Håll mig inloggad</label>
-				<input type="submit" value="Logga in" />
+				<input type="checkbox" id="rememberme" name="rememberme" />
+				<label for="rememberme">Håll mig inloggad</label>
+				
+				<input type="submit" class="small" value="Logga in" />
 			</p>
 		</form>
 	</div>

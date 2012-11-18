@@ -27,6 +27,39 @@ function register_chalmers_metaboxes() {
 
 	);
 
+	$metaboxes["kursdetaljer"] = array(
+		"id" => "course_details",
+		"title" => __("Kursinfo"),
+		"context" => "side",
+		"priority" => "low",
+		"pages" => array("course"),
+
+		"fields" => array(
+			array(
+				"name" => __("Kurskod"),
+				"id" => IT_PREFIX."course_code",
+				"type" => "text"
+			),
+			array(
+				"name" => __("Länk till kurshemsida"),
+				"id" => IT_PREFIX."course_site",
+				"type" => "text",
+				"desc" => "Länk till kursens egen hemsida"
+			),
+			array(
+				"name" => __("Länk till kurs"),
+				"id" => IT_PREFIX."course_link",
+				"type" => "text",
+				"desc" => "Länk till kursens sida"	
+			),
+			array(
+				"name" => __("Obligatorisk kurs"),
+				"id" => IT_PREFIX."course_is_compulsory",
+				"type" => "checkbox"
+			)
+		)
+	);
+
 	foreach($metaboxes as $name => $metabox){
 		$mybox = new RW_Meta_Box($metabox);
 	}

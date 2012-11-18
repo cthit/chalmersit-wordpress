@@ -38,6 +38,13 @@ iframe {
 	}
 }
 
+/* User avatars */
+
+.avatar {
+	display: block;
+	@include border-radius(100%);
+}
+
 
 /* Lists */
 

@@ -8,7 +8,9 @@
 	@include box-shadow(rgba(#000, .3) 0 1px 10px);
 	border-bottom: 1px solid rgba(#000, .4);
 
-	background: transparent image-url("header-2.jpg") no-repeat center center;
+	background-image: image-url("header.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 	height: 15em;
 	margin-bottom: $lineheight / 2;

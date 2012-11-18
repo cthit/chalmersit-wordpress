@@ -54,5 +54,8 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<!-- Created by digIT 12/13. Designed by Johan on a Mac -->
+
 </body>
 </html>

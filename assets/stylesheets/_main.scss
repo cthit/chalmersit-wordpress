@@ -43,12 +43,16 @@ body {
 @import "partials/header";
 @import "partials/footer";
 @import "partials/posts";
+@import "partials/side-nav";
+@import "partials/member";
 
 // VIEWS
 // Different views, ex. home, profile page, etc.
 
 @import "views/home";
 @import "views/news";
+@import "views/courses";
+@import "views/archive";
 
 // RESPONSIVE STYLES
 

@@ -9,7 +9,8 @@
 	<?php get_sidebar("news");?>
 </aside>
 
-<section class="module col6 main-col box">
+<section class="module col6 main-col">
+	<div class="box">
 	<?php if($news): foreach($news as $post):?>
 		<?php setup_postdata($post);?>
 
@@ -25,7 +26,7 @@
 		# Cleanup:
 		wp_reset_postdata();
 	?>
-
+	</div>
 </section>
 
 <aside class="module col3 sidebar">

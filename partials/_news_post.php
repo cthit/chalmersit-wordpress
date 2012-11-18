@@ -4,7 +4,7 @@
 
 		<p class="meta">
 			<?php if(!is_single()) : ?><a href="<?php the_permalink();?>">Permalänk</a> <?php sep(); endif; ?>
-			Postat av <?php the_author(); ?> i <?php the_category(", ");?>
+			Postat av <?php the_author_posts_link(); ?> i <?php the_category(", ");?>
 		</p>
 	</header>
 	

@@ -1,0 +1,6 @@
+.post-type-archive-course {
+	.course-listing {
+		@extend .list;
+		margin-bottom: $lineheight;
+	}
+}
