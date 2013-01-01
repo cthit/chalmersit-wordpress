@@ -1,4 +1,6 @@
 # Require any additional compass plugins here.
+require 'zurb-foundation'
+
 
 ASSET_PATH = "assets"
 
@@ -16,3 +18,6 @@ relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
+
+# Disable cache busting
+asset_cache_buster :none

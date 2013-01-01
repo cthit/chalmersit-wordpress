@@ -2,8 +2,7 @@
 ----------------------------------------------------------------------*/
 
 @mixin states($color, 
-		$hover: darken($color, 20%), 
-		$disabled: #ddd) {
+		$hover: darken($color, 20%)) {
 
 	$bg: $color;
 	$bgalt: darken($bg, 8%);
@@ -30,11 +29,7 @@
 		top: 1px;
 		@include box-shadow($border 0 2px 0);
 	}
-	
-	&[disabled] {
-		background-color: $disabled;
-		color: #777;
-	}
+
 }
 
 .btn,
@@ -69,6 +64,19 @@ input[type="submit"] {
 		width: 100%;
 	}
 
+	&[disabled] {
+		@include box-shadow(none);
+		border: 1px solid darken($btn-disabled-color, 20%);
+		text-shadow: none;
+		background-image: none;
+		background-color: $btn-disabled-color;
+		color: #777;
+
+		&:active {
+			top: auto;
+		}
+	}
+
 	&[rel="prev"]::before {
 		content: "‹ ";
 	}
@@ -86,4 +94,9 @@ input[type="submit"] {
 .btn-boring {
 	@extend .btn;
 	@include states($light);
+}
+
+.btn-dangerous {
+	@extend .btn;
+	@include states($dangerous-color);
 }

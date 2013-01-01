@@ -12,6 +12,11 @@
 	margin: -1px 0 0 0;
 }
 
+.block, .block img {
+	display: block;
+}
+
+
 .box {
 	@include box;
 }

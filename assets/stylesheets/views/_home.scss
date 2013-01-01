@@ -1,7 +1,7 @@
 /*	=FRONT PAGE
 ----------------------------------------------------------------------*/
 
-.home {
+.home-page {
 
 	[role="main"] {
 		& header:first-child {
@@ -19,6 +19,7 @@
 
 	[role="main"] header:first-child .box {
 		margin-bottom: 0;
+		margin-top: 0;
 	}
 	
 	.page-title {

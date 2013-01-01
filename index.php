@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 
-<header class="group">
-	<div class="page-title module col4">
+<header class="row">
+	<div class="page-title four columns">
 		<div class="box">
 			<h1 class="huge">IT-sektionen <span class="detail">på Chalmers</span></h1>
 		</div>
 	</div>
 	
-	<div class="quick-buttons module col4">
+	<div class="quick-buttons four columns">
 		<ul class="box list">
 			<li><a href="#" class="schedule-icon">Schema</a></li>
 			<li><a href="#" class="group-icon">Boka grupprum</a></li>
@@ -15,8 +15,8 @@
 		</ul>
 	</div>
 	
-	<div class="login module col4">
-		<form class="box" action="" method="POST">
+	<div class="login four columns">
+		<form class="box" action="" method="post">
 			<p>
 				<input type="text" placeholder="Användarnamn" />
 				<input type="password" placeholder="Lösenord" />
@@ -31,8 +31,8 @@
 	</div>
 </header>
 
-<section class="group">
-	<div class="module col5">
+<section class="row">
+	<div class="five columns">
 		<section class="news box">
 			<header class="panel-header">
 				<h1>Nyheter</h1>
@@ -44,11 +44,11 @@
 		</section>
 	</div>
 	
-	<div class="module col3">
+	<div class="three columns">
 		
 	</div>
 	
-	<div class="module col4">
+	<div class="four columns">
 		<section class="today box">
 			<header class="panel-header">
 				<h1>Idag</h1>

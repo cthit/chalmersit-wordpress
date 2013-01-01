@@ -8,7 +8,6 @@
 		$header_image = $header_image[0];
 	}
 ?>
-
 <!doctype html>
 <html>
 <head>
@@ -22,6 +21,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+	<?php do_action( 'bp_head' ); ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -36,7 +36,7 @@
 						<a class="logo" href="/">Informationsteknik</a>
 					</h1>
 
-					<nav role="navigation">
+					<nav role="navigation" class="main-nav">
 						
 
 						<?php wp_nav_menu(array(

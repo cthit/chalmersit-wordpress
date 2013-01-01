@@ -32,6 +32,9 @@ function setup_chalmers() {
 	add_theme_support("post-thumbnails", array("post", "page", "course"));
 	add_theme_support("automatic-feed-links");
 
+	# Buddypress
+	add_theme_support( 'buddypress' );
+
 	add_action("init", "register_chalmers_metaboxes");
 	add_action("init", "register_chalmers_menus");
 	add_action("init", "register_chalmers_posttypes");
@@ -44,7 +47,7 @@ function setup_chalmers() {
 
 	add_filter('the_shortlink', 'my_shortlink', 10, 4 );
 	add_filter('body_class','browser_body_class');
-	add_filter('show_admin_bar', '__return_false');
+	#add_filter('show_admin_bar', '__return_false');
 
 	add_shortcode('medlem', 'show_member_info');
 	add_shortcode('medlemmar', 'show_members_info');
@@ -99,82 +102,5 @@ function get_include_contents($filename) {
     return false;
 }
 
-
-/**
-*	Returns the children of a page
-*
-*	@param Object $obj. The page object to check from. Defaults to the current parent.
-*	@return Array $pages. An array of all child pages.
-*/
-function fetch_children($obj = null){
-	if(!$obj){
-		$parent = get_parent();
-	}else{
-		if(is_int($obj))
-			$parent = $obj;
-		else
-			$parent = $obj->ID;
-	}
-
-	// Fetch all child pages of the parent OR siblings:
-	return get_pages("hierarchical=0&parent=".$parent."&child_of=".$parent);
-}
-
-
-/**
-*	Returns the ID of the parent page of the current page, or a page provided as $obj.
-*
-*	@param Object $obj. The page object.
-*	@return Int $id. The id of the parent page, or if there's no parent: the id of the current page.
-*/
-function get_parent($obj = null){
-	global $wp_query;
-	if(!$obj){
-		$obj = $wp_query->post;
-	}
-	
-	// Checks to see if we've got a parent or not:
-	if(empty($obj->post_parent))
-		return $obj->ID;
-	else
-		return $obj->post_parent;
-}
-
-
-
-/**
-*	Returns the ID of the top parent page of the page with the ID $id.
-*
-*	@param Int $id. The ID of the current page.
-*	@return Int $id. The ID of the top parent page.
-*/
-function get_top_parent_ID($id){
-	$page = get_page($id);
-	$id = $page->post_parent;
-	$parent = get_page($id);
-	
-	if ($parent->post_parent == 0){
-		return $id;
-	}
-	else{
-		return get_top_parent_ID($id);
-	}
-}
-
-/**
-*	Get the the menu object from a specific location.	
-*
-*	@param $location. The location of the menu. See menus.php
-*/
-function get_menu_by_location( $location ) {
-    if( empty($location) ) return false;
-
-    $locations = get_nav_menu_locations();
-    if( ! isset( $locations[$location] ) ) return false;
-
-    $menu_obj = get_term( $locations[$location], 'nav_menu' );
-
-    return $menu_obj;
-}
 
 ?>

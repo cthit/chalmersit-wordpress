@@ -5,12 +5,7 @@
 	get_header(); 
 ?>
 
-<aside class="module col3 side-nav">
-	<?php get_sidebar("news");?>
-</aside>
-
-<section class="module col6 main-col">
-	<div class="box">
+<section class="six columns main-col push-three">
 	<?php if($news): foreach($news as $post):?>
 		<?php setup_postdata($post);?>
 
@@ -26,10 +21,13 @@
 		# Cleanup:
 		wp_reset_postdata();
 	?>
-	</div>
 </section>
 
-<aside class="module col3 sidebar">
+<aside class="three columns pull-six sidebar">
+	<?php get_sidebar("news");?>
+</aside>
+
+<aside class="three columns sidebar">
 	<?php get_sidebar();?>
 </aside>
 

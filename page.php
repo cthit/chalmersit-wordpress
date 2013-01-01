@@ -5,15 +5,7 @@
 	$subtitle = get_post_meta($post->ID, IT_PREFIX."subtitle", true);
 ?>
 
-<aside class="module col3 side-nav">
-	<?php if(is_page("sektionen") || get_page($post->post_parent)->post_name == "sektionen") : ?>
-		<?php get_sidebar("nav"); ?>	
-	<?php else:?>
-		<?php get_sidebar("children"); ?>
-	<?php endif;?>
-</aside>
-
-<section class="module col6 main-col">
+<section class="six columns push-three main-col">
 	<article class="box" role="article">
 		<hgroup class="page-title">
 			<h1><?php the_title();?></h1>
@@ -26,8 +18,16 @@
 	</article>
 </section>
 
-<aside class="module col3 sidebar">
-	<?php get_sidebar("about");?>
+<aside class="three columns pull-six side-nav">
+	<?php if(is_page("sektionen") || get_page($post->post_parent)->post_name == "sektionen") : ?>
+		<?php get_sidebar("nav"); ?>	
+	<?php else:?>
+		<?php get_sidebar("children"); ?>
+	<?php endif;?>
+</aside>
+
+<aside class="three columns sidebar">
+	<?php get_sidebar();?>
 </aside>
 
 <?php get_footer(); ?>

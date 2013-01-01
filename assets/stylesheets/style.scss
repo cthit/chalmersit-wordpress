@@ -6,10 +6,31 @@ Author URI: http://johanbrook.com
 Version: 1.0
 */
 
+// Settings vars
+
+@import "settings";
+
 // Setup
 
 @import "compass/css3";
-@import "settings";
+@import "foundation/settings";
+@import "foundation/functions/all";
+
+// Typography
+
+@import "modular-scale";
+
+// Tools
+
+@import "foundation/mixins/clearfix";
+@import "foundation/mixins/font-size";
+
+// Grid
+
+@import "foundation/components/grid";
+@import "viewports/queries";
+@import "foundation/mixins/respond-to";
+@import "foundation/mixins/semantic-grid";
 
 // Lib files
 

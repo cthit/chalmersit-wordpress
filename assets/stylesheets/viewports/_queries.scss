@@ -1,0 +1,187 @@
+/*
+  Customized from ZURB's _mqueries.scss lib file.
+  https://github.com/zurb/foundation/blob/master/scss/foundation/components/modules/_mqueries.scss
+*/
+
+/* Visibility Classes ---------------------- */
+/*                                           */
+/* Standard (large) display targeting */
+.show-for-small,
+.show-for-medium,
+.show-for-medium-down,
+.hide-for-large,
+.hide-for-large-up,
+.show-for-xlarge,
+.show-for-print { display: none !important; }
+
+.hide-for-small,
+.hide-for-medium,
+.hide-for-medium-down,
+.show-for-large,
+.show-for-large-up,
+.hide-for-xlarge,
+.hide-for-print { display: inherit !important; }
+
+/* Very large display targeting */
+@media only screen and (min-width: $screenXlarge) {
+  .hide-for-small,
+  .hide-for-medium,
+  .hide-for-medium-down,
+  .hide-for-large,
+  .show-for-large-up,
+  .show-for-xlarge { display: inherit !important; }
+
+  .show-for-small,
+  .show-for-medium,
+  .show-for-medium-down,
+  .show-for-large,
+  .hide-for-large-up,
+  .hide-for-xlarge { display: none !important; }
+}
+
+/* Medium display targeting */
+@media only screen and (max-width: $screenMedium) and (min-width: $screenSmall) {
+  .hide-for-small,
+  .show-for-medium,
+  .show-for-medium-down,
+  .hide-for-large,
+  .hide-for-large-up,
+  .hide-for-xlarge { display: inherit !important; }
+
+  .show-for-small,
+  .hide-for-medium,
+  .hide-for-medium-down,
+  .show-for-large,
+  .show-for-large-up,
+  .show-for-xlarge { display: none !important; }
+}
+
+/* Small display targeting */
+@media only screen and (max-width: $screenSmall - 1) {
+  .show-for-small,
+  .hide-for-medium,
+  .show-for-medium-down,
+  .hide-for-large,
+  .hide-for-large-up,
+  .hide-for-xlarge { display: inherit !important; }
+
+  .hide-for-small,
+  .show-for-medium,
+  .hide-for-medium-down,
+  .show-for-large,
+  .show-for-large-up,
+  .show-for-xlarge { display: none !important; }
+}
+
+/* Orientation targeting */
+.show-for-landscape,
+.hide-for-portrait { display: inherit !important; }
+.hide-for-landscape,
+.show-for-portrait { display: none !important; }
+
+@media screen and (orientation: landscape) {
+  .show-for-landscape,
+  .hide-for-portrait { display: inherit !important; }
+  .hide-for-landscape,
+  .show-for-portrait { display: none !important; }
+}
+
+@media screen and (orientation: portrait) {
+  .show-for-portrait,
+  .hide-for-landscape { display: inherit !important; }
+  .hide-for-portrait,
+  .show-for-landscape { display: none !important; }
+}
+
+/* Touch-enabled device targeting */
+.show-for-touch { display: none !important; }
+.hide-for-touch { display: inherit !important; }
+.touch .show-for-touch { display: inherit !important; }
+.touch .hide-for-touch { display: none !important; }
+
+/* Specific overrides for elements that require something other than display: block */
+
+table.show-for-xlarge,
+table.show-for-large,
+table.hide-for-small,
+table.hide-for-medium { display: table !important; }
+
+@media only screen and (max-width: $screenMedium) and (min-width: $screenSmall) {
+  .touch table.hide-for-xlarge,
+  .touch table.hide-for-large,
+  .touch table.hide-for-small,
+  .touch table.show-for-medium { display: table !important; }
+}
+
+@media only screen and (max-width: $screenSmall - 1) {
+  table.hide-for-xlarge,
+  table.hide-for-large,
+  table.hide-for-medium,
+  table.show-for-small { display: table !important; }
+}
+
+
+/* Small Devices ------------ */
+@media only screen and (max-width: $screenSmall - 1) {
+
+  /* Global Misc --- */
+  /*                 */
+  .left, .right { float: none; }
+  body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; width: 100%; min-width: 0; margin-#{$defaultFloat}: 0; margin-#{$defaultOpposite}: 0; padding-#{$defaultFloat}: 0; padding-#{$defaultOpposite}: 0; }
+
+  /* The Grid --- */
+  /*              */
+  .row { width: auto; min-width: 0; margin-#{$defaultFloat}: 0; margin-#{$defaultOpposite}: 0; }
+  .column, .columns { width: auto !important; float: none;  }
+  .column:last-child, .columns:last-child { float: none; }
+  [class*="column"] + [class*="column"]:last-child { float: none; }
+  .column:before, .columns:before, .column:after, .columns:after { content:""; display:table; }
+  .column:after, .columns:after { clear: both; }
+
+  // Placeholder classes for mobile grid overrides
+  %no-default-margin { margin-#{$defaultFloat}: 0 !important; }
+  %default-auto { #{$defaultFloat}: auto; }
+  %opposite-auto { #{$defaultOpposite}: auto; }
+
+  @for $i from 1 through $totalColumns - 2 {
+    .offset-by-#{convert-number-to-word($i)} { @extend %no-default-margin; }
+  }
+  @for $i from 2 through $totalColumns - 2 {
+    .push-#{convert-number-to-word($i)} { @extend %default-auto; }
+    .pull-#{convert-number-to-word($i)} { @extend %opposite-auto; }
+  }
+
+  /* Mobile 4-column Grid */
+  @for $i from 1 through $mobileTotalColumns {
+    .row {
+      .mobile-#{convert-number-to-word($i)} { width: gridCalc($i, $mobileTotalColumns) !important; float: $defaultFloat; padding: 0 ($columnGutter/2);
+        &:last-child { float: $defaultOpposite; }
+        &.end { float: $defaultFloat; }
+      }
+      &.collapse {
+        .mobile-#{convert-number-to-word($i)} { padding: 0; }
+      }
+    }
+  }
+  @for $i from 1 through $mobileTotalColumns - 1 {
+    .push-#{convert-number-to-word($i)}-mobile { #{$defaultFloat}: gridCalc($i, $mobileTotalColumns); }
+    .pull-#{convert-number-to-word($i)}-mobile { #{$defaultOpposite}: gridCalc($i, $mobileTotalColumns); }
+  }
+
+  /* Block Grids --- */
+  /*                 */
+  .block-grid.mobile {
+    &>li { float: none; width: 100%; margin-#{$defaultFloat}: 0; }
+  }
+
+  .block-grid {
+    &>li { clear: none !important; }
+    @for $i from 1 through $blockGridElements {
+      &.mobile-#{convert-number-to-word($i)}-up>li {
+        width: 100%/$i;
+        @if $i > 1 { &:nth-child(#{$i}n+1) { clear: both; } }
+      }
+    }
+  }
+
+}

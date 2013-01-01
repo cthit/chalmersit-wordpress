@@ -6,6 +6,19 @@
 }
 
 
-.main-col > .box {
-	padding: 2% 5% 5%;
+.main-col {
+	margin-top: -$lineheight*3;
+
+	& > .box {
+		padding: 2% 5% 5%;
+	}
+}
+
+.article-content {
+	font-family: $bodyfont;
+	color: #444;
+
+	p {
+		margin-bottom: $lineheight;		
+	}
 }

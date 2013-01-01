@@ -56,5 +56,5 @@
 // Functions
 
 @function to_em($desired) {
-	@return ($desired / $base-size) * 1em;
+	@return ($desired / $custom-base-size) * 1em;
 }

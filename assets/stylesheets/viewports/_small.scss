@@ -1,21 +1,7 @@
 /*	=SMALL SCREEN STYLES
 ----------------------------------------------------------------------*/
 
-@media only screen and (max-width: 50em) {
-	.module {
-		@include span;
-		clear: both;
-	}
-
-	.main-col.module,
-	.module.side-nav {
-		width: 100%;
-	}
-
-	.module.side-nav {
-		
-	}
-
+@media only screen and (max-width: $screenSmall) {
 
 	[role="banner"] {
 		height: 18em;

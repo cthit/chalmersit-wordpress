@@ -41,6 +41,20 @@ function author_info($post) {
 	$meta = get_user_meta($post->post_author);
 }
 
+
+/**
+*	Call in the top of a template with a string to
+*	set the main page heading.
+*/
+function title_for_page($title) {
+	$print = function() use($title) {
+		echo $title;
+	};
+
+	add_action("main_heading", $print);
+}
+
+
 function formatted_tags($class_name, $wrap = "li") {
 	$tags = get_the_tags();
 	if($tags){
@@ -69,6 +83,23 @@ function is_current($id, $classname = "current_page_item", $echo = true){
 	
 	return false;
 		
+}
+
+
+/**
+*	Shorthand function for rendering a partial.
+*
+*	Will automatically prepend an underscore to parameter
+*	names without an underscore in the front.
+*
+*	@param $partial. The partial name (without .php).
+*/
+function partial($partial) {
+	if($partial[0] != "_") {
+		$partial = "_" . $partial;
+	}
+
+	get_template_part("partials/".$partial);
 }
 
 
@@ -119,6 +150,85 @@ function link_to($page, $echo = true){
 		echo $link;
 	else
 		return $link;
+}
+
+
+
+/**
+*	Returns the children of a page
+*
+*	@param Object $obj. The page object to check from. Defaults to the current parent.
+*	@return Array $pages. An array of all child pages.
+*/
+function fetch_children($obj = null){
+	if(!$obj){
+		$parent = get_parent();
+	}else{
+		if(is_int($obj))
+			$parent = $obj;
+		else
+			$parent = $obj->ID;
+	}
+
+	// Fetch all child pages of the parent OR siblings:
+	return get_pages("hierarchical=0&parent=".$parent."&child_of=".$parent);
+}
+
+
+/**
+*	Returns the ID of the parent page of the current page, or a page provided as $obj.
+*
+*	@param Object $obj. The page object.
+*	@return Int $id. The id of the parent page, or if there's no parent: the id of the current page.
+*/
+function get_parent($obj = null){
+	global $wp_query;
+	if(!$obj){
+		$obj = $wp_query->post;
+	}
+	
+	// Checks to see if we've got a parent or not:
+	if(empty($obj->post_parent))
+		return $obj->ID;
+	else
+		return $obj->post_parent;
+}
+
+
+
+/**
+*	Returns the ID of the top parent page of the page with the ID $id.
+*
+*	@param Int $id. The ID of the current page.
+*	@return Int $id. The ID of the top parent page.
+*/
+function get_top_parent_ID($id){
+	$page = get_page($id);
+	$id = $page->post_parent;
+	$parent = get_page($id);
+	
+	if ($parent->post_parent == 0){
+		return $id;
+	}
+	else{
+		return get_top_parent_ID($id);
+	}
+}
+
+/**
+*	Get the the menu object from a specific location.	
+*
+*	@param $location. The location of the menu. See menus.php
+*/
+function get_menu_by_location( $location ) {
+    if( empty($location) ) return false;
+
+    $locations = get_nav_menu_locations();
+    if( ! isset( $locations[$location] ) ) return false;
+
+    $menu_obj = get_term( $locations[$location], 'nav_menu' );
+
+    return $menu_obj;
 }
 
 

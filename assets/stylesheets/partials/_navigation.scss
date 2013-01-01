@@ -1,18 +1,27 @@
 /*	=NAVIGATION
 ----------------------------------------------------------------------*/
-
-[role="navigation"] {
+%navigation-horiztonal {
 	text-align: center;
-	margin-right: 2%;
+	display: table;
 
 	ul {
-		@include clearfix;
+		display: table-row;
+	}
+
+	li {
+		display: table-cell;
+	}
+}
+
+
+[role="navigation"].main-nav {
+	@extend %navigation-horiztonal;
+
+	ul {
 		margin: 0;
 	}
 	
 	li {
-		float: left;
-
 		&.current_page_item a,
 		&.current-page-ancestor a {
 			$bg: lighten($comp, 2%);
@@ -50,8 +59,35 @@
 		
 		&:hover {
 			text-decoration: none;
-			text-shadow: rgba(#fff, .4) 0 0 3px;
+			text-shadow: rgba(#fff, .5) 0 0 3px;
 			color: #fff;
 		}
+	}
+}
+
+
+/* SUB NAVIGATION ON PAGES (not sidebar) */
+
+.section-navigation {
+	@extend %navigation-horiztonal;
+	width: 100%;
+	margin: $lineheight / 2 0;
+
+	li {
+
+		&.current {
+			a {
+				cursor: default;
+				color: $grey;
+				text-decoration: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		padding: .3em;
+		letter-spacing: 1px;
+		font-weight: bold;
 	}
 }
