@@ -24,12 +24,18 @@ function my_shortlink( $link, $shortlink, $text, $title ){
 *	a single post or an archive page.
 */
 function add_current_class_to_single($classes, $item) {
-	$page = get_page($item->object_id);
+	global $post;
+	$nav_object = get_page($item->object_id);
 
-	if($page->post_name == "nyheter" && 
-		(is_single() || is_archive() ) ) {
+	if($nav_object->post_name == "nyheter" && 
+		(get_post_type($post) == "post" || is_post_type_archive("post") ) ) {
 
 		$classes[] = "current_page_item";
+	}
+	else if($nav_object->post_name == "kurser" && 
+		(is_post_type_archive("course") )) {
+
+		$classes[] = "current_page_item";	
 	}
 
 	return $classes;
