@@ -40,6 +40,10 @@
 	content: "← ";
 }
 
+.read-more::after {
+	content: " →";
+}
+
 .no-content {
 	@extend .meta;
 	font-weight: 500;
@@ -55,13 +59,6 @@
 	&:active {
 		opacity: .9;
 	}
-}
-
-.read-more {
-	color: $grey;
-	font-weight: bold;
-	font-size: to_em(12);
-	text-transform: uppercase;
 }
 
 .plain-link {
@@ -152,18 +149,6 @@
 	@include icon("icon-group.svg", 32px, 32px);
 }
 
-/* Grid */
-
-@for $i from 1 through 12 {
-	.col#{$i} {
-		width: percentage($i / 12);
-	}
-}
-
-.module {
-	padding: 0 $gutter-width;
-	float: left;
-}
 
 /* Alignment (Wordpress classes) */
 

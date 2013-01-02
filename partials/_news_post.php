@@ -1,3 +1,11 @@
+<?php
+	global $post;
+
+	$author_meta = get_user_meta($post->post_author);
+
+	#Debug($author_meta);
+?>
+
 <article role="article">
 	<header>
 		<h1><?php the_title(); ?></h1>
@@ -20,20 +28,34 @@
 	<footer>
 		<?php edit_post_link("Redigera post", "<p>", "</p>");?>
 
-		<section class="author-info">
-			<?php author_info($post);?>			
-		</section>
-
 		<div class="tags">
 			<?php the_tags("Taggad ", " ".get_sep("∙")." "); ?>
 		</div>
 
-		<?php if(is_single()):?>
+		<?php if(is_single()) : ?>
+
+		<section class="author-info media-block">
+			<figure class="media-image">
+				<?php echo get_avatar($post->post_author, 64);?>
+			</figure>
+
+			<hgroup>
+				<h3><span class="detail">Av</span> <?php echo $author_meta['first_name'][0] . " '". $author_meta['nickname'][0] . "' " . $author_meta['last_name'][0];?></h3>
+				<h4><?php echo $author_meta['it_post'][0];?></h4>
+			</hgroup>
+			
+			<p>
+				<a href="<?php echo get_author_posts_url($post->post_author);?>" class="read-more">Se alla inlägg av <?php echo $author_meta['first_name'][0];?></a>
+			</p>
+		</section>
+
 		<nav class="post-nav">
 			<?php previous_post_link("%link", "Föregående nyhet"); ?>
 			<a class="btn-boring" href="<?php link_to("arkiv");?>">Nyhetsarkiv</a>
 			<?php next_post_link("%link", "Nästa nyhet"); ?>
 		</nav>
+
 		<?php endif;?>
+
 	</footer>
 </article>

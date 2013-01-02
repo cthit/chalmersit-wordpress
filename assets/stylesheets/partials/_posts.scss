@@ -18,6 +18,14 @@
 			font-size: to_em(13);
 		}
 
+		.author-info {
+			margin: $lineheight 0;
+			
+			.detail {
+				display: block;
+			}
+		}
+
 		.tags {
 			font-size: .8em;
 			background-color: lighten($teal, 65%);

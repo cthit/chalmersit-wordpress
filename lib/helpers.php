@@ -72,11 +72,6 @@ function show_categories($count = 0, $template) {
 	}
 }
 
-//TODO
-function author_info($post) {
-	$meta = get_user_meta($post->post_author);
-}
-
 
 /**
 *	Call in the top of a template with a string to
