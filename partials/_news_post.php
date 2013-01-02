@@ -11,7 +11,7 @@
 		<h1><?php the_title(); ?></h1>
 
 		<p class="meta">
-			<time datetime="<?php the_time("c");?>" pubdate><?php the_time_simple("j F");?></time> <?php sep();?>
+			<time title="Publicerad <?php the_time("Y-m-d, H:i");?>" datetime="<?php the_time("c");?>" pubdate><?php the_time_simple("j F");?></time> <?php sep();?>
 
 			<?php if(!is_single()) : ?><a href="<?php the_permalink();?>">Permalänk</a> <?php sep(); endif; ?>
 			
@@ -43,7 +43,7 @@
 				<h3><span class="detail">Av</span> <?php echo $author_meta['first_name'][0] . " '". $author_meta['nickname'][0] . "' " . $author_meta['last_name'][0];?></h3>
 				<h4><?php echo $author_meta['it_post'][0];?></h4>
 			</hgroup>
-			
+
 			<p>
 				<a href="<?php echo get_author_posts_url($post->post_author);?>" class="read-more">Se alla inlägg av <?php echo $author_meta['first_name'][0];?></a>
 			</p>
