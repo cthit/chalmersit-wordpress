@@ -29,7 +29,7 @@
 			}
 
 			&:hover a {
-				color: $comp;
+				color: $link-color;
 			}	
 		}
 		
@@ -49,7 +49,5 @@
 
 	[role="complementary"] {
 		@include clearfix;
-
-		
 	}
 }

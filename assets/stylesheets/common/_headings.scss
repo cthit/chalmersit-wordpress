@@ -23,13 +23,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .sub {
 	color: $light;
-	font-weight: 500;
-	font-size: to_em(17);
+	font-weight: normal;
+	font-size: to_em(20);
 }
 
 .subtle {
 	font-size: to_em(22);
 	color: $grey;
+}
+
+.heading-label {
+	text-transform: uppercase;
+	color: $grey;
+	font-size: to_em(12);
 }
 
 hgroup {
@@ -39,7 +45,7 @@ hgroup {
 }
 
 .page-title {
-	margin-bottom: $lineheight*2;
+	margin-bottom: $lineheight;
 	
 	h1 {
 		@extend .huge;
@@ -63,20 +69,19 @@ h1 {
 }
 
 h2 {
-	font-size: to_em(18);
-	margin-bottom: 0.618em;
+	font-size: to_em(24);
+	margin-bottom: $lineheight / 2;
+	font-weight: 300;
 }
 
 h3 {
-	color: $grey;
-	margin-bottom: 1em;
+	font-weight: 300;
+	font-size: to_em(20);
+	margin-bottom: $lineheight / 2;
 }
 
 h4 {
-	text-transform: uppercase;
-	color: $grey;
-	font-size: to_em(12);
-	font-weight: 500;
+	
 }
 
 h5 {

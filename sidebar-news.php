@@ -1,6 +1,12 @@
-<?php
-	//TODO listings
-?>	
+<section>
+	<p class="sidebar-nav">
+		<?php if(is_single()) : ?>
+		<a class="btn" href="<?php link_to("nyheter");?>">Alla nyheter</a>
+		<?php endif;?>
+
+		<a class="btn-boring" href="<?php link_to("arkiv");?>">Nyhetsarkiv</a>
+	</p>
+</section>
 
 <section class="box">
 	<header class="panel-header">

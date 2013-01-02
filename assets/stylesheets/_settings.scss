@@ -12,6 +12,9 @@ $bodycolor:				#323232;
 $btn-color: 			#44AEDB;
 $btn-disabled-color:	#ddd;
 
+$link-color:			#2CA0D1;
+$link-hover-color:		saturate($link-color, 20%);
+
 $notice-color:			#ffd800;
 $dangerous-color:		#F21000;
 
@@ -19,6 +22,7 @@ $dangerous-color:		#F21000;
 
 $sans:					"Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $bodyfont:				"Helvetica Neue", Helvetica, Arial, sans-serif;
+$mono:					Monaco, Courier, "Courier New", monospace;
 
 $custom-base-size:		14;
 $leading:				21;

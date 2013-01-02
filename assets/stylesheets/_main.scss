@@ -18,10 +18,7 @@ body {
 }
 
 .wrapper {
-	@include clearfix;
-	max-width: $page-max-width;
-	width: (100% - $page-margin*2);
-	margin: 0 auto;
+	@include wrapper;
 }
 
 /* Don't set a hard coded width on the row class */
@@ -51,6 +48,7 @@ body {
 @import "partials/posts";
 @import "partials/sidebar";
 @import "partials/side-nav";
+@import "partials/gallery";
 @import "partials/member";
 
 // VIEWS
@@ -60,6 +58,10 @@ body {
 @import "views/news";
 @import "views/courses";
 @import "views/archive";
+@import "views/attachment";
+@import "views/404";
+
+/* Buddypress views */
 @import "views/groups";
 
 // RESPONSIVE STYLES

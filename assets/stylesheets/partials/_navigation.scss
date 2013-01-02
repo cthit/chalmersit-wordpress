@@ -33,7 +33,7 @@
 			color: #fff;
 			text-shadow: rgba(#fff, .4) 0 0 3px;
 			cursor: default;
-			@include box-shadow(rgba(#000, .5) 0 2px 5px);
+			@include box-shadow(rgba(#000, .5) 0 2px 5px, inset rgba(#fff, .4) 0 1px 0);
 			@include border-radius(3px);
 
 			&::after {

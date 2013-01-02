@@ -1,5 +1,6 @@
 <?php
 
+define("UPLOAD_PATH", ABSPATH . "wp-content/uploads/");
 define("THEME_PATH", get_template_directory_uri());
 define("THEME_ABSPATH", ABSPATH . "wp-content/themes/chalmersit/");
 define("ASSET_PATH", THEME_PATH . "/assets");
@@ -33,7 +34,7 @@ function setup_chalmers() {
 	add_theme_support("automatic-feed-links");
 
 	# Buddypress
-	add_theme_support( 'buddypress' );
+	# add_theme_support( 'buddypress' );
 
 	add_action("init", "register_chalmers_metaboxes");
 	add_action("init", "register_chalmers_menus");
@@ -44,13 +45,18 @@ function setup_chalmers() {
 	add_filter( 'excerpt_length', 'jb_excerpt_length' );
 	add_filter( 'get_the_excerpt', 'custom_excerpt' );
 	add_filter( 'excerpt_more', 'read_more_link' );	
+	add_filter('next_post_link', 'posts_link_attributes');
+	add_filter('previous_post_link', 'posts_link_attributes');
+	add_filter( 'nav_menu_css_class', 'add_current_class_to_single', 10, 2);
 
-	add_filter('the_shortlink', 'my_shortlink', 10, 4 );
-	add_filter('body_class','browser_body_class');
-	#add_filter('show_admin_bar', '__return_false');
+	add_filter( 'the_shortlink', 'my_shortlink', 10, 4 );
+	add_filter( 'body_class','browser_body_class');
+	add_filter( 'show_admin_bar', '__return_false');
+	add_filter( 'use_default_gallery_style', '__return_false' );
 
 	add_shortcode('medlem', 'show_member_info');
 	add_shortcode('medlemmar', 'show_members_info');
+
 
 	#add_filter('post_type_link', 'filter_post_type_link', 10, 2);
 
@@ -74,18 +80,6 @@ function filter_post_type_link($link, $post) {
     return $link;
 }
 
-/**
-*	Returns the ID of a page from the slug.
-*
-*	@param String $page_slug: The slug.
-*/
-function get_id_by_slug($page_slug) {
-    $obj = get_page_by_path($page_slug);
-    if ($obj)
-        return $obj->ID;
-	else
-        return false;
-}
 
 /**
 *	Works like include(), but returns the content of the file

@@ -3,5 +3,14 @@
 --------------------------------------- */
 
 .sidebar {
-	
+
+	& > section {
+		margin-bottom: $lineheight;
+	}	
+}
+
+.sidebar-nav {
+	a {
+		width: 48%;
+	}
 }

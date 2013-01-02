@@ -9,7 +9,7 @@
 ?>
 
 <nav class="box side-nav">
-	<h2><a href="<?php link_to("sektionen");?>"><?php echo esc_html($about_menu->name);?></a></h2>
+	<h2><?php echo esc_html($about_menu->name);?></h2>
 	
 	<?php wp_nav_menu(array(
 		"theme_location" => $main_location,

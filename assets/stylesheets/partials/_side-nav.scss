@@ -5,10 +5,6 @@ nav.side-nav {
 	li {
 		border-bottom: 1px solid #e8e8e8;
 
-		&:hover {
-			border-bottom-color: desaturate(lighten($teal, 40%), 20%);
-		}
-
 		&:last-child {
 			border-bottom: 0;
 		}
@@ -22,7 +18,7 @@ nav.side-nav {
 		}
 		
 		a:hover {
-			background-color: saturate(lighten($teal, 63%), 10%);
+			background-color: saturate(lighten($teal, 65%), 10%);
 			text-decoration: none;
 			color: darken($teal, 10%);
 		}
@@ -34,8 +30,21 @@ nav.side-nav {
 	}
 
 	li.current_page_item a {
-		background-color: $bodycolor;
+		background-color: darken($teal, 10%);
+		@include box-shadow(rgba(#000, .2) 0 2px 3px);
+		margin-right: -8px;
 		color: #fff;
+		position: relative;
+
+		&::after {
+			position: absolute;
+			display: block;
+			content: "";
+			@include arrow-down($size: 5px, $color: darken($bodycolor, 10%));
+			@include transform(rotate(45deg));
+			top: -4px;
+			right: 0px;
+		}
 	}
 
 	

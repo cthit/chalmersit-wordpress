@@ -26,6 +26,41 @@ function pluralize($count, $word, $ending) {
 	echo $count ." ". (($count > 1) ? $word.$ending : $word);
 }
 
+function the_time_simple($format) {
+	global $post;
+
+	$format .= (date("Y") == get_the_time("Y", $post->ID) ) ? "" : ", Y";
+	echo get_the_time($format, $post->ID);
+}
+
+/**
+*	Returns the ID of a page from the slug.
+*
+*	@param String $page_slug: The slug.
+*/
+function get_id_by_slug($page_slug) {
+	# Try grab page by title.
+    $obj = get_page_by_title($page_slug);
+
+    if ($obj) {
+        return $obj->ID;
+	}else{
+		# If no-go, try by full page path:
+		$obj = get_page_by_path($page_slug);		
+
+		return ($obj) ? $obj->ID : false;
+	}
+}
+
+function format_size($size) {
+      $sizes = array(" Bytes", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB");
+      
+      if ($size == 0)
+      	return "N/A";
+      else
+      	return (round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . $sizes[$i]);
+}
+
 function show_categories($count = 0, $template) {
 	$cats = get_categories(array("number" => $count, "orderby" => "count"));
 	if($cats) {
@@ -37,6 +72,7 @@ function show_categories($count = 0, $template) {
 	}
 }
 
+//TODO
 function author_info($post) {
 	$meta = get_user_meta($post->post_author);
 }

@@ -11,15 +11,27 @@ p {
 	}
 }
 
+/* Blockquotes */
+
+blockquote {
+	margin: $lineheight*2 0;
+	padding: 0 5%;
+	font-weight: 500;
+	font-size: 1.1em;
+	border-left: 2px solid #ddd;
+}
+
+
 
 /* Links */
 
 a {
-	color: $comp;
+	color: $link-color;
 	text-decoration: none;
 }
 
 a:hover {
+	color: $link-hover-color;
 	text-decoration: underline;
 }
 
@@ -51,6 +63,14 @@ iframe {
 
 
 /* Lists */
+
+dd {
+	margin: 0;
+}
+
+dt {
+	font-weight: bolder;
+}
 
 ul, ol {
 	padding: 0;

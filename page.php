@@ -7,10 +7,15 @@
 
 <section class="six columns push-three main-col">
 	<article class="box" role="article">
+		<?php if($subtitle) : ?>
 		<hgroup class="page-title">
 			<h1><?php the_title();?></h1>
-			<h2><?php if($subtitle) echo $subtitle;?></h2>
+			<h2><?php echo $subtitle;?></h2>
 		</hgroup>
+		<?php else : ?>
+
+		<h1 class="huge"><?php the_title();?></h1>
+		<?php endif;?>
 		
 		<div class="article-content">
 			<?php the_content();?>

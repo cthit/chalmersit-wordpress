@@ -1,5 +1,12 @@
 // Custom mixins
 
+@mixin wrapper {
+	@include clearfix;
+	max-width: $page-max-width;
+	width: (100% - $page-margin*2);
+	margin: 0 auto;
+}
+
 @mixin clearfix {
 	&:before,
 	&:after {
@@ -50,7 +57,7 @@
 }
 
 @mixin plain-links {
-	color: #999;
+	color: $grey;
 }
 
 // Functions

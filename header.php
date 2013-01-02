@@ -29,8 +29,7 @@
 							"theme_location" => "main_navigation",
 							"container_class" => "",
 							"menu_class" => "",
-							"container" => false,
-							"walker" => new Main_Nav_Walker
+							"container" => false
 						)); ?>
 					</nav>
 				</div>

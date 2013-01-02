@@ -7,30 +7,17 @@
 [role="banner"] {
 	@include box-shadow(rgba(#000, .3) 0 1px 10px);
 	border-bottom: 1px solid rgba(#000, .4);
-
+	margin-bottom: $lineheight / 2;
 	background-image: image-url("header.jpg");
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
 	height: 15em;
-	margin-bottom: $lineheight / 2;
 
 	h1 {
 		margin: 0;
 		position: absolute;
 		top: .2em;
-	}
-
-	.logo {
-		display: block;
-		background: transparent image-url("logo.png") no-repeat;
-		width: image-width("logo.png");
-		height: image-height("logo.png");
-		text-indent: -999em;
-
-		&:active {
-			opacity: .9;
-		}
 	}
 	
 	nav {
@@ -42,6 +29,7 @@
 	}
 	
 	[role="search"] {
+		@include wrapper;
 		position: relative;
 		padding-top: $lineheight / 2;
 		font-size: .9em;
