@@ -14,6 +14,15 @@ function img_url($img) {
 	echo asset_path("/images/".$img);
 }
 
+function javascript_path($file) {
+	if(substr($file, -3) != ".js") {
+		$file = $file . ".js";
+	}
+
+	echo asset_path("/javascripts/".$file);
+}
+
+
 function sep($symbol = "|") {
 	echo get_sep($symbol);
 }
