@@ -2,7 +2,7 @@
 
 <footer role="contentinfo">
 	<div class="wrapper group">
-		<section class="module col4">
+		<section class="four columns">
 			<hgroup>
 				<h1>
 					Informationsteknik
@@ -22,7 +22,7 @@
 			</nav>
 		</section>
 		
-		<section class="module col4">
+		<section class="four columns">
 			<dl>
 				<dt>Kontakt</dt>
 				<dd>styrit@chalmers.it</dd>
@@ -34,7 +34,7 @@
 			</dl>
 		</section>
 		
-		<section class="module col4">
+		<section class="four columns">
 			<?php
 				$walker = new Comittee_Walker;
 			?>
