@@ -7,23 +7,9 @@
 		$header_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'banner');
 		$header_image = $header_image[0];
 	}
+
+	partial("head");
 ?>
-<!doctype html>
-<html>
-<head>
-	<title><?php wp_title("|", true, "right"); bloginfo("name");?></title>
-	<meta charset="utf-8" />
-	<!-- Load up the Ubuntu fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic" type="text/css">
-	
-	<!-- Main stylesheet -->
-	<link rel="stylesheet" href="<?php bloginfo("stylesheet_url");?>" />
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<?php do_action( 'bp_head' ); ?>
-	<?php wp_head(); ?>
-</head>
 
 <body <?php body_class();?>>
 
@@ -33,7 +19,7 @@
 			<div class="inner-bar">
 				<div class="wrapper group">
 					<h1>
-						<a class="logo" href="/">Informationsteknik</a>
+						<a class="logo" href="<?php bloginfo("url");?>"><?php bloginfo("name");?></a>
 					</h1>
 
 					<nav role="navigation" class="main-nav">
@@ -43,15 +29,14 @@
 							"theme_location" => "main_navigation",
 							"container_class" => "",
 							"menu_class" => "",
-							"container" => false
+							"container" => false,
+							"walker" => new Main_Nav_Walker
 						)); ?>
 					</nav>
 				</div>
 			</div>
 			
-			<form role="search" action="" method="GET" class="wrapper">
-				<input type="search" placeholder="Sök på Chalmers.it" results="0" name="s" />
-			</form>
+			<?php get_template_part("searchform");?>
 		</div>
 		
 		
