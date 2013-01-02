@@ -2,7 +2,7 @@
 ------------------------------------ */
 
 .attachment {
-	background: #333 image-url("transparent.png") repeat left top;
+	background: #333 inline-image("transparent.png") repeat left top;
 
 	[role="main"] {
 		display: table;
