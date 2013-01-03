@@ -282,6 +282,18 @@ function user_fullname($user) {
 }
 
 
+function show_person($id) {
+	if( $ar = get_user_meta($id) ){
+		$meta = array_map( function( $a ){ 
+			return $a[0];
+		}, $ar);
+	}
+
+	ob_start();
+	include THEME_ABSPATH."partials/_member.php";
+	echo ob_get_clean();
+}
+
 /**
 *	Helper debug function. Prints the value of '$debug' in a
 *	code block.

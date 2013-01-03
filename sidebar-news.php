@@ -14,7 +14,7 @@
 	</header>
 	
 	<ul class="columned-list">
-		<?php show_categories(10, function($c) { ?>
+		<?php show_categories(0, function($c) { ?>
 			<li><?php build_link($c->name, get_category_link($c->term_id));?></li>
 		<?php }); ?>
 	</ul>

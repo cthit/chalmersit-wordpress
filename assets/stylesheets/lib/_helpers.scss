@@ -16,7 +16,6 @@
 	display: block;
 }
 
-
 .box {
 	@include box;
 }
@@ -59,6 +58,10 @@
 	&:active {
 		opacity: .9;
 	}
+}
+
+.label {
+	@include label;
 }
 
 .plain-link {

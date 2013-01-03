@@ -3,8 +3,27 @@
 */
 
 .archive {
+	.main-col {
+		position: relative;
+	}
+
 	.main-col > header {
-		padding: $lineheight / 2 0;
+		border-bottom: 1px solid #eee;
+		margin-bottom: $lineheight;
+
+		h2 {
+			margin-bottom: .5em;
+			font-size: 1.5em;
+		}
+
+		.meta {
+			@include label;
+			position: absolute;
+			right: 0;
+			top: 0;
+			border-width: 0 0 1px 1px;
+			@include border-bottom-left-radius(3px);
+		}
 	}
 
 	[role="article"] {

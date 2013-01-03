@@ -17,17 +17,21 @@
 	get_header();
 ?>
 
-<aside class="module col3">
-	<?php get_sidebar("news");?>
-</aside>
-
-<section class="module col6 main-col">
+<section class="six columns push-three main-col box">
 	<header>	
-		<h1 class="subtle"><?php echo $title;?></h1>
+		<h2><?php echo $title;?></h2>
 		<p class="meta"><?php pluralize($wp_query->post_count, "nyhet", "er");?></p>
+
+		<?php if(is_author()) : ?>
+
+		<?php 
+			$userdata = get_userdatabylogin(get_query_var('author_name'));
+			show_person($userdata->ID);
+		?>
+
+		<?php endif;?>
 	</header>
 
-	<div class="box">
 <?php if(have_posts()) : ?>
 
 <?php while(have_posts()): the_post(); ?>
@@ -41,7 +45,14 @@
 	<p class="no-content">Inga inlägg</p>
 
 <?php endif; ?>
-	</div>
 </section>
+
+<aside class="sidebar three columns pull-six">
+	<?php get_sidebar("news");?>
+</aside>
+
+<aside role="complementary" class="sidebar three columns">
+	<?php get_sidebar();?>
+</aside>
 
 <?php get_footer(); ?>

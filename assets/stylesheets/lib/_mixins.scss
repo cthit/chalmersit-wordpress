@@ -41,6 +41,17 @@
 	height: $h;
 }
 
+@mixin label($color: $comp) {
+	background-color: $color;
+	color: #fff;
+	font-weight: bold;
+	padding: 2px .6em;
+	border: 1px solid darken($color, 10%);
+	text-shadow: darken($color, 20%) 0 1px 0;
+	text-transform: uppercase;
+	font-size: to_em(13);
+}
+
 @mixin arrow-down($size: 20px, $color: #f00) {
 	width: 0; 
 	height: 0; 

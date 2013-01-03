@@ -9,11 +9,11 @@
 ?>
 
 <section class="member row">
-	<figure class="four columns">
+	<figure class="three columns">
 		<?php echo get_avatar($id, 120); ?>
 	</figure>
 
-	<div class="member-details eight columns">
+	<div class="member-details nine columns">
 		<?php if($role) : ?>
 		<hgroup>
 			<h2><?php user_fullname(get_userdata($id));?></h2>
