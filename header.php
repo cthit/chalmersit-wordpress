@@ -34,8 +34,20 @@
 					</nav>
 				</div>
 			</div>
-			
-			<?php get_template_part("searchform");?>
+
+			<div class="wrapper">
+				<ul class="header-controls horizontal-list">
+				<?php if(is_user_logged_in()) : ?>	
+					<li class="user-details">
+						<strong><?php user_fullname(wp_get_current_user());?></strong>
+						<a class="btn-round small" href="<?php echo wp_logout_url($_SERVER['REQUEST_URI']); ?>">Logga ut</a>
+					</li>
+				<?php endif;?>
+					<li>
+						<?php get_template_part("searchform");?>
+					</li>
+				</ul>
+			</div>
 		</div>
 		
 		

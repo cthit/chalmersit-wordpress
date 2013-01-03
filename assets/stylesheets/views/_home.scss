@@ -63,8 +63,21 @@
 			}
 		}
 	}
+
+	.current-user-info {
+		@include box;
+
+		h2 {
+			font-size: to_em(18);
+			font-weight: normal;
+		}
+	}
 	
 	.login {
+		form {
+			@include box;
+		}
+
 		input[type="text"],
 		input[type="password"] {
 			width: 49%;
@@ -81,6 +94,10 @@
 		
 		p {
 			margin-bottom: .5em;
+		}
+
+		.extra-info {
+			font-size: .8em;
 		}
 	}
 	

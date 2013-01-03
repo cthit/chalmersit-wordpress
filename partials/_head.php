@@ -1,3 +1,10 @@
+<?php
+	global $current_user;
+	get_currentuserinfo();
+	#$userdata = get_userdatabylogin(get_query_var('author_name'));
+
+	#Debug($current_user);
+?>
 <!doctype html>
 <html>
 <head>

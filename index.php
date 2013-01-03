@@ -16,18 +16,19 @@
 	</div>
 	
 	<div class="login four columns">
-		<form class="box" action="" method="post">
-			<p>
-				<input type="text" placeholder="Användarnamn" />
-				<input type="password" placeholder="Lösenord" />
-			</p>
-			<p>
-				<input type="checkbox" id="rememberme" name="rememberme" />
-				<label for="rememberme">Håll mig inloggad</label>
-				
-				<input type="submit" class="small" value="Logga in" />
-			</p>
-		</form>
+		<?php if(! is_user_logged_in()) : ?>
+			<?php partial("signinform");?>
+		<?php else : ?>
+
+		<section class="current-user-info media-block">
+			<figure class="media-image">
+				<?php echo get_avatar(wp_get_current_user()->ID, 48); ?>
+			</figure>
+
+			<h2><?php user_fullname(wp_get_current_user());?></h2>
+		</section>
+
+		<?php endif;?>
 	</div>
 </header>
 

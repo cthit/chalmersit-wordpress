@@ -26,6 +26,9 @@ define("ENV", $env);
 /* SETUP */
 
 add_action("after_setup_theme", "setup_chalmers");
+if(! is_admin()) {
+	add_action("wp_enqueue_scripts", "it_custom_scripts", 11);
+}
 
 function setup_chalmers() {
 	add_theme_support("menus");
@@ -63,6 +66,15 @@ function setup_chalmers() {
 	/* Thumbnails */
 
 	add_image_size("banner", 9999, 525, true);
+}
+
+
+function it_custom_scripts() {
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? 
+		"s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", false, null, true);
+
+	wp_enqueue_script('jquery');
 }
 
 

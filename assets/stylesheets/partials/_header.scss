@@ -29,22 +29,29 @@
 	}
 	
 	[role="search"] {
-		@include wrapper;
-		position: relative;
-		padding-top: $lineheight / 2;
 		font-size: .9em;
-		
-		input {
-			position: absolute;
-			right: 2em;
-		}
 	}
+
+	.header-controls {
+		float: right;
+	}
+
+	.user-details {
+		color: #fff;
+	}
+}
+
+body.logged-in [role="banner"] .header-controls {
+	margin: 0;
+	padding: 1em 0 1em 1em;
+	background-color: rgba(#000, .5);
+	border: 1px solid rgba(#000, .2);
+	border-width: 0 1px;
 }
 
 .top-bar {
 	background-color: #000;
 	background-color: rgba(#000, .4);
-	padding: 0 0 $lineheight*2;
 	position: absolute;
 	left: 0;
 	right: 0;

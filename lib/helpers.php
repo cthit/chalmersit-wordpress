@@ -271,6 +271,18 @@ function get_menu_by_location( $location ) {
     return $menu_obj;
 }
 
+/*	USER FUNCTIONS
+----------------------- */
+
+/**
+*	Prints the $user's name on the form
+*	"First Last"
+*/
+function user_fullname($user) {
+	$nick = (!empty($user->nickname)) ? " '".$user->nickname."' " : "";
+	echo $user->user_firstname . $nick . $user->user_lastname;
+}
+
 
 /**
 *	Helper debug function. Prints the value of '$debug' in a
