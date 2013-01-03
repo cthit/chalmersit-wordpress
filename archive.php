@@ -26,7 +26,7 @@
 
 		<?php 
 			$userdata = get_userdatabylogin(get_query_var('author_name'));
-			show_person($userdata->ID);
+			show_person($userdata->ID, array("avatar_size" => 120));
 		?>
 
 		<?php endif;?>

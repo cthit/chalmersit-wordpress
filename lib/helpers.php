@@ -282,12 +282,27 @@ function user_fullname($user) {
 }
 
 
-function show_person($user_id) {
+/**
+*	Show a registered user.
+*
+*	Using the "partials/members" template.
+*
+*	@param $user_id The user ID
+*	@param $args 	Options
+*		'avatar_size' => The size of the avatar
+*/
+function show_person($user_id, $args) {
 	if( $ar = get_user_meta($user_id) ){
 		$meta = array_map( function( $a ){ 
 			return $a[0];
 		}, $ar);
 	}
+
+	$defaults = array("avatar_size" => 96);
+	$args = wp_parse_args($args, $defaults);
+
+	# $id must me present for use in _members.php
+	$id = $user_id;
 
 	ob_start();
 	include THEME_ABSPATH."partials/_member.php";

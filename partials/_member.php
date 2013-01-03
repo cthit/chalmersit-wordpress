@@ -6,11 +6,12 @@
 
 	$year = $meta['it_year'];
 	$description = ($content != null) ? $content : $meta['description'];
+	$avatar_size = ($args != null) ? $args['avatar_size'] : 96;
 ?>
 
 <section class="member row">
 	<figure class="three columns">
-		<?php echo get_avatar($id, 120); ?>
+		<?php echo get_avatar($id, $avatar_size); ?>
 	</figure>
 
 	<div class="member-details nine columns">
