@@ -269,6 +269,30 @@ function get_menu_by_location( $location ) {
     return $menu_obj;
 }
 
+/* OPTIONS 
+----------------------- */
+
+/**
+*	Get options from the database
+*	(ties with a custom class, see lib/class.Options.php)
+*
+*	@param String $option. The option name to fetch.
+*/
+function get_it_option( $option ) {
+	$options = get_option( 'chalmersit_options' );
+	if ( isset( $options[$option] ) )
+		return $options[$option];
+	else
+		return false;
+}
+
+/* Shorthand echo of the above: */
+function it_option($option){
+	echo get_it_option($option);
+}
+
+
+
 /*	USER FUNCTIONS
 ----------------------- */
 

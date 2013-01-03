@@ -11,7 +11,7 @@
 		<ul class="box list">
 			<li><a href="#" class="schedule-icon">Schema</a></li>
 			<li><a href="#" class="group-icon">Boka grupprum</a></li>
-			<li><a href="#" class="print-icon">Skriv ut</a></li>
+			<li><a href="<?php link_to("skrivut");?>" class="print-icon">Skriv ut</a></li>
 		</ul>
 	</div>
 	

@@ -25,12 +25,12 @@
 		<section class="four columns">
 			<dl>
 				<dt>Kontakt</dt>
-				<dd>styrit@chalmers.it</dd>
+				<dd><?php it_option("main_contact_email");?></dd>
 				
 				<dt>Postadress</dt>
-				<dd>Teknologsektionen Informationsteknik<br />
-				Teknologgården 2<br />
-				412 58 Göteborg</dd>
+				<dd><?php it_option("contact_official_name");?><br />
+				<?php it_option("contact_address");?><br />
+				<?php it_option("postal_code");?> <?php it_option("locality");?></dd>
 			</dl>
 		</section>
 		

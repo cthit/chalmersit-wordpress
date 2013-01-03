@@ -82,7 +82,7 @@ class Theme_Options{
 		$this->admin_page = add_submenu_page(
 			'options-general.php',			// The parent menu
 			'Temainställningar', 			// Page title
-			'Projektforum', 				// Heading
+			'Informationsteknik',			// Heading
 			'manage_options', 				// Capability level
 			$this->prefix.'-options', 		// Unique identifier
 			array( &$this, 'display_page' ) // Callback

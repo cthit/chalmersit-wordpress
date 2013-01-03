@@ -45,7 +45,7 @@
 						<span class="dropdown-trigger icon-cog">Verktyg</span>
 
 						<ul class="dropdown-sub">
-							<li><a href="#">Skriv ut</a></li>
+							<li><a href="<?php link_to("skrivut");?>">Skriv ut</a></li>
 							<li><a href="#">Boka rum</a></li>
 							<li><a href="#">Schema</a></li>
 							<?php if(current_user_can("publish_posts")) : ?>
