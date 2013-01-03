@@ -19,7 +19,8 @@
 	)); ?>
 	
 	<section>
-		<h4><?php echo esc_html($sec_menu->name);?></h4>
+		<h3><?php echo esc_html($sec_menu->name);?></h3>
+		
 		<?php wp_nav_menu(array(
 			"theme_location" => $sec_location,
 			"container_class" => "",

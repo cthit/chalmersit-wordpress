@@ -31,7 +31,7 @@ nav.side-nav {
 
 	li.current_page_item a {
 		background-color: darken($teal, 10%);
-		@include box-shadow(rgba(#000, .2) 0 2px 3px);
+		@include box-shadow(rgba(#000, .1) -1px -2px 4px);
 		margin-right: -8px;
 		color: #fff;
 		position: relative;
@@ -43,7 +43,7 @@ nav.side-nav {
 			@include arrow-down($size: 5px, $color: darken($bodycolor, 10%));
 			@include transform(rotate(45deg));
 			top: -4px;
-			right: 0px;
+			right: 1px;
 		}
 	}
 

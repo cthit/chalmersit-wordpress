@@ -201,17 +201,11 @@ function link_to($page, $echo = true){
 *	@return Array $pages. An array of all child pages.
 */
 function fetch_children($obj = null){
-	if(!$obj){
-		$parent = get_parent();
-	}else{
-		if(is_int($obj))
-			$parent = $obj;
-		else
-			$parent = $obj->ID;
-	}
+	$parent = ($obj == null) ? get_parent() : $obj;
+	$id = ($parent->post_parent) ? $parent->post_parent : $parent->ID;
 
 	// Fetch all child pages of the parent OR siblings:
-	return get_pages("hierarchical=0&parent=".$parent."&child_of=".$parent);
+	return get_pages("hierarchical=0&parent=".$id."&child_of=".$id);
 }
 
 
@@ -253,6 +247,10 @@ function get_top_parent_ID($id){
 	else{
 		return get_top_parent_ID($id);
 	}
+}
+
+function get_top_parent($id) {
+	return get_post(get_top_parent_ID($id));
 }
 
 /**
