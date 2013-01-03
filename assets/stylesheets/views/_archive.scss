@@ -2,6 +2,21 @@
 	ARCHIVE VIEW
 */
 
+.search, .archive {
+	.main-col .box:first-child {
+		position: relative;
+	}
+
+	.main-col > header:first-child .meta {
+		@include label;
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-width: 0 0 1px 1px;
+		@include border-bottom-left-radius(3px);
+	}
+}
+
 .archive {
 	.main-col {
 		position: relative;
@@ -14,15 +29,6 @@
 		h2 {
 			margin-bottom: .5em;
 			font-size: 1.5em;
-		}
-
-		.meta {
-			@include label;
-			position: absolute;
-			right: 0;
-			top: 0;
-			border-width: 0 0 1px 1px;
-			@include border-bottom-left-radius(3px);
 		}
 	}
 

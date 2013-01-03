@@ -5,6 +5,8 @@ define("THEME_PATH", get_template_directory_uri());
 define("THEME_ABSPATH", ABSPATH . "wp-content/themes/chalmersit/");
 define("ASSET_PATH", THEME_PATH . "/assets");
 
+define("EXCERPT_LENGTH", 75);
+
 require_once "lib/constants.php";
 require_once "lib/helpers.php";
 require_once "lib/class.Comittee_Walker.php";
