@@ -7,7 +7,7 @@
 		position: relative;
 	}
 
-	.main-col > header:first-child .meta {
+	.main-col .annotation {
 		@include label;
 		position: absolute;
 		right: 0;
@@ -18,10 +18,7 @@
 }
 
 .archive {
-	.main-col {
-		position: relative;
-	}
-
+	
 	.main-col > header {
 		border-bottom: 1px solid #eee;
 		margin-bottom: $lineheight;

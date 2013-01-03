@@ -17,10 +17,11 @@
 	get_header();
 ?>
 
-<section class="six columns push-three main-col box">
+<section class="six columns push-three main-col">
+	<div class="box">
 	<header>	
 		<h2><?php echo $title;?></h2>
-		<p class="meta"><?php pluralize($wp_query->post_count, "nyhet", "er");?></p>
+		<p class="annotation"><?php pluralize($wp_query->post_count, "nyhet", "er");?></p>
 
 		<?php if(is_author()) : ?>
 
@@ -45,6 +46,7 @@
 	<p class="no-content">Inga inlägg</p>
 
 <?php endif; ?>
+	</div>
 </section>
 
 <aside class="sidebar three columns pull-six">

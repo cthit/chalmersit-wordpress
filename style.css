@@ -2571,7 +2571,7 @@ nav.side-nav ul {
 .search .main-col .box:first-child, .archive .main-col .box:first-child {
   position: relative;
 }
-.search .main-col > header:first-child .meta, .search .main-col > header:first-child .no-content, .archive .main-col > header:first-child .meta, .archive .main-col > header:first-child .no-content {
+.search .main-col .annotation, .archive .main-col .annotation {
   background-color: #f34924;
   color: #fff;
   font-weight: bold;
@@ -2589,9 +2589,6 @@ nav.side-nav ul {
   border-bottom-left-radius: 3px;
 }
 
-.archive .main-col {
-  position: relative;
-}
 .archive .main-col > header {
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 1.5em;

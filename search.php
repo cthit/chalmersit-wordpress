@@ -8,7 +8,7 @@
 	<div class="box">
 	<header>
 		<h1>Sökresultat</h1>
-		<p class="meta">Sökord: "<?php the_search_query();?>"</p>
+		<p class="annotation">Sökord: "<?php the_search_query();?>"</p>
 
 		<?php get_search_form();?>
 	</header>
