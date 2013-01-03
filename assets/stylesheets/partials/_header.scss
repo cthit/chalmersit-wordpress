@@ -34,10 +34,11 @@
 
 	.header-controls {
 		float: right;
-	}
-
-	.user-details {
 		color: #fff;
+
+		& > li {
+			margin: 0 0 0 1em;
+		}
 	}
 }
 

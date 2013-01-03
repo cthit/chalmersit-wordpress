@@ -42,7 +42,7 @@
 						<strong><?php user_fullname(wp_get_current_user());?></strong>
 					</li>
 					<li class="dropdown">
-						<span class="dropdown-trigger">Verktyg</span>
+						<span class="dropdown-trigger icon-cog">Verktyg</span>
 
 						<ul class="dropdown-sub">
 							<li><a href="#">Skriv ut</a></li>

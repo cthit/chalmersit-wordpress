@@ -1385,6 +1385,39 @@ table {
   }
 }
 
+@font-face {
+  font-family: 'chalmersit';
+  src: url('assets/fonts/chalmersit.eot');
+  src: url('assets/fonts/chalmersit.eot?#iefix') format("embedded-opentype"), url('assets/fonts/chalmersit.svg#chalmersit') format("svg"), url('assets/fonts/chalmersit.woff') format("woff"), url('assets/fonts/chalmersit.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'chalmersit';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: 'chalmersit';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  margin-right: .3em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-cog:before {
+  content: "\e000";
+}
+
 /*	=MAIN SITE STYLES
 ----------------------------------------------------------------------*/
 html {
@@ -2118,9 +2151,10 @@ nav ol {
 }
 [role="banner"] .header-controls {
   float: right;
-}
-[role="banner"] .user-details {
   color: #fff;
+}
+[role="banner"] .header-controls > li {
+  margin: 0 0 0 1em;
 }
 
 body.logged-in [role="banner"] .header-controls {
@@ -2534,18 +2568,10 @@ nav.side-nav ul {
 /*
 	ARCHIVE VIEW
 */
-.archive .main-col {
+.search .main-col .box:first-child, .archive .main-col .box:first-child {
   position: relative;
 }
-.archive .main-col > header {
-  border-bottom: 1px solid #eeeeee;
-  margin-bottom: 1.5em;
-}
-.archive .main-col > header h2 {
-  margin-bottom: .5em;
-  font-size: 1.5em;
-}
-.archive .main-col > header .meta, .archive .main-col > header .no-content {
+.search .main-col > header:first-child .meta, .search .main-col > header:first-child .no-content, .archive .main-col > header:first-child .meta, .archive .main-col > header:first-child .no-content {
   background-color: #f34924;
   color: #fff;
   font-weight: bold;
@@ -2562,8 +2588,29 @@ nav.side-nav ul {
   -webkit-border-bottom-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+
+.archive .main-col {
+  position: relative;
+}
+.archive .main-col > header {
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 1.5em;
+}
+.archive .main-col > header h2 {
+  margin-bottom: .5em;
+  font-size: 1.5em;
+}
 .archive [role="article"] {
   margin-bottom: 3em;
+}
+
+/* =SEARCH
+------------------------------------------ */
+.search [role="main"] [role="search"] {
+  font-size: 1.2em;
+}
+.search [role="main"] [role="search"] [type="search"] {
+  width: 98%;
 }
 
 /* =ATTACHMENTS

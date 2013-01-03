@@ -9,6 +9,7 @@ http_path = "/"
 css_dir = "."
 sass_dir = File.join ASSET_PATH, "stylesheets"
 images_dir = File.join ASSET_PATH, "images"
+fonts_dir = File.join ASSET_PATH, "fonts"
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = (environment == :production) ? :compressed : :expanded
