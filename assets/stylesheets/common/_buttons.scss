@@ -102,3 +102,28 @@ input[type="submit"] {
 	@extend .btn;
 	@include states($dangerous-color);
 }
+
+.btn-round {
+	@include border-radius(2em);
+	background-color: #fff;
+	@include background(linear-gradient(#fff, #ccc));
+	font: bold 1em/1 $sans;
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #222;
+	padding: .3em .8em;
+	color: #000;
+
+	&.small {
+		font-size: to_em(13);
+	}
+
+	&:hover {
+		color: #000;
+		text-decoration: none;
+	}
+
+	&:active {
+		background: #eee;
+	}
+}
