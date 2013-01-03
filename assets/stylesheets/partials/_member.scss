@@ -3,22 +3,8 @@
 */
 
 .member {
-	overflow: hidden;
-
-	hgroup {
-		margin-bottom: $lineheight;
-	}
-
-	.avatar,
-	.member-details {
-		float: left;
-	}
-
-	.member-details {
-		width: 60%;
-		margin-left: 8%;
-	}
-
+	margin-bottom: $lineheight;
+	
 	.description {
 		color: $grey;
 	}

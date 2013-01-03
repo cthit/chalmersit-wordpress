@@ -1,20 +1,32 @@
 <?php
 	# Member template for the 'medlem' shortcode function
-	#
+	
 	# The $meta includes member info
+	# Uses a $content variable if available, otherwise the meta description of the actual member.
 
-	$name = sprintf('%1$s \'%2$s\' %3$s', $meta['first_name'], $meta['nickname'], $meta['last_name']);
-	$role = $meta['it_post'];
-	$description = $meta['description'];
+	$year = $meta['it_year'];
+	$description = ($content != null) ? $content : $meta['description'];
 ?>
 
-<section class="member">
-	<?php echo get_avatar($id, 120); ?>
-	<div class="member-details">
+<section class="member row">
+	<figure class="four columns">
+		<?php echo get_avatar($id, 120); ?>
+	</figure>
+
+	<div class="member-details eight columns">
+		<?php if($role) : ?>
 		<hgroup>
-			<h2><?php echo $name;?></h2>
-			<?php if($role):?><h3 class="sub"><?php echo $role;?></h3><?php endif;?>
+			<h2><?php user_fullname(get_userdata($id));?></h2>
+			<h3 class="sub"><?php echo $role;?></h3>
 		</hgroup>
-		<p class="description"><?php echo $description;?></p>
+		<?php else : ?>
+
+		<h2><?php user_fullname(get_userdata($id));?></h2>
+		
+		<?php endif;?>
+		
+		<p class="description">
+			<?php echo strip_tags($description);?>
+		</p>
 	</div>
 </section>

@@ -4,7 +4,7 @@
 	SHORTCODES
 */
 
-function show_member_info($atts) {
+function show_member_info($atts, $content = null) {
 	extract($atts);
 	if(empty($namn) && empty($id)) return;
 
@@ -18,7 +18,9 @@ function show_member_info($atts) {
 		}, $ar);
 	}
 
+	ob_start();
 	include THEME_ABSPATH."partials/_member.php";
+	return ob_get_clean();
 }
 
 function show_members_info($atts) {

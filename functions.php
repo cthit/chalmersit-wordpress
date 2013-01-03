@@ -57,8 +57,7 @@ function setup_chalmers() {
 	add_filter( 'show_admin_bar', '__return_false');
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
-	add_shortcode('medlem', 'show_member_info');
-	add_shortcode('medlemmar', 'show_members_info');
+	add_shortcode('person', 'show_member_info');
 
 
 	#add_filter('post_type_link', 'filter_post_type_link', 10, 2);
