@@ -37,9 +37,23 @@
 
 			<div class="wrapper">
 				<ul class="header-controls horizontal-list">
-				<?php if(is_user_logged_in()) : ?>	
+				<?php if(is_user_logged_in()) : ?>
 					<li class="user-details">
 						<strong><?php user_fullname(wp_get_current_user());?></strong>
+					</li>
+					<li class="dropdown">
+						<span class="dropdown-trigger">Verktyg</span>
+
+						<ul class="dropdown-sub">
+							<li><a href="#">Skriv ut</a></li>
+							<li><a href="#">Boka rum</a></li>
+							<li><a href="#">Schema</a></li>
+							<?php if(current_user_can("publish_posts")) : ?>
+							<li><a href="<?php echo admin_url();?>" target="_blank">Admin</a></li>
+							<?php endif;?>
+						</ul>
+					</li>
+					<li>
 						<a class="btn-round small" href="<?php echo wp_logout_url($_SERVER['REQUEST_URI']); ?>">Logga ut</a>
 					</li>
 				<?php endif;?>

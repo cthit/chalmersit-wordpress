@@ -31,7 +31,7 @@
 
 .horizontal-list {
 	@extend .list;
-	li {
+	& > li {
 		display: inline-block;
 		margin: 0 2px;
 	}

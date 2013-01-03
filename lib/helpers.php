@@ -282,8 +282,8 @@ function user_fullname($user) {
 }
 
 
-function show_person($id) {
-	if( $ar = get_user_meta($id) ){
+function show_person($user_id) {
+	if( $ar = get_user_meta($user_id) ){
 		$meta = array_map( function( $a ){ 
 			return $a[0];
 		}, $ar);
@@ -292,6 +292,15 @@ function show_person($id) {
 	ob_start();
 	include THEME_ABSPATH."partials/_member.php";
 	echo ob_get_clean();
+}
+
+
+function get_user_role($user) {
+	if(is_numeric($user)) {
+		$user = get_userdata($user);
+	}
+
+	return ($user) ? $user->roles[0] : false;
 }
 
 /**
