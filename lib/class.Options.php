@@ -142,6 +142,8 @@ class Theme_Options{
 			
 			<form action="options.php" method="POST">
 				<?php settings_fields($this->prefix."_options");?>
+
+				<?php if(count($this->sections) > 1 ) : ?>
 				<div class="ui-tabs">
 					<ul class="ui-tabs-nav subsubsub">
 						
@@ -151,6 +153,8 @@ class Theme_Options{
 				<?php $count++; endforeach;?>
 				
 					</ul>
+
+				<?php endif;?>
 				
 				<?php do_settings_sections( $_GET['page'] ); ?>
 				
