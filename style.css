@@ -2715,10 +2715,10 @@ nav.side-nav ul {
   font-size: 1em;
   margin: 0;
 }
-.home .activity > ul {
+.home .activity section > ul {
   margin-bottom: 1.5em;
 }
-.home .activity > ul > li {
+.home .activity section > ul > li {
   border-bottom: 1px solid #e2e2e2;
   padding: 0.3em 0 0;
   margin-bottom: .5em;
