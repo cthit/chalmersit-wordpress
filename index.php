@@ -74,11 +74,15 @@
 			<ul class="list todays-lunch-lectures">
 
 				<?php foreach($lunch_lectures as $lecture) : ?>
+				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_date", true);?>
 				<li>
 					<h3><?php echo $lecture->post_title;?></h3>
 					<ul class="meta">
-						<li><time datetime="<?php the_time("c");?>">
-							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_start_time", true);?></time>,
+						<li><time datetime="<?php echo $date;?>">
+							<?php echo date("j F", strtotime($date));?>,
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_start_time", true);?></time>
+						</li>
+						<li>
 							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_location", true);?>
 						</li>
 						<li><?php the_author_posts_link(); ?></li>

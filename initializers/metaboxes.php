@@ -35,14 +35,21 @@ function register_chalmers_metaboxes() {
 		"priority" => "high",
 		"fields" => array(
 			array(
+				"name" => "Datum",
+				"id" => IT_PREFIX."lunch_lecture_date",
+				"type" => "date"
+			),
+			array(
 				"name" => "Starttid",
 				"id" => IT_PREFIX."lunch_start_time",
-				"type" => "text"
+				"format" => "HH:mm",
+				"type" => "time"
 			),
 			array(
 				"name" => "Sluttid",
 				"id" => IT_PREFIX."lunch_end_time",
-				"type" => "text"
+				"format" => "HH:mm",
+				"type" => "time"
 			),
 			array(
 				"name" => "Sal",
