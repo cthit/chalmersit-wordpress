@@ -97,15 +97,8 @@
 			<?php endif;?>
 			
 			<h2>Evenemang</h2>
-			<ul class="list events">
-				<li>
-					<h3>Smurfsittning</h3>
-					<small class="meta">
-						<a href="#">sexIT</a><span class="sep">∙</span><time datetime="2012-06-24T18.00">18.00</time>, Gasquen
-						<span class="sep">∙</span><a href="#">Läs mer</a>
-					</small>
-				</li>
-			</ul>
+			
+			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="3"]' ); ?>
 		</section>
 	</div>
 
