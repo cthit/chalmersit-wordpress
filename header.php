@@ -56,6 +56,11 @@
 					<li>
 						<a class="btn-round small" href="<?php echo wp_logout_url($_SERVER['REQUEST_URI']); ?>">Logga ut</a>
 					</li>
+
+				<?php else : ?>
+
+					<li><a class="btn-round small" id="login-btn" href="<?php echo wp_login_url();?>">Logga in</a></li>
+
 				<?php endif;?>
 					<li>
 						<?php get_template_part("searchform");?>

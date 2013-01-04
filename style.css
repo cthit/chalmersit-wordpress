@@ -1342,6 +1342,8 @@ table {
   margin: 0 auto;
 }
 
+/* =ANIMATIONS
+-------------------------------------------- */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -1391,6 +1393,60 @@ table {
     background-position-y: 0;
     opacity: 1.0;
   }
+}
+
+@-webkit-keyframes pop {
+  5% {
+    -webkit-transform: scale(1.1);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes shake {
+  50% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  50% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@-webkit-keyframes jiggle {
+  50% {
+    -webkit-transform: rotate(3deg);
+  }
+
+  to {
+    -webkit-transform: rotate(-3deg);
+  }
+}
+
+/* Animation classes */
+.pop {
+  -webkit-animation: pop 1.1s ease-out;
+}
+
+.shake {
+  -webkit-animation: shake 0.2s 3 ease-out;
+  animation: shake 0.2s 3 ease-out;
+}
+
+.jiggle {
+  -webkit-animation: jiggle 0.2s 3 ease-out;
 }
 
 @font-face {
@@ -2592,6 +2648,11 @@ nav.side-nav ul {
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
   padding: 0.75em 0.75em;
   margin-bottom: 1.5em;
+}
+.home .login form.pop {
+  -webkit-box-shadow: #2ca0d1 0 2px 20px;
+  -moz-box-shadow: #2ca0d1 0 2px 20px;
+  box-shadow: #2ca0d1 0 2px 20px;
 }
 .home .login input[type="text"],
 .home .login input[type="password"] {
