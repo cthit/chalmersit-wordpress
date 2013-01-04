@@ -137,8 +137,8 @@ class Theme_Options{
 		?>
 		
 		<div class="wrap">
-			<div class="icon32" id="icon-options-projektforum"></div>
-			<h2><?php _e("Temainställningar för Projektforum");?></h2>
+			<div class="icon32" id="icon-options-chalmersit"></div>
+			<h2><?php _e("Temainställningar för Chalmers.it");?></h2>
 			
 			<form action="options.php" method="POST">
 				<?php settings_fields($this->prefix."_options");?>
