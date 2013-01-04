@@ -39,7 +39,7 @@
 	</div>
 </header>
 
-<section class="row">
+<section class="dashboard row">
 	<div class="five columns">
 		<section class="news box">
 			<header class="panel-header">
@@ -51,27 +51,27 @@
 			<?php endwhile; endif; ?>
 		</section>
 	</div>
+
 	
-	
-	<div class="three columns">
-		<section class="today box">
-			<header class="panel-header">
-				<h1>Idag</h1>
+	<div class="activity three columns">
+
+		<section class="lunch box">
+			<header>
+				<h3>Lunch</h3>
 			</header>
+
 			
-			<h2>Lunch på Xpress</h2>
-			<ul class="list todays-lunch">
-				<li>
-					<h3>Våfflor</h3>
-					<small class="meta">
-						<a href="#">Kårrestaurangen</a>
-					</small>
-				</li>
-			</ul>
+			
+		</section>
+
+		<section class="upcoming box">
+			<header class="panel-header">
+				<h1>Kommande</h1>
+			</header>
 			
 			<?php if($lunch_lectures) : ?>
 			<h2>Lunchföreläsningar</h2>
-			<ul class="list todays-lunch-lectures">
+			<ul class="list lunch-lectures">
 
 				<?php foreach($lunch_lectures as $lecture) : ?>
 				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_date", true);?>
@@ -97,7 +97,7 @@
 			<?php endif;?>
 			
 			<h2>Evenemang</h2>
-			<ul class="list todays-events">
+			<ul class="list events">
 				<li>
 					<h3>Smurfsittning</h3>
 					<small class="meta">
@@ -106,14 +106,6 @@
 					</small>
 				</li>
 			</ul>
-		</section>
-		
-		<section class="upcoming-events box">
-			<header class="panel-header">
-				<h1>Kommande</h1>
-			</header>
-			
-			
 		</section>
 	</div>
 

@@ -2616,7 +2616,7 @@ nav.side-nav ul {
 /*	=FRONT PAGE
 ----------------------------------------------------------------------*/
 .home {
-  /* Idag */
+  /* Today and Upcoming */
   /* News stream */
 }
 .home [role="banner"] {
@@ -2704,35 +2704,35 @@ nav.side-nav ul {
 .home .login .extra-info {
   font-size: .8em;
 }
-.home .today h2 {
+.home .activity h2 {
   font-weight: bold;
   font-size: 0.92857em;
   text-transform: uppercase;
   color: #697273;
 }
-.home .today h3 {
+.home .activity ul h3 {
   font-weight: normal;
   font-size: 1em;
   margin: 0;
 }
-.home .today > ul {
+.home .activity > ul {
   margin-bottom: 1.5em;
 }
-.home .today > ul > li {
+.home .activity > ul > li {
   border-bottom: 1px solid #e2e2e2;
   padding: 0.3em 0 0;
   margin-bottom: .5em;
 }
-.home .today .meta, .home .today .no-content {
+.home .activity .meta, .home .activity .no-content {
   margin-top: .3em;
   font-size: .9em;
 }
-.home .today .meta li, .home .today .no-content li {
+.home .activity .meta li, .home .activity .no-content li {
   display: inline-block;
   border-right: 1px solid #e2e2e2;
   padding-right: 6px;
 }
-.home .today .meta li:last-child, .home .today .no-content li:last-child {
+.home .activity .meta li:last-child, .home .activity .no-content li:last-child {
   border: 0;
 }
 .home .news article {

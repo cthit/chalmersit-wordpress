@@ -3,11 +3,6 @@
 
 .home {
 
-	[role="main"] {
-		& header:first-child {
-			//margin-bottom: $lineheight;
-		}
-	}
 
 	[role="banner"] {
 		height: 28em;
@@ -105,9 +100,11 @@
 		}
 	}
 	
-	/* Idag */
-	
-	.today {
+	/* Today and Upcoming */
+
+
+	.activity {
+
 		h2 {
 			font-weight: bold;
 			font-size: to_em(13);
@@ -115,7 +112,7 @@
 			color: $grey;
 		}
 
-		h3 {
+		ul h3 {
 			font-weight: normal;
 			font-size: to_em(14);
 			margin: 0;
