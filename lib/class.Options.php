@@ -137,7 +137,8 @@ class Theme_Options{
 		?>
 		
 		<div class="wrap">
-			<div class="icon32" id="icon-options-chalmersit"></div>
+			<div class="icon32" id="icon-options-chalmersit" style="background-image:url('<?php echo ASSET_PATH;?>/images/logo_notext.png')">
+			</div>
 			<h2><?php _e("Temainställningar för Chalmers.it");?></h2>
 			
 			<form action="options.php" method="POST">
