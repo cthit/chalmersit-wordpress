@@ -36,6 +36,7 @@ function setup_chalmers() {
 	add_theme_support("menus");
 	add_theme_support("post-formats");
 	add_theme_support("post-thumbnails", array("post", "page", "course"));
+	add_theme_support("post-formats", array("aside"));
 	add_theme_support("automatic-feed-links");
 
 	# Buddypress

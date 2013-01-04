@@ -2,11 +2,9 @@
 	global $post;
 
 	$author_meta = get_user_meta($post->post_author);
-
-	#Debug($author_meta);
 ?>
 
-<article role="article">
+<article role="article" <?php post_class();?>>
 	<header>
 		<h1><?php the_title(); ?></h1>
 
@@ -19,6 +17,10 @@
 			
 			<?php edit_post_link("Redigera post", get_sep());?>
 		</p>
+
+		<?php if(is_lunch_lecture()) : ?>
+			<?php partial("lunch_lecture_meta");?>
+		<?php endif;?>
 	</header>
 	
 	<div class="article-content">

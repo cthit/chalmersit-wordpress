@@ -44,6 +44,39 @@
 	}
 }
 
+/* Special post styling */
+
+[role="article"] {
+	&.sticky {
+
+	}
+
+
+}
+
+/* Style metadata for lunch lectures */
+
+.lunch-lecture-meta {
+	$border-color: #e2e2e2;
+
+	border-bottom: 1px solid $border-color;
+	display: table;
+	width: 100%;
+	text-align: center;
+	font-size: to_em(16) !important;
+
+	li {
+		display: table-cell;
+		border-right: 1px solid $border-color;
+		padding: .5em 0;
+
+		&:last-child {
+			border: 0;
+		}
+	}
+}
+
+
 /* SINGLE POST */
 
 .single {

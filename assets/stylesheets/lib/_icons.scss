@@ -29,6 +29,17 @@
 	margin-right: .3em;
 	-webkit-font-smoothing: antialiased;
 }
+
+
 .icon-cog:before {
 	content: "\e000";
+}
+.icon-clock:before {
+	content: "\e001";
+}
+.icon-map-pin-fill:before {
+	content: "\e002";
+}
+.icon-user:before {
+	content: "\e003";
 }

@@ -1482,6 +1482,18 @@ table {
   content: "\e000";
 }
 
+.icon-clock:before {
+  content: "\e001";
+}
+
+.icon-map-pin-fill:before {
+  content: "\e002";
+}
+
+.icon-user:before {
+  content: "\e003";
+}
+
 /*	=MAIN SITE STYLES
 ----------------------------------------------------------------------*/
 html {
@@ -1699,9 +1711,9 @@ input[type="submit"] {
   -moz-transition: text-shadow 0.15s ease-out;
   -o-transition: text-shadow 0.15s ease-out;
   transition: text-shadow 0.15s ease-out;
-  -webkit-box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  -moz-box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -webkit-box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  -moz-box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  box-shadow: #1e769b 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
 }
 .btn:hover, .btn-alt:hover, .btn-boring:hover, .btn-dangerous:hover,
 button:hover,
@@ -1785,9 +1797,9 @@ input[type="submit"][rel="next"]::after {
   -moz-transition: text-shadow 0.15s ease-out;
   -o-transition: text-shadow 0.15s ease-out;
   transition: text-shadow 0.15s ease-out;
-  -webkit-box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  -moz-box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -webkit-box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  -moz-box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  box-shadow: #a82609 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
 }
 .btn-alt:hover {
   color: #fff;
@@ -1820,9 +1832,9 @@ input[type="submit"][rel="next"]::after {
   -moz-transition: text-shadow 0.15s ease-out;
   -o-transition: text-shadow 0.15s ease-out;
   transition: text-shadow 0.15s ease-out;
-  -webkit-box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  -moz-box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -webkit-box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  -moz-box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  box-shadow: #585858 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
 }
 .btn-boring:hover {
   color: #fff;
@@ -1855,9 +1867,9 @@ input[type="submit"][rel="next"]::after {
   -moz-transition: text-shadow 0.15s ease-out;
   -o-transition: text-shadow 0.15s ease-out;
   transition: text-shadow 0.15s ease-out;
-  -webkit-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  -moz-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -webkit-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  -moz-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
+  box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.2) 0 2px 8px;
 }
 .btn-dangerous:hover {
   color: #fff;
@@ -2384,6 +2396,24 @@ body.logged-in [role="banner"] .header-controls .user-details {
   color: #2ca0d1;
 }
 
+/* Special post styling */
+/* Style metadata for lunch lectures */
+.lunch-lecture-meta {
+  border-bottom: 1px solid #e2e2e2;
+  display: table;
+  width: 100%;
+  text-align: center;
+  font-size: 1.14286em !important;
+}
+.lunch-lecture-meta li {
+  display: table-cell;
+  border-right: 1px solid #e2e2e2;
+  padding: 0.5em 0;
+}
+.lunch-lecture-meta li:last-child {
+  border: 0;
+}
+
 /* SINGLE POST */
 .single [role="article"] {
   background-color: #fff;
@@ -2672,15 +2702,35 @@ nav.side-nav ul {
   font-size: .8em;
 }
 .home .today h2 {
-  font-weight: normal;
-  font-size: 1.07143em;
+  font-weight: bold;
+  font-size: 0.92857em;
+  text-transform: uppercase;
+  color: #697273;
 }
-.home .today ul {
+.home .today h3 {
+  font-weight: normal;
+  font-size: 1em;
+  margin: 0;
+}
+.home .today > ul {
   margin-bottom: 1.5em;
 }
-.home .today li {
+.home .today > ul > li {
   border-bottom: 1px solid #e2e2e2;
-  padding: 0.3em 0;
+  padding: 0.3em 0 0;
+  margin-bottom: .5em;
+}
+.home .today .meta, .home .today .no-content {
+  margin-top: .3em;
+  font-size: .9em;
+}
+.home .today .meta li, .home .today .no-content li {
+  display: inline-block;
+  border-right: 1px solid #e2e2e2;
+  padding-right: 6px;
+}
+.home .today .meta li:last-child, .home .today .no-content li:last-child {
+  border: 0;
 }
 .home .news article {
   padding: 0 0.75em;

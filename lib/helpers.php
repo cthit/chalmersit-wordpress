@@ -269,6 +269,19 @@ function get_menu_by_location( $location ) {
     return $menu_obj;
 }
 
+
+/* CONDITIONAL TAGS 
+----------------------- */
+
+function is_lunch_lecture($p = null) {
+	global $post;
+	$p = ($p == null) ? $post : $p;
+	$cat = get_the_category($p->ID);
+	return $cat[0]->slug == "lunchforelasningar";
+}
+
+
+
 /* OPTIONS 
 ----------------------- */
 

@@ -109,17 +109,41 @@
 	
 	.today {
 		h2 {
+			font-weight: bold;
+			font-size: to_em(13);
+			text-transform: uppercase;
+			color: $grey;
+		}
+
+		h3 {
 			font-weight: normal;
-			font-size: to_em(15);
+			font-size: to_em(14);
+			margin: 0;
 		}
 		
-		ul {
+		& > ul {
 			margin-bottom: $lineheight;
 		}
 		
-		li {
+		& > ul > li {
 			border-bottom: 1px solid #e2e2e2;
-			padding: .3em 0;
+			padding: .3em 0 0;
+			margin-bottom: .5em;
+		}
+
+		.meta {
+			margin-top: .3em;
+			font-size: .9em;
+
+			li {
+				display: inline-block;
+				border-right: 1px solid #e2e2e2;
+				padding-right: 6px;
+
+				&:last-child {
+					border: 0;
+				}
+			}
 		}
 	}
 	

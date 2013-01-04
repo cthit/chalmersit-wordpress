@@ -27,6 +27,36 @@ function register_chalmers_metaboxes() {
 
 	);
 
+	$metaboxes['lunchlecture'] = array(
+		'id' => "lecture-details",
+		'title' => "Data för lunchföreläsning",
+		"context" => "side",
+		"pages" => array("post"),
+		"priority" => "high",
+		"fields" => array(
+			array(
+				"name" => "Starttid",
+				"id" => IT_PREFIX."lunch_start_time",
+				"type" => "text"
+			),
+			array(
+				"name" => "Sluttid",
+				"id" => IT_PREFIX."lunch_end_time",
+				"type" => "text"
+			),
+			array(
+				"name" => "Sal",
+				"id" => IT_PREFIX."lunch_lecture_location",
+				"type" => "text"
+			),
+			array(
+				"name" => "Föreläsare",
+				"id" => IT_PREFIX."lunch_lecturer",
+				"type" => "text"
+			)
+		)
+	);
+
 	$metaboxes["kursdetaljer"] = array(
 		"id" => "course_details",
 		"title" => __("Kursinfo"),

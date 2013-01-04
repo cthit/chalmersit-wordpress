@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php 
+	$lunch_lectures = get_posts(array(
+		"category_name" => "lunchforelasningar",
+		"posts_per_page" => 3
+	));
+
+	get_header(); 
+?>
 
 <header class="row">
 	<div class="page-title four columns">
@@ -52,38 +59,43 @@
 				<h1>Idag</h1>
 			</header>
 			
-			<h4>Lunch på Xpress</h4>
+			<h2>Lunch på Xpress</h2>
 			<ul class="list todays-lunch">
 				<li>
-					<h2>Våfflor</h2>
+					<h3>Våfflor</h3>
 					<small class="meta">
 						<a href="#">Kårrestaurangen</a>
 					</small>
 				</li>
 			</ul>
 			
-			<h4>Lunchföreläsningar</h4>
+			<?php if($lunch_lectures) : ?>
+			<h2>Lunchföreläsningar</h2>
 			<ul class="list todays-lunch-lectures">
+
+				<?php foreach($lunch_lectures as $lecture) : ?>
 				<li>
-					<h2>Om ett ämne</h2>
-					<small class="meta">
-						<a href="#">ArmIT</a><span class="sep">∙</span><time datetime="2012-06-24T12.00">12.00</time>, HC2
-						<span class="sep">∙</span><a href="#">Läs mer</a>
-					</small>
+					<h3><?php echo $lecture->post_title;?></h3>
+					<ul class="meta">
+						<li><time datetime="<?php the_time("c");?>">
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_start_time", true);?></time>,
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_location", true);?>
+						</li>
+						<li><?php the_author_posts_link(); ?></li>
+						<li>
+							<a href="<?php echo get_permalink($lecture->ID);?>" class="read-more">Läs mer</a>
+						</li>
+					</ul>
 				</li>
-				<li>
-					<h2>Om ett ämne</h2>
-					<small class="meta">
-						<a href="#">ArmIT</a><span class="sep">∙</span><time datetime="2012-06-24T12.00">12.00</time>, HC2
-						<span class="sep">∙</span><a href="#">Läs mer</a>
-					</small>
-				</li>
+				<?php endforeach;?>
+
 			</ul>
+			<?php endif;?>
 			
-			<h4>Evenemang</h4>
+			<h2>Evenemang</h2>
 			<ul class="list todays-events">
 				<li>
-					<h2>Smurfsittning</h2>
+					<h3>Smurfsittning</h3>
 					<small class="meta">
 						<a href="#">sexIT</a><span class="sep">∙</span><time datetime="2012-06-24T18.00">18.00</time>, Gasquen
 						<span class="sep">∙</span><a href="#">Läs mer</a>
