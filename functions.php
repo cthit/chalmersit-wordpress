@@ -45,6 +45,7 @@ function setup_chalmers() {
 	add_action("init", "register_chalmers_menus");
 	add_action("init", "register_chalmers_posttypes");
 	add_action("init", "register_chalmers_taxonomies");
+	add_action("init", "it_register_sidebars");
 	add_action('init', 'remove_head_links');
 
 	add_filter( 'excerpt_length', 'jb_excerpt_length' );

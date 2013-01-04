@@ -1323,6 +1323,10 @@ table {
 }
 
 /* Alignment (Wordpress classes) */
+.center {
+  text-align: center;
+}
+
 .alignright {
   float: right;
   margin-left: 3%;
@@ -1542,7 +1546,8 @@ h3 {
 input[type="text"],
 input[type="password"],
 input[type="search"],
-input[type="email"] {
+input[type="email"],
+input[type="number"] {
   -webkit-appearance: none;
   font: normal 90%/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #323232;
@@ -1552,7 +1557,8 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+input[type="number"]:focus {
   outline: 0;
   border-color: rgba(88, 135, 139, 0.8);
   -webkit-box-shadow: rgba(7, 159, 169, 0.7) 0 0 6px;
@@ -1780,38 +1786,38 @@ input[type="submit"][rel="next"]::after {
 }
 
 .btn-dangerous {
-  border: solid #bf0d00;
+  border: solid #d31228;
   border-width: 1px 1px 0 1px;
-  background-color: #f21000;
+  background-color: #ed2b41;
   text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 1px;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f21000), color-stop(100%, #c90d00));
-  background: -webkit-linear-gradient(#f21000, #c90d00);
-  background: -moz-linear-gradient(#f21000, #c90d00);
-  background: -o-linear-gradient(#f21000, #c90d00);
-  background: linear-gradient(#f21000, #c90d00);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ed2b41), color-stop(100%, #dc132a));
+  background: -webkit-linear-gradient(#ed2b41, #dc132a);
+  background: -moz-linear-gradient(#ed2b41, #dc132a);
+  background: -o-linear-gradient(#ed2b41, #dc132a);
+  background: linear-gradient(#ed2b41, #dc132a);
   -webkit-transition: text-shadow 0.15s ease-out;
   -moz-transition: text-shadow 0.15s ease-out;
   -o-transition: text-shadow 0.15s ease-out;
   transition: text-shadow 0.15s ease-out;
-  -webkit-box-shadow: #8c0900 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  -moz-box-shadow: #8c0900 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
-  box-shadow: #8c0900 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -webkit-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  -moz-box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
+  box-shadow: #a40e1f 0 3px 0, inset rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 8px;
 }
 .btn-dangerous:hover {
   color: #fff;
-  background-color: #8c0900;
+  background-color: #a40e1f;
   text-decoration: none;
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e80f00), color-stop(100%, #ba0c00));
-  background: -webkit-linear-gradient(#e80f00, #ba0c00);
-  background: -moz-linear-gradient(#e80f00, #ba0c00);
-  background: -o-linear-gradient(#e80f00, #ba0c00);
-  background: linear-gradient(#e80f00, #ba0c00);
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ec2239), color-stop(100%, #ce1227));
+  background: -webkit-linear-gradient(#ec2239, #ce1227);
+  background: -moz-linear-gradient(#ec2239, #ce1227);
+  background: -o-linear-gradient(#ec2239, #ce1227);
+  background: linear-gradient(#ec2239, #ce1227);
 }
 .btn-dangerous:active {
   top: 1px;
-  -webkit-box-shadow: #8c0900 0 2px 0;
-  -moz-box-shadow: #8c0900 0 2px 0;
-  box-shadow: #8c0900 0 2px 0;
+  -webkit-box-shadow: #a40e1f 0 2px 0;
+  -moz-box-shadow: #a40e1f 0 2px 0;
+  box-shadow: #a40e1f 0 2px 0;
 }
 
 .btn-round {
@@ -1928,40 +1934,50 @@ nav ol {
 /* NOTICES and MESSAGES 
 ------------------------------------ */
 .message-notice, .message-warning {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
   font-weight: bold;
   padding: 0.5em 0.6em;
   border: 1px solid;
   text-align: center;
+  margin: 0.75em 0;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
-  -webkit-box-shadow: inset rgba(255, 255, 255, 0.5) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 13px;
-  -moz-box-shadow: inset rgba(255, 255, 255, 0.5) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 13px;
-  box-shadow: inset rgba(255, 255, 255, 0.5) 0 1px 0, rgba(0, 0, 0, 0.1) 0 2px 13px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 13px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 13px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 13px;
+}
+.small.message-notice, .small.message-warning {
+  padding: .3em;
+  font-size: .9em;
+}
+.message-notice p, .message-warning p {
+  margin: 0 0 1.5em !important;
 }
 
 .message-notice {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffd800), color-stop(100%, #e6c200));
-  background: -webkit-linear-gradient(#ffd800, #e6c200);
-  background: -moz-linear-gradient(#ffd800, #e6c200);
-  background: -o-linear-gradient(#ffd800, #e6c200);
-  background: linear-gradient(#ffd800, #e6c200);
-  border-color: #ccad00;
-  color: #665600;
+  background-color: #ffec80;
+  border-color: #e6c400;
+  color: #665700;
+}
+
+.message-positive {
+  text-align: center;
+  font-weight: bold;
+  color: #47870b;
+  font-size: 1.28571em;
 }
 
 .message-warning {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f21000), color-stop(100%, #d80e00));
-  background: -webkit-linear-gradient(#f21000, #d80e00);
-  background: -moz-linear-gradient(#f21000, #d80e00);
-  background: -o-linear-gradient(#f21000, #d80e00);
-  background: linear-gradient(#f21000, #d80e00);
-  border-color: #bf0d00;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ed2b41), color-stop(100%, #eb142c));
+  background: -webkit-linear-gradient(#ed2b41, #eb142c);
+  background: -moz-linear-gradient(#ed2b41, #eb142c);
+  background: -o-linear-gradient(#ed2b41, #eb142c);
+  background: linear-gradient(#ed2b41, #eb142c);
+  border-color: #d31228;
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0;
+}
+.message-warning ul, .message-warning ol {
+  text-align: left;
+  margin: 0.75em 5%;
 }
 
 /*
@@ -2442,14 +2458,77 @@ nav.side-nav ul {
   color: #697273;
 }
 
+/* =CALENDAR
+-------------------------------- */
+/* Tooltip box */
+.qtip-contentWrapper {
+  background-color: transparent !important;
+}
+
+.gce-qtip-content {
+  background-color: transparent !important;
+}
+.gce-qtip-content .gce-event-info {
+  border: 0;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: .5em;
+}
+.gce-qtip-content .gce-event-info a {
+  color: #fff;
+  font-weight: bold;
+}
+.gce-qtip-content .gce-event-info .gce-tooltip-event {
+  background-color: transparent;
+}
+
+.widget .gce-widget-grid .gce-calendar .gce-caption {
+  padding: 0.5em 0;
+}
+.widget .gce-widget-grid .gce-calendar tr {
+  height: 2em;
+}
+.widget .gce-widget-grid .gce-calendar .gce-month-title {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.widget .gce-widget-grid .gce-calendar .gce-today {
+  background-color: #333;
+  color: #fff;
+}
+.widget .gce-widget-grid .gce-calendar .gce-has-events {
+  color: #fff;
+  background-color: #44aedb;
+  font-weight: bold;
+  cursor: default;
+}
+.widget .gce-widget-grid .gce-calendar .gce-change-month {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: #f34924;
+  color: #fff;
+  width: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+}
+.widget .gce-widget-grid .gce-calendar .gce-change-month:active {
+  background-color: #d8300c;
+}
+
 /*	=FRONT PAGE
 ----------------------------------------------------------------------*/
 .home {
   /* Idag */
   /* News stream */
-}
-.home [role="main"] header:first-child {
-  margin-bottom: 1.5em;
 }
 .home [role="banner"] {
   height: 28em;
@@ -2716,6 +2795,15 @@ nav.side-nav ul {
 .error404 [role="search"] {
   text-align: center;
   font-size: 1.4em;
+}
+
+/* =SKRIV UT
+------------------------- */
+.page-skrivut article p {
+  margin-bottom: 1.5em;
+}
+.page-skrivut article label {
+  display: block;
 }
 
 /* Buddypress views */

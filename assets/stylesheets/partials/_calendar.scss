@@ -1,0 +1,73 @@
+/* =CALENDAR
+-------------------------------- */
+
+/* Tooltip box */
+
+.qtip-contentWrapper {
+	background-color: transparent !important;
+}
+.gce-qtip-content {
+	background-color: transparent !important;
+	
+	.gce-event-info {
+		border: 0;
+		background-color: #000;
+		background-color: rgba(#000, .8);
+		color: #fff;
+		padding: .5em;
+
+		a {
+			color: #fff;
+			font-weight: bold;
+		}
+
+		.gce-tooltip-event {
+			background-color: transparent;
+		}
+	}
+}
+
+.widget .gce-widget-grid .gce-calendar {
+	.gce-caption {
+		padding: .5em 0;
+	}
+
+	tr {
+		height: $lineheight + .5em;
+	}
+
+	.gce-month-title {
+	 	font-size: to_em(14);
+	 	text-transform: uppercase;
+	 	font-weight: bold;
+	 }
+
+	 .gce-today {
+	 	background-color: #333;
+	 	color: #fff;
+	 }
+
+	 .gce-has-events {
+	 	color: #fff;
+	 	background-color: $btn-color;
+	 	font-weight: bold;
+	 	cursor: default;
+	 }
+
+	 .gce-change-month {
+	 	display: inline-block;
+	 	text-decoration: none;
+	 	font-weight: bold;
+	 	font-size: 1.1em;
+	 	background-color: $comp;
+	 	color: #fff;
+	 	width: 1.5em;
+	 	line-height: 1.5em;
+	 	text-align: center;
+	 	@include border-radius(2em);
+
+	 	&:active {
+	 		background-color: darken($comp, 10%);
+	 	}
+	 }
+}

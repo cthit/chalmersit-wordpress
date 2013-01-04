@@ -51,6 +51,7 @@ body {
 @import "partials/side-nav";
 @import "partials/gallery";
 @import "partials/member";
+@import "partials/calendar";
 
 // VIEWS
 // Different views, ex. home, profile page, etc.
@@ -62,6 +63,7 @@ body {
 @import "views/search";
 @import "views/attachment";
 @import "views/404";
+@import "views/skrivut";
 
 /* Buddypress views */
 @import "views/groups";

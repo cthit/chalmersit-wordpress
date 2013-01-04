@@ -45,11 +45,8 @@
 		</section>
 	</div>
 	
-	<div class="three columns">
-		
-	</div>
 	
-	<div class="four columns">
+	<div class="three columns">
 		<section class="today box">
 			<header class="panel-header">
 				<h1>Idag</h1>
@@ -102,6 +99,12 @@
 			
 			
 		</section>
+	</div>
+
+	<div class="four columns">
+		<?php if(is_active_sidebar("index-right")) : ?>
+			<?php dynamic_sidebar("index-right"); ?>
+		<?php endif;?>
 	</div>
 </section>
 
