@@ -40,7 +40,7 @@
 </header>
 
 <section class="dashboard row">
-	<div class="five columns">
+	<div class="six columns">
 		<section class="news box">
 			<header class="panel-header">
 				<h1>Nyheter</h1>
@@ -102,7 +102,7 @@
 		</section>
 	</div>
 
-	<div class="four columns">
+	<div class="three columns">
 		<?php if(is_active_sidebar("index-right")) : ?>
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
