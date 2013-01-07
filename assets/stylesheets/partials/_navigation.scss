@@ -91,3 +91,16 @@
 		font-weight: bold;
 	}
 }
+
+/* PAGINATION */
+
+.pagination {
+	text-align: center;
+
+	a:first-child::before {
+		content: "‹ ";
+	}
+	a:last-child::after {
+		content: " ›";
+	}
+}

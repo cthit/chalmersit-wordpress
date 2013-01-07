@@ -1174,10 +1174,6 @@ table {
   color: #999;
 }
 
-.post-nav {
-  text-align: center;
-}
-
 .meta, .no-content {
   color: #697273;
 }
@@ -2215,6 +2211,17 @@ nav ol {
   padding: .3em;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+/* PAGINATION */
+.pagination {
+  text-align: center;
+}
+.pagination a:first-child::before {
+  content: "‹ ";
+}
+.pagination a:last-child::after {
+  content: " ›";
 }
 
 [role="banner"] {

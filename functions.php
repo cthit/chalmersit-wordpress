@@ -52,8 +52,12 @@ function setup_chalmers() {
 	add_filter( 'excerpt_length', 'jb_excerpt_length' );
 	add_filter( 'get_the_excerpt', 'custom_excerpt' );
 	add_filter( 'excerpt_more', 'read_more_link' );	
-	add_filter('next_post_link', 'posts_link_attributes');
-	add_filter('previous_post_link', 'posts_link_attributes');
+	
+	add_filter( 'next_post_link', 'post_link_attributes');
+	add_filter( 'previous_post_link', 'post_link_attributes');
+	add_filter( 'next_posts_link_attributes', 'posts_link_attributes');
+	add_filter( 'previous_posts_link_attributes', 'posts_link_attributes');
+
 	add_filter( 'nav_menu_css_class', 'add_current_class_to_single', 10, 2);
 
 	add_filter( 'the_shortlink', 'my_shortlink', 10, 4 );

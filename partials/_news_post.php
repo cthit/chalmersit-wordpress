@@ -51,9 +51,9 @@
 			</p>
 		</section>
 
-		<nav class="post-nav">
+		<nav class="pagination post-nav">
 			<?php previous_post_link("%link", "Föregående nyhet"); ?>
-			<a class="btn-boring" href="<?php link_to("arkiv");?>">Nyhetsarkiv</a>
+			<a class="btn-boring" href="<?php link_to("nyheter");?>">Alla nyheter</a>
 			<?php next_post_link("%link", "Nästa nyhet"); ?>
 		</nav>
 
