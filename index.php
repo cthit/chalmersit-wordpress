@@ -49,6 +49,10 @@
 			<?php if(have_posts()): while(have_posts()) : the_post(); ?>
 				<?php get_template_part("partials/_news_post"); ?>	
 			<?php endwhile; endif; ?>
+
+			<footer>
+				<a href="<?php link_to("nyheter");?>" class="btn wide read-more">Fler nyheter</a>
+			</footer>
 		</section>
 	</div>
 
