@@ -69,8 +69,8 @@
 		</section>
 
 		<section class="upcoming box">
-			<header class="panel-header">
-				<h1>Kommande</h1>
+			<header>
+				<h3>Kommande</h3>
 			</header>
 			
 			<?php if($lunch_lectures) : ?>
@@ -104,12 +104,24 @@
 			
 			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="3"]' ); ?>
 		</section>
+
+		<section class="box">
+			<header class="panel-header">
+				<h1>Twitter</h1>
+			</header>
+		</section>
 	</div>
 
 	<div class="three columns">
 		<?php if(is_active_sidebar("index-right")) : ?>
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
+
+		<section class="box">
+			<header class="panel-header">
+				<h1>Senaste kommentarerna</h1>
+			</header>
+		</section>
 	</div>
 </section>
 
