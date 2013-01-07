@@ -107,9 +107,10 @@
 
 		h2 {
 			font-weight: bold;
-			font-size: to_em(13);
+			font-size: to_em(12);
 			text-transform: uppercase;
-			color: $grey;
+			letter-spacing: 1px;
+			color: #999;
 		}
 
 		ul h3 {
