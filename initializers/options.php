@@ -1,15 +1,32 @@
 <?php 
 
 if(is_admin()) {
+
+	# For choosing categories for the lunch lecture posts
+	$categories = get_categories();
+	$choices = array();
+	foreach($categories as $cat) {
+		$choices[$cat->cat_ID] = $cat->cat_name;
+	}
+	
+
 	$options = new Theme_Options("chalmersit", array(
-		array("handle" => "contact", "title" => __("Kontaktuppgifter") )
+		array("handle" => "general", "title" => __("Allmänna inställningar") )
 	));
 
 	$_std = array(
 		"type" => "text",
-		"section" => "contact",
+		"section" => "general",
 		"desc" => ""
 	);
+
+	$options->add_setting("lunch_lecture_category", array(
+		"title" => "Kategori för lunchföreläsningar",
+		"section" => "general",
+		"desc" => "Välj den kategori som innehåller nyheter om lunchföreläsningar",
+		"type" => "select",
+		"choices" => $choices
+	));
 
 	$options->add_setting("main_contact_email", array(
 		"title" => "Mail till huvudkontakt",

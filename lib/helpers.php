@@ -270,14 +270,19 @@ function get_menu_by_location( $location ) {
 }
 
 
-/* CONDITIONAL TAGS 
+/* CUSTOM CONDITIONAL TAGS 
 ----------------------- */
 
+/**
+*	Check if the current (or provided parameter) post's category
+*	is a lunch lecture category (set from Theme Options in wp-admin).
+*
+*/
 function is_lunch_lecture($p = null) {
 	global $post;
 	$p = ($p == null) ? $post : $p;
 	$cat = get_the_category($p->ID);
-	return $cat[0]->slug == "lunchforelasningar";
+	return $cat[0]->cat_ID == get_it_option('lunch_lecture_category');
 }
 
 
