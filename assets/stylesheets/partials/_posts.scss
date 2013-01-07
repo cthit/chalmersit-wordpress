@@ -51,7 +51,19 @@
 
 	}
 
-
+	&.category-lunchforelasningar {
+		header h1 {
+			@include icon("\f0f5", $margin: 0 10px 0 0, $size: .6em);
+			
+			/* Style the icon included above */
+			&::before {
+				background-color: $comp;
+				color: #fff;
+				@include border-radius(3em);
+				padding: 0.35em .5em;
+			}
+		}
+	}
 }
 
 /* Style metadata for lunch lectures */

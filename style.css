@@ -1465,6 +1465,8 @@ table {
   font-weight: normal;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+  font-size: inherit;
+  margin: 0;
 }
 
 /* Use the following CSS code if you want to have a class per icon */
@@ -1492,6 +1494,10 @@ table {
 
 .icon-user:before {
   content: "\e003";
+}
+
+.icon-food:before {
+  content: "\f0f5";
 }
 
 /*	=MAIN SITE STYLES
@@ -2397,6 +2403,30 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 
 /* Special post styling */
+[role="article"].category-lunchforelasningar header h1 {
+  /* Style the icon included above */
+}
+[role="article"].category-lunchforelasningar header h1:before {
+  font-family: 'chalmersit';
+  content: "\f0f5";
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.6em;
+  margin: 0 10px 0 0;
+}
+[role="article"].category-lunchforelasningar header h1::before {
+  background-color: #f34924;
+  color: #fff;
+  -webkit-border-radius: 3em;
+  -moz-border-radius: 3em;
+  -ms-border-radius: 3em;
+  -o-border-radius: 3em;
+  border-radius: 3em;
+  padding: 0.35em 0.5em;
+}
+
 /* Style metadata for lunch lectures */
 .lunch-lecture-meta {
   border-bottom: 1px solid #e2e2e2;

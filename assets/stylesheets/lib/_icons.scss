@@ -1,3 +1,16 @@
+@mixin icon($icon-name, $size: inherit, $margin: 0) {
+	&:before {
+		font-family: 'chalmersit';
+		content: $icon-name;
+		speak: none;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		font-size: $size;
+		margin: $margin;
+	}
+}
+
 @font-face {
 	font-family: 'chalmersit';
 	src:font-url('chalmersit.eot');
@@ -10,13 +23,8 @@
 }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-	font-family: 'chalmersit';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
+[data-icon] {
+	@include icon(attr(data-icon));
 }
 
 /* Use the following CSS code if you want to have a class per icon */
@@ -42,4 +50,7 @@
 }
 .icon-user:before {
 	content: "\e003";
+}
+.icon-food:before {
+	content: "\f0f5";
 }
