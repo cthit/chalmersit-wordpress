@@ -39,6 +39,7 @@
 				<ul class="header-controls horizontal-list">
 				<?php if(is_user_logged_in()) : ?>
 					<li class="user-details">
+						<?php echo get_avatar(wp_get_current_user()->ID, 32); ?>
 						<strong><?php user_fullname(wp_get_current_user());?></strong>
 					</li>
 					<li class="dropdown">
