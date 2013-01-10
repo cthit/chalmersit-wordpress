@@ -2093,6 +2093,7 @@ nav ol {
 */
 .list, .listing, .horizontal-list, .columned-list, .simple-list, .dropdown-sub, .gce-list, .post-type-archive-course .course-listing {
   list-style: none;
+  margin: 0;
 }
 
 .media-block, .listing li {
@@ -2135,13 +2136,10 @@ nav ol {
 
 .simple-list li {
   border-bottom: 1px solid #eeeeee;
+  padding: 0.3em 0;
 }
 .simple-list li:last-child {
   border-bottom: 0;
-}
-.simple-list a {
-  display: block;
-  padding: 0.3em 0;
 }
 
 .dropdown {
@@ -2700,6 +2698,10 @@ nav.side-nav ul {
 .home {
   /* Today and Upcoming */
   /* News stream */
+  /* Latest comments */
+}
+.home .panel-header {
+  margin-bottom: 0;
 }
 .home [role="banner"] {
   height: 28em;
@@ -2821,7 +2823,7 @@ nav.side-nav ul {
 }
 .home .news article {
   padding: 0 0.75em;
-  margin-bottom: 4.5em;
+  margin: 1.5em 0 3em;
 }
 .home .news article header {
   margin-bottom: 1.5em;
@@ -2829,6 +2831,39 @@ nav.side-nav ul {
 .home .news article header h1 {
   font-size: 1.71429em;
   font-weight: 500;
+}
+.home .latest-comments ul {
+  color: #697273;
+}
+.home .latest-comments a, .home .latest-comments time {
+  -webkit-transition: color 0.15s ease-out;
+  -moz-transition: color 0.15s ease-out;
+  -o-transition: color 0.15s ease-out;
+  transition: color 0.15s ease-out;
+}
+.home .latest-comments .comment-author {
+  display: inline;
+}
+.home .latest-comments .avatar {
+  display: inline;
+  position: relative;
+  top: 1em;
+  margin-right: 5px;
+}
+.home .latest-comments a {
+  color: #323232;
+}
+.home .latest-comments li:hover a {
+  color: #2ca0d1;
+}
+.home .latest-comments li:hover time {
+  color: #697273;
+}
+.home .latest-comments time {
+  display: block;
+  padding-left: 42px;
+  color: #aaa;
+  font-size: .9em;
 }
 
 .page-nyheter [role="article"] {

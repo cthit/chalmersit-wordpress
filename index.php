@@ -120,11 +120,30 @@
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
 
-		<section class="box">
+		
+		<?php $comments = get_comments(array("status" => "approve", "number" => 5)); ?>
+		<?php if($comments) : ?>
+		<section class="box latest-comments">
 			<header class="panel-header">
 				<h1>Senaste kommentarerna</h1>
 			</header>
+
+			<ul class="simple-list">
+				<?php foreach($comments as $comment) : ?>
+				<?php $p = get_post($comment->comment_post_ID);?>
+
+				<li>
+					<p class="comment-author">
+						<?php echo get_avatar($comment->user_id, 32);?>
+						<strong><?php echo $comment->comment_author;?></strong>
+					</p>
+					på <a href="<?php echo get_permalink($p->ID);?>"><?php echo $p->post_title;?></a>
+					<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
+				</li>
+				<?php endforeach;?>
+			</ul>
 		</section>
+		<?php endif;?>
 	</div>
 </section>
 
