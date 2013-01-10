@@ -2788,37 +2788,37 @@ nav.side-nav ul {
 .home .user-area .extra-info {
   font-size: .8em;
 }
-.home .activity h2 {
+.home .upcoming h2 {
   font-weight: bold;
   font-size: 0.85714em;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #999;
 }
-.home .activity ul h3 {
+.home .upcoming ul h3 {
   font-weight: normal;
   font-size: 1em;
   margin: 0;
 }
-.home .activity section > ul {
+.home .upcoming > ul {
   margin-bottom: 1.5em;
 }
-.home .activity section > ul > li,
-.home .activity .gce-page-list > ul > li {
+.home .upcoming section > ul > li,
+.home .upcoming .gce-page-list > ul > li {
   border-bottom: 1px solid #e2e2e2;
   padding: 0.3em 0 0;
   margin-bottom: .5em;
 }
-.home .activity .meta {
+.home .upcoming .meta {
   margin-top: .3em;
   font-size: .9em;
 }
-.home .activity .meta li {
+.home .upcoming .meta li {
   display: inline-block;
   border-right: 1px solid #e2e2e2;
   padding-right: 6px;
 }
-.home .activity .meta li:last-child {
+.home .upcoming .meta li:last-child {
   border: 0;
 }
 .home .news article {

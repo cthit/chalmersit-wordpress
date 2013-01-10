@@ -60,17 +60,48 @@
 	</div>
 
 	
-	<div class="activity three columns">
+	<div class="three columns">
 
 		<section class="lunch box">
 			<header>
 				<h3>Lunch</h3>
 			</header>
 
-			
-			
+			<!-- lunch här -->
 		</section>
 
+		<?php $comments = get_comments(array("status" => "approve", "number" => 5)); ?>
+		<?php if($comments) : ?>
+		<section class="box latest-comments">
+			<header class="panel-header">
+				<h1>Senaste kommentarerna</h1>
+			</header>
+
+			<ul class="simple-list">
+				<?php foreach($comments as $comment) : ?>
+				<?php $p = get_post($comment->comment_post_ID);?>
+
+				<li>
+					<p class="comment-author">
+						<?php echo get_avatar($comment->user_id, 32);?>
+						<strong><?php echo $comment->comment_author;?></strong>
+					</p>
+					på <a href="<?php echo get_permalink($p->ID);?>"><?php echo $p->post_title;?></a>
+					<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
+				</li>
+				<?php endforeach;?>
+			</ul>
+		</section>
+		<?php endif;?>
+
+		<section class="box">
+			<header class="panel-header">
+				<h1>Twitter</h1>
+			</header>
+		</section>
+	</div>
+
+	<div class="three columns">
 		<section class="upcoming box">
 			<header>
 				<h3>Kommande</h3>
@@ -108,42 +139,10 @@
 			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="3"]' ); ?>
 		</section>
 
-		<section class="box">
-			<header class="panel-header">
-				<h1>Twitter</h1>
-			</header>
-		</section>
-	</div>
-
-	<div class="three columns">
 		<?php if(is_active_sidebar("index-right")) : ?>
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
 
-		
-		<?php $comments = get_comments(array("status" => "approve", "number" => 5)); ?>
-		<?php if($comments) : ?>
-		<section class="box latest-comments">
-			<header class="panel-header">
-				<h1>Senaste kommentarerna</h1>
-			</header>
-
-			<ul class="simple-list">
-				<?php foreach($comments as $comment) : ?>
-				<?php $p = get_post($comment->comment_post_ID);?>
-
-				<li>
-					<p class="comment-author">
-						<?php echo get_avatar($comment->user_id, 32);?>
-						<strong><?php echo $comment->comment_author;?></strong>
-					</p>
-					på <a href="<?php echo get_permalink($p->ID);?>"><?php echo $p->post_title;?></a>
-					<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
-				</li>
-				<?php endforeach;?>
-			</ul>
-		</section>
-		<?php endif;?>
 	</div>
 </section>
 

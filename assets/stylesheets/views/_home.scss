@@ -106,7 +106,7 @@
 	/* Today and Upcoming */
 
 
-	.activity {
+	.upcoming {
 
 		h2 {
 			font-weight: bold;
@@ -122,7 +122,7 @@
 			margin: 0;
 		}
 		
-		section > ul {
+		& > ul {
 			margin-bottom: $lineheight;
 		}
 		
