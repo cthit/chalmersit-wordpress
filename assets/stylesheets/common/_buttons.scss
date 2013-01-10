@@ -109,13 +109,13 @@ input[type="submit"] {
 	@include border-radius(2em);
 	background-color: #fff;
 	@include background(linear-gradient(#fff, #ccc));
-	font: bold 1em/1 $sans;
+	font: bold .9em/1 $sans;
 	text-align: center;
 	display: inline-block;
-	border: 1px solid #222;
+	border: 1px solid #999;
 	padding: .3em .8em;
 	text-shadow: rgba(#fff, .8) 0 1px 0;
-	color: #000;
+	color: $bodycolor;
 
 	&.small {
 		font-size: to_em(13);
@@ -127,6 +127,6 @@ input[type="submit"] {
 	}
 
 	&:active {
-		background: #eee;
+		background: #cecece;
 	}
 }

@@ -1939,13 +1939,13 @@ input[type="submit"][rel="next"]::after {
   background: -moz-linear-gradient(#ffffff, #cccccc);
   background: -o-linear-gradient(#ffffff, #cccccc);
   background: linear-gradient(#ffffff, #cccccc);
-  font: bold 1em/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: bold 0.9em/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   display: inline-block;
-  border: 1px solid #222222;
+  border: 1px solid #999999;
   padding: 0.3em 0.8em;
   text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-  color: #000;
+  color: #323232;
 }
 .btn-round.small {
   font-size: 0.92857em;
@@ -1955,7 +1955,7 @@ input[type="submit"][rel="next"]::after {
   text-decoration: none;
 }
 .btn-round:active {
-  background: #eee;
+  background: #cecece;
 }
 
 /*	=ELEMENT SETUP

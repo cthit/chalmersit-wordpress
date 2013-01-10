@@ -29,12 +29,12 @@
 
 		<section class="current-user-info media-block">
 			<figure class="media-image">
-				<?php echo get_avatar(wp_get_current_user()->ID, 48); ?>
+				<?php echo get_avatar(wp_get_current_user()->ID, 60); ?>
 			</figure>
 
 			<h2><?php user_fullname(wp_get_current_user());?></h2>
 			<p>
-				<a href="<?php link_to("profil");?>">Redigera profil</a>
+				<a class="btn-round" href="<?php link_to("profil");?>">Redigera profil</a>
 			</p>
 		</section>
 
