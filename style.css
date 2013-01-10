@@ -2811,7 +2811,7 @@ nav.side-nav ul {
 .home .upcoming > ul {
   margin-bottom: 1.5em;
 }
-.home .upcoming section > ul > li,
+.home .upcoming > ul > li,
 .home .upcoming .gce-page-list > ul > li {
   border-bottom: 1px solid #e2e2e2;
   padding: 0.3em 0 0;
