@@ -14,7 +14,8 @@
 .main-col {
 	margin-top: -$lineheight*3;
 
-	& > .box {
+	& > .box,
+	&.box {
 		padding: 2% 5% 5%;
 	}
 }

@@ -22,7 +22,7 @@
 		</ul>
 	</div>
 	
-	<div class="login four columns">
+	<div class="user-area four columns">
 		<?php if(! is_user_logged_in()) : ?>
 			<?php partial("signinform");?>
 		<?php else : ?>
@@ -33,6 +33,9 @@
 			</figure>
 
 			<h2><?php user_fullname(wp_get_current_user());?></h2>
+			<p>
+				<a href="<?php link_to("profil");?>">Redigera profil</a>
+			</p>
 		</section>
 
 		<?php endif;?>

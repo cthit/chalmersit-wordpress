@@ -24,7 +24,7 @@
 	}
 
 	.quick-buttons .box,
-	.login .box{
+	.user-area .box{
 		height: $lineheight * 4;
 	}
 	
@@ -68,7 +68,7 @@
 		}
 	}
 	
-	.login {
+	.user-area {
 		form {
 			@include box;
 

@@ -75,7 +75,6 @@ function setup_chalmers() {
 	add_image_size("banner", 9999, 525, true);
 }
 
-
 function it_custom_scripts() {
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? 

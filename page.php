@@ -5,6 +5,12 @@
 	$subtitle = get_post_meta($post->ID, IT_PREFIX."subtitle", true);
 ?>
 
+<?php if(is_page("login")) : ?>
+
+<?php partial("profile-template");?>
+
+<?php else : ?>
+
 <section class="six columns push-three main-col">
 	<article class="box" role="article">
 		<?php if($subtitle) : ?>
@@ -34,5 +40,7 @@
 <aside class="three columns sidebar">
 	<?php get_sidebar();?>
 </aside>
+
+<?php endif; ?>
 
 <?php get_footer(); ?>
