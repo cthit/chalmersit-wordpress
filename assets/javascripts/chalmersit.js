@@ -34,7 +34,7 @@ $(function() {
 	// Shake the login form when clicking the 'Log in' button
 	$(".home #login-btn").on("click", function(evt) {
 		evt.preventDefault();
-		$(".login form")
+		$(".user-area form")
 			.jb_animate("shake")
 			.find("input[type='text']:first")
 			.focus();
