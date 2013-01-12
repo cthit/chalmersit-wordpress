@@ -35,7 +35,7 @@
 				</div>
 			</div>
 
-			<div class="wrapper">
+			<div class="header-toolbar wrapper">
 				<ul class="header-controls horizontal-list">
 				<?php if(is_user_logged_in()) : ?>
 					<li class="user-details">

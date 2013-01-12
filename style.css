@@ -2279,23 +2279,28 @@ nav ol {
 [role="banner"] nav {
   float: right;
 }
-[role="banner"] .wrapper {
-  padding: 0 0.75em;
-}
 [role="banner"] [role="search"] {
   font-size: .9em;
 }
-[role="banner"] .header-controls {
+
+.header-controls {
   float: right;
   color: #fff;
 }
-[role="banner"] .header-controls > li {
+.header-controls > li {
   margin: 0 0 0 1em;
 }
 
+.header-toolbar {
+  padding: 0.75em 1%;
+}
+
+body.logged-in [role="banner"] .header-toolbar {
+  padding: 0;
+}
 body.logged-in [role="banner"] .header-controls {
   margin: 0;
-  padding: 1em 0 1em 1em;
+  padding: 0.75em 1%;
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-width: 0 1px;
@@ -3130,7 +3135,7 @@ nav.side-nav ul {
 
 /* =LOGIN
 ------------------------------------ */
-.main-col h1 {
+.page-login .main-col h1 {
   text-align: center;
 }
 
