@@ -1328,6 +1328,14 @@ table {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
 .alignright {
   float: right;
   margin-left: 3%;
@@ -2427,7 +2435,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   font-size: .9em;
   margin: 1.5em 0;
 }
-[role="article"] img {
+[role="article"] .article-content img {
   display: block;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
