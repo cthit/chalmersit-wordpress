@@ -8,9 +8,13 @@
 ?>
 
 <header class="row">
-	<div class="page-title four columns">
+	<div class="front-title four columns">
 		<div class="box">
-			<h1 class="huge">IT-sektionen <span class="detail">på Chalmers</span></h1>
+			<h1>
+				<span class="detail">Teknologsektionen</span>
+				Informationsteknik
+				<span class="detail">på Chalmers Tekniska Högskola</span>
+			</h1>
 		</div>
 	</div>
 	

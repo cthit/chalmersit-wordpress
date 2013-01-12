@@ -1553,7 +1553,7 @@ body {
 /*	=HEADINGS
 ----------------------------------------------------------------------*/
 .huge, .page-title h1 {
-  font-size: 3.4em;
+  font-size: 3em;
   font-weight: 500;
   letter-spacing: -1px;
 }
@@ -2746,12 +2746,28 @@ nav.side-nav ul {
 }
 .home [role="main"] header:first-child .box {
   margin-bottom: 0;
-  margin-top: 0;
 }
-.home .page-title {
+.home .front-title {
   text-align: center;
-  margin-top: -2.5em;
   margin-bottom: 0;
+}
+.home .front-title h1 {
+  font-size: 2.8em;
+  font-weight: normal;
+}
+.home .front-title > .box {
+  margin-top: -5em;
+  height: 11em;
+}
+.home .front-title .detail {
+  font-size: .6em;
+  color: #f34924;
+  line-height: 1.6;
+}
+.home .front-title .detail:last-child {
+  font-style: normal;
+  font-size: .5em;
+  color: #888;
 }
 .home .quick-buttons .box,
 .home .user-area .box {
