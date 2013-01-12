@@ -30,7 +30,7 @@
 </section>
 
 <aside class="three columns pull-six side-nav">
-	<?php if(is_page("sektionen") || get_page($post->post_parent)->post_name == "sektionen") : ?>
+	<?php if(is_page("sektionen") || get_top_parent($post->ID)->post_name == "sektionen") : ?>
 		<?php get_sidebar("nav"); ?>	
 	<?php else:?>
 		<?php get_sidebar("children"); ?>
