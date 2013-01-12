@@ -39,8 +39,14 @@
 }
 
 .widget .gce-widget-grid .gce-calendar {
+	$caption-height: 3em;
+
 	.gce-caption {
-		padding: .5em 0;
+		border-top: 1px solid #eee;
+		overflow: hidden;
+		height: $caption-height;
+		line-height: $caption-height;
+		background-color: #f9f9f9;
 	}
 
 	tr {
@@ -48,18 +54,28 @@
 	}
 
 	.gce-month-title {
-	 	font-size: to_em(14);
-	 	text-transform: uppercase;
-	 	font-weight: bold;
+	 	font-size: 1.1em;
+	 	color: $grey;
 	 }
 
 	 .gce-today {
-	 	background-color: #333;
-	 	color: #fff;
+	 	background-color: #ddd;
+	 	color: #555;
 	 }
 
 	 .gce-day-future {
 	 	color: #777;
+	 }
+
+	 .gce-next,
+	 .gce-prev {
+	 	width: auto;
+	 }
+	 .gce-next {
+	 	float: right;
+	 }
+	 .gce-prev {
+	 	float: left;
 	 }
 
 	 .gce-has-events {
@@ -74,16 +90,17 @@
 	 	text-decoration: none;
 	 	font-weight: bold;
 	 	font-size: 1.1em;
-	 	background-color: $comp;
-	 	color: #fff;
-	 	width: 1.5em;
-	 	line-height: 1.5em;
+	 	color: #555;
+	 	width: 2.5em;
 	 	text-align: center;
-	 	@include border-radius(2em);
+
+	 	&:hover {
+	 		background-color: #ddd;
+	 	}
 
 	 	&:active {
-	 		background-color: darken($comp, 10%);
-	 		@include box-shadow(inset rgba(#000, .7) 0 1px 2px);
+	 		background-color: #ccc;
+	 		@include box-shadow(inset rgba(#000, .5) 0 1px 2px);
 	 	}
 	 }
 }
