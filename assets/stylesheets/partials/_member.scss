@@ -4,6 +4,9 @@
 
 .member {
 	margin-bottom: $lineheight;
+	border: 1px solid #eee;
+	border-width: 1px 0;
+	padding: $lineheight / 2 0;
 	
 	.description {
 		color: $grey;
