@@ -42,11 +42,13 @@
 	$caption-height: 3em;
 
 	.gce-caption {
-		border-top: 1px solid #eee;
+		border: 1px solid #ddd;
+		border-width: 1px 0;
+		margin: 0 (-$lineheight / 2) ($lineheight / 2);
 		overflow: hidden;
 		height: $caption-height;
 		line-height: $caption-height;
-		background-color: #f9f9f9;
+		background-color: lighten($teal, 65%);
 	}
 
 	tr {

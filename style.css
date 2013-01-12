@@ -2660,11 +2660,13 @@ nav.side-nav ul {
 }
 
 .widget .gce-widget-grid .gce-calendar .gce-caption {
-  border-top: 1px solid #eeeeee;
+  border: 1px solid #dddddd;
+  border-width: 1px 0;
+  margin: 0 -0.75em 0.75em;
   overflow: hidden;
   height: 3em;
   line-height: 3em;
-  background-color: #f9f9f9;
+  background-color: #f0f5f5;
 }
 .widget .gce-widget-grid .gce-calendar tr {
   height: 2em;
