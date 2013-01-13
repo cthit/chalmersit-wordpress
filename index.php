@@ -65,14 +65,23 @@
 
 	
 	<div class="three columns">
-
+		<?php $menu = get_todays_meals();?>
+		<?php if($menu) : ?>
 		<section class="lunch box">
 			<header>
-				<h3>Lunch</h3>
+				<h3>Lunch <small>(<?php echo $menu['date'];?>)</small></h3>
 			</header>
 
-			<!-- lunch här -->
+			<?php foreach($menu['places'] as $place) : ?>
+			<h2 class="section-heading"><?php echo $place['name'];?></h2>
+			<ul class="simple-list">
+				<?php foreach($place['dishes'] as $dish) : ?>
+				<li><?php echo $dish;?></li>
+				<?php endforeach;?>
+			</ul>
+			<?php endforeach;?>
 		</section>
+		<?php endif;?>
 
 		<?php $comments = get_comments(array("status" => "approve", "number" => 5)); ?>
 		<?php if($comments) : ?>
@@ -112,7 +121,7 @@
 			</header>
 			
 			<?php if($lunch_lectures) : ?>
-			<h2>Lunchföreläsningar</h2>
+			<h2 class="section-heading">Lunchföreläsningar</h2>
 			<ul class="list lunch-lectures">
 
 				<?php foreach($lunch_lectures as $lecture) : ?>
@@ -138,7 +147,7 @@
 			</ul>
 			<?php endif;?>
 			
-			<h2>Evenemang</h2>
+			<h2 class="section-heading">Evenemang</h2>
 			
 			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="3"]' ); ?>
 		</section>

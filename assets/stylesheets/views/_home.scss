@@ -123,18 +123,21 @@
 		}
 	}
 	
+
+	/* Lunch */
+	.lunch {
+		ul {
+			margin-bottom: $lineheight;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	/* Today and Upcoming */
 
 
 	.upcoming {
-
-		h2 {
-			font-weight: bold;
-			font-size: to_em(12);
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			color: #999;
-		}
 
 		ul h3 {
 			font-weight: normal;

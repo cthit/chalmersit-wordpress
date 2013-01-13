@@ -32,11 +32,14 @@ h1, h2, h3, h4, h5, h6 {
 	color: $grey;
 }
 
-.heading-label {
-	text-transform: uppercase;
-	color: $grey;
+.section-heading {
+	font-weight: bold;
 	font-size: to_em(12);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #999;
 }
+
 
 hgroup {
 	margin-bottom: $lineheight;

@@ -1709,10 +1709,12 @@ h1 .detail, h2 .detail, h3 .detail, h4 .detail, h5 .detail, h6 .detail {
   color: #697273;
 }
 
-.heading-label {
-  text-transform: uppercase;
-  color: #697273;
+.section-heading {
+  font-weight: bold;
   font-size: 0.85714em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
 }
 
 hgroup {
@@ -3030,6 +3032,7 @@ nav.side-nav ul {
 /*	=FRONT PAGE
 ----------------------------------------------------------------------*/
 .home {
+  /* Lunch */
   /* Today and Upcoming */
   /* News stream */
   /* Latest comments */
@@ -3138,12 +3141,11 @@ nav.side-nav ul {
 .home .user-area .extra-info {
   font-size: .8em;
 }
-.home .upcoming h2 {
-  font-weight: bold;
-  font-size: 0.85714em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #999;
+.home .lunch ul {
+  margin-bottom: 1.5em;
+}
+.home .lunch ul:last-child {
+  margin-bottom: 0;
 }
 .home .upcoming ul h3 {
   font-weight: normal;
