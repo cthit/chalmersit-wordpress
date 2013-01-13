@@ -1478,8 +1478,9 @@ table {
   margin: 0;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-[class^="icon-"]:before, [class*=" icon-"]:before {
+/* Use the following CSS code if you want to have a class per icon 
+[class^="icon-"]:before, [class*=" icon-"]:before { */
+.icon-cog:before, .icon-clock:before, .icon-map-pin-fill:before, .icon-user:before, .icon-food:before, .icon-calendar:before {
   font-family: 'chalmersit';
   font-style: normal;
   speak: none;
@@ -1507,6 +1508,10 @@ table {
 
 .icon-food:before {
   content: "\f0f5";
+}
+
+.icon-calendar:before {
+  content: "\e004";
 }
 
 /* =TOOLTIPS
@@ -2593,12 +2598,9 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 
 /* Special post styling */
-[role="article"].category-lunchforelasningar header h1 {
-  /* Style the icon included above */
-}
-[role="article"].category-lunchforelasningar header h1:before {
+[role="article"].category-arrangemang header h1:before, [role="article"].category-lunchforelasningar header h1:before {
   font-family: 'chalmersit';
-  content: "\f0f5";
+  content: "";
   speak: none;
   font-weight: normal;
   line-height: 1;
@@ -2606,7 +2608,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   font-size: 0.6em;
   margin: 0 10px 0 0;
 }
-[role="article"].category-lunchforelasningar header h1::before {
+[role="article"].category-arrangemang header h1::before, [role="article"].category-lunchforelasningar header h1::before {
   background-color: #f34924;
   color: #fff;
   -webkit-border-radius: 3em;
@@ -2615,6 +2617,12 @@ body.logged-in [role="banner"] .header-controls .user-details {
   -o-border-radius: 3em;
   border-radius: 3em;
   padding: 0.35em 0.5em;
+}
+[role="article"].category-arrangemang header h1::before {
+  content: "\e004";
+}
+[role="article"].category-lunchforelasningar header h1::before {
+  content: "\f0f5";
 }
 
 /* Style metadata for event posts */

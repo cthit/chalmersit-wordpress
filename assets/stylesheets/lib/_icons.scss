@@ -27,8 +27,9 @@
 	@include icon(attr(data-icon));
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-[class^="icon-"]:before, [class*=" icon-"]:before {
+/* Use the following CSS code if you want to have a class per icon 
+[class^="icon-"]:before, [class*=" icon-"]:before { */
+.icon-cog:before, .icon-clock:before, .icon-map-pin-fill:before, .icon-user:before, .icon-food:before, .icon-calendar:before {
 	font-family: 'chalmersit';
 	font-style: normal;
 	speak: none;
@@ -53,4 +54,7 @@
 }
 .icon-food:before {
 	content: "\f0f5";
+}
+.icon-calendar:before {
+	content: "\e004";
 }
