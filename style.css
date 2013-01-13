@@ -3584,3 +3584,8 @@ nav.side-nav ul {
 }
 /*	= EXTRA SMALL SCREENS
 -------------------------------------------- */
+::selection {
+  text-shadow: none;
+  background-color: #002224;
+  color: #fff;
+}

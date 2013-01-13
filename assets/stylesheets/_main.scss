@@ -76,3 +76,9 @@ body {
 @import "viewports/medium";
 @import "viewports/small";
 @import "viewports/xsmall";
+
+::selection {
+	text-shadow: none;
+	background-color: $dark;
+	color: #fff;
+}
