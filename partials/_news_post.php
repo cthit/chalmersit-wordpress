@@ -62,11 +62,7 @@
 			</p>
 		</section>
 
-		<nav class="pagination post-nav">
-			<?php previous_post_link("%link", "Föregående nyhet"); ?>
-			<a class="btn-boring" href="<?php link_to("nyheter");?>">Alla nyheter</a>
-			<?php next_post_link("%link", "Nästa nyhet"); ?>
-		</nav>
+		<?php partial("post-nav");?>
 
 		<?php endif;?>
 
