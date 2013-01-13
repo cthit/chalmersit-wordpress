@@ -42,11 +42,9 @@ function chalmers_comment( $comment, $args, $depth ) {
 						get_comment_time('c'),
 						get_comment_time('j F Y, H:i'),
 						sprintf('%s ago', human_time_diff(strtotime($comment->comment_date))));?>
-
-						<?php sep();?>
 						
 						<?php comment_reply_link(array_merge( $args, array( 
-								'reply_text' => 'Skriv ett svar', 
+								'reply_text' => get_sep().' Skriv ett svar', 
 								'depth' => $depth, 
 								'max_depth' => $args['max_depth'] 
 								)),
