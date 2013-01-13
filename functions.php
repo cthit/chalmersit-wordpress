@@ -43,12 +43,16 @@ function setup_chalmers() {
 	# Buddypress
 	# add_theme_support( 'buddypress' );
 
-	add_action("init", "register_chalmers_metaboxes");
 	add_action("init", "register_chalmers_menus");
 	add_action("init", "register_chalmers_posttypes");
 	add_action("init", "register_chalmers_taxonomies");
 	add_action("init", "it_register_sidebars");
 	add_action('init', 'remove_head_links');
+
+	# Admin
+	if(is_admin()) {
+		add_action("init", "register_chalmers_metaboxes");
+	}
 
 	add_action("wp_footer", "attach_page_variables");
 
