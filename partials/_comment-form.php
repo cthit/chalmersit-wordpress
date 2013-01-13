@@ -40,7 +40,11 @@
 			<textarea name="comment" class="autosize" placeholder="Skriv en kommentar" id="comment"></textarea>
 
 			<p class="comment-submit">
-				<span class="commenter" title="Du är inloggad som <?php user_fullname(wp_get_current_user()); ?>">
+				<span 
+					class="commenter" 
+					rel="tooltip" 
+					title="Du är inloggad som <?php user_fullname(wp_get_current_user()); ?>">
+					
 					<?php echo get_avatar(wp_get_current_user()->ID, 32);?>
 					<?php user_fullname(wp_get_current_user());?>
 				</span>

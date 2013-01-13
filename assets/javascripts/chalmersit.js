@@ -61,4 +61,8 @@ $(function() {
 	// Auto growing textareas
 	$(".autosize").autosize({append: "\n\n\n"});
 
+	// Tooltips 
+	$('[rel="tooltip"]').tipsy({
+		gravity: 's'
+	});
 });

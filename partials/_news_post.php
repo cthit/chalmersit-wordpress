@@ -15,6 +15,7 @@
 				<a href="<?php the_permalink();?>#comments" 
 					id="comment-link" 
 					class="comments-bubble smooth" 
+					rel="tooltip"
 					title="<?php comments_number("Inga kommentarer", "1 kommentar", "% kommentarer" );?>">
 					<?php comments_number("0", "1", "%" );?></a>
 					<?php sep();?>
