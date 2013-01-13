@@ -7,6 +7,7 @@
 
 	global $post;
 	$author_meta = get_user_meta($post->post_author);
+
 ?>
 <section class="author-info row media-block">
 	<figure class="media-image">

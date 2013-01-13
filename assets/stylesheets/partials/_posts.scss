@@ -118,6 +118,10 @@
 	[role="complementary"] {
 		.author-info {
 			@include box;
+
+			p {
+				margin-top: $lineheight;
+			}
 		}
 
 		.pagination {
