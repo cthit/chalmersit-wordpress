@@ -37,19 +37,17 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Datum",
 				"id" => IT_PREFIX."event_date",
-				"type" => "date"
+				"type" => "text"
 			),
 			array(
 				"name" => "Starttid",
 				"id" => IT_PREFIX."event_start_time",
-				"format" => "HH:mm",
-				"type" => "time"
+				"type" => "text"
 			),
 			array(
 				"name" => "Sluttid",
 				"id" => IT_PREFIX."event_end_time",
-				"format" => "HH:mm",
-				"type" => "time"
+				"type" => "text"
 			),
 			array(
 				"name" => "Plats",

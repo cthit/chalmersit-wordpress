@@ -344,7 +344,7 @@ class RW_Meta_Box {
 		jQuery(document).ready(function($){
 		';
 		foreach ($times as $id => $format) {
-			echo "$('#$id').timepicker({showSecond: true, timeFormat: '$format'})";
+			echo "$('#$id').timepicker({showSecond: true, timeFormat: '$format'});";
 		}
 		echo '
 		});
