@@ -3,7 +3,9 @@
 function register_chalmers_metaboxes() {
 	$metaboxes = array();
 
-	$event_hosts = array();
+	$event_hosts = array(
+		"-1" => "Ingen kommittée arrangerar"
+	);
 	$committees = get_posts(array(
 		'post_type' => "page",
 		'meta_key' => IT_PREFIX."is_committee"
