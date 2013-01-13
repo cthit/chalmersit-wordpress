@@ -2828,8 +2828,7 @@ nav.side-nav ul {
 */
 .member {
   margin-bottom: 1.5em;
-  border: 1px solid #eeeeee;
-  border-width: 1px 0;
+  border-bottom: 1px solid #eeeeee;
   padding: 0.75em 0;
 }
 .member .description {
