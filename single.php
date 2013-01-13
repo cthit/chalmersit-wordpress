@@ -10,6 +10,7 @@
 </aside>
 
 <aside role="complementary" class="three columns">
+	<?php partial("post-nav");?>
 	<?php get_sidebar();?>
 </aside>
 

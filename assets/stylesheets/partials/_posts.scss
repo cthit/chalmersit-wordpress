@@ -10,7 +10,7 @@
 		p {
 			margin-bottom: $lineheight;
 		}
-		
+
 	 	img {
 			display: block;
 			margin-top: $lineheight / 2;
@@ -101,5 +101,15 @@
 	.article-inner {
 		@include box;
 		padding: 5%;
+	}
+
+	[role="complementary"] .pagination {
+		font-size: to_em(12);
+		margin-bottom: $lineheight;
+		@include button-segment;
+
+		.view-news-link {
+			display: none;
+		}
 	}
 }

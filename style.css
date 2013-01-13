@@ -2518,6 +2518,32 @@ body.logged-in [role="banner"] .header-controls .user-details {
   margin-bottom: 1.5em;
   padding: 5%;
 }
+.single [role="complementary"] .pagination {
+  font-size: 0.85714em;
+  margin-bottom: 1.5em;
+}
+.single [role="complementary"] .pagination a:last-child {
+  position: relative;
+  left: -3px;
+  border-left-color: rgba(255, 255, 255, 0.1);
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.single [role="complementary"] .pagination a:first-child {
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.single [role="complementary"] .pagination .view-news-link {
+  display: none;
+}
 
 /*
 	=SIDEBARS
