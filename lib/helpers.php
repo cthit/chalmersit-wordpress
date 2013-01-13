@@ -290,10 +290,10 @@ function is_event($p = null) {
 }
 
 function get_top_parent_cat_ID($cat) {
-	if(!is_numeric($cat))
-		$id = $cat->cat_ID;
-
-	return ($cat->parent) ? $cat->parent : get_top_parent_cat_ID($cat);
+	if(is_numeric($cat))
+		$cat = get_category($cat->cat_ID);
+	
+	return ($cat->parent == 0) ? $cat->cat_ID : get_top_parent_cat_ID($cat->parent);
 }
 
 
