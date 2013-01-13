@@ -11,6 +11,8 @@
 
 <aside role="complementary" class="three columns">
 	<?php partial("post-nav");?>
+	<?php partial("author");?>
+
 	<?php get_sidebar();?>
 </aside>
 

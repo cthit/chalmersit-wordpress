@@ -1,7 +1,5 @@
 <?php
 	global $post;
-
-	$author_meta = get_user_meta($post->post_author);
 ?>
 
 <article role="article" <?php post_class();?>>
@@ -30,8 +28,8 @@
 			<?php edit_post_link("Redigera post", get_sep());?>
 		</p>
 
-		<?php if(is_lunch_lecture()) : ?>
-			<?php partial("lunch_lecture_meta");?>
+		<?php if(is_event()) : ?>
+			<?php partial("event-meta");?>
 		<?php endif;?>
 	</header>
 	
@@ -47,21 +45,6 @@
 		</div>
 
 		<?php if(is_single()) : ?>
-
-		<section class="author-info row media-block">
-			<figure class="media-image">
-				<?php echo get_avatar($post->post_author, 64);?>
-			</figure>
-
-			<hgroup class="alignleft">
-				<h3><span class="detail">Av</span> <?php echo $author_meta['first_name'][0] . " '". $author_meta['nickname'][0] . "' " . $author_meta['last_name'][0];?></h3>
-				<h4><?php echo $author_meta['it_post'][0];?></h4>
-			</hgroup>
-
-			<p class="alignright">
-				<a href="<?php echo get_author_posts_url($post->post_author);?>" class="read-more">Se alla inlägg av <?php echo $author_meta['first_name'][0];?></a>
-			</p>
-		</section>
 
 		<?php partial("post-nav");?>
 
