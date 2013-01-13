@@ -5,7 +5,6 @@
 	# Uses a $content variable if available, otherwise the meta description of the actual member.
 
 	$year = $meta['it_year'];
-	$role = $meta['it_post'];
 	$description = ($content != null) ? $content : $meta['description'];
 	$avatar_size = ($args != null) ? $args['avatar_size'] : 96;
 ?>
