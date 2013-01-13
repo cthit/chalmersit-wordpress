@@ -3,6 +3,17 @@
 function register_chalmers_metaboxes() {
 	$metaboxes = array();
 
+	$event_hosts = array();
+	$committees = get_posts(array(
+		'post_type' => "page",
+		'meta_key' => IT_PREFIX."is_committee"
+	));
+
+	foreach($committees as $c) {
+		$event_hosts[$c->ID] = $c->post_title;
+	}
+
+
 	$metaboxes["details"] = array(
 		"id" => "details",
 		"title" => __("Detaljer"),
@@ -12,16 +23,27 @@ function register_chalmers_metaboxes() {
 
 		"fields" => array(
 			array(
-				"name" => __("Undertitel"),
-				"desc" => __("Sidans undertitel"),
+				"name" => "Undertitel",
+				"desc" => "Sidans undertitel",
 				"id" => IT_PREFIX."subtitle",
 				"type" => "text"
 			),
 			array(
-				"name" => __("Extern länk"),
-				"desc" => __("Visas som knapp i höger sidebar"),
+				"name" => "Extern länk",
+				"desc" => "Visas som knapp i höger sidebar",
 				"id" => IT_PREFIX."external_link",
 				"type" => "text"
+			),
+			array(
+				"name" => "Sidan är för en kommitté",
+				"id" => IT_PREFIX."is_committee",
+				"type" => "checkbox"
+			),
+			array(
+				"name" => "Kontakt (e-mail)",
+				"id" => IT_PREFIX."contact_email",
+				"type" => "text",
+				"desc" => "Om sidan är för en kommittée, fyll i e-mailkontakt här"
 			)
 		)
 
@@ -53,9 +75,18 @@ function register_chalmers_metaboxes() {
 				"name" => "Plats",
 				"id" => IT_PREFIX."event_location",
 				"type" => "text"
+			),
+			array(
+				"name" => "Arrangör",
+				"id" => IT_PREFIX."event_host",
+				"type" => "select",
+				"desc" => "Om en kommittée arrangerar, välj den från listan",
+				"options" => $event_hosts
+
 			)
 		)
 	);
+
 
 	$metaboxes["kursdetaljer"] = array(
 		"id" => "course_details",

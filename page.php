@@ -38,6 +38,9 @@
 </aside>
 
 <aside class="three columns sidebar">
+	<?php if(get_post_meta($post->ID, IT_PREFIX."is_committee", true)) : ?>
+	<?php get_sidebar("committee");?>
+	<?php endif;?>
 	<?php get_sidebar();?>
 </aside>
 

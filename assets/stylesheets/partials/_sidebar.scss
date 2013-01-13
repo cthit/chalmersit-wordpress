@@ -4,7 +4,7 @@
 
 .sidebar {
 
-	& > section {
+	section {
 		margin-bottom: $lineheight;
 	}	
 }
@@ -12,5 +12,50 @@
 .sidebar-nav {
 	a {
 		width: 48%;
+	}
+}
+
+.sidebar-committee {
+
+	.committee-contact-email {
+		font-size: to_em(20);
+	}
+
+	.committee-events {
+		li {
+			overflow: hidden;
+		}
+
+		.date,
+		.event-info {
+			float: left;
+		}
+
+		.event-info {
+			width: 80%;
+			padding-left: 5%;
+
+			.event-title {
+				display: block;
+				font-size: 1.1em;
+			}
+		}
+		
+		.date {
+			display: inline-block;
+			border: 1px solid #ccc;
+			text-align: center;
+			padding: 0 1em;
+			@include box-shadow(rgba(#000, .2) 0 1px 3px);
+
+			span {
+				display: block;
+				font-weight: bold;
+			}
+
+			.day {
+				font-size: to_em(20);
+			}
+		}
 	}
 }
