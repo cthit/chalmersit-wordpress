@@ -20,10 +20,12 @@ if(is_admin()) {
 		"desc" => ""
 	);
 
-	$options->add_setting("lunch_lecture_category", array(
-		"title" => "Kategori för lunchföreläsningar",
+	$options->add_setting("event_category", array(
+		"title" => "Kategori för arrangemang",
 		"section" => "general",
-		"desc" => "Välj den kategori som innehåller nyheter om lunchföreläsningar",
+		"desc" => "Välj den kategori som innehåller nyheter om arrangemang och lunchföreläsningar. Tips: 
+					ha en allmän 'Arrangemangs'-kategori och lägg kategorier såsom 'Lunchföreläsningar' som
+					underkategorier",
 		"type" => "select",
 		"choices" => $choices
 	));

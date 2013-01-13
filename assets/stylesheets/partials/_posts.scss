@@ -72,9 +72,9 @@
 	}
 }
 
-/* Style metadata for lunch lectures */
+/* Style metadata for event posts */
 
-.lunch-lecture-meta {
+.event-meta {
 	$border-color: #e2e2e2;
 
 	border-bottom: 1px solid $border-color;
@@ -103,13 +103,19 @@
 		padding: 5%;
 	}
 
-	[role="complementary"] .pagination {
-		font-size: to_em(12);
-		margin-bottom: $lineheight;
-		@include button-segment;
+	[role="complementary"] {
+		.author-info {
+			@include box;
+		}
 
-		.view-news-link {
-			display: none;
+		.pagination {
+			font-size: to_em(12);
+			margin-bottom: $lineheight;
+			@include button-segment;
+
+			.view-news-link {
+				display: none;
+			}
 		}
 	}
 }

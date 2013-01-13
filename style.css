@@ -2617,20 +2617,20 @@ body.logged-in [role="banner"] .header-controls .user-details {
   padding: 0.35em 0.5em;
 }
 
-/* Style metadata for lunch lectures */
-.lunch-lecture-meta {
+/* Style metadata for event posts */
+.event-meta {
   border-bottom: 1px solid #e2e2e2;
   display: table;
   width: 100%;
   text-align: center;
   font-size: 1.14286em !important;
 }
-.lunch-lecture-meta li {
+.event-meta li {
   display: table-cell;
   border-right: 1px solid #e2e2e2;
   padding: 0.5em 0;
 }
-.lunch-lecture-meta li:last-child {
+.event-meta li:last-child {
   border: 0;
 }
 
@@ -2643,6 +2643,14 @@ body.logged-in [role="banner"] .header-controls .user-details {
   padding: 0.75em 0.75em;
   margin-bottom: 1.5em;
   padding: 5%;
+}
+.single [role="complementary"] .author-info {
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  padding: 0.75em 0.75em;
+  margin-bottom: 1.5em;
 }
 .single [role="complementary"] .pagination {
   font-size: 0.85714em;

@@ -99,7 +99,7 @@
 						<?php echo get_avatar($comment->user_id, 32);?>
 						<strong><?php echo $comment->comment_author;?></strong>
 					</p>
-					på <a href="<?php echo get_permalink($p->ID);?>"><?php echo $p->post_title;?></a>
+					på <a href="<?php echo get_permalink($p->ID);?>#comment-<?php echo $comment->comment_ID;?>"><?php echo $p->post_title;?></a>
 					<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
 				</li>
 				<?php endforeach;?>

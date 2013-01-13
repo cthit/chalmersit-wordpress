@@ -275,14 +275,25 @@ function get_menu_by_location( $location ) {
 
 /**
 *	Check if the current (or provided parameter) post's category
-*	is a lunch lecture category (set from Theme Options in wp-admin).
+*	is an event category (set from Theme Options in wp-admin).
 *
+*	Also traverses and check applicable parent categories.
 */
-function is_lunch_lecture($p = null) {
+function is_event($p = null) {
 	global $post;
 	$p = ($p == null) ? $post : $p;
 	$cat = get_the_category($p->ID);
-	return $cat[0]->cat_ID == get_it_option('lunch_lecture_category');
+	$option_category = get_it_option('event_category');
+
+	return $cat[0]->cat_ID == $option_category ||
+			get_top_parent_cat_ID($cat[0]) == $option_category;
+}
+
+function get_top_parent_cat_ID($cat) {
+	if(!is_numeric($cat))
+		$id = $cat->cat_ID;
+
+	return ($cat->parent) ? $cat->parent : get_top_parent_cat_ID($cat);
 }
 
 

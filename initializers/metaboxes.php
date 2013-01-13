@@ -27,38 +27,33 @@ function register_chalmers_metaboxes() {
 
 	);
 
-	$metaboxes['lunchlecture'] = array(
-		'id' => "lecture-details",
-		'title' => "Data för lunchföreläsning",
+	$metaboxes['event_details'] = array(
+		'id' => "event-details",
+		'title' => "Arrangemangsinformation",
 		"context" => "side",
 		"pages" => array("post"),
 		"priority" => "high",
 		"fields" => array(
 			array(
 				"name" => "Datum",
-				"id" => IT_PREFIX."lunch_lecture_date",
+				"id" => IT_PREFIX."event_date",
 				"type" => "date"
 			),
 			array(
 				"name" => "Starttid",
-				"id" => IT_PREFIX."lunch_start_time",
+				"id" => IT_PREFIX."event_start_time",
 				"format" => "HH:mm",
 				"type" => "time"
 			),
 			array(
 				"name" => "Sluttid",
-				"id" => IT_PREFIX."lunch_end_time",
+				"id" => IT_PREFIX."event_end_time",
 				"format" => "HH:mm",
 				"type" => "time"
 			),
 			array(
-				"name" => "Sal",
-				"id" => IT_PREFIX."lunch_lecture_location",
-				"type" => "text"
-			),
-			array(
-				"name" => "Föreläsare",
-				"id" => IT_PREFIX."lunch_lecturer",
+				"name" => "Plats",
+				"id" => IT_PREFIX."event_location",
 				"type" => "text"
 			)
 		)
