@@ -75,6 +75,7 @@ input[type="submit"] {
 		background-image: none;
 		background-color: $btn-disabled-color;
 		color: #777;
+		cursor: default;
 
 		&:active {
 			top: auto;

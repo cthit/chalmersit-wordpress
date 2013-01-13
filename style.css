@@ -1942,6 +1942,7 @@ input[type="submit"][disabled] {
   background-image: none;
   background-color: #dddddd;
   color: #777;
+  cursor: default;
 }
 .btn[disabled]:active, [disabled].btn-alt:active, [disabled].btn-boring:active, [disabled].btn-dangerous:active,
 button[disabled]:active,

@@ -50,6 +50,8 @@ function setup_chalmers() {
 	add_action("init", "it_register_sidebars");
 	add_action('init', 'remove_head_links');
 
+	add_action("wp_footer", "attach_page_variables");
+
 	add_filter( 'excerpt_length', 'jb_excerpt_length' );
 	add_filter( 'get_the_excerpt', 'custom_excerpt' );
 	add_filter( 'excerpt_more', 'read_more_link' );	

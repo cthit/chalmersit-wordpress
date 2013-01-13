@@ -27,6 +27,51 @@ $.fn.jb_animate = function(animation) {
 };
 
 
+/*
+	Load more posts dynamically from frontpage
+*/
+$.loadMorePosts = function(container) {
+
+	var $container = $(container),
+		pageNum = pageOptions.startPage + 1,
+		max = pageOptions.maxPages,
+		nextLink = pageOptions.nextLink;
+
+	$container.find("footer").remove();
+
+	if(pageNum <= max) {
+		$container
+			.append('<div class="post-placeholder-'+ pageNum +'"></div>')
+			.append('<footer><a href="#" class="btn wide">Fler nyheter</a></footer>');
+	}
+
+	$(".news footer a").on("click", function(evt) {
+		evt.preventDefault();
+		var $button = $(this);
+
+		if(pageNum <= max) {
+			$button.text("Laddar ...");
+
+			$(".post-placeholder-"+pageNum).load(nextLink + " [role='article']", function() {
+				pageNum++;
+				nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
+
+				$('.news footer').before('<div class="post-placeholder-'+ pageNum +'"></div>');
+
+				if(pageNum <= max) {
+					$button.text("Fler nyheter");
+				}
+				else {
+					$button.text("Inga fler nyheter finns").attr("disabled", true);
+				}
+					
+			});
+		}
+	});
+
+};
+
+
 $(function() {
 
 	/* Front page functions */

@@ -117,3 +117,28 @@ function read_more_link() {
 	
 	return sprintf($link, __("Read more"), get_permalink());
 }
+
+
+/*
+	Attach WP data to injected Javascript object
+*/
+function attach_page_variables() {
+	global $wp_query;
+
+	$max = $wp_query->max_num_pages;
+	$paged = ( get_query_var('paged') > 1 ) ? get_query_var('paged') : 1; ?>
+
+	<script type='text/javascript'>
+	/* <![CDATA[ */
+	var pageOptions = {
+		startPage: <?php echo $paged; ?>,
+		maxPages: <?php echo $max;?>,
+		nextLink: "<?php echo next_posts($max, false); ?>",
+		ajaxURL: "<?php echo admin_url('admin-ajax.php');?>",
+		assetURL: "<?php echo ASSET_PATH;?>"
+	};
+	/* ]]> */
+	</script>
+
+	<?php
+}

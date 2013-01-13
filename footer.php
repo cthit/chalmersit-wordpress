@@ -60,6 +60,15 @@
 <script src="<?php javascript_path("jquery.tipsy");?>"></script>
 <script src="<?php javascript_path("chalmersit");?>"></script>
 
+<?php if(is_home()):?>
+<script type="text/javascript">
+	$(function() {
+		// "Load more posts"
+		$.loadMorePosts(".news");
+	});
+</script>
+<?php endif;?>
+
 <!-- Created by digIT 12/13. Designed by Johan on a Mac -->
 
 </body>
