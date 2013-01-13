@@ -4,6 +4,18 @@
 	$external = get_post_meta($post->ID, IT_PREFIX."external_link", true);
 	$contact = strip_tags(get_post_meta($post->ID, IT_PREFIX."contact_email", true));
 
+	$attachments = get_posts(array(
+		'post_type' => 'attachment', 
+		'numberposts' => -1,
+		'post_parent' => $post->ID 
+	));
+
+	$documents = array();
+	foreach($attachments as $a) {
+		if($a->post_mime_type == "application/pdf")
+			$documents[] = $a;
+	}
+
 	$events = get_posts(array(
 		"meta_key" => IT_PREFIX."event_host",
 		"meta_value" => $post->ID
@@ -53,6 +65,24 @@
 						<?php if($location):?><strong>Plats:</strong> <?php echo $location;?><?php endif;?>
 					</span>
 				</p>
+			</li>
+		<?php endforeach;?>
+		</ul>
+	</section>
+	<?php endif;?>
+
+	<?php if($documents) : ?>
+	<section class="committee-documents">
+		<h2 class="section-heading">Dokument</h2>
+
+		<ul class="simple-list">
+		<?php foreach($documents as $d) : ?>
+			<li>
+				<figure class="file-type-icon">
+					<img src="<?php img_url("icon-pdf.png");?>" />
+				</figure>
+				<a href="<?php echo get_permalink($d->ID);?>" class="read-more"><?php echo $d->post_title;?></a>
+				<p class="meta"><strong>Uppdaterad:</strong> <?php echo date("Y-m-d", strtotime($d->post_modified));?></p>
 			</li>
 		<?php endforeach;?>
 		</ul>

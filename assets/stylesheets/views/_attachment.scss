@@ -36,14 +36,16 @@
 	}
 
 	.attachment-area {
-		margin-bottom: $lineheight*2;
+		margin: $lineheight 0 $lineheight*2;
 
 		img {
 			display: block;
+			@include box-shadow(rgba(#000, .3) 0 2px 10px);
 		}
 
-		figure {
-			@include box-shadow(rgba(#000, .3) 0 2px 10px);
+		iframe {
+			width: 100%;
+			height: $lineheight*30;
 		}
 	}
 }
