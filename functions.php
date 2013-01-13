@@ -12,6 +12,7 @@ require_once "lib/helpers.php";
 require_once "lib/class.Comittee_Walker.php";
 require_once "lib/class.Metabox.php";
 require_once "lib/class.Options.php";
+require_once "partials/_comment.php";
 
 load_all("initializers");
 

@@ -6,10 +6,16 @@
 		}
 	}
 
-	.article-content img {
-		display: block;
-		margin-top: $lineheight / 2;
-		margin-bottom: $lineheight / 2;
+	.article-content {
+		p {
+			margin-bottom: $lineheight;
+		}
+		
+	 	img {
+			display: block;
+			margin-top: $lineheight / 2;
+			margin-bottom: $lineheight / 2;
+		}
 	}
 
 	footer {
@@ -92,15 +98,8 @@
 /* SINGLE POST */
 
 .single {
-	[role="article"] {
+	.article-inner {
 		@include box;
-	}
-
-	[role="article"] {
-		padding: 2em;
-	}
-
-	[role="complementary"] {
-		@include clearfix;
+		padding: 5%;
 	}
 }

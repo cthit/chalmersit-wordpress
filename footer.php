@@ -55,6 +55,8 @@
 
 <?php wp_footer(); ?>
 
+<script src="<?php javascript_path("jquery.smoothscroll");?>"></script>
+<script src="<?php javascript_path("jquery.autosize");?>"></script>
 <script src="<?php javascript_path("chalmersit");?>"></script>
 
 <!-- Created by digIT 12/13. Designed by Johan on a Mac -->

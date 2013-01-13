@@ -23,5 +23,9 @@
 	<link rel="stylesheet" href="<?php bloginfo("stylesheet_url");?>" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<?php if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ):?>
+	<?php wp_enqueue_script( 'comment-reply' ); ?>
+	<?php endif;?>
+
 	<?php wp_head(); ?>
 </head>
