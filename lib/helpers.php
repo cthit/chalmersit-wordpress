@@ -284,15 +284,15 @@ function is_event($p = null) {
 	$p = ($p == null) ? $post : $p;
 	$cat = get_the_category($p->ID);
 	$option_category = get_it_option('event_category');
-
+	
 	return $cat[0]->cat_ID == $option_category ||
 			get_top_parent_cat_ID($cat[0]) == $option_category;
 }
 
 function get_top_parent_cat_ID($cat) {
 	if(is_numeric($cat))
-		$cat = get_category($cat->cat_ID);
-	
+		$cat = get_category($cat);
+
 	return ($cat->parent == 0) ? $cat->cat_ID : get_top_parent_cat_ID($cat->parent);
 }
 
