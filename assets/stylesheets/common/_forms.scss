@@ -21,8 +21,8 @@ textarea {
 	
 	&:focus {
 		outline: 0;
-		border-color: rgba(desaturate($smurf, 70%), .8);
-		@include box-shadow(rgba(darken($smurf, 10%), .7) 0 0 6px);
+		border-color: #888;
+		//@include box-shadow(rgba(darken($smurf, 10%), .7) 0 0 6px);
 	}
 
 	&[disabled] {
