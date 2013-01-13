@@ -40,4 +40,25 @@ $(function() {
 			.focus();
 	});
 
+
+	// Set up smooth scrolling links
+	$(".smooth").smoothScroll({
+		offset: -100
+	});
+
+	$(".comment-action").smoothScroll({
+		afterScroll: function() {
+			$("#comment").focus();
+		}
+	});
+
+
+	// Show comment controls on comment textarea focus
+	$("#comment").on("focus", function(evt){
+		$(this).next(".comment-submit").show();
+	});
+
+	// Auto growing textareas
+	$(".autosize").autosize({append: "\n\n\n"});
+
 });
