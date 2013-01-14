@@ -30,6 +30,14 @@ if(is_admin()) {
 		"choices" => $choices
 	));
 
+	$options->add_setting("lunch_category", array(
+		"title" => "Kategori för lunchföreläsningar",
+		"section" => "general",
+		"desc" => "Välj den kategori som innehåller nyheter om lunchföreläsningar.",
+		"type" => "select",
+		"choices" => $choices
+	));
+
 	$options->add_setting("main_contact_email", array(
 		"title" => "Mail till huvudkontakt",
 		"std" => "styrit@chalmers.it",

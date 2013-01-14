@@ -1,6 +1,6 @@
 <?php 
 	$lunch_lectures = get_posts(array(
-		"category_name" => "lunchforelasningar",
+		"category" => get_it_option("lunch_category"),
 		"posts_per_page" => 3
 	));
 
