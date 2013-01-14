@@ -107,12 +107,6 @@
 			</ul>
 		</section>
 		<?php endif;?>
-
-		<section class="box">
-			<header class="panel-header">
-				<h1>Twitter</h1>
-			</header>
-		</section>
 	</div>
 
 	<div class="three columns">
@@ -156,6 +150,12 @@
 		<?php if(is_active_sidebar("index-right")) : ?>
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
+
+		<section class="box">
+			<header class="panel-header">
+				<h1>Twitter</h1>
+			</header>
+		</section>
 
 	</div>
 </section>
