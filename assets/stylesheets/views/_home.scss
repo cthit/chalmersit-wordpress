@@ -174,19 +174,26 @@
 	
 	/* News stream */
 	
-	.news {
-		article {
-			padding: 0 $gutter-width;
-			margin: $lineheight 0 $lineheight*2;
-			
-			header {
-				margin-bottom: $lineheight;
+	[role="article"] {
+		padding: 0 $gutter-width;
+		margin: $lineheight 0 $lineheight*2;
+		
+		header {
+			margin-bottom: $lineheight;
 
-				h1 {
-					font-size: to_em(24);
-					font-weight: 500;
-				}
+			h1 {
+				font-size: to_em(24);
+				font-weight: 500;
 			}
+		}
+
+		&.sticky {
+			@include box-shadow(rgba(#000, 0.2) 0 5px 10px);
+			padding: 1em;
+			margin: $lineheight -1em $lineheight*2;
+			background-color: #fff;
+			border: 1px solid #bbb;
+			border-top-color: #ddd;
 		}
 	}
 
