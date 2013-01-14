@@ -56,7 +56,7 @@ $.loadMorePosts = function(container) {
 				pageNum++;
 				nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
 
-				$('.news footer').before('<div class="post-placeholder-'+ pageNum +'"></div>');
+				$('.news > footer').before('<div class="post-placeholder-'+ pageNum +'"></div>');
 
 				if(pageNum <= max) {
 					$button.text("Fler nyheter");
