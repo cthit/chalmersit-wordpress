@@ -110,4 +110,7 @@ $(function() {
 	$('[rel="tooltip"]').tipsy({
 		gravity: 's'
 	});
+
+	// Borders on images in posts
+	$("article .article-content img").parent().addClass("subtle-border")
 });

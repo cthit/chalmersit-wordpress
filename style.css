@@ -1174,6 +1174,23 @@ table {
   color: #999;
 }
 
+.subtle-border {
+  position: relative;
+}
+.subtle-border::after {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+a.subtle-border {
+  display: block;
+}
+
 .back::before {
   content: "← ";
 }

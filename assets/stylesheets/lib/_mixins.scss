@@ -57,6 +57,21 @@
 }
 
 
+@mixin inset-border($color: rgba(#000, .1)) {
+	position: relative;
+	
+	&::after {
+		border: 1px solid $color;
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+
 // A two button segment
 
 @mixin button-segment {

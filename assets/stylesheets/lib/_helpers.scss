@@ -27,6 +27,13 @@
 	color: #999;
 }
 
+.subtle-border {
+	@include inset-border;
+}
+a.subtle-border {
+	display: block;
+}
+
 
 .back::before {
 	content: "← ";
