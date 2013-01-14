@@ -83,7 +83,8 @@
 		</section>
 		<?php endif;?>
 
-		<?php $comments = get_comments(array("status" => "approve", "number" => 5)); ?>
+		<?php $comments = get_comments(array("status" => "approve", "number" => 10)); ?>
+
 		<?php if($comments) : ?>
 		<section class="box latest-comments">
 			<header class="panel-header">

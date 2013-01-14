@@ -3255,9 +3255,10 @@ nav.side-nav ul {
 }
 .home .latest-comments .avatar {
   display: inline;
+  float: left;
   position: relative;
   top: 1em;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .home .latest-comments a {
   color: #323232;
@@ -3270,7 +3271,7 @@ nav.side-nav ul {
 }
 .home .latest-comments time {
   display: block;
-  padding-left: 42px;
+  padding-left: 37px;
   color: #aaa;
   font-size: .9em;
 }

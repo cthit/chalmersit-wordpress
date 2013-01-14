@@ -192,6 +192,8 @@
 
 	/* Latest comments */
 	.latest-comments {
+		$gutter: 10px;
+
 		ul {
 			color: $grey;
 		}
@@ -206,9 +208,10 @@
 
 		.avatar {
 			display: inline;
+			float: left;
 			position: relative;
 			top: 1em;
-			margin-right: 5px;
+			margin-right: $gutter;
 		}
 
 		a {
@@ -226,7 +229,7 @@
 
 		time {
 			display: block;
-			padding-left: 42px;
+			padding-left: $gutter + 27px;
 			color: #aaa;
 			font-size: .9em;
 		}
