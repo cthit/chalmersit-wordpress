@@ -54,7 +54,19 @@
 
 [role="article"] {
 	&.sticky {
+		position: relative;
+		overflow: hidden;
 
+		&::after {
+			content: "Viktigt!";
+			display: block;
+			position: absolute;
+			right: -1px;
+			top: 0;
+			letter-spacing: 1px;
+			@include label;
+			@include border-bottom-left-radius(3px);
+		}
 	}
 
 	&.category-arrangemang, 
@@ -100,10 +112,18 @@
 		border-right: 1px solid $border-color;
 		padding: .5em 0;
 
+		/* Don't grow too large .. */
+		max-width: 145px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
 		&:last-child {
 			border: 0;
 		}
 	}
+
+
 }
 
 

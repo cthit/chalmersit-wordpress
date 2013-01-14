@@ -2599,6 +2599,33 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 
 /* Special post styling */
+[role="article"].sticky {
+  position: relative;
+  overflow: hidden;
+}
+[role="article"].sticky::after {
+  content: "Viktigt!";
+  display: block;
+  position: absolute;
+  right: -1px;
+  top: 0;
+  letter-spacing: 1px;
+  background-color: #f34924;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 1em;
+  cursor: default;
+  border: 1px solid #d8300c;
+  text-shadow: #a82609 0 1px 0;
+  text-transform: uppercase;
+  font-size: 1em;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 3px, rgba(243, 73, 36, 0.3) -1px 1px 2px;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 3px, rgba(243, 73, 36, 0.3) -1px 1px 2px;
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 3px, rgba(243, 73, 36, 0.3) -1px 1px 2px;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
 [role="article"].category-arrangemang header h1:before, [role="article"].category-lunchforelasningar header h1:before {
   font-family: 'chalmersit';
   content: "";
@@ -2638,6 +2665,11 @@ body.logged-in [role="banner"] .header-controls .user-details {
   display: table-cell;
   border-right: 1px solid #e2e2e2;
   padding: 0.5em 0;
+  /* Don't grow too large .. */
+  max-width: 145px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .event-meta li:last-child {
   border: 0;
@@ -3230,16 +3262,26 @@ nav.side-nav ul {
 .home .upcoming .meta li:last-child {
   border: 0;
 }
-.home .news article {
+.home [role="article"] {
   padding: 0 0.75em;
   margin: 1.5em 0 3em;
 }
-.home .news article header {
+.home [role="article"] header {
   margin-bottom: 1.5em;
 }
-.home .news article header h1 {
+.home [role="article"] header h1 {
   font-size: 1.71429em;
   font-weight: 500;
+}
+.home [role="article"].sticky {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
+  padding: 1em;
+  margin: 1.5em -1em 3em;
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+  border-top-color: #ddd;
 }
 .home .latest-comments ul {
   color: #697273;
