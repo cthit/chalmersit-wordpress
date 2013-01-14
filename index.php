@@ -32,14 +32,7 @@
 		<?php else : ?>
 
 		<section class="current-user-info media-block">
-			<figure class="media-image">
-				<?php echo get_avatar(wp_get_current_user()->ID, 60); ?>
-			</figure>
-
-			<h2><?php user_fullname(wp_get_current_user());?></h2>
-			<p>
-				<a class="btn-round" href="<?php link_to("profil");?>">Redigera profil</a>
-			</p>
+			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="1"]' ); ?>
 		</section>
 
 		<?php endif;?>
