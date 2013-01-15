@@ -94,13 +94,71 @@
 
 /* PAGINATION */
 
-.pagination {
+%paginated {
 	text-align: center;
+}
+
+.post-nav {
+	@extend %paginated;
 
 	a:first-child::before {
 		content: "‹ ";
 	}
 	a:last-child::after {
 		content: " ›";
+	}
+}
+
+.pagination {
+	@extend %paginated;
+	margin: $lineheight 0;
+
+	ul {
+		@include box-shadow(rgba(#000, .05) 0 1px 2px);
+	}
+
+	li {
+		display: inline;
+
+		&:first-child span,
+		&:first-child a {
+			border-left-width: 1px;
+			@include border-top-left-radius(3px);
+			@include border-bottom-left-radius(3px);
+		}
+
+		&:last-child span,
+		&:last-child a {
+			@include border-top-right-radius(3px);
+			@include border-bottom-right-radius(3px);	
+		}
+	}
+
+	a.page-numbers,
+	.current {
+		display: inline-block;
+		border: 1px solid #ddd;
+		border-left-width: 0;
+		padding: 0.4em 1em;
+		color: #666;
+		float: left;
+	}
+
+	.current {
+		color: #999;
+		background-color: #f2f2f2;
+	}
+
+	a {
+		&:hover {
+			text-decoration: none;
+			background-color: #f8f8f8;
+			color: #333;
+			border-color: #ccc;
+		}
+
+		&:active {
+			@include box-shadow(inset rgba(#000, .1) 0 1px 4px);
+		}
 	}
 }
