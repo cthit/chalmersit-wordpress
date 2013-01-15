@@ -15,7 +15,7 @@
 
 	<?php endwhile; ?>
 
-	<nav class="pagination">
+	<nav class="post-nav">
 		<?php previous_posts_link("Tidigare nyheter", $news->max_num_pages);?>
 		<a class="btn-boring" href="<?php link_to("arkiv");?>">Nyhetsarkiv</a>
 		<?php next_posts_link("Äldre nyheter", $news->max_num_pages);?>

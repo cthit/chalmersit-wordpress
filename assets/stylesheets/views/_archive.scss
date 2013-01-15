@@ -33,3 +33,40 @@
 		margin-bottom: $lineheight*2;
 	}
 }
+
+/* =NEWS ARCHVE */
+
+.news-archive {
+	margin-top: -$lineheight*3;
+
+	.post-nav {
+		margin: $lineheight / 2 0;
+	}
+
+	.post-list {
+		width: 100%;
+
+		td {
+			padding: .4em 5px;
+		}
+
+		tr {
+			border-bottom: 1px solid #eee;
+		}
+
+		tr:hover {
+			background-color: #f9f9f9;
+			text-decoration: none;
+
+			.meta {
+				color: #333;
+			}
+		}
+
+		.meta {
+			min-width: 100px;
+			font-size: to_em(13);
+		}
+	}
+}
+

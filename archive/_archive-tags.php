@@ -1,0 +1,6 @@
+<?php
+	/*
+		List all tags
+	*/
+?>
+
