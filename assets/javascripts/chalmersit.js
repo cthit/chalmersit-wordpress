@@ -106,9 +106,17 @@ $(function() {
 	// Auto growing textareas
 	$(".autosize").autosize({append: "\n\n\n"});
 
+	$.fn.tipsy.elementOptions = function(ele, options) {
+	  return $.extend({}, options, {
+			gravity: $(ele).data('tooltip-gravity') || 's',
+			offset: parseInt($(ele).data('tooltip-offset')) || 0
+		});
+	};
+
 	// Tooltips 
 	$('[rel="tooltip"]').tipsy({
-		gravity: 's'
+		gravity: 's',
+		offset: 5
 	});
 
 	// Borders on images in posts
