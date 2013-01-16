@@ -73,7 +73,7 @@ function setup_chalmers() {
 	add_filter( 'use_default_gallery_style', '__return_false' );
 
 	add_shortcode('person', 'show_member_info');
-
+	add_shortcode('rss', 'show_rss_feeds');
 
 	#add_filter('post_type_link', 'filter_post_type_link', 10, 2);
 

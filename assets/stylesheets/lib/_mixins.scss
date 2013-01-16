@@ -30,7 +30,7 @@
 	width: 100%;
 }
 
-@mixin icon($url, $w: image-width($url), $h: image-height($url), $inline: true) {
+@mixin icon-image($url, $w: image-width($url), $h: image-height($url), $inline: true) {
 	@if $inline == true {
 		background-image: inline-image($url);
 	}	

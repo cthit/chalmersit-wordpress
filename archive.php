@@ -2,13 +2,16 @@
 	global $wp_query;
 
 	if(is_category()) {
-		$title = "Nyheter om <strong>". single_cat_title("", false) ."</strong>";
+		$object = single_cat_title("", false);
+		$title = "Nyheter om <strong>". $object ."</strong>";
 	}
 	else if(is_tag()) {
-		$title = "Nyheter taggade <strong>" . single_tag_title("", false) ."</strong>";
+		$object = single_tag_title("", false);
+		$title = "Nyheter taggade <strong>" . $object ."</strong>";
 	}
 	else if(is_author()) {
-		$title = "Nyheter av <strong>". $wp_query->query['author_name'] . "</strong>";
+		$object = $wp_query->query['author_name'];
+		$title = "Nyheter av <strong>". $object . "</strong>";
 	}
 	else {
 		$title = "Nyhetsarkiv";
@@ -54,6 +57,22 @@
 </aside>
 
 <aside role="complementary" class="sidebar three columns">
+
+	<?php if($object) : ?>
+	<section class="archive-rss box">
+		<h2>RSS</h2>
+
+		<ul class="list">
+			<li><a class="rss-link" href="feed">RSS-flöde för '<?php echo $object;?>'</a></li>
+		</ul>
+
+		<footer class="center">
+			<a class="read-more" href="<?php link_to("nyheter/rss-floden");?>">Fler RSS-flöden</a>
+		</footer>
+
+	</section>
+	<?php endif;?>	
+
 	<?php get_sidebar();?>
 </aside>
 

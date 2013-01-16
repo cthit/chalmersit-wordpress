@@ -6,12 +6,26 @@
 
 	section {
 		margin-bottom: $lineheight;
+
+		& > footer {
+			margin: $lineheight (-$lineheight / 2) (-$lineheight / 2);
+			padding: .6em;
+			background-color: #f7f7f7;
+			border-top: 1px solid #ddd;
+			font-size: to_em(13);
+			font-weight: 500;
+
+			a {
+				display: block;
+				color: #333;
+			}
+		}
 	}	
 }
 
 .sidebar-nav {
 	text-align: center;
-	
+
 	a {
 		width: 48%;
 	}

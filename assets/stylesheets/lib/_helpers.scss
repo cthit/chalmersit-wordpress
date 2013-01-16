@@ -87,6 +87,14 @@ a.subtle-border {
 	color: $grey;
 }
 
+.rss-link {
+	@include icon("\f09e", $margin: 0 5px 0 0);
+
+	&::before {
+		color: $comp;
+	}
+}
+
 .post-tag {
 	display: inline-block;
 	@include border-radius(3px);
@@ -153,17 +161,17 @@ a.subtle-border {
 
 .schedule-icon {
 	@extend %icon;
-	@include icon("icon-schedule.svg", 32px, 32px);
+	@include icon-image("icon-schedule.svg", 32px, 32px);
 }
 
 .print-icon {
 	@extend %icon;
-	@include icon("icon-printer.svg", 32px, 32px);
+	@include icon-image("icon-printer.svg", 32px, 32px);
 }
 
 .group-icon {
 	@extend %icon;
-	@include icon("icon-group.svg", 32px, 32px);
+	@include icon-image("icon-group.svg", 32px, 32px);
 }
 
 

@@ -29,7 +29,13 @@
 
 /* Use the following CSS code if you want to have a class per icon 
 [class^="icon-"]:before, [class*=" icon-"]:before { */
-.icon-cog:before, .icon-clock:before, .icon-map-pin-fill:before, .icon-user:before, .icon-food:before, .icon-calendar:before {
+.icon-cog:before, 
+.icon-clock:before, 
+.icon-map-pin-fill:before, 
+.icon-user:before, 
+.icon-food:before, 
+.icon-calendar:before,
+.icon-rss:before {
 	font-family: 'chalmersit';
 	font-style: normal;
 	speak: none;
@@ -57,4 +63,7 @@
 }
 .icon-calendar:before {
 	content: "\e004";
+}
+.icon-rss:before {
+	content: "\f09e";
 }
