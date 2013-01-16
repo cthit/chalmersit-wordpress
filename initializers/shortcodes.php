@@ -40,5 +40,12 @@ function show_members_info($atts) {
 		show_member_info(array($arg => $val));
 	}
 }
+
+
+function show_rss_feeds($atts) {
+	ob_start();
+	include THEME_ABSPATH."partials/_rss-feeds.php";
+	return ob_get_clean();
+}
 	
 ?>

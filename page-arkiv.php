@@ -12,7 +12,27 @@
 		<article class="main nine columns">
 			<h1>Arkiv</h1>
 
-			<?php get_template_part("archive/_archive-posts");?>
+			<ul class="tabs">
+				<li class="tab-current"><a href="#tab-posts">Nyheter</a></li>
+				<li><a href="#tab-categories">Kategorier</a></li>
+				<li><a href="#tab-tags">Taggar</a></li>
+				<li><a href="#tab-authors">Författare</a></li>
+			</ul>
+
+			<div class="tab-container">
+				<div id="tab-posts">
+					<?php get_template_part("archive/_archive-posts");?>
+				</div>
+				<div id="tab-categories">
+					<?php get_template_part("archive/_archive-categories");?>
+				</div>
+				<div id="tab-tags">
+					<?php get_template_part("archive/_archive-tags");?>
+				</div>
+				<div id="tab-authors">
+					<?php get_template_part("archive/_archive-authors");?>
+				</div>
+			</div>
 
 		</article>
 

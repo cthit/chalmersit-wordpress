@@ -9,10 +9,17 @@
 		"paged" => $paged,
 		"ignore_sticky_posts" => true
 	));
+
+	$count = wp_count_posts();
 ?>
 
 
 <?php if($posts->have_posts()) : ?>
+
+<header>
+	<h3>Nyheter</h3>
+	<strong class="data-count"><?php echo $count->publish;?> publicerade nyheter</strong>
+</header>
 
 <table class="post-list">
 <?php while($posts->have_posts()) : $posts->the_post(); ?>

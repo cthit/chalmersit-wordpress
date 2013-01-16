@@ -17,60 +17,114 @@
 *		-webkit-animation: shake 1s ease-out;
 * 	}
 */
-$.fn.jb_animate = function(animation) {
-	return this.each(function() {
-		$(this).addClass(animation)
-		.on("webkitAnimationEnd animationend", function() {
-			$(this).removeClass(animation);
-		})
-	});
-};
+(function($){
+	$.fn.jb_animate = function(animation) {
+		return this.each(function() {
+			$(this).addClass(animation)
+			.on("webkitAnimationEnd animationend", function() {
+				$(this).removeClass(animation);
+			})
+		});
+	};
+})(jQuery);
+
+
+/*
+	Simple jQuery tabs plugin
+*/
+(function($){
+	
+	$.fn.tabs = function(options){
+		if(options.tabContainer === undefined){
+			return false;
+		}
+		
+		var nav = $(this),
+			settings = {
+				activeClass: "current",
+				useHash: true,
+				hashPrefix: "tab-",
+				el: "a"
+			};
+		
+		settings = $.extend({}, settings, options);
+		
+		return this.each(function(){
+			var $tabContainers = $(settings.tabContainer),
+				hash = location.hash && ("#"+ settings.hashPrefix + location.hash.replace("#","")),
+				which = (settings.useHash && hash) || ":first";
+
+			$tabContainers.hide().filter(which).show();
+			
+			$(this).find(settings.el).on("click", function(evt){
+				evt.preventDefault();
+				var tab = $tabContainers.filter(this.hash);
+
+				$tabContainers.hide();
+				tab.show();
+					
+				nav.find(settings.el).removeClass(settings.activeClass);
+				$(this).addClass(settings.activeClass);
+				location.hash = tab.attr("id").replace(settings.hashPrefix, "");
+				
+			});
+
+			if(which == ":first")
+				$(this).find(settings.el).filter(which).click();
+			else
+				$(this).find(settings.el).filter('[href="'+which+'"]').click();
+			
+		});
+	};
+	
+})(jQuery);
 
 
 /*
 	Load more posts dynamically from frontpage
 */
-$.loadMorePosts = function(container) {
+(function($){
+	$.loadMorePosts = function(container) {
 
-	var $container = $(container),
-		pageNum = pageOptions.startPage + 1,
-		max = pageOptions.maxPages,
-		nextLink = pageOptions.nextLink;
+		var $container = $(container),
+			pageNum = pageOptions.startPage + 1,
+			max = pageOptions.maxPages,
+			nextLink = pageOptions.nextLink;
 
-	$container.find("footer").remove();
-
-	if(pageNum <= max) {
-		$container
-			.append('<div class="post-placeholder-'+ pageNum +'"></div>')
-			.append('<footer><a href="#" class="btn wide">Fler nyheter</a></footer>');
-	}
-
-	$(".news footer a").on("click", function(evt) {
-		evt.preventDefault();
-		var $button = $(this);
+		$container.find("footer").remove();
 
 		if(pageNum <= max) {
-			$button.text("Laddar ...");
-
-			$(".post-placeholder-"+pageNum).load(nextLink + " [role='article']", function() {
-				pageNum++;
-				nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
-
-				$('.news > footer').before('<div class="post-placeholder-'+ pageNum +'"></div>');
-
-				if(pageNum <= max) {
-					$button.text("Fler nyheter");
-				}
-				else {
-					$button.text("Inga fler nyheter finns").attr("disabled", true);
-				}
-					
-			});
+			$container
+				.append('<div class="post-placeholder-'+ pageNum +'"></div>')
+				.append('<footer><a href="#" class="btn wide">Fler nyheter</a></footer>');
 		}
-	});
 
-};
+		$(".news footer a").on("click", function(evt) {
+			evt.preventDefault();
+			var $button = $(this);
 
+			if(pageNum <= max) {
+				$button.text("Laddar ...");
+
+				$(".post-placeholder-"+pageNum).load(nextLink + " [role='article']", function() {
+					pageNum++;
+					nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
+
+					$('.news > footer').before('<div class="post-placeholder-'+ pageNum +'"></div>');
+
+					if(pageNum <= max) {
+						$button.text("Fler nyheter");
+					}
+					else {
+						$button.text("Inga fler nyheter finns").attr("disabled", true);
+					}
+						
+				});
+			}
+		});
+
+	};
+})(jQuery);
 
 $(function() {
 
@@ -121,4 +175,10 @@ $(function() {
 
 	// Borders on images in posts
 	$("article .article-content img").parent().addClass("subtle-border")
+
+	// Set up tabs
+	$(".tabs").tabs({
+		tabContainer: ".tab-container > div",
+		activeClass: "tab-current"
+	});
 });
