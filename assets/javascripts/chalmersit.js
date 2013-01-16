@@ -174,7 +174,11 @@ $(function() {
 	});
 
 	// Borders on images in posts
-	$("article .article-content img").parent().addClass("subtle-border")
+	$("article .article-content img").each(function() {
+		if($(this).parent().is("figure")) {
+			$(this).parent().addClass("subtle-border");
+		}
+	});
 
 	// Set up tabs
 	$(".tabs").tabs({
