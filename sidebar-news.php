@@ -4,7 +4,9 @@
 		<a class="btn" href="<?php link_to("nyheter");?>">Alla nyheter</a>
 		<?php endif;?>
 
-		<a class="btn-boring" href="<?php link_to("arkiv");?>">Nyhetsarkiv</a>
+		<?php if(!is_page("nyheter")) : ?>	
+			<a class="btn-boring" href="<?php link_to("arkiv");?>">Arkiv</a>
+		<?php endif;?>
 	</p>
 </section>
 

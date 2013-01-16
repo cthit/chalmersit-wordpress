@@ -35,6 +35,7 @@
 </section>
 
 <aside class="three columns pull-six sidebar">
+	<?php get_sidebar("children");?>
 	<?php get_sidebar("news");?>
 </aside>
 
