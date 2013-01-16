@@ -3,11 +3,6 @@
 	/* Comment template */
 
 ?>
-
-
-
-	
-
 	
 <?php if ( post_password_required() ) : ?>
 	<p class="no-content"><?php _e('Denna artikel kräver ett lösenord för att kommentera.'); ?></p>
@@ -26,11 +21,16 @@
 			<?php endif;?>
 		</h2>
 	</header>
+
+	<?php partial("comment-form");?>
 	
 	<?php if(have_comments()):?>
 	<ol class="commentlist">
 		<?php
-			wp_list_comments( array( 'callback' => 'chalmers_comment' ) );
+			wp_list_comments( array( 
+				'callback' => 'chalmers_comment',
+				'reverse_top_level' => true
+			));
 		?>
 	</ol>
 	<?php endif;?>
@@ -50,7 +50,4 @@
 ?>
 	<p class="comments-closed-msg">Kommentarer är stängda</p>
 <?php endif; ?>
-
-
-<?php partial("comment-form");?>
 
