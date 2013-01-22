@@ -185,4 +185,30 @@ $(function() {
 		tabContainer: ".tab-container > div",
 		activeClass: "tab-current"
 	});
+
+
+
+	$.getJSON("https://api.twitter.com/1/statuses/user_timeline/chalmersit.json?callback=?", function(json, status, xhr) {
+		var $list = $("<ul />"),
+			html = [];
+
+		if(json != null) {
+			$.each(json, function() {
+				var date = new Date(this.created_at),
+					text = "<p>" + this.text + "</p><time>"+ date.toDateString() +"</time>";
+
+				var element = $("<li />", {
+					"html": text
+				});
+
+				$list.append(element);
+			});
+
+			$("#tweet-list").append($list);
+		}
+		else {
+			$list.html("<li>Kunde inte hämta tweets från Twitter</li>")
+		}
+	});
+
 });

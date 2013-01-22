@@ -3461,6 +3461,21 @@ nav.side-nav ul {
   color: #aaa;
   font-size: .9em;
 }
+.home #tweet-list {
+  margin-top: 10px;
+}
+.home #tweet-list li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.home #tweet-list li:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+.home #tweet-list time {
+  color: #697273;
+  font-size: .8em;
+}
 
 .page-nyheter [role="article"] {
   background-color: #fff;

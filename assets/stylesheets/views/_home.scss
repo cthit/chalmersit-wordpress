@@ -241,4 +241,23 @@
 			font-size: .9em;
 		}
 	}
+
+	#tweet-list {
+		margin-top: 10px;
+
+		li {
+			margin-bottom: 10px;
+			border-bottom: 1px solid #e2e2e2;
+
+			&:last-child {
+				border-bottom: 0;
+				margin-bottom: 0;
+			}
+		}
+
+		time {
+			color: $grey;
+			font-size: .8em;
+		}
+	}
 }

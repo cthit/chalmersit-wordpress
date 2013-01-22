@@ -148,6 +148,9 @@
 			<header class="panel-header">
 				<h1>Twitter</h1>
 			</header>
+
+			<div id="tweet-list" class="list">
+			</div>
 		</section>
 
 	</div>
