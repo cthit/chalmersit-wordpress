@@ -56,6 +56,8 @@
 	&.sticky {
 		position: relative;
 		overflow: hidden;
+		background: transparent image-url("sticky-ribbon.png") repeat-x top left;
+		padding-top: $lineheight*2;
 
 		&::after {
 			content: "Viktigt!";

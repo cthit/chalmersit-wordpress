@@ -2742,6 +2742,8 @@ body.logged-in [role="banner"] .header-controls .user-details {
 [role="article"].sticky {
   position: relative;
   overflow: hidden;
+  background: transparent url('assets/images/sticky-ribbon.png') repeat-x top left;
+  padding-top: 3em;
 }
 [role="article"].sticky::after {
   content: "Viktigt!";
@@ -3429,14 +3431,7 @@ nav.side-nav ul {
   font-weight: 500;
 }
 .home [role="article"].sticky {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
-  padding: 1em;
-  margin: 1.5em -1em 3em;
-  background-color: #fff;
-  border: 1px solid #bbbbbb;
-  border-top-color: #ddd;
+  padding-top: 1.5em;
 }
 .home .latest-comments ul {
   color: #697273;

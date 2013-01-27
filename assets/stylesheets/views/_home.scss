@@ -188,12 +188,7 @@
 		}
 
 		&.sticky {
-			@include box-shadow(rgba(#000, 0.2) 0 5px 10px);
-			padding: 1em;
-			margin: $lineheight -1em $lineheight*2;
-			background-color: #fff;
-			border: 1px solid #bbb;
-			border-top-color: #ddd;
+			padding-top: $lineheight;
 		}
 	}
 
