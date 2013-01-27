@@ -118,6 +118,7 @@ a.subtle-border {
 }
 
 .panel-header {
+	position: relative;
 	background-color: $dark;
 	padding: .5em;
 	color: #fff;
@@ -129,6 +130,18 @@ a.subtle-border {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		margin-bottom: 0;
+	}
+
+	.header-more {
+		position: absolute;
+		right: 4%;
+		top: 4px;
+		color: #fff;
+		font-size: to_em(13);
+
+		&::after {
+			content: " →";
+		}
 	}
 }
 
