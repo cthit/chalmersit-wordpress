@@ -84,7 +84,12 @@ function register_chalmers_metaboxes() {
 				"type" => "select",
 				"desc" => "Om en kommittée arrangerar, välj den från listan",
 				"options" => $event_hosts
-
+			),
+			array(
+				"name" => "Annan arrangör",
+				"id" => IT_PREFIX."event_host_other",
+				"type" => "text",
+				"desc" => "Annan arrangör (kommer att användas om inte lämnas tomt)"
 			)
 		)
 	);
