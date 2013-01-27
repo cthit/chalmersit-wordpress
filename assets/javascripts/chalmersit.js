@@ -3,6 +3,31 @@
 	
 -------------------------------------------- */
 
+var Chalmers = (function(it) {
+	var root = it || {};
+
+
+	root.linkify = function(text) {
+		if (text) {
+			text = text.replace(
+				/((https?\:\/\/)|(www\.))(\S+)(\w{2,4})(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi,
+				function(url){
+					var full_url = url;
+					if (!full_url.match('^https?:\/\/')) {
+						full_url = 'http://' + full_url;
+					}
+					
+					return '<a href="' + full_url + '">' + url + '</a>';
+				});
+		    }
+		    
+		    return text;
+	};
+
+	return root;
+
+})(window.Chalmers);
+
 /**
 *	Quick and dirty jQuery animation helper plugin
 *
@@ -187,15 +212,17 @@ $(function() {
 	});
 
 
+	// Show Twitter timeline on frontpage
 
 	$.getJSON("https://api.twitter.com/1/statuses/user_timeline/chalmersit.json?callback=?", function(json, status, xhr) {
-		var $list = $("<ul />"),
-			html = [];
+		var $list = $("<ul />", {
+			"class": "list"
+		});
 
 		if(json != null) {
 			$.each(json, function() {
 				var date = new Date(this.created_at),
-					text = "<p>" + this.text + "</p><time>"+ date.toDateString() +"</time>";
+					text = "<p>" + Chalmers.linkify(this.text) + "</p><time>"+ date.toDateString() +"</time>";
 
 				var element = $("<li />", {
 					"html": text
