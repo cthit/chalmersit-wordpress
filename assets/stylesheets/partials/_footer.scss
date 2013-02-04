@@ -4,6 +4,11 @@
 .footer-widgets {
 	ul {
 		list-style: none;
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
 	}
 }
 

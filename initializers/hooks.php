@@ -118,6 +118,15 @@ function read_more_link() {
 	return sprintf($link, __("Read more"), get_permalink());
 }
 
+/**
+ * Alter the allowed file types to upload.
+ */
+function custom_upload_mimes ( $existing_mimes=array() ) {
+	$existing_mimes['svg'] = 'mime/type';
+	
+	return $existing_mimes;
+}
+
 
 /*
 	Attach WP data to injected Javascript object

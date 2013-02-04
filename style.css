@@ -2653,6 +2653,10 @@ body.logged-in [role="banner"] .header-controls .user-details {
 ----------------------------------------------------------------------*/
 .footer-widgets ul {
   list-style: none;
+  text-align: center;
+}
+.footer-widgets li {
+  display: inline-block;
 }
 
 [role="contentinfo"] {

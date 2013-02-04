@@ -10,6 +10,7 @@ define("EXCERPT_LENGTH", 75);
 require_once "lib/constants.php";
 require_once "lib/helpers.php";
 require_once "lib/class.Comittee_Walker.php";
+require_once "lib/class.Sponsor_Widget.php";
 require_once "lib/class.Metabox.php";
 require_once "lib/class.Options.php";
 require_once "lib/inc.lunch.php";
@@ -32,6 +33,11 @@ define("ENV", $env);
 add_action("after_setup_theme", "setup_chalmers");
 if(! is_admin()) {
 	add_action("wp_enqueue_scripts", "it_custom_scripts", 11);
+}
+
+add_action("widgets_init", "register_widgets");
+function register_widgets(){
+	register_widget("Sponsor_Widget");
 }
 
 function setup_chalmers() {
@@ -64,6 +70,8 @@ function setup_chalmers() {
 	add_filter( 'previous_post_link', 'post_link_attributes');
 	add_filter( 'next_posts_link_attributes', 'posts_link_attributes');
 	add_filter( 'previous_posts_link_attributes', 'posts_link_attributes');
+
+	add_filter('upload_mimes', 'custom_upload_mimes');
 
 	add_filter( 'nav_menu_css_class', 'add_current_class_to_single', 10, 2);
 
