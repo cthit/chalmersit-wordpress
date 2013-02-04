@@ -2,7 +2,7 @@
 	global $post;
 	$host_id = get_post_meta($post->ID, IT_PREFIX."event_host", true);
 
-	if($host_id != -1) {
+	if($host_id && $host_id != -1) {
 		$host = get_post($host_id);
 	}
 	else {
@@ -22,6 +22,7 @@
 	<li class="icon-map-pin-fill"><?php echo $location;?></li>
 	<?php endif;?>
 
+	<?php if($host_id) : ?>
 	<li rel="tooltip" title="Arrangör av detta arrangemang" class="icon-user">
 		<?php if($host_id != -1) : ?>
 		<a href="<?php echo get_permalink($host->ID);?>"><?php echo $host->post_title;?></a>
@@ -29,4 +30,5 @@
 		<?php echo $other_host;?>
 		<?php endif;?>
 	</li>
+	<?php endif;?>
 </ul>
