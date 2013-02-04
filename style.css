@@ -2651,6 +2651,10 @@ body.logged-in [role="banner"] .header-controls .user-details {
 
 /*	=FOOTER
 ----------------------------------------------------------------------*/
+.footer-widgets ul {
+  list-style: none;
+}
+
 [role="contentinfo"] {
   margin-top: 1.5em;
   padding: 1.5em 0 3em;

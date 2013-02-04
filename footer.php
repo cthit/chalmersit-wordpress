@@ -1,3 +1,12 @@
+	
+	<?php if(is_active_sidebar("footer")) : ?>
+	<section class="footer-widgets">
+		<ul>
+		<?php dynamic_sidebar("footer"); ?>
+		</ul>
+	</section>
+	<?php endif;?>
+
 </section> <!-- role main end -->
 
 <footer role="contentinfo">

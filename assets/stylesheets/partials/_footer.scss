@@ -1,6 +1,12 @@
 /*	=FOOTER
 ----------------------------------------------------------------------*/
 
+.footer-widgets {
+	ul {
+		list-style: none;
+	}
+}
+
 [role="contentinfo"] {
 	margin-top: $lineheight;
 	padding: $lineheight 0 $lineheight*2;

@@ -12,7 +12,14 @@ function it_register_sidebars() {
 		array(
 			"name" => "Förstasida till höger",
 			"id" => "index-right"
-		) + $global
+		) + $global ,
+
+		array(
+			"name" => "Sidfot",
+			"id" => "footer",
+			"before_widget" => '<li id="%1$s" class="widget">',
+			"after_widget" => "</li>"
+		)
 	);
 
 	foreach($zones as $zone){
