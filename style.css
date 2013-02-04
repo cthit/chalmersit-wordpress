@@ -2652,7 +2652,6 @@ body.logged-in [role="banner"] .header-controls .user-details {
 /*	=FOOTER
 ----------------------------------------------------------------------*/
 .footer-widgets ul {
-  list-style: none;
   text-align: center;
 }
 .footer-widgets li {
@@ -3281,6 +3280,18 @@ nav.side-nav ul {
   bottom: 0;
   padding: 2em 10px 10px;
   width: 100%;
+}
+
+/*
+	WIDGETS
+	--------------------------------
+ */
+.widget {
+  list-style: none;
+}
+
+li.widget {
+  text-align: center;
 }
 
 /*	=FRONT PAGE

@@ -12,7 +12,14 @@ function it_register_sidebars() {
 		array(
 			"name" => "Förstasida till höger",
 			"id" => "index-right"
-		) + $global ,
+		) + $global,
+
+		array(
+			"name" => "Global sidebar",
+			"id" => "global-sidebar",
+			"before_widget" => '<li id="%1$s" class="widget">',
+			"after_widget" => "</li>"
+		),
 
 		array(
 			"name" => "Sidfot",
