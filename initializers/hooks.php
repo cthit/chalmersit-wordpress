@@ -25,6 +25,9 @@ function my_shortlink( $link, $shortlink, $text, $title ){
 */
 function add_current_class_to_single($classes, $item) {
 	global $post;
+
+	if(is_front_page()) return;
+
 	$nav_object = get_page($item->object_id);
 
 	if($nav_object->post_name == "nyheter" && 
@@ -123,7 +126,7 @@ function read_more_link() {
  */
 function custom_upload_mimes ( $existing_mimes=array() ) {
 	$existing_mimes['svg'] = 'mime/type';
-	
+
 	return $existing_mimes;
 }
 
