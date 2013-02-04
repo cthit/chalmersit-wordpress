@@ -1458,10 +1458,11 @@ table {
 }
 .tabs a:hover {
   text-decoration: none;
+  color: #555;
 }
 .tabs a.tab-current {
   cursor: default;
-  color: #aaa;
+  color: #13aaea;
 }
 
 /*	=HELPERS

@@ -23,11 +23,12 @@
 
 		&:hover {
 			text-decoration: none;
+			color: #555;
 		}
 
 		&.tab-current {
 			cursor: default;
-			color: #aaa;
+			color: $link-hover-color;
 		}
 	}
 }
