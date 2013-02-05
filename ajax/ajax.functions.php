@@ -39,8 +39,8 @@ add_action("wp_ajax_it_courses_filter", "courses_filter");
 				);
 		}
 
-		global $courses;
-		$courses = get_posts($args);
+		#global $courses;
+		#$courses = get_posts($args);
 
 		partial("courses");
 

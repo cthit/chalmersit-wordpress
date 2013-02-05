@@ -1,37 +1,9 @@
 <?php
-	global $courses, $years, $periods;
+	global $IS_AJAX, $courses, $years, $periods;
 
-	# If this partial *is not* called via XHR ($courses is not
-	# initialized), fetch the courses from the $period and $year
-	# variables.
-	
-	function callback($item) {
-		return $item->term_id;
-	}
-
-	$period_ids = array_map("callback", $periods);
-	$year_ids = array_map("callback", $years);
-
-	if(!$courses) {
-		$courses = get_posts(array(
-			"nopaging" => true,
-			"post_type" => "course",
-			"tax_query" => array(
-				"relation" => "AND",
-				array(
-					"taxonomy" => "course_period",
-					"field" => "id",
-					"terms" => $period_ids
-				),
-
-				array(
-					"taxonomy" => "course_year",
-					"field" => "id",
-					"terms" => $year_ids
-				)
-			)
-		));
-	}
+	# If this partial *is not* called via XHR fetch the 
+	# courses from the $period and $year variables	
+	# 
 
 ?>
 
@@ -43,21 +15,42 @@
 
 	<?php foreach($periods as $period) : ?>
 
+		<?php
+			$courses = get_posts(array(
+				"nopaging" => true,
+				"post_type" => "course",
+				"tax_query" => array(
+					"relation" => "AND",
+					array(
+						"taxonomy" => "course_period",
+						"field" => "id",
+						"terms" => $period->term_id
+					),
+
+					array(
+						"taxonomy" => "course_year",
+						"field" => "id",
+						"terms" => $year->term_id
+					)
+				)
+			));
+
+		?>
+
 		<?php if($courses) : ?>
 		<h3><?php echo $period->name;?></h3>
 		
-		<ul class="course-listing">
+		<ul class="simple-list course-listing">
 		<?php foreach($courses as $course) : ?>
 			<?php
 				$course_code = get_post_meta($course->ID, IT_PREFIX."course_code", true);
 			?>
 			<li>
-				<strong>
-					<a href="<?php echo get_permalink($course->ID);?>">
-						<?php echo get_the_title($course->ID);?></a>
-					<?php if($course_code):?><small>(<?php echo $course_code;?>)</small><?php endif;?>
-				</strong>
+				<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
+
+				<a href="<?php echo get_permalink($course->ID);?>"><?php echo get_the_title($course->ID);?></a>
 			</li>
+
 		<?php endforeach; ?>
 		</ul>
 		<?php endif; ?>
