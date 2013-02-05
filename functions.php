@@ -14,6 +14,7 @@ require_once "lib/class.Sponsor_Widget.php";
 require_once "lib/class.Metabox.php";
 require_once "lib/class.Options.php";
 require_once "lib/inc.lunch.php";
+require_once "ajax/ajax.functions.php";
 require_once "partials/_comment.php";
 
 load_all("initializers");

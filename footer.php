@@ -68,6 +68,7 @@
 <script src="<?php javascript_path("jquery.smoothscroll");?>"></script>
 <script src="<?php javascript_path("jquery.autosize");?>"></script>
 <script src="<?php javascript_path("jquery.tipsy");?>"></script>
+<script src="<?php javascript_path("chalmersit.courses.js");?>"></script>
 <script src="<?php javascript_path("chalmersit");?>"></script>
 
 <?php if(is_home()):?>
