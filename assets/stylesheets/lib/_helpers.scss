@@ -187,6 +187,9 @@ a.subtle-border {
 	@include icon-image("icon-group.svg", 32px, 32px);
 }
 
+.hidden {
+	display: none;
+}
 
 /* Alignment (Wordpress classes) */
 

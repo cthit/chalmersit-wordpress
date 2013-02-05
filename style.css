@@ -1699,6 +1699,10 @@ a.subtle-border {
   height: 32px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Alignment (Wordpress classes) */
 .center {
   text-align: center;
@@ -3527,6 +3531,15 @@ li.widget {
 	COURSES VIEW
 	------------------------------------
  */
+.courses-sidebar form {
+  position: relative;
+}
+.courses-sidebar .loading {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
 .course-listing {
   margin-bottom: 1.5em;
 }

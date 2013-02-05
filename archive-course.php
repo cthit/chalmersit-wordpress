@@ -18,7 +18,7 @@
 
 </section>
 
-<aside class="three columns pull-six">
+<aside class="courses-sidebar three columns pull-six">
 	<?php get_sidebar("course");?>
 </aside>
 

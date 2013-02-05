@@ -7,6 +7,8 @@
 
 	<form action="" method="get" id="courses-form">
 		<h2 class="form-title">Filter</h2>
+		
+		<img src="<?php img_url("loading.gif");?>" class="loading hidden" alt="Laddar" />
 
 		<?php if($periods) : ?>
 		<fieldset id="periods-field">
