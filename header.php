@@ -47,7 +47,7 @@
 
 						<ul class="dropdown-sub">
 							<li><a href="<?php link_to("skrivut");?>">Skriv ut</a></li>
-							<li><a href="#">Boka rum</a></li>
+							<li><a href="<?php link_to("bokning");?>">Boka rum</a></li>
 							<li><a href="#">Schema</a></li>
 							<li><a href="<?php link_to("profil");?>">Redigera profil</a></li>
 							<?php if(current_user_can("publish_posts")) : ?>

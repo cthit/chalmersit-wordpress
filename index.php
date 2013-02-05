@@ -21,7 +21,7 @@
 	<div class="quick-buttons four columns">
 		<ul class="box list">
 			<li><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=https%3A%2F%2Fweb.timeedit.se%2Fchalmers_se%2Fdb1%2Ftimeedit%2Fp%2Fpublic%2Fr.html%3Fsid%3D3%26h%3Dt&ei=gQcQUaniD8XStQbS2oGYBQ&usg=AFQjCNHcE_uBpOwpal6Bm0dqzmt1c48-0Q&sig2=64mqoqh8_Nf2dwIzyjmJ4A&bvm=bv.41867550,d.Yms" class="schedule-icon">Schema</a></li>
-			<li><a href="#" class="group-icon">Boka grupprum</a></li>
+			<li><a href="<?php link_to("bokning");?>" class="group-icon">Boka grupprum</a></li>
 			<li><a href="<?php link_to("skrivut");?>" class="print-icon">Skriv ut</a></li>
 		</ul>
 	</div>
