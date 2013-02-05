@@ -5,9 +5,10 @@
 
 <nav class="box side-nav">
 
-	<h2>Filter</h2>
-
 	<form action="" method="get" id="courses-form">
+		<h2 class="form-title">Filter</h2>
+
+		<?php if($periods) : ?>
 		<fieldset id="periods-field">
 			<ul class="list">
 				<li>
@@ -24,6 +25,15 @@
 			</ul>
 		</fieldset>
 
+		<?php else : ?>
+
+		<p class="no-content">Inga läsperioder inlagda</p>
+
+		<?php endif;?>
+
+
+		<?php if($years) : ?>
+
 		<fieldset id="years-field">
 			<ul class="list">
 				<li>
@@ -39,6 +49,12 @@
 				<?php endforeach;?>
 			</ul>
 		</fieldset>
+
+		<?php else : ?>
+
+		<p class="no-content">Inga årskurser inlagda</p>
+
+		<?php endif;?>
 
 	</form>
 </nav>
