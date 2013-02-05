@@ -2323,7 +2323,7 @@ nav ol {
 	=LISTINGS
 	-------------------------------------
 */
-.list, .listing, .horizontal-list, .columned-list, .simple-list, .dropdown-sub, .gce-list, .post-type-archive-course .course-listing {
+.list, .listing, .horizontal-list, .columned-list, .simple-list, .dropdown-sub, .gce-list {
   list-style: none;
   margin: 0;
 }
@@ -3523,8 +3523,35 @@ li.widget {
   padding: 1.5em 5%;
 }
 
-.post-type-archive-course .course-listing {
+/*
+	COURSES VIEW
+	------------------------------------
+ */
+.course-listing {
   margin-bottom: 1.5em;
+}
+.course-listing a {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+.course-listing li {
+  position: relative;
+}
+.course-listing li:hover .mandatory-course {
+  color: #323232;
+}
+.course-listing small {
+  color: #697273;
+  font-size: .9em;
+  text-transform: uppercase;
+  display: inline-block;
+  min-width: 4.5em;
+}
+.course-listing .mandatory-course {
+  position: absolute;
+  right: 0;
+  color: #697273;
+  cursor: default;
 }
 
 /*
