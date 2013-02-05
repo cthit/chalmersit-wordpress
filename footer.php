@@ -1,6 +1,8 @@
 	
-	<?php if(is_active_sidebar("footer")) : ?>
 	<br class="clear" />
+	
+	<?php if(is_active_sidebar("footer")) : ?>
+	
 	<section class="footer-widgets">
 		<ul>
 		<?php dynamic_sidebar("footer"); ?>
