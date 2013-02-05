@@ -44,11 +44,16 @@
 		<?php foreach($courses as $course) : ?>
 			<?php
 				$course_code = get_post_meta($course->ID, IT_PREFIX."course_code", true);
+				$mandatory = get_post_meta($course->ID, IT_PREFIX."course_is_compulsory", true);
 			?>
 			<li>
 				<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
 
 				<a href="<?php echo get_permalink($course->ID);?>"><?php echo get_the_title($course->ID);?></a>
+
+				<?php if($mandatory == "on") : ?>	
+				<span class="mandatory-course" rel="tooltip" title="Obligatorisk kurs">⚑</span>
+				<?php endif;?>
 			</li>
 
 		<?php endforeach; ?>
