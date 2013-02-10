@@ -14,10 +14,6 @@
 			-webkit-animation: dropDown .6s ease-out;
 		}
 	}
-
-	[role="main"] header:first-child .box {
-		margin-bottom: 0;
-	}
 	
 	.front-title {
 		text-align: center;
@@ -212,7 +208,6 @@
 			display: inline;
 			float: left;
 			position: relative;
-			top: 1em;
 			margin-right: $gutter;
 		}
 
