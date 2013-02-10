@@ -6,6 +6,8 @@ define("THEME_ABSPATH", ABSPATH . "wp-content/themes/chalmersit/");
 define("ASSET_PATH", THEME_PATH . "/assets");
 
 define("EXCERPT_LENGTH", 75);
+define("DEVELOPMENT", 10);
+define("PRODUCTION", 1);
 
 require_once "lib/constants.php";
 require_once "lib/helpers.php";
@@ -23,6 +25,7 @@ load_all("initializers");
 $host = $_SERVER['HTTP_HOST'];
 $allowed_sites = array(
 	"chalmers.dev",
+	"beta.chalmers.it",
 	"localhost"
 );
 $env = (in_array($host, $allowed_sites) || (isset($_GET['dev']) && $_GET['dev'] == 1)) ? DEVELOPMENT : PRODUCTION;
@@ -46,9 +49,6 @@ function setup_chalmers() {
 	add_theme_support("post-formats");
 	add_theme_support("post-thumbnails", array("post", "page", "course"));
 	add_theme_support("automatic-feed-links");
-
-	# Buddypress
-	# add_theme_support( 'buddypress' );
 
 	add_action("init", "register_chalmers_menus");
 	add_action("init", "register_chalmers_posttypes");
