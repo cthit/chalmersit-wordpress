@@ -3735,11 +3735,27 @@ li.widget {
 
 /* =SEARCH
 ------------------------------------------ */
+.search .main-col h2 {
+  margin-top: 1.5em;
+}
 .search [role="main"] [role="search"] {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .search [role="main"] [role="search"] [type="search"] {
   width: 98%;
+}
+
+.user-search-results li {
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+.user-search-results dl {
+  float: left;
+  margin: 0;
+}
+.user-search-results .avatar {
+  float: left;
+  margin-right: 5%;
 }
 
 /* =ATTACHMENTS
