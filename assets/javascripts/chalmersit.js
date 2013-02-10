@@ -199,7 +199,7 @@ $(function() {
 	});
 
 	// Borders on images in posts
-	$("article .article-content img").each(function() {
+	$("article .article-content img:not(.avatar)").each(function() {
 		if($(this).parent().is("figure")) {
 			$(this).parent().addClass("subtle-border");
 		}
