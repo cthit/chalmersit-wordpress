@@ -58,5 +58,8 @@
 
 		<?php endif;?>
 
+		<button class="small" disabled id="save-config">Spara val</button>
+		<button class="btn-boring small" disabled id="clear-config">Glöm bort val</button>
+
 	</form>
 </nav>

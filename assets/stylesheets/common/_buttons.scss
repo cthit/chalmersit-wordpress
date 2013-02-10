@@ -81,6 +81,13 @@ input[type="submit"] {
 		&:active {
 			top: auto;
 		}
+
+		&:hover {
+			background-image: none;
+			color: #777;
+			background-color: $btn-disabled-color;
+			@include box-shadow(none);
+		}
 	}
 
 	&[rel="prev"]::before {

@@ -2056,6 +2056,16 @@ button[disabled]:active,
 input[type="submit"][disabled]:active {
   top: auto;
 }
+.btn[disabled]:hover, [disabled].btn-alt:hover, [disabled].btn-boring:hover, [disabled].btn-dangerous:hover,
+button[disabled]:hover,
+input[type="submit"][disabled]:hover {
+  background-image: none;
+  color: #777;
+  background-color: #dddddd;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
 .btn[rel="prev"]::before, [rel="prev"].btn-alt::before, [rel="prev"].btn-boring::before, [rel="prev"].btn-dangerous::before,
 button[rel="prev"]::before,
 input[type="submit"][rel="prev"]::before {
