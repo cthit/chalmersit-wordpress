@@ -36,10 +36,6 @@
 
 		</article>
 
-		<aside class="sidebar three columns">
-			hej
-		</aside>
-
 	</div>
 </section>
 
