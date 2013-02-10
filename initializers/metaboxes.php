@@ -8,6 +8,7 @@ function register_chalmers_metaboxes() {
 	);
 	$committees = get_posts(array(
 		'post_type' => "page",
+		"posts_per_page" => -1,
 		'meta_key' => IT_PREFIX."is_committee"
 	));
 
