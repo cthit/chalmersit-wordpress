@@ -11,11 +11,10 @@
 
 ?>
 
-<ul class="list">
+<ul class="simple-list">
 	<?php foreach($feeds as $title => $url) : ?>
 	<li>
 		<a href="<?php echo $url;?>"><?php echo $title;?></a>
-		<?php echo $url;?>
 	</li>
 	<?php endforeach;?>
 </ul>
