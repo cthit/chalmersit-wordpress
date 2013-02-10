@@ -38,7 +38,7 @@
 	<div class="box">
 		<section>
 			<?php if($external):?>
-			<a href="<?php echo $external;?>" class="btn-alt wide read-more	">
+			<a href="<?php echo $external;?>" target="_blank" class="btn-alt wide read-more	">
 				Kursens hemsida
 			</a>
 			<?php endif;?>
