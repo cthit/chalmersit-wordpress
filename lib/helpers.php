@@ -297,6 +297,14 @@ function get_top_parent_cat_ID($cat) {
 }
 
 
+function is_past_date($time) {
+    return (strtotime($time) < time());
+}
+
+function is_future_date($time) {
+    return (strtotime($time) > time());
+}
+
 
 /* OPTIONS 
 ----------------------- */

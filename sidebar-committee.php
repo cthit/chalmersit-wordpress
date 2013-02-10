@@ -49,6 +49,11 @@
 				$time = get_post_meta($evt->ID, IT_PREFIX."event_start_time", true);
 				$location = get_post_meta($evt->ID, IT_PREFIX."event_location", true);
 
+				# Don't show past events
+				if(is_past_date($date)) {
+					continue;
+				}
+
 				$day = date("j", strtotime($date));
 				$month = date("M", strtotime($date));
 			?>
