@@ -32,12 +32,10 @@ class Sponsor_Widget extends WP_Widget {
 			return;
 		}
 
-		ob_start();
-		
 		$link = get_bookmark($instance['sponsor']);
-		
 		if(!$link)	return;
-		
+
+		ob_start();
 		
 		echo $before_widget;
 		

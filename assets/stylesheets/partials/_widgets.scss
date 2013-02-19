@@ -5,8 +5,20 @@
 
 .widget {
 	list-style: none;
+
+	header {
+		text-align: left;
+	}
+
+	h2, h3 {
+		color: #999;
+	}
 }
 
 li.widget {
 	text-align: center;
+}
+
+.widgets-list {
+	margin-top: 0;
 }
