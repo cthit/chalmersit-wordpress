@@ -53,10 +53,7 @@
 
 	.children {
 		margin-left: 17%;
-
-		.comment {
-			margin-bottom: 0;
-		}
+		margin-top: $lineheight;
 
 		.fn {
 			font-size: to_em(16);
@@ -109,6 +106,10 @@
 }
 
 /* COMMENTS FORM */
+
+#respond {
+	margin-bottom: $lineheight*2;
+}
 
 .cancel-reply {
 	text-align: right;
