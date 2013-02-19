@@ -49,6 +49,14 @@ iframe {
 	max-width: none;
 }
 
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: #ccc;
+	margin: $lineheight*2 10%;
+}
+
 /* User avatars */
 
 .avatar {
