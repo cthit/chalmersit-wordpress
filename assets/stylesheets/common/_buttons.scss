@@ -71,11 +71,11 @@ input[type="submit"] {
 
 	&[disabled] {
 		@include box-shadow(none);
-		border: 1px solid darken($btn-disabled-color, 20%);
+		border: 1px solid #ccc;
 		text-shadow: none;
 		background-image: none;
 		background-color: $btn-disabled-color;
-		color: #777;
+		color: #888;
 		cursor: default;
 
 		&:active {
@@ -84,7 +84,7 @@ input[type="submit"] {
 
 		&:hover {
 			background-image: none;
-			color: #777;
+			color: #888;
 			background-color: $btn-disabled-color;
 			@include box-shadow(none);
 		}
