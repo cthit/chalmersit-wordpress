@@ -123,6 +123,10 @@
 	/* Lunch */
 	.lunch {
 		ul {
+			strong {
+				margin-right: 5px;
+			}
+
 			margin-bottom: $lineheight;
 			&:last-child {
 				margin-bottom: 0;

@@ -74,9 +74,14 @@ function format_places($dishes) {
 }
 
 function _remove_strings($input) {
-	$strings_to_remove = array("Dagens Lunch", "Veckans soppa", "Classic - Kött", "Classic - Fisk");
 
-	return str_ireplace($strings_to_remove, "", $input);
+	$strings_to_remove = array("Dagens Lunch", "Veckans soppa", "Classic Kött", "Classic Fisk", "Xpress");
+	$func = function($elem) {
+		return "<strong>".$elem."</strong>";
+	};
+
+	$map = array_map($func, $strings_to_remove);
+	return str_ireplace($strings_to_remove, $map, $input);
 }
 
 ?>
