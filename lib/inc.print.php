@@ -7,7 +7,6 @@ ini_set("upload_max_filesize", "100M");
 ini_set("post_max_file", "100M");
 
 function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='') {
-	error_log("Printing .. ");
 
 	if($con = ssh2_connect("remote1.studat.chalmers.se", 22)){
 		if(ssh2_auth_password($con, $user, $pass)){
@@ -16,7 +15,7 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
 			$sides = (!$one_sided ? "one-sided" : "two-sided-long-edge");
 			$range = (empty($range) ? "" : "-o page-ranges=$range");
 			ssh2_exec($con, "lpr -P $printer -# $copies -o sides=$sides $range .print/tmp.dat");
-			
+
 			return true;
 		}
 		else
@@ -50,7 +49,6 @@ $errors = array();
 if(isset($_POST['print'])) {
 
 	if(!empty($_FILES) && in_array($_FILES["upload"]["type"], $file_types) && $_FILES["upload"]["size"] < 100500000) {
-		error_log("Posting .. ");
 
 		if(printer($_POST["user"], $_POST["pass"], $_POST["printer"], $_FILES["upload"]["tmp_name"], $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges'])) {
 
