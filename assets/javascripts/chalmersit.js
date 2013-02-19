@@ -178,8 +178,15 @@ $(function() {
 
 
 	// Show comment controls on comment textarea focus
-	$("#comment").on("focus", function(evt){
-		$(this).next(".comment-submit").show();
+	$("#comment")
+	.on("focus", function(evt){
+		$(this).next(".comment-submit").show().find("#submit").attr("disabled", true);
+	})
+	.on("input", function(evt) {
+		var text = $(this).val(),
+			$submit = $(this).next(".comment-submit").find("#submit");
+		
+		$submit.attr("disabled", (text === ""));
 	});
 
 	// Auto growing textareas
