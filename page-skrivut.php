@@ -1,4 +1,8 @@
 <?php
+	require_once "lib/inc.print.php";
+
+	global $errors, $notice;
+
 	get_header();
 	the_post();
 ?>
@@ -7,7 +11,8 @@
 	<article class="box">
 		<h1 class="huge"><?php the_title();?></h1>
 
-		<form enctype="multipart/form-data" action="" method="post">
+		<form name="print_form" id="print-form" enctype="multipart/form-data" action="" method="post">
+			<input type="hidden" name="print" />
 			<?php if($errors) : ?>
 			<div class="message-warning">
 				<ul>
@@ -72,27 +77,23 @@
 			<section class="cid-area">
 				<p>
 					<label for="cid-name">CID</label>
-					<input type="text" id="cid-name" name="cid_name" />
+					<input type="text" id="cid-name" name="user" />
 				</p>
 
 				<p>
 					<label for="cid-pw">CID-lösenord</label>
-					<input type="password" id="cid-pw" name="cid_pw" />
+					<input type="password" id="cid-pw" name="pass" />
 				</p>
 
 				<p class="description center">
 					Du måste skriva in ditt CID-namn och lösenord för att skriva ut genom
-					Chalmers skrivare.
+					Chalmers skrivare. De utskrivna sidorna kommer att dras från din printerkvota.
 				</p>
 
 				<p class="center">
-					<input type="submit" value="Skriv ut" class="large" />
+					<input type="submit" id="print-document-submit" value="Skriv ut" class="large" />
 				</p>
 			</section>
-
-			<p class="message-notice small">
-				De utskrivna sidorna kommer att dras från din printerkvot
-			</p>
 
 		</form>
 	</article>
