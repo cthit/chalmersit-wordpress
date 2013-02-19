@@ -63,7 +63,7 @@ function chalmers_comment( $comment, $args, $depth ) {
 				</p>
 				<?php endif; ?>
 				
-				<?php esc_html(get_comment_text()); ?>
+				<?php echo strip_tags(get_comment_text(), "<p><br><strong><em>"); ?>
 			</div>
 			
 		</article>
