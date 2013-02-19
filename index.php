@@ -18,15 +18,16 @@
 		</div>
 	</div>
 	
-	<div class="quick-buttons four columns">
+	<div class="quick-buttons five columns">
 		<ul class="box list">
 			<li><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=https%3A%2F%2Fweb.timeedit.se%2Fchalmers_se%2Fdb1%2Ftimeedit%2Fp%2Fpublic%2Fr.html%3Fsid%3D3%26h%3Dt&ei=gQcQUaniD8XStQbS2oGYBQ&usg=AFQjCNHcE_uBpOwpal6Bm0dqzmt1c48-0Q&sig2=64mqoqh8_Nf2dwIzyjmJ4A&bvm=bv.41867550,d.Yms" class="schedule-icon">Schema</a></li>
-			<li><a href="<?php link_to("bokning");?>" class="group-icon">Bokning</a></li>
+			<li><a href="<?php link_to("bokning");?>" class="booking-icon">Bokning</a></li>
+			<li><a href="https://web.timeedit.se/chalmers_se/db1/b1/" target="_blank" class="group-icon">Grupprum</a></li>
 			<li><a href="<?php link_to("skrivut");?>" class="print-icon">Skriv ut</a></li>
 		</ul>
 	</div>
 	
-	<div class="user-area four columns">
+	<div class="user-area three columns">
 		<?php if(! is_user_logged_in()) : ?>
 			<?php partial("signinform");?>
 		<?php else : ?>

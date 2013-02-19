@@ -78,6 +78,12 @@ a.subtle-border {
 	@include label;
 }
 
+.required {
+	color: darken($dangerous-color, 10%);
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 .plain-link {
 	@include plain-links;
 }
@@ -185,6 +191,11 @@ a.subtle-border {
 .group-icon {
 	@extend %icon;
 	@include icon-image("icon-group.svg", 32px, 32px);
+}
+
+.booking-icon {
+	@extend %icon;
+	@include icon-image("icon-booking.svg", 32px, 32px);
 }
 
 .hidden {
