@@ -67,9 +67,28 @@
 				<input type="text" name="ranges" size="10" id="ranges" />
 			</p>
 
-			<p class="center">
-				<input type="submit" value="Skriv ut" class="large" />
-			</p>
+			<hr />
+
+			<section class="cid-area">
+				<p>
+					<label for="cid-name">CID</label>
+					<input type="text" id="cid-name" name="cid_name" />
+				</p>
+
+				<p>
+					<label for="cid-pw">CID-lösenord</label>
+					<input type="password" id="cid-pw" name="cid_pw" />
+				</p>
+
+				<p class="description center">
+					Du måste skriva in ditt CID-namn och lösenord för att skriva ut genom
+					Chalmers skrivare.
+				</p>
+
+				<p class="center">
+					<input type="submit" value="Skriv ut" class="large" />
+				</p>
+			</section>
 
 			<p class="message-notice small">
 				De utskrivna sidorna kommer att dras från din printerkvot
