@@ -4,7 +4,7 @@ function register_chalmers_metaboxes() {
 	$metaboxes = array();
 
 	$event_hosts = array(
-		"-1" => "Ingen kommittée arrangerar"
+		"-1" => "Ingen kommitté arrangerar"
 	);
 	$committees = get_posts(array(
 		'post_type' => "page",
@@ -46,7 +46,7 @@ function register_chalmers_metaboxes() {
 				"name" => "Kontakt (e-mail)",
 				"id" => IT_PREFIX."contact_email",
 				"type" => "text",
-				"desc" => "Om sidan är för en kommittée, fyll i e-mailkontakt här"
+				"desc" => "Om sidan är för en kommitté, fyll i e-mailkontakt här"
 			)
 		)
 
@@ -83,7 +83,7 @@ function register_chalmers_metaboxes() {
 				"name" => "Arrangör",
 				"id" => IT_PREFIX."event_host",
 				"type" => "select",
-				"desc" => "Om en kommittée arrangerar, välj den från listan",
+				"desc" => "Om en kommitté arrangerar, välj den från listan",
 				"options" => $event_hosts
 			),
 			array(

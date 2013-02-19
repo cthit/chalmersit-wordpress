@@ -287,7 +287,7 @@
 
 		<?php else: ?>
 
-			<p class="no-content">Denna kommittée har inga medlemmar</p>
+			<p class="no-content">Denna kommitté har inga medlemmar</p>
 
 		<?php endif; ?>
 
@@ -346,7 +346,7 @@
 
 	<section>
 
-		<h2>Ta bort kommittée</h2>
+		<h2>Ta bort kommitté</h2>
 
 	<?php do_action( 'bp_before_group_delete_admin' ); ?>
 
