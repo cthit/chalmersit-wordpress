@@ -13,7 +13,7 @@
 			<h1>
 				<span class="detail">Teknologsektionen</span>
 				Informationsteknik
-				<span class="detail">på Chalmers Tekniska Högskola</span>
+				<span class="detail">Chalmers Studentkår</span>
 			</h1>
 		</div>
 	</div>
