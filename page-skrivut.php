@@ -77,12 +77,12 @@
 			<section class="cid-area">
 				<p>
 					<label for="cid-name">CID</label>
-					<input type="text" id="cid-name" name="user" />
+					<input type="text" id="cid-name" name="user" autocomplete="off" />
 				</p>
 
 				<p>
 					<label for="cid-pw">CID-lösenord</label>
-					<input type="password" id="cid-pw" name="pass" />
+					<input type="password" id="cid-pw" name="pass" autocomplete="off" />
 				</p>
 
 				<p class="description center">
