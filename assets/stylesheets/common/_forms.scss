@@ -44,6 +44,7 @@ label {
 
 	&[for] {
 		cursor: pointer;
+		display: block;
 	}
 
 	& > input[type="radio"],
