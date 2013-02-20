@@ -12,4 +12,17 @@
 			display: block;
 		}
 	}
+
+	.cid-area {
+		text-align: center;
+
+		input {
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.description {
+			margin: $lineheight 20%;
+		}
+	}
 }
