@@ -38,10 +38,16 @@
 	}
 }
 
+.it-calendar,
 .widget .gce-widget-grid .gce-calendar {
 	$caption-height: 3em;
 
-	.gce-caption {
+	abbr {
+		border: 0;
+	}
+
+	.gce-caption,
+	.it-caption {
 		border: 1px solid #ddd;
 		border-width: 1px 0;
 		margin: 0 (-$lineheight / 2) ($lineheight / 2);
@@ -55,38 +61,53 @@
 		height: $lineheight + .5em;
 	}
 
-	.gce-month-title {
+	td {
+		border: 1px solid #ccc;
+		text-align: center;
+		color: #ccc;
+	}
+
+	.gce-month-title,
+	.it-month-title {
 	 	font-size: 1.1em;
 	 	color: $grey;
 	 }
 
-	 .gce-today {
+	 .gce-today,
+	 .it-today {
 	 	background-color: #ddd;
 	 	color: #555;
 	 }
 
-	 .gce-day-future {
+	 .gce-day-future,
+	 .it-day-future {
 	 	color: #777;
 	 }
 
 	 .gce-next,
-	 .gce-prev {
+	 .gce-prev,
+	 .it-next,
+	 .it-prev {
 	 	width: auto;
 	 }
-	 .gce-next {
+	 .gce-next,
+	 .it-next {
 	 	float: right;
 	 }
-	 .gce-prev {
+	 .gce-prev,
+	 .it-prev {
 	 	float: left;
 	 }
 
-	 .gce-has-events {
+	 .gce-has-events,
+	 .it-has-events {
 	 	color: #fff;
 	 	background-color: $btn-color;
 	 	font-weight: bold;
 	 	cursor: default;
 	 }
 
+	 .gce-change-month,
 	 .gce-change-month {
 	 	display: inline-block;
 	 	text-decoration: none;
