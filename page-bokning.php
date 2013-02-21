@@ -54,20 +54,38 @@
 
 <aside class="three columns sidebar">
 	<div class="box">
-		<h3>Tidigare bokningar</h3>
+	<section>
+		<h3>Kommande bokningar</h3>
 
-		<?php $bookings = get_bookings_for_user($current_user->ID);?>
+		<?php $future_bookings = get_future_bookings_for_user($current_user->ID);?>
 
+		<?php if($future_bookings) : ?>
 		<ul class="simple-list">
-		<?php foreach($bookings as $b) : ?>
-			<li>
-				<h4><?php echo $b->title;?></h4>
-				<p class="meta"><?php echo $b->location;?> <?php sep();?>
-					<?php echo date("Y-m-d H:i", strtotime($b->start_time));?> – <?php echo date("Y-m-d H:i", strtotime($b->end_time));?>
-				</p>
-			</li>
+		<?php foreach($future_bookings as $b) : ?>
+			<?php partial("booking");?>
 		<?php endforeach;?>
 		</ul>
+
+		<?php else : ?>
+		<p class="no-content">Inga kommande bokningar</p>
+		<?php endif;?>
+	</section>
+
+	<section>
+		<h3>Tidigare bokningar</h3>
+
+		<?php $past_bookings = get_past_bookings_for_user($current_user->ID);?>
+
+		<?php if($past_bookings) : ?>
+		<ul class="simple-list">
+		<?php foreach($past_bookings as $b) : ?>
+			<?php partial("booking");?>
+		<?php endforeach;?>
+		</ul>
+		<?php else : ?>
+		<p class="no-content">Inga kommande bokningar</p>
+		<?php endif;?>
+	</section>
 	</div>
 </aside>
 
