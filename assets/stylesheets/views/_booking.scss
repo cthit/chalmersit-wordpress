@@ -26,7 +26,6 @@
 	}
 
 	.booking-dates-container {
-		text-align: center;
 		list-style: none;
 
 		li {
@@ -50,5 +49,11 @@
 
 	.submit-container {
 		text-align: right;
+	}
+
+	.booking-listing {
+		li {
+			cursor: default;
+		}
 	}
 }

@@ -52,7 +52,7 @@
 	</div>
 </aside>
 
-<aside class="three columns sidebar">
+<aside class="three columns sidebar bookings-sidebar">
 	<div class="box">
 	<section>
 		<h3>Kommande bokningar</h3>
@@ -60,7 +60,7 @@
 		<?php $future_bookings = get_future_bookings_for_user($current_user->ID);?>
 
 		<?php if($future_bookings) : ?>
-		<ul class="simple-list">
+		<ul class="booking-listing simple-list">
 		<?php foreach($future_bookings as $b) : ?>
 			<?php partial("booking");?>
 		<?php endforeach;?>
@@ -77,7 +77,7 @@
 		<?php $past_bookings = get_past_bookings_for_user($current_user->ID);?>
 
 		<?php if($past_bookings) : ?>
-		<ul class="simple-list">
+		<ul class="booking-listing simple-list">
 		<?php foreach($past_bookings as $b) : ?>
 			<?php partial("booking");?>
 		<?php endforeach;?>
