@@ -1,8 +1,8 @@
 <?php 
+	if(!is_user_logged_in()) auth_redirect();
+
 	get_header(); 
 	the_post();
-
-	if(!is_user_logged_in()) auth_redirect();
 
 	global $current_user;
 	$subtitle = get_post_meta($post->ID, IT_PREFIX."subtitle", true);
