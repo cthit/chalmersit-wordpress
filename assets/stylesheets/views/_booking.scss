@@ -25,13 +25,18 @@
 		font-size: 1.2em;
 	}
 
-	.booking-dates-container {
+	.booking-dates-container,
+	.phone-and-groups-container {
 		list-style: none;
 
 		li {
 			display: inline-block;
 			margin: 0 .5em;
 		}
+	}
+
+	#user-groups {
+		width: 140px;
 	}
 
 	.contact-details-container {

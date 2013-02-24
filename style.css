@@ -1329,7 +1329,12 @@ table {
 }
 
 /* Uncomment for shadow */
-/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+.tipsy-inner {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 3px 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 10px;
+}
+
 .tipsy-arrow {
   position: absolute;
   width: 0;
@@ -1875,6 +1880,7 @@ input[type="password"],
 input[type="search"],
 input[type="email"],
 input[type="number"],
+input[type="date"],
 textarea {
   -webkit-appearance: none;
   font: normal 90%/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1887,6 +1893,7 @@ input[type="password"].large,
 input[type="search"].large,
 input[type="email"].large,
 input[type="number"].large,
+input[type="date"].large,
 textarea.large {
   padding: 7px 5px;
 }
@@ -1895,6 +1902,7 @@ input[type="password"]:focus,
 input[type="search"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
+input[type="date"]:focus,
 textarea:focus {
   outline: 0;
   border-color: #888;
@@ -1904,6 +1912,7 @@ input[type="password"][disabled],
 input[type="search"][disabled],
 input[type="email"][disabled],
 input[type="number"][disabled],
+input[type="date"][disabled],
 textarea[disabled] {
   color: #697273;
   background-color: #f9f9f9;
@@ -4099,6 +4108,44 @@ li.widget {
  */
 .page-bokning .it-calendar {
   width: 100%;
+}
+.page-bokning article p {
+  margin: 1.5em 0;
+}
+.page-bokning .title-container input {
+  font-size: 1.3em;
+  width: 100%;
+}
+.page-bokning .booking-dates {
+  font-size: 1.2em;
+}
+.page-bokning .booking-dates-container,
+.page-bokning .phone-and-groups-container {
+  list-style: none;
+}
+.page-bokning .booking-dates-container li,
+.page-bokning .phone-and-groups-container li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.page-bokning #user-groups {
+  width: 140px;
+}
+.page-bokning .contact-details-container {
+  list-style: none;
+}
+.page-bokning .contact-details-container input {
+  width: 100%;
+}
+.page-bokning .contact-details-container li {
+  width: 48%;
+  display: inline-block;
+}
+.page-bokning .submit-container {
+  text-align: right;
+}
+.page-bokning .booking-listing li {
+  cursor: default;
 }
 
 /* Buddypress views */
