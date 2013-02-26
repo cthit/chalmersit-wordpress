@@ -302,7 +302,7 @@ function is_past_date($time) {
 }
 
 function is_future_date($time) {
-    return (strtotime($time) > time());
+    return !is_past_date($time);
 }
 
 
