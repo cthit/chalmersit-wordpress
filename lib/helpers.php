@@ -379,6 +379,38 @@ function get_user_role($user) {
 	return ($user) ? $user->roles[0] : false;
 }
 
+
+/* GROUP FUNCTIONS
+
+(requires the Groups plugin)
+-------------------------- */
+
+function is_user_committee_member($user_id) {
+	$groups = get_group_ids_for_user($user_id);
+	return count(array_slice($groups, 1)) > 0;
+}
+
+function get_group_ids_for_user($user_id) {
+	global $wpdb;
+
+	$sql = "SELECT group_id FROM it_groups_user_group WHERE user_id = ".$user_id;
+	$res = $wpdb->get_results($sql);
+	$map = array();
+	$cb = function($item) {
+		return $item->group_id;
+	};
+
+	if($res) {
+		$map = array_map($cb, $res);
+	}
+	else {
+		return null;
+	}
+
+	return $map;
+}
+
+
 /**
 *	Helper debug function. Prints the value of '$debug' in a
 *	code block.

@@ -8,7 +8,9 @@
   .tipsy-inner { border-radius: 2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; }
   
   /* Uncomment for shadow */
-  /*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+  .tipsy-inner {
+    @include box-shadow(rgba(#000, 0.2) 0 3px 10px);
+  }
   
   .tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
   
