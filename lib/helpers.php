@@ -385,12 +385,28 @@ function get_user_role($user) {
 (requires the Groups plugin)
 -------------------------- */
 
+function get_groups() {
+	if(!defined("GROUPS_FILE")) {
+		return null;
+	}
+
+	global $wpdb;
+	$sql = "SELECT group_id, name FROM it_groups_group ORDER BY group_id";
+	$res = $wpdb->get_results($sql);
+
+	return array_slice($res, 1);
+}
+
 function is_user_committee_member($user_id) {
 	$groups = get_group_ids_for_user($user_id);
 	return count(array_slice($groups, 1)) > 0;
 }
 
 function get_group_ids_for_user($user_id) {
+	if(!defined("GROUPS_FILE")) {
+		return null;
+	}
+
 	global $wpdb;
 
 	$sql = "SELECT group_id FROM it_groups_user_group WHERE user_id = ".$user_id;

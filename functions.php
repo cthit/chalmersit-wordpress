@@ -46,7 +46,7 @@ function register_widgets(){
 
 function setup_chalmers() {
 	Booking::addLocations(array("Hubben", "Grupprummet"));
-	Booking::setSuperGroup(4);
+	Booking::setSuperGroup(get_it_option("booking_supergroup"));
 	Booking::setConstraintsForRooms(array(
 		"Hubben" => array(2, 3, 4),
 		"Grupprummet" => array(1) 

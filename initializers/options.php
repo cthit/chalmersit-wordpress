@@ -8,6 +8,12 @@ if(is_admin()) {
 	foreach($categories as $cat) {
 		$choices[$cat->cat_ID] = $cat->cat_name;
 	}
+
+	$all_groups = get_groups();
+	$groups = array();
+	foreach($all_groups as $g) {
+		$groups[$g->group_id] = $g->name;
+	}
 	
 
 	$options = new Theme_Options("chalmersit", array(
@@ -36,6 +42,14 @@ if(is_admin()) {
 		"desc" => "Välj den kategori som innehåller nyheter om lunchföreläsningar.",
 		"type" => "select",
 		"choices" => $choices
+	));
+
+	$options->add_setting("booking_supergroup", array(
+		"title" => "Admingrupp för bokningar",
+		"desc" => "Den grupp som ska kunna overrida bokningar",
+		"section" => "general",
+		"type" => "select",
+		"choices" => $groups
 	));
 
 	$options->add_setting("main_contact_email", array(
