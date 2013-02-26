@@ -203,10 +203,16 @@ class Theme_Options{
 			case 'select':
 				$multi = ($multiple) ? "multiple" : "";
 				$expect_array = ($multiple) ? "[]" : "";
+
 				echo '<select class="select' . $field_class . '" name="'.$this->prefix.'_options[' . $id . ']'.$expect_array.'" '.$multi.'>';
 
 				foreach ( $choices as $value => $label ) {
-					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
+					$selected = selected( $options[$id], $value, false );
+					if($multiple) {
+						$selected = selected(true, in_array($value, $options[$id]), false);
+					}
+
+					echo '<option value="' . esc_attr( $value ) . '"' . $selected . '>' . $label . '</option>';
 				}
 				echo '</select>';
 
