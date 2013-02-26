@@ -3467,6 +3467,7 @@ li.widget {
 }
 .home .quick-buttons a {
   display: block;
+  position: relative;
   text-align: center;
   color: #3c5c5e;
   font-weight: 500;
@@ -3476,9 +3477,14 @@ li.widget {
   opacity: .8;
   width: 100%;
   height: auto;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .home .quick-buttons a:hover {
   opacity: 1.0;
+  top: -5px;
 }
 .home .current-user-info {
   background-color: #fff;
