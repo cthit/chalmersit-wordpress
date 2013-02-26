@@ -120,6 +120,7 @@ class Theme_Options{
 			'step'		=> $step,
 			'choices'   => $choices,
 			'label_for' => $id,
+			'multiple' => $multiple,
 			'class'     => $class
 		);
 
@@ -154,12 +155,12 @@ class Theme_Options{
 				<?php $count++; endforeach;?>
 				
 					</ul>
-
+				</div>
 				<?php endif;?>
 				
 				<?php do_settings_sections( $_GET['page'] ); ?>
 				
-				</div>
+				
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary" value="<?php _e("Spara");?>" />
 				</p>
@@ -186,7 +187,6 @@ class Theme_Options{
 		if ( $class != '' )
 			$field_class = " " .$class;
 
-
 		switch ( $type ) {
 			case 'heading':
 				echo '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
@@ -201,11 +201,13 @@ class Theme_Options{
 			
 	
 			case 'select':
-				echo '<select class="select' . $field_class . '" name="'.$this->prefix.'_options[' . $id . ']">';
+				$multi = ($multiple) ? "multiple" : "";
+				$expect_array = ($multiple) ? "[]" : "";
+				echo '<select class="select' . $field_class . '" name="'.$this->prefix.'_options[' . $id . ']'.$expect_array.'" '.$multi.'>';
 
-				foreach ( $choices as $value => $label )
+				foreach ( $choices as $value => $label ) {
 					echo '<option value="' . esc_attr( $value ) . '"' . selected( $options[$id], $value, false ) . '>' . $label . '</option>';
-
+				}
 				echo '</select>';
 
 				if ( $desc != '' )

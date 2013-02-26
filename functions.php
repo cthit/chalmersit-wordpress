@@ -48,8 +48,8 @@ function setup_chalmers() {
 	Booking::addLocations(array("Hubben", "Grupprummet"));
 	Booking::setSuperGroup(get_it_option("booking_supergroup"));
 	Booking::setConstraintsForRooms(array(
-		"Hubben" => array(2, 3, 4),
-		"Grupprummet" => array(1) 
+		"Hubben" => get_it_option("booking_hubben_groups"),
+		"Grupprummet" => array(1)
 	));
 
 	add_theme_support("menus");

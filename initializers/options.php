@@ -52,6 +52,15 @@ if(is_admin()) {
 		"choices" => $groups
 	));
 
+	$options->add_setting("booking_hubben_groups", array(
+		"title" => "Grupper för Hubben",
+		"desc" => "Välj de grupper som kan boka hubben (håll inne CMD/CTRL för att välja flera)",
+		"section" => "general",
+		"type" => "select",
+		"multiple" => true,
+		"choices" => $groups
+	));
+
 	$options->add_setting("main_contact_email", array(
 		"title" => "Mail till huvudkontakt",
 		"std" => "styrit@chalmers.it",
