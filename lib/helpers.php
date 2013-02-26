@@ -385,7 +385,7 @@ function get_user_role($user) {
 (requires the Groups plugin)
 -------------------------- */
 
-function get_groups() {
+function get_groups($skip_registered = true) {
 	if(!defined("GROUPS_FILE")) {
 		return null;
 	}
@@ -394,7 +394,7 @@ function get_groups() {
 	$sql = "SELECT group_id, name FROM it_groups_group ORDER BY group_id";
 	$res = $wpdb->get_results($sql);
 
-	return array_slice($res, 1);
+	return ($skip_registered) ? array_slice($res, 1) : $res;
 }
 
 function is_user_committee_member($user_id) {
