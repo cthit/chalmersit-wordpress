@@ -21,7 +21,7 @@ function javascript_path($file) {
 
 function css_path($file) {
 	$f = append_extension($file, ".css");
-	echo asset_path("/stylesheets/".$f);
+	echo asset_path("/css/".$f);
 }
 
 function append_extension($file, $ext) {
