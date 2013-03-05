@@ -67,11 +67,17 @@
 
 <?php wp_footer(); ?>
 
+<?php if(is_production()) : ?>
+
+<script src="<?php javascript_path("all.min");?>"></script>
+
+<?php else : ?>
 <script src="<?php javascript_path("jquery.smoothscroll");?>"></script>
 <script src="<?php javascript_path("jquery.autosize");?>"></script>
 <script src="<?php javascript_path("jquery.tipsy");?>"></script>
-<script src="<?php javascript_path("chalmersit.courses.js");?>"></script>
+<script src="<?php javascript_path("chalmersit.courses");?>"></script>
 <script src="<?php javascript_path("chalmersit");?>"></script>
+<?php endif;?>
 
 <?php if(is_home()):?>
 <script type="text/javascript">
