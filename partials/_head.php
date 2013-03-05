@@ -20,8 +20,12 @@
 	<![endif]-->
 	
 	<!-- Main stylesheet -->
+	<?php if(is_development()) : ?>
 	<link rel="stylesheet" href="<?php bloginfo("stylesheet_url");?>" />
-
+	<?php else : ?>
+	<link rel="stylesheet" href="<?php css_path("style");?>" />
+	<?php endif;?>
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<?php if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ):?>
 	<?php wp_enqueue_script( 'comment-reply' ); ?>
