@@ -1,6 +1,6 @@
 /*
 	Javascript functions for Chalmers.it
-	
+
 -------------------------------------------- */
 
 var Chalmers = (function(it) {
@@ -16,11 +16,11 @@ var Chalmers = (function(it) {
 					if (!full_url.match('^https?:\/\/')) {
 						full_url = 'http://' + full_url;
 					}
-					
+
 					return '<a href="' + full_url + '">' + url + '</a>';
 				});
 		    }
-		    
+
 		    return text;
 	};
 
@@ -58,12 +58,12 @@ var Chalmers = (function(it) {
 	Simple jQuery tabs plugin
 */
 (function($){
-	
+
 	$.fn.tabs = function(options){
 		if(options.tabContainer === undefined){
 			return false;
 		}
-		
+
 		var nav = $(this),
 			settings = {
 				activeClass: "current",
@@ -71,37 +71,37 @@ var Chalmers = (function(it) {
 				hashPrefix: "tab-",
 				el: "a"
 			};
-		
+
 		settings = $.extend({}, settings, options);
-		
+
 		return this.each(function(){
 			var $tabContainers = $(settings.tabContainer),
 				hash = location.hash && ("#"+ settings.hashPrefix + location.hash.replace("#","")),
 				which = (settings.useHash && hash) || ":first";
 
 			$tabContainers.hide().filter(which).show();
-			
+
 			$(this).find(settings.el).on("click", function(evt){
 				evt.preventDefault();
 				var tab = $tabContainers.filter(this.hash);
 
 				$tabContainers.hide();
 				tab.show();
-					
+
 				nav.find(settings.el).removeClass(settings.activeClass);
 				$(this).addClass(settings.activeClass);
 				location.hash = tab.attr("id").replace(settings.hashPrefix, "");
-				
+
 			});
 
 			if(which == ":first")
 				$(this).find(settings.el).filter(which).click();
 			else
 				$(this).find(settings.el).filter('[href="'+which+'"]').click();
-			
+
 		});
 	};
-	
+
 })(jQuery);
 
 
@@ -143,7 +143,7 @@ var Chalmers = (function(it) {
 					else {
 						$button.text("Inga fler nyheter finns").attr("disabled", true);
 					}
-						
+
 				});
 			}
 		});
@@ -185,7 +185,7 @@ $(function() {
 	.on("input", function(evt) {
 		var text = $(this).val(),
 			$submit = $(this).next(".comment-submit").find("#submit");
-		
+
 		$submit.attr("disabled", (text === ""));
 	});
 
@@ -199,7 +199,7 @@ $(function() {
 		});
 	};
 
-	// Tooltips 
+	// Tooltips
 	$('[rel="tooltip"]').tipsy({
 		gravity: 's',
 		offset: 5
