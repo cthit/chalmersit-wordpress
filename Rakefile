@@ -8,25 +8,21 @@ JS_DIR = 'assets/javascripts'
 namespace :css do
 
 	desc "Compile, minify, and add header to CSS"
-	task :all => [:minify, :header] do
+	task :all => [:minify] do
 	end
 
-	desc "Compile SCSS to CSS"
+	desc "Compile SCSS to CSS for development mode"
 	task :compile do
 		puts `compass compile --force`
 		puts "* SCSS compiled to CSS"
+		add_wp_header "style.css"
 	end
 
-	desc "Compile SCSS to minified CSS"
+	desc "Compile SCSS to minified CSS for production mode"
 	task :minify do
 		puts `compass compile -e production --force --css-dir assets/css`
 		puts "* SCSS minified to CSS"
-	end
-
-	desc "Add the Wordpress header info to the main CSS file"
-	task :header do
-		add_wp_header "style.css"
-		puts "* The Wordpress header was added"
+		add_wp_header "assets/css/cstyle.css"
 	end
 
 end
