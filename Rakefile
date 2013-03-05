@@ -19,7 +19,7 @@ namespace :css do
 
 	desc "Compile SCSS to minified CSS"
 	task :minify do
-		puts `compass compile . -e production --force`
+		puts `compass compile -e production --force --css-dir assets/css`
 		puts "* SCSS minified to CSS"
 	end
 
