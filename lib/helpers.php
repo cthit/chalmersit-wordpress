@@ -15,13 +15,22 @@ function img_url($img) {
 }
 
 function javascript_path($file) {
-	if(substr($file, -3) != ".js") {
-		$file = $file . ".js";
-	}
-
-	echo asset_path("/javascripts/".$file);
+	$f = append_extension($file, ".js");
+	echo asset_path("/javascripts/".$f);
 }
 
+function css_path($file) {
+	$f = append_extension($file, ".css");
+	echo asset_path("/stylesheets/".$f);
+}
+
+function append_extension($file, $ext) {
+	if(substr($file, -strlen($ext)) != $ext) {
+		$file = $file . $ext;
+	}
+
+	return $file;
+}
 
 function sep($symbol = "|") {
 	echo get_sep($symbol);
@@ -272,6 +281,14 @@ function get_menu_by_location( $location ) {
 
 /* CUSTOM CONDITIONAL TAGS 
 ----------------------- */
+
+function is_production() {
+	return ENV == PRODUCTION;
+}
+
+function is_development() {
+	return !is_production();
+}
 
 /**
 *	Check if the current (or provided parameter) post's category
