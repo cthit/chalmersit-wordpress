@@ -1438,13 +1438,16 @@ table {
 
 /* =TABS
 ------------------------------------ */
-.tabs {
+.tabs,
+.bookingtabs {
   list-style: none;
 }
-.tabs li {
+.tabs li,
+.bookingtabs li {
   display: inline-block;
 }
-.tabs a {
+.tabs a,
+.bookingtabs a {
   display: block;
   padding: 0.4em 1em;
   text-align: center;
@@ -1461,11 +1464,13 @@ table {
   border: 1px solid #dddddd;
   border-width: 1px 1px 0;
 }
-.tabs a:hover {
+.tabs a:hover,
+.bookingtabs a:hover {
   text-decoration: none;
   color: #555;
 }
-.tabs a.tab-current {
+.tabs a.tab-current,
+.bookingtabs a.tab-current {
   cursor: default;
   color: #13aaea;
 }
@@ -4112,8 +4117,42 @@ li.widget {
 	BOOKINGS
 	--------------------------------
  */
+.page-bokning .bookingtabs {
+  text-align: right;
+}
 .page-bokning .it-calendar {
   width: 100%;
+}
+.page-bokning .booking-list {
+  list-style: none;
+}
+.page-bokning .booking-list dl {
+  margin: 0;
+  display: table;
+}
+.page-bokning .booking-list dt, .page-bokning .booking-list dd {
+  display: table-cell;
+  padding-right: 10px;
+}
+.page-bokning .booking-list li {
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: 1px solid #dddddd;
+}
+.page-bokning .booking-list li:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.page-bokning .booking-list li:hover {
+  background-color: #e8f5fa;
+}
+.page-bokning .booking-list .booking-details {
+  padding: .5em;
+  background-color: #dedede;
+  margin: 5px -5px -5px;
+  color: #323232;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.2) 0 2px 3px;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.2) 0 2px 3px;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 2px 3px;
 }
 .page-bokning article p {
   margin: 1.5em 0;
