@@ -4165,11 +4165,13 @@ li.widget {
   font-size: 1.2em;
 }
 .page-bokning .booking-dates-container,
-.page-bokning .phone-and-groups-container {
+.page-bokning .phone-and-groups-container,
+.page-bokning .party-info-container {
   list-style: none;
 }
 .page-bokning .booking-dates-container li,
-.page-bokning .phone-and-groups-container li {
+.page-bokning .phone-and-groups-container li,
+.page-bokning .party-info-container li {
   display: inline-block;
   margin: 0 0.5em;
 }

@@ -45,12 +45,15 @@ function register_widgets(){
 }
 
 function setup_chalmers() {
-	Booking::addLocations(array("Hubben", "Grupprummet"));
-	Booking::setSuperGroup(get_it_option("booking_supergroup"));
-	Booking::setConstraintsForRooms(array(
-		"Hubben" => get_it_option("booking_hubben_groups"),
-		"Grupprummet" => array(1)
-	));
+	if(class_exists("Booking")) {
+		Booking::addLocations(array("Hubben", "Grupprummet"));
+		Booking::setSuperGroup(get_it_option("booking_supergroup"));
+		Booking::setConstraintsForRooms(array(
+			"Hubben" => get_it_option("booking_hubben_groups"),
+			"Grupprummet" => array(1)
+		));
+	}
+	
 
 	add_theme_support("menus");
 	add_theme_support("post-formats");
