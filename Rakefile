@@ -1,7 +1,7 @@
 require 'rake'
 require 'tempfile'
 
-JS_FILES = %w{jquery.smoothscroll jquery.autosize jquery.tipsy chalmersit.courses chalmersit}
+JS_FILES = %w{jquery.smoothscroll jquery.autosize jquery.tipsy jquery.modal chalmersit.courses chalmersit}
 
 JS_DIR = 'assets/javascripts'
 
