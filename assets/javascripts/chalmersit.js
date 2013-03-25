@@ -165,6 +165,32 @@ $(function() {
 	});
 
 
+	// Create modal for the avatar upload on Profile page
+	$("#user-avatar-link").on("click", function(evt){
+		evt.preventDefault();
+		var iframe = $("<iframe />", {
+			src: this.href,
+			scrolling: "no",
+			id: "avatar-iframe",
+			frameborder: "no",
+			allowTransparency: "true"
+		});
+
+		$("#avatar-modal").append(iframe).modal("show");
+	});
+
+	// Wipe avatar modal on hide
+	$("#avatar-modal").on("hidden", function() {
+		$(this).find("iframe").remove();
+	});
+	
+	$("#avatar-iframe").contents().find("#user-avatar-step3-close")
+	.removeAttr("onclick")
+	.live("click", function(evt) {
+		evt.preventDefault();
+		$("#avatar-modal").hide();
+	});
+
 	// Set up smooth scrolling links
 	$(".smooth").smoothScroll({
 		offset: -100

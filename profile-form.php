@@ -162,4 +162,8 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 			<input type="submit" class="large" value="Uppdatera profil" name="submit" />
 		</p>
 	</form>
+
+	<section class="modal" id="avatar-modal">
+		<a class="close" data-dismiss="modal">×</a>
+	</section>
 </section>
