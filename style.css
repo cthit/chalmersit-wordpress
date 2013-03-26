@@ -3418,6 +3418,101 @@ li.widget {
   margin-top: 0;
 }
 
+.footer-widgets img {
+  max-width: 50%;
+  opacity: .7;
+}
+.footer-widgets img:hover {
+  opacity: 1.0;
+}
+
+/*
+	MODALS
+ */
+.modal {
+  display: none;
+  width: 80%;
+  top: 5%;
+  left: 50%;
+  margin-left: -40%;
+  z-index: 1000;
+  padding: 2%;
+  background-color: #fff;
+  position: fixed;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 6px 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 20px;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.modal .close {
+  position: absolute;
+  display: inline-block;
+  right: -.2em;
+  top: -.2em;
+  text-decoration: none !important;
+  font-size: 2em;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px;
+  box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: 2px solid white;
+  width: 1em;
+  height: 1em;
+  line-height: .7;
+}
+.modal .close:hover {
+  background-color: #2ca0d1;
+}
+.modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.modal.in {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  background-color: transparent;
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-radial-gradient(center center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  background-image: -moz-radial-gradient(center center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  background-image: -o-radial-gradient(center center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+  background-image: radial-gradient(center center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+}
+
+#avatar-modal {
+  width: 60%;
+  margin-left: -30%;
+  height: 40.5em;
+}
+
 /*	=FRONT PAGE
 ----------------------------------------------------------------------*/
 .home {
@@ -4166,12 +4261,12 @@ li.widget {
 }
 .page-bokning .booking-dates-container,
 .page-bokning .phone-and-groups-container,
-.page-bokning .party-info-container {
+.page-bokning .party-info-container ul {
   list-style: none;
 }
 .page-bokning .booking-dates-container li,
 .page-bokning .phone-and-groups-container li,
-.page-bokning .party-info-container li {
+.page-bokning .party-info-container ul li {
   display: inline-block;
   margin: 0 0.5em;
 }

@@ -22,3 +22,14 @@ li.widget {
 .widgets-list {
 	margin-top: 0;
 }
+
+.footer-widgets {
+	img {
+		max-width: 50%;
+		opacity: .7;
+
+		&:hover {
+			opacity: 1.0;
+		}
+	}
+}
