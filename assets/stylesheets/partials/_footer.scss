@@ -58,3 +58,8 @@
 		}
 	}
 }
+
+.footer-nav {
+	@include column-count(2);
+}
+

@@ -28,7 +28,7 @@
 				<?php wp_nav_menu(array(
 					"theme_location" => "footer_navigation",
 					"container_class" => "",
-					"menu_class" => "",
+					"menu_class" => "footer-nav",
 					"container" => false
 				)); ?>
 			</nav>

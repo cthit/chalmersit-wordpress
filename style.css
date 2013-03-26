@@ -2773,6 +2773,14 @@ body.logged-in [role="banner"] .header-controls .user-details {
   margin-bottom: 0;
 }
 
+.footer-nav {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+}
+
 [role="article"] header .meta {
   font-size: .9em;
   margin: 1.5em 0;
@@ -3419,6 +3427,10 @@ li.widget {
 }
 
 .footer-widgets img {
+  -webkit-transition: opacity 0.15s ease-out;
+  -moz-transition: opacity 0.15s ease-out;
+  -o-transition: opacity 0.15s ease-out;
+  transition: opacity 0.15s ease-out;
   max-width: 50%;
   opacity: .7;
 }
