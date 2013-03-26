@@ -63,6 +63,11 @@
 						<dt>Antagningsår</dt>
 						<dd><?php echo $meta['it_year'][0];?></dd>
 						<?php endif;?>
+
+						<?php if($meta['it_phone'][0]) : ?>
+						<dt>Telefon</dt>
+						<dd><?php echo $meta['it_phone'][0];?></dd>
+						<?php endif;?>
 					</dl>
 				</li>
 
