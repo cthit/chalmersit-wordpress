@@ -16,6 +16,11 @@
 	display: block;
 }
 
+a.block:hover {
+	text-decoration: none;
+	border: 0;
+}
+
 .box {
 	@include box;
 }

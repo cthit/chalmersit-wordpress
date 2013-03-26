@@ -12,17 +12,19 @@
 
 </section> <!-- role main end -->
 
-<footer role="contentinfo">
+<footer role="contentinfo" itemscope itemtype="http://schema.org/EducationalOrganization">
 	<div class="wrapper group">
 		<section class="four columns">
-			<hgroup>
-				<h1>
-					Informationsteknik
-				</h1>
-				<h2>
-					Chalmers Tekniska Högskola
-				</h2>
-			</hgroup>
+			<a class="block footer-home-link" href="<?php bloginfo("url");?>">
+				<hgroup itemprop="description">
+					<h1>
+						Informationsteknik
+					</h1>
+					<h2>
+						Chalmers Tekniska Högskola
+					</h2>
+				</hgroup>
+			</a>
 			
 			<nav>
 				<?php wp_nav_menu(array(
@@ -37,12 +39,22 @@
 		<section class="four columns">
 			<dl>
 				<dt>Kontakt</dt>
-				<dd><?php it_option("main_contact_email");?></dd>
+				<dd><a href="mailto:<?php it_option("main_contact_email");?>"><?php it_option("main_contact_email");?></a></dd>
 				
 				<dt>Postadress</dt>
-				<dd><?php it_option("contact_official_name");?><br />
-				<?php it_option("contact_address");?><br />
-				<?php it_option("postal_code");?> <?php it_option("locality");?></dd>
+				<dd itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<span itemprop="name"><?php it_option("contact_official_name");?></span><br />
+					<span itemprop="streetAddress"><?php it_option("contact_address");?></span><br />
+					<span itemprop="postalCode"><?php it_option("postal_code");?></span>
+					<span itemprop="addressLocality"><?php it_option("locality");?></span>
+				</dd>
+
+				<dt>Besöksadress</dt>
+				<dd><a href="https://maps.google.se/maps?f=q&source=s_q&hl=sv&geocode=&q=H%C3%B6rsalsv%C3%A4gen+9,+412+58+G%C3%B6teborg,+V%C3%A4stra+G%C3%B6talands+l%C3%A4n&aq=&sll=57.688606,11.979255&sspn=0.001761,0.005059&vpsrc=0&ie=UTF8&hq=&hnear=H%C3%B6rsalsv%C3%A4gen+9,+412+58+G%C3%B6teborg&ll=57.688288,11.979454&spn=0.007042,0.020235&t=m&z=16&iwloc=A">
+					Hubben 2.1<br />
+					Hörsalsvägen 6<br />
+					412 58 Göteborg
+				</a></dd>
 			</dl>
 		</section>
 		

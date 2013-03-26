@@ -28,6 +28,12 @@
 		color: $teal;
 		text-align: center;
 		text-shadow: rgba(#000, .8) 0 2px 0;
+		@include transition(color .15s ease-out);
+
+		&:hover {
+			color: lighten($teal, 10%);
+			text-shadow: rgba(#000, .8) 0 2px 0, rgba($teal, .5) 0 0 20px;
+		}
 	}
 	
 	dl {
