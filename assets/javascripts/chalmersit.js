@@ -183,7 +183,7 @@ $(function() {
 	$("#avatar-modal").on("hidden", function() {
 		$(this).find("iframe").remove();
 	});
-	
+
 	$("#avatar-iframe").contents().find("#user-avatar-step3-close")
 	.removeAttr("onclick")
 	.live("click", function(evt) {
