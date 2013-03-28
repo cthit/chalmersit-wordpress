@@ -30,12 +30,19 @@ nav.side-nav {
 	}
 
 	li.current_page_item a {
-		background-color: darken($teal, 10%);
-		@include box-shadow(rgba(#000, .1) -1px -2px 4px);
-		margin-right: -8px;
-		color: #fff;
+		//background-color: darken($teal, 10%);
+		//@include box-shadow(rgba(#000, .1) -1px -2px 4px);
+		//margin-right: -8px;
+		color: #999;
 		position: relative;
+		cursor: default;
 
+		&:hover {
+			background: none;
+			color: #999;
+		}
+
+		/*
 		&::after {
 			position: absolute;
 			display: block;
@@ -45,6 +52,7 @@ nav.side-nav {
 			top: -4px;
 			right: 1px;
 		}
+		*/
 	}
 
 	
