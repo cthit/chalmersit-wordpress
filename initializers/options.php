@@ -9,13 +9,14 @@ if(is_admin()) {
 		$choices[$cat->cat_ID] = $cat->cat_name;
 	}
 
-	$all_groups = get_groups();
-	$groups = array();
-	foreach($all_groups as $g) {
-		$groups[$g->group_id] = $g->name;
+	if(defined("GROUPS_FILE")) {
+		$all_groups = get_groups();
+		$groups = array();
+		foreach($all_groups as $g) {
+			$groups[$g->group_id] = $g->name;
+		}
 	}
 	
-
 	$options = new Theme_Options("chalmersit", array(
 		array("handle" => "general", "title" => __("Allmänna inställningar") )
 	));
