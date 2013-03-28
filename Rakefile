@@ -22,7 +22,7 @@ namespace :css do
 	task :minify do
 		puts `compass compile -e production --force --css-dir assets/css`
 		puts "* SCSS minified to CSS"
-		add_wp_header "assets/css/cstyle.css"
+		add_wp_header "assets/css/style.css"
 	end
 
 end
