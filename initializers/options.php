@@ -3,7 +3,7 @@
 if(is_admin()) {
 
 	# For choosing categories for the lunch lecture posts
-	$categories = get_categories();
+	$categories = get_categories("hide_empty=0");
 	$choices = array();
 	foreach($categories as $cat) {
 		$choices[$cat->cat_ID] = $cat->cat_name;
