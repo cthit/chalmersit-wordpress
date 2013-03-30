@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if(is_admin()) {
 
@@ -9,8 +9,11 @@ if(is_admin()) {
 		$choices[$cat->cat_ID] = $cat->cat_name;
 	}
 
-	if(defined("GROUPS_FILE")) {
-		$all_groups = get_groups();
+	if(defined("SCOPER_VERSION")) {
+		global $wpdb;
+		$sql = "SELECT ID AS group_id, group_name AS name FROM it_groups_rs WHERE group_name NOT LIKE '\[%\]'";
+		$all_groups = $wpdb->get_results($sql);
+
 		$groups = array();
 		foreach($all_groups as $g) {
 			$groups[$g->group_id] = $g->name;
