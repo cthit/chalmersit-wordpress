@@ -29,7 +29,7 @@ task :stage do
 	]
 
 	puts `#{commands.join(" && ")}`
-	puts "* Deployed to staging (#{config['environments']['staging']['url']})"
+	puts "* Deployed to staging (#{config['environments']['staging']['url']})".green
 end
 
 desc "Deploy to production"
@@ -50,8 +50,7 @@ task :deploy => ["css:all", "javascript:all"] do
 		"git stash pop"
 	]
 
-	puts "Should not come here.."
-	#puts `#{commands.join(" && ")}`
+	puts `#{commands.join(" && ")}`
 	puts "* Deployed to production (#{config['environments']['live']['url']})".green
 end
 
