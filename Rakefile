@@ -16,7 +16,6 @@ JS_DIR = 'assets/javascripts'
 
 desc "Deploy to staging"
 task :stage do
-	puts `git push origin staging`
 	puts `git push origin #{config['environments']['staging']['branch']}`
 	puts "* Deployed to staging (#{config['environments']['staging']['url']})"
 end
