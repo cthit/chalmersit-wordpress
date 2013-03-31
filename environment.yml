@@ -13,5 +13,6 @@ environments:
   live:
     url: http://live.chalmers.it
     branch: live
+    commit_message: "[auto] Compile CSS and JS"
     javascripts:
       - all

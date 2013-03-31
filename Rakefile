@@ -39,9 +39,11 @@ task :deploy => ["css:all", "javascript:all"] do
 		exit
 	end
 
+	commit_msg = config['environments']['live']['commit_message']
+
 	commands = [
-		"git add assets/css/style.css #{File.join(JS_DIR, "all.min.js")}",
-		"git commit assets/css/style.css #{File.join(JS_DIR, "all.min.js")} -m 'Compile CSS and JS'",
+		"git add assets/css/style.css #{File.join(JS_DIR, MASTER_JS_FILE+".min.js")}",
+		"git commit assets/css/style.css #{File.join(JS_DIR, MASTER_JS_FILE+".min.js")} -m '#{commit_msg}'",
 		"git stash",
 		"git checkout #{production_branch}", 
 		"git merge #{stage_branch}", 
