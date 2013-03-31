@@ -6,8 +6,12 @@
 
 require 'rake'
 require 'tempfile'
+require 'yaml'
 
-JS_FILES = %w{jquery.smoothscroll jquery.autosize jquery.tipsy jquery.modal chalmersit.courses chalmersit}
+config = YAML.load_file 'environment.yml'
+
+JS_FILES = config['environments']['staging']['javascripts']
+MASTER_JS_FILE = config['environments']['live']['javascripts'].first
 JS_DIR = 'assets/javascripts'
 
 namespace :css do
@@ -49,7 +53,7 @@ namespace :javascript do
 
 	desc "Concatenate all Javascript files"
 	task :concat, [:filename] => :whitespace do |task, args|
-		title = args[:filename].nil? ? "all.js" : args[:filename] + ".js"
+		title = args[:filename].nil? ? "#{MASTER_JS_FILE}.js" : "#{args[:filename]}.js"
 
 		File.open(File.join(JS_DIR, title), 'w') do |f|
 			JS_FILES.map do |component|
@@ -63,7 +67,7 @@ namespace :javascript do
 
 	desc "Generate a minified version for distribution"
 	task :minify, [:filename, :minifier] do |task, args|
-		js_file = args[:filename].nil? ? "all.js" : args[:filename] + ".js"
+		js_file = args[:filename].nil? ? "#{MASTER_JS_FILE}.js" : "#{args[:filename]}.js"
 		minifier = args[:minifier].nil? ? "closure" : args[:minifier]
 
 		src, target = File.join(JS_DIR, js_file), File.join(JS_DIR, output_filename(js_file))

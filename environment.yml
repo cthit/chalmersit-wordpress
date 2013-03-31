@@ -1,0 +1,17 @@
+environments:
+  staging:
+    url: http://beta.chalmers.it
+    branch: staging
+    javascripts:
+      - jquery.smoothscroll
+      - jquery.autosize
+      - jquery.tipsy
+      - jquery.modal
+      - chalmersit.courses
+      - chalmersit
+
+  live:
+    url: http://live.chalmers.it
+    branch: live
+    javascripts:
+      - all
