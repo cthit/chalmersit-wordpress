@@ -1,8 +1,13 @@
+# Rake tasks for Chalmers.it Wordpress theme
+# 
+# Does things like JS concatenation and minification and CSS compiling. 
+# 
+# Remember to add any new JS files to the JS_FILES array below.
+
 require 'rake'
 require 'tempfile'
 
 JS_FILES = %w{jquery.smoothscroll jquery.autosize jquery.tipsy jquery.modal chalmersit.courses chalmersit}
-
 JS_DIR = 'assets/javascripts'
 
 namespace :css do
@@ -123,12 +128,14 @@ def normalize_whitespace(filename)
   end
 end
 
+# Minify JS with Google's Closure compiler
 
 def google_compiler(src, target)
   puts "Minifying #{src} with Google Closure Compiler..."
   `java -jar #{JS_DIR}/compressors/google-compiler/compiler.jar --js #{src} --summary_detail_level 3 --js_output_file #{target}`
 end
 
+# Minify JS with UglifyJS
 
 def uglifyjs(src, target)
   begin
@@ -148,6 +155,8 @@ def uglifyjs(src, target)
 end
 
 
+# Custom monkey patching in order to get File to support a prepend 
+# operation to the beginning of the file.
 
 class File
   def self.prepend(path, string)
