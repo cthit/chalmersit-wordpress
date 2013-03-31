@@ -14,7 +14,32 @@ JS_FILES = config['environments']['staging']['javascripts']
 MASTER_JS_FILE = config['environments']['live']['javascripts'].first
 JS_DIR = 'assets/javascripts'
 
+desc "Deploy to staging"
+task :stage do
+	puts `git push origin staging`
+	puts `git push origin #{config['environments']['staging']['branch']}`
+	puts "* Deployed to staging (#{config['environments']['staging']['url']})"
+end
+
+desc "Deploy to production"
+task :deploy => ["clean", "css:all", "javascript:all"] do
+	puts `git commit assets/css/style.css #{File.join(JS_DIR, "all.min.js")} -m "Compile CSS and JS"`
+	puts `git push origin #{config['environments']['live']['branch']}`
+	puts "* Deployed to production (#{config['environments']['live']['url']})"
+end
+
+desc "Remove all generated CSS and Javascript files"
+task :clean => ['css:clean', 'javascript:clean'] do
+	puts "* Cleaned all files"
+end
+
 namespace :css do
+
+	desc "Remove generated files"
+	task :clean do
+		puts `rm -rf assets/css/style.css`
+		puts `rm -rf ./style.css`
+	end
 
 	desc "Compile, minify, and add header to CSS"
 	task :all => [:minify] do
@@ -38,8 +63,16 @@ end
 
 namespace :javascript do
 
+
 	desc "Concatenate Javascript files and minify into a single file"
-	task :all => [:concat, :minify] do
+	task :all => [:clean, :concat, :minify] do
+	end
+
+
+	desc "Remove generated Javascript files"
+	task :clean do
+		puts `rm -rf #{File.join(JS_DIR, "all.min.js")}`
+		puts `rm -rf #{File.join(JS_DIR, "all.js")}`
 	end
 
 	desc "Strip trailing whitespace and ensure each file ends with newline"
