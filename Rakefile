@@ -10,26 +10,54 @@ require 'yaml'
 
 config = YAML.load_file 'environment.yml'
 
+stage_branch = config['environments']['staging']['branch']
+production_branch = config['environments']['live']['branch']
+
 JS_FILES = config['environments']['staging']['javascripts']
 MASTER_JS_FILE = config['environments']['live']['javascripts'].first
 JS_DIR = 'assets/javascripts'
 
 desc "Deploy to staging"
 task :stage do
-	puts `git push origin #{config['environments']['staging']['branch']}`
+	commands = [
+		"git stash", 
+		"git checkout #{stage_branch}", 
+		"git merge master", 
+		"git push origin #{stage_branch}",
+		"git checkout master",
+		"git stash pop"
+	]
+
+	puts `#{commands.join(" && ")}`
 	puts "* Deployed to staging (#{config['environments']['staging']['url']})"
 end
 
 desc "Deploy to production"
-task :deploy => ["clean", "css:all", "javascript:all"] do
-	puts `git commit assets/css/style.css #{File.join(JS_DIR, "all.min.js")} -m "Compile CSS and JS"`
-	puts `git push origin #{config['environments']['live']['branch']}`
-	puts "* Deployed to production (#{config['environments']['live']['url']})"
+task :deploy => ["css:all", "javascript:all"] do
+	if current_branch != stage_branch
+		puts "ERROR: ".red + "Cannot deploy from other branches than #{stage_branch}!\nAborting push ..."
+		exit
+	end
+
+	commands = [
+		"git add assets/css/style.css #{File.join(JS_DIR, "all.min.js")}",
+		"git commit assets/css/style.css #{File.join(JS_DIR, "all.min.js")} -m 'Compile CSS and JS'",
+		"git stash",
+		"git checkout #{production_branch}", 
+		"git merge #{stage_branch}", 
+		"git push origin #{production_branch}",
+		"git checkout #{stage_branch}",
+		"git stash pop"
+	]
+
+	puts "Should not come here.."
+	#puts `#{commands.join(" && ")}`
+	puts "* Deployed to production (#{config['environments']['live']['url']})".green
 end
 
 desc "Remove all generated CSS and Javascript files"
 task :clean => ['css:clean', 'javascript:clean'] do
-	puts "* Cleaned all files"
+	puts "* Cleaned all files".yellow
 end
 
 namespace :css do
@@ -47,14 +75,14 @@ namespace :css do
 	desc "Compile SCSS to CSS for development mode"
 	task :compile do
 		puts `compass compile --force`
-		puts "* SCSS compiled to CSS"
+		puts "* SCSS compiled to CSS".yellow
 		add_wp_header "style.css"
 	end
 
 	desc "Compile SCSS to minified CSS for production mode"
 	task :minify do
 		puts `compass compile -e production --force --css-dir assets/css`
-		puts "* SCSS minified to CSS"
+		puts "* SCSS minified to CSS".yellow
 		add_wp_header "assets/css/style.css"
 	end
 
@@ -80,7 +108,7 @@ namespace :javascript do
 			normalize_whitespace(filename) if File.file?(filename)
 		end
 
-		puts "* Normalized whitespace"
+		puts "* Normalized whitespace".yellow
 	end
 
 	desc "Concatenate all Javascript files"
@@ -94,7 +122,7 @@ namespace :javascript do
 			end
 		end
 
-		puts "* Mashed together all files into '#{title}'"
+		puts "* Mashed together all files into '#{title}'".yellow
 	end
 
 	desc "Generate a minified version for distribution"
@@ -116,6 +144,11 @@ end
 
 
 # Helpers
+
+def current_branch
+	branch = `git branch`.split("\n").map { |i| i.strip }.delete_if {|i| i.chars.first != "*"}
+	branch.first.delete("*").strip
+end
 
 def add_wp_header(file)
   header = <<-HTML
@@ -167,7 +200,7 @@ end
 # Minify JS with Google's Closure compiler
 
 def google_compiler(src, target)
-  puts "Minifying #{src} with Google Closure Compiler..."
+  puts "Minifying #{src} with Google Closure Compiler...".pink
   `java -jar #{JS_DIR}/compressors/google-compiler/compiler.jar --js #{src} --summary_detail_level 3 --js_output_file #{target}`
 end
 
@@ -185,11 +218,37 @@ def uglifyjs(src, target)
     end
     return false
   end
-  puts "Minifying #{File.basename(src)} with UglifyJS..."
+  puts "Minifying #{File.basename(src)} with UglifyJS...".pink
   File.open(target, "w"){|f| f.puts Uglifier.new.compile(File.read(src))}
-  puts "* Minified into '#{File.basename(target)}'"
+  puts "* Minified into '#{File.basename(target)}'".yellow
 end
 
+
+# Custom monkey patching for String class in order 
+# to support colorized output
+
+class String
+  # colorization
+  def colorize(color_code)
+    "\e[#{color_code}m#{self}\e[0m"
+  end
+
+  def red
+    colorize(31)
+  end
+
+  def green
+    colorize(32)
+  end
+
+  def yellow
+    colorize(33)
+  end
+
+  def pink
+    colorize(35)
+  end
+end
 
 # Custom monkey patching in order to get File to support a prepend 
 # operation to the beginning of the file.
