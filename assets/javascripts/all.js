@@ -1244,6 +1244,10 @@ $(function() {
 		}
 	});
 
+	// Setup the main navigation toggle when on smaller screens
+	$("#main-nav-toggle").on("click", function(evt) {
+		$(".inner-bar").slideToggle(200);
+	});
 
 	// Show comment controls on comment textarea focus
 	$("#comment")
