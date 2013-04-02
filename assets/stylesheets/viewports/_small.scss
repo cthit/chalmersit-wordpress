@@ -131,10 +131,11 @@
 		right: 15px;
 		bottom: 0;
 		height: 30px;
-		line-height: 0;
+		line-height: .5;
 		font-size: 40px;
 		cursor: pointer;
 		@include transition(all .15s ease-out);
+		-webkit-tap-highlight-color: transparent;
 
 		&:hover {
 			color: #fff;
