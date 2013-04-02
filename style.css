@@ -3558,6 +3558,7 @@ li.widget {
 .home .front-title h1 {
   font-size: 2.8em;
   font-weight: normal;
+  margin: 0;
 }
 @media only screen and (max-width: 1250px) {
   .home .front-title h1 {
@@ -3566,9 +3567,21 @@ li.widget {
     top: .4em;
   }
 }
+@media only screen and (max-width: 930px) {
+  .home .front-title h1 {
+    font-size: 1.8em;
+    top: 0;
+  }
+}
 .home .front-title > .box {
   margin-top: -5em;
   height: 11em;
+}
+@media only screen and (max-width: 930px) {
+  .home .front-title > .box {
+    height: 7em;
+    margin-top: -1em;
+  }
 }
 .home .front-title .detail {
   font-size: .6em;
@@ -4437,6 +4450,42 @@ li.widget {
 /*	=SMALL SCREEN STYLES
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 767px) {
+  .home .front-title {
+    margin-top: -10.2em;
+    margin-left: -10%;
+    margin-right: -10%;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.7)));
+    background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  }
+  .home .front-title .box {
+    height: 9em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0 10%;
+    position: relative;
+  }
+  .home .front-title h1 {
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    font-size: 2em;
+    text-shadow: black 0 0 5px;
+  }
+  .home .front-title h1 .detail {
+    display: block;
+    font-weight: bold !important;
+    color: white !important;
+    font-style: normal !important;
+  }
+
   body.home [role="banner"] {
     height: 15em;
   }
@@ -4456,7 +4505,7 @@ li.widget {
     background-color: transparent !important;
     padding: 0.75em 0;
   }
-  [role="banner"] .header-controls .avatar {
+  [role="banner"] .header-controls .user-details {
     display: none !important;
   }
   [role="banner"] .inner-bar {

@@ -3,6 +3,41 @@
 
 @media only screen and (max-width: $screenSmall) {
 	
+	.home .front-title {
+		$gutter: $page-margin*2;
+		margin-top: -10.2em;
+		margin-left: -$gutter;
+		margin-right: -$gutter;
+		@include background(linear-gradient(transparent, rgba(#000, .7)));
+
+		.box {
+			height: 9em;
+			@include box-shadow(none);
+			background-color: transparent;
+			padding: 0 $gutter;
+			position: relative;
+		}
+		
+
+		h1 {
+			color: #fff;
+			text-align: left;
+			font-weight: bold;
+			position: absolute;
+			top: auto;
+			bottom: 0;
+			font-size: 2em;
+			text-shadow: #000 0 0 5px;
+
+			.detail {
+				display: block;
+				font-weight: bold !important;
+				color: #fff !important;
+				font-style: normal !important;
+			}
+		}
+	}
+
 	[role="banner"] {
 
 		body.home & {
