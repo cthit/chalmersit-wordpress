@@ -1788,7 +1788,7 @@ body {
 .wrapper {
   /* For IE 6/7 (trigger hasLayout) */
   max-width: 100%;
-  width: 90%;
+  width: 94%;
   margin: 0 auto;
 }
 .wrapper:before, .wrapper:after {
@@ -4452,8 +4452,8 @@ li.widget {
 @media only screen and (max-width: 767px) {
   .home .front-title {
     margin-top: -10.2em;
-    margin-left: -10%;
-    margin-right: -10%;
+    margin-left: -6%;
+    margin-right: -3%;
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.7)));
     background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     background: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
@@ -4466,7 +4466,7 @@ li.widget {
     -moz-box-shadow: none;
     box-shadow: none;
     background-color: transparent;
-    padding: 0 10%;
+    padding: 0 6%;
     position: relative;
   }
   .home .front-title h1 {
