@@ -55,8 +55,11 @@
 
 		.header-toolbar {
 			position: relative;
-
 			padding: 0;
+
+			[role="search"] {
+				display: none;
+			}
 		}
 
 		.header-controls {
@@ -74,6 +77,11 @@
 			display: none;
 			background-color: #000;
 			background-color: rgba(#000, .5);
+
+			[role="search"] {
+				text-align: center;
+				margin-bottom: $lineheight;
+			}
 		}
 	}
 

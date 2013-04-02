@@ -12,3 +12,9 @@
 
 
 /* Adjustments */
+
+@media only screen and (min-width: $screenSmall+1) {
+	.inner-bar [role="search"] {
+		display: none;
+	}
+}

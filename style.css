@@ -4500,6 +4500,9 @@ li.widget {
     position: relative;
     padding: 0;
   }
+  [role="banner"] .header-toolbar [role="search"] {
+    display: none;
+  }
   [role="banner"] .header-controls {
     text-align: left;
     background-color: transparent !important;
@@ -4512,6 +4515,10 @@ li.widget {
     display: none;
     background-color: #000;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+  [role="banner"] .inner-bar [role="search"] {
+    text-align: center;
+    margin-bottom: 1.5em;
   }
 
   [role="navigation"].main-nav {
@@ -4577,6 +4584,11 @@ li.widget {
 /*	= EXTRA SMALL SCREENS
 -------------------------------------------- */
 /* Adjustments */
+@media only screen and (min-width: 768px) {
+  .inner-bar [role="search"] {
+    display: none;
+  }
+}
 ::selection {
   text-shadow: none;
   background-color: #002224;

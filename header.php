@@ -33,6 +33,8 @@
 							"container" => false
 						)); ?>
 					</nav>
+
+					<?php get_template_part("searchform");?>
 				</div>
 			</div>
 
