@@ -3,9 +3,8 @@
 --------------------------------------- */
 
 .sidebar {
-
+	
 	section {
-		margin-bottom: $lineheight;
 
 		& > footer {
 			margin: $lineheight (-$lineheight / 2) (-$lineheight / 2);
@@ -21,6 +20,12 @@
 			}
 		}
 	}	
+}
+
+.side-nav, .sidebar {
+	section {
+		margin-bottom: $lineheight;
+	}
 }
 
 .sidebar-nav {

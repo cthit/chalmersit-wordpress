@@ -1,11 +1,3 @@
-/*
-  Theme Name: Chalmers.it
-  Theme URI: http://chalmers.it
-  Author: Johan Brook (digIT 11/12)
-  Author URI: http://johanbrook.com
-  Version: 1.0
-*/
-
 @charset "UTF-8";
 /*
 Theme Name: Chalmers.it
@@ -1772,6 +1764,7 @@ a.subtle-border {
 .alignmiddle {
   display: block;
   margin: 0 auto;
+  float: none;
 }
 
 /*	=MAIN SITE STYLES
@@ -1795,7 +1788,7 @@ body {
 .wrapper {
   /* For IE 6/7 (trigger hasLayout) */
   max-width: 100%;
-  width: 90%;
+  width: 94%;
   margin: 0 auto;
 }
 .wrapper:before, .wrapper:after {
@@ -2970,9 +2963,6 @@ body.logged-in [role="banner"] .header-controls .user-details {
 /*
 	=SIDEBARS
 --------------------------------------- */
-.sidebar section {
-  margin-bottom: 1.5em;
-}
 .sidebar section > footer {
   margin: 1.5em -0.75em -0.75em;
   padding: .6em;
@@ -2984,6 +2974,10 @@ body.logged-in [role="banner"] .header-controls .user-details {
 .sidebar section > footer a {
   display: block;
   color: #333;
+}
+
+.side-nav section, .sidebar section {
+  margin-bottom: 1.5em;
 }
 
 .sidebar-nav {
@@ -3564,10 +3558,30 @@ li.widget {
 .home .front-title h1 {
   font-size: 2.8em;
   font-weight: normal;
+  margin: 0;
+}
+@media only screen and (max-width: 1250px) {
+  .home .front-title h1 {
+    font-size: 2.1em;
+    position: relative;
+    top: .4em;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .home .front-title h1 {
+    font-size: 1.8em;
+    top: 0;
+  }
 }
 .home .front-title > .box {
   margin-top: -5em;
   height: 11em;
+}
+@media only screen and (max-width: 930px) {
+  .home .front-title > .box {
+    height: 7em;
+    margin-top: -1em;
+  }
 }
 .home .front-title .detail {
   font-size: .6em;
@@ -4335,13 +4349,46 @@ li.widget {
   margin: 1.5em 0 0;
 }
 
+/*
+	RESPONSIVE VIEWPORT STYLING
+	-----------------------------------
+ */
+/* Pre-defined viewports (see variables in settings.scss) */
 /*	=MEDIUM SIZED SCREENS
 ----------------------------------------------------------------------*/
+@media only screen and (max-width: 959px) and (min-width: 768px) {
+  /* Global layout changes */
+  .three.columns.pull-six, .row .columns.pull-six.three {
+    right: 75%;
+  }
+
+  .six.columns.push-three.main-col, .row .columns.push-three.main-col.six {
+    width: 75%;
+  }
+
+  .three.columns.sidebar, .row .columns.sidebar.three {
+    float: none;
+    width: 75%;
+    position: relative;
+    left: 25%;
+    clear: both;
+  }
+}
 @media only screen and (max-width: 959px) {
+  /* Make columned lists single columns in sidebars */
+  .sidebar .columned-list,
+  .side-nav .columned-list {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    -ms-column-count: 1;
+    -o-column-count: 1;
+    column-count: 1;
+  }
+
   [role="navigation"].main-nav {
     float: none;
     width: 100%;
-    margin: 1.5em 0 0;
+    margin: 0.75em 0;
   }
   [role="navigation"].main-nav li {
     display: inline-block;
@@ -4352,52 +4399,203 @@ li.widget {
     padding-bottom: .5em;
   }
 
+  .header-toolbar.wrapper {
+    width: 100%;
+  }
+
+  .header-controls {
+    float: none;
+    text-align: center;
+  }
+
+  .single .sidebar-nav a {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75em;
+  }
+
+  .single [role="complementary"] .post-nav {
+    display: none;
+  }
+  .single [role="complementary"] .author-links {
+    float: right;
+  }
+  .single [role="complementary"] .author-links li {
+    display: inline-block;
+    margin: 0 0.5em;
+  }
+
   [role="banner"] h1 {
     position: static;
   }
   [role="banner"] .logo {
-    background-position: center;
-    width: 100%;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: left top;
+    position: absolute;
   }
   [role="banner"] .inner-bar {
     margin-top: 0;
+  }
+  body.home [role="banner"] .logo {
+    position: static;
+    background-position: center;
+    height: 70px;
+    background-size: contain;
+    width: 300px;
+    margin: 0.3em auto 0;
+  }
+
+  [role="contentinfo"] .footer-contact dt,
+  [role="contentinfo"] .footer-contact dd {
+    float: none;
+    text-align: center;
+    margin-right: 0;
   }
 }
 /*	=SMALL SCREEN STYLES
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 767px) {
-  [role="banner"] {
-    height: 18em;
+  .home .front-title {
+    margin-top: -10.2em;
+    margin-left: -6%;
+    margin-right: -3%;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.7)));
+    background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   }
-  [role="banner"] nav {
-    width: 75%;
-    font-size: .9em;
-    margin: 0;
+  .home .front-title .box {
+    height: 9em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0 6%;
+    position: relative;
+  }
+  .home .front-title h1 {
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    font-size: 2em;
+    text-shadow: black 0 0 5px;
+  }
+  .home .front-title h1 .detail {
+    display: block;
+    font-weight: bold !important;
+    color: white !important;
+    font-style: normal !important;
+  }
+
+  body.home [role="banner"] {
+    height: 15em;
   }
   [role="banner"] h1 {
+    display: none;
+  }
+  [role="banner"] .top-bar {
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  [role="banner"] .header-toolbar {
     position: relative;
-    float: left;
-    width: 70px;
-    height: 70px;
-    top: 1em;
+    padding: 0;
   }
-  [role="banner"] .logo {
-    background-position: left top;
-    background-size: 250px;
+  [role="banner"] .header-toolbar [role="search"] {
+    display: none;
   }
-  [role="banner"] > .wrapper {
-    height: 18em;
+  [role="banner"] .header-controls {
+    text-align: left;
+    background-color: transparent !important;
+    padding: 0.75em 0;
   }
-  [role="banner"] .hero-image {
-    max-width: none;
+  [role="banner"] .header-controls .user-details {
+    display: none !important;
+  }
+  [role="banner"] .inner-bar {
+    display: none;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  [role="banner"] .inner-bar [role="search"] {
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+
+  [role="navigation"].main-nav {
+    font-size: .9em;
+    display: block;
+  }
+  [role="navigation"].main-nav a {
+    padding: 1em 0;
+  }
+  [role="navigation"].main-nav ul, [role="navigation"].main-nav li {
+    display: block;
+  }
+
+  [role="navigation"].main-nav li.current_page_item a,
+  [role="navigation"].main-nav li.current-page-ancestor a {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  [role="navigation"].main-nav li.current_page_item a::after,
+  [role="navigation"].main-nav li.current-page-ancestor a::after {
+    display: none;
+  }
+
+  .mobile-home-link {
+    color: #ccc;
+    display: block;
+    padding: 0.5em 0.5em 0;
+    -webkit-transition: background-color 0.15s ease-out;
+    -moz-transition: background-color 0.15s ease-out;
+    -o-transition: background-color 0.15s ease-out;
+    transition: background-color 0.15s ease-out;
+  }
+  .mobile-home-link:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* The main-nav toggle button */
+  #main-nav-toggle {
     position: absolute;
-    left: -50%;
-    top: -20%;
-    z-index: -1;
+    z-index: 101;
+    display: inline-block;
+    color: #ccc;
+    text-decoration: none !important;
+    right: 15px;
+    bottom: 0;
+    height: 30px;
+    line-height: 0;
+    font-size: 40px;
+    cursor: pointer;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+  }
+  #main-nav-toggle:hover {
+    color: #fff;
+    text-shadow: rgba(255, 255, 255, 0.6) 0 0 5px;
   }
 }
 /*	= EXTRA SMALL SCREENS
 -------------------------------------------- */
+/* Adjustments */
+@media only screen and (min-width: 768px) {
+  .inner-bar [role="search"] {
+    display: none;
+  }
+}
 ::selection {
   text-shadow: none;
   background-color: #002224;

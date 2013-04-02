@@ -19,7 +19,7 @@
 		<h4><?php echo $author_meta['it_post'][0];?></h4>
 	</hgroup>
 
-	<ul class="list">	
+	<ul class="author-links list">	
 		<li><a href="<?php echo get_author_posts_url($post->post_author);?>" class="read-more">Se alla inlägg av <?php echo $author_meta['first_name'][0];?></a></li>
 		<li><a href="<?php echo get_author_posts_url($post->post_author);?>feed" class="rss-link">
 			Prenumerera på inlägg av <?php echo $author_meta['first_name'][0];?></a></li>

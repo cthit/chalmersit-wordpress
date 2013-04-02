@@ -7,16 +7,18 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     fssm (0.2.10)
-    hike (1.2.1)
-    multi_json (1.6.1)
-    rack (1.5.2)
+    modular-scale (1.0.2)
+      compass (>= 0.11.5)
+      sassy-math (>= 1.2)
+    rake (10.0.3)
     sass (3.2.6)
-    sprockets (2.9.0)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
-    tilt (1.3.4)
+    sassy-math (1.2)
+      compass (~> 0.11)
+    zurb-foundation (3.2.0)
+      compass (>= 0.12.2)
+      modular-scale (>= 1.0.2)
+      rake
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -24,4 +26,4 @@ PLATFORMS
 DEPENDENCIES
   compass
   sass
-  sprockets (~> 2.0)
+  zurb-foundation (~> 3.0)

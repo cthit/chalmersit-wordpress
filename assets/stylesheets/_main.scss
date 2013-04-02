@@ -76,9 +76,7 @@ body {
 
 // RESPONSIVE STYLES
 
-@import "viewports/medium";
-@import "viewports/small";
-@import "viewports/xsmall";
+@import "viewports";
 
 ::selection {
 	text-shadow: none;

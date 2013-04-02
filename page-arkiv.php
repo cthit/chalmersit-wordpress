@@ -39,7 +39,7 @@
 	</div>
 </section>
 
-<aside class="sidebar three columns pull-nine side-nav">
+<aside class="three columns pull-nine side-nav">
 	<?php get_sidebar("children");?>
 </aside>
 

@@ -52,7 +52,7 @@
 	</div>
 </section>
 
-<aside class="sidebar three columns pull-six">
+<aside class="side-nav three columns pull-six">
 	<?php get_sidebar("news");?>
 </aside>
 

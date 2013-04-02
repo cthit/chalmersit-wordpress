@@ -37,7 +37,7 @@
 		</section>
 		
 		<section class="four columns">
-			<dl>
+			<dl class="footer-contact">
 				<dt>Kontakt</dt>
 				<dd><a href="mailto:<?php it_option("main_contact_email");?>"><?php it_option("main_contact_email");?></a></dd>
 				
