@@ -120,6 +120,17 @@
 		}
 	}
 
+	/* Prevent zoom on text fields */
+	input[type="text"],
+	input[type="phone"],
+	input[type="password"],
+	input[type="email"],
+	input[type="number"],
+	input[type="url"],
+	textarea {
+		font-size: 1em !important;
+	}
+
 	/* The main-nav toggle button */ 
 	
 	#main-nav-toggle {
