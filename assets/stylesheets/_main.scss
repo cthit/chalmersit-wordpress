@@ -23,7 +23,7 @@ body {
 
 /* Don't set a hard coded width on the row class */
 .row {
-	min-width: auto;
+	min-width: 0;
 	width: auto;
 }
 
