@@ -4573,8 +4573,9 @@ li.widget {
   input[type="email"],
   input[type="number"],
   input[type="url"],
+  input[type="search"],
   textarea {
-    font-size: 1em;
+    font-size: 16px !important;
   }
 
   /* The main-nav toggle button */
