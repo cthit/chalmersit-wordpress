@@ -101,5 +101,16 @@
 			margin: .3em auto 0;
 		}
 	}
+	
 
+	[role="contentinfo"] {
+		.footer-contact {
+			dt,
+			dd {
+				float: none;
+				text-align: center;
+				margin-right: 0;
+			}
+		}
+	}
 }

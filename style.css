@@ -4446,6 +4446,13 @@ li.widget {
     width: 300px;
     margin: 0.3em auto 0;
   }
+
+  [role="contentinfo"] .footer-contact dt,
+  [role="contentinfo"] .footer-contact dd {
+    float: none;
+    text-align: center;
+    margin-right: 0;
+  }
 }
 /*	=SMALL SCREEN STYLES
 ----------------------------------------------------------------------*/
