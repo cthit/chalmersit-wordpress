@@ -1,3 +1,11 @@
+/*
+  Theme Name: Chalmers.it
+  Theme URI: http://chalmers.it
+  Author: Johan Brook (digIT 11/12)
+  Author URI: http://johanbrook.com
+  Version: 1.0
+*/
+
 @charset "UTF-8";
 /*
 Theme Name: Chalmers.it
@@ -1804,7 +1812,7 @@ body {
 
 /* Don't set a hard coded width on the row class */
 .row {
-  min-width: auto;
+  min-width: 0;
   width: auto;
 }
 
