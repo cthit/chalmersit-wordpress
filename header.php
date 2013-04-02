@@ -15,6 +15,7 @@
 
 	<header role="banner" <?php if($header_image) echo 'style="background-image: url('.$header_image.');"'; ?>>
 		
+
 		<div class="top-bar">
 			<div class="inner-bar">
 				<div class="wrapper group">
@@ -36,6 +37,11 @@
 			</div>
 
 			<div class="header-toolbar wrapper">
+				<?php if(!is_front_page()) : ?>
+				<a class="mobile-home-link show-for-small" href="<?php bloginfo("home");?>">← Till startsidan</a>
+				<?php endif;?>
+				<a id="main-nav-toggle" class="show-for-small">≣</a>
+
 				<ul class="header-controls horizontal-list">
 				<?php if(is_user_logged_in()) : ?>
 					<li class="user-details">

@@ -2,39 +2,100 @@
 ----------------------------------------------------------------------*/
 
 @media only screen and (max-width: $screenSmall) {
-
+	
 	[role="banner"] {
-		height: 18em;
 
-		nav {
-			width: 75%;
-			font-size: .9em;
-			margin: 0;
+		body.home & {
+			height: 15em;
 		}
 
 		h1 {
+			display: none;
+		}
+
+		.top-bar {
+			z-index: 100;
+			background-color: rgba(#000, .7);
+		}
+
+		.header-toolbar {
 			position: relative;
-			float: left;
-			width: 70px;
-			height: 70px;
-			top: 1em;
+
+			padding: 0;
 		}
 
-		.logo {
-			background-position: left top;
-			background-size: 250px;
+		.header-controls {
+			text-align: left;
+			background-color: transparent !important;
+			padding: $lineheight / 2 0;
+
+			.avatar {
+				display: none !important;
+			}
 		}
 
-		& > .wrapper {
-			height: 18em;
+		.inner-bar {
+			// Hide in order to later toggle via button
+			display: none;
+			background-color: #000;
+			background-color: rgba(#000, .5);
+		}
+	}
+
+	[role="navigation"].main-nav {
+		font-size: .9em;
+		display: block;
+
+		a {
+			padding: 1em 0;
 		}
 
-		.hero-image {
-			max-width: none;
-			position: absolute;
-			left: -50%;
-			top: -20%;
-			z-index: -1;
+		ul, li{
+			display: block;
+		}
+	}
+
+	[role="navigation"].main-nav li.current_page_item a, 
+	[role="navigation"].main-nav li.current-page-ancestor a {
+		@include box-shadow(none);
+
+		&::after {
+			display: none;
+		}
+	}
+	
+	.mobile-home-link {
+		color: #ccc;
+		display: block;
+		padding: .5em .5em 0;
+		@include transition(background-color .15s ease-out);
+
+		&:hover {
+			background-color: rgba(#000, .4);
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+
+	/* The main-nav toggle button */ 
+	
+	#main-nav-toggle {
+		position: absolute;
+		z-index: 101;
+		display: inline-block;
+		color: #ccc;
+		text-decoration: none !important;
+		right: 15px;
+		bottom: 0;
+		height: 30px;
+		line-height: 0;
+		font-size: 40px;
+		cursor: pointer;
+		@include transition(all .15s ease-out);
+
+		&:hover {
+			color: #fff;
+			text-shadow: rgba(#fff, .6) 0 0 5px;
 		}
 	}
 
