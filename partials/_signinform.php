@@ -11,14 +11,11 @@
 	</p>
 
 	<p>
-		<input type="checkbox" id="rememberme" name="rememberme" value="forever" checked="checked" />
-		<label for="rememberme">Håll mig inloggad</label>
+		<label><input type="checkbox" id="rememberme" name="rememberme" value="forever" checked="checked" />
+		Håll mig inloggad</label>
 
 		<input type="submit" name="submit" class="small" value="Logga in" /> 
 	</p>
 	
-	<p class="extra-info">	
-		<a href="<?php echo wp_lostpassword_url();?>">Glömt lösenord</a>
-	</p>
 	
 </form>
