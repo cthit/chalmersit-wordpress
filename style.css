@@ -2000,6 +2000,7 @@ button,
 input[type="submit"] {
   -webkit-appearance: none;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   position: relative;
   display: inline-block;
   padding: 0.5em 1.5em;
@@ -4565,6 +4566,17 @@ li.widget {
     text-decoration: none;
   }
 
+  /* Prevent zoom on text fields */
+  input[type="text"],
+  input[type="phone"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="url"],
+  textarea {
+    font-size: 1em;
+  }
+
   /* The main-nav toggle button */
   #main-nav-toggle {
     position: absolute;
@@ -4575,13 +4587,14 @@ li.widget {
     right: 15px;
     bottom: 0;
     height: 30px;
-    line-height: 0;
+    line-height: .5;
     font-size: 40px;
     cursor: pointer;
     -webkit-transition: all 0.15s ease-out;
     -moz-transition: all 0.15s ease-out;
     -o-transition: all 0.15s ease-out;
     transition: all 0.15s ease-out;
+    -webkit-tap-highlight-color: transparent;
   }
   #main-nav-toggle:hover {
     color: #fff;

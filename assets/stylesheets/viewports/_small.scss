@@ -120,6 +120,17 @@
 		}
 	}
 
+	/* Prevent zoom on text fields */
+	input[type="text"],
+	input[type="phone"],
+	input[type="password"],
+	input[type="email"],
+	input[type="number"],
+	input[type="url"],
+	textarea {
+		font-size: 1em !important;
+	}
+
 	/* The main-nav toggle button */ 
 	
 	#main-nav-toggle {
@@ -131,10 +142,11 @@
 		right: 15px;
 		bottom: 0;
 		height: 30px;
-		line-height: 0;
+		line-height: .5;
 		font-size: 40px;
 		cursor: pointer;
 		@include transition(all .15s ease-out);
+		-webkit-tap-highlight-color: transparent;
 
 		&:hover {
 			color: #fff;

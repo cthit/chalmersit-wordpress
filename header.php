@@ -42,7 +42,7 @@
 				<?php if(!is_front_page()) : ?>
 				<a class="mobile-home-link show-for-small" href="<?php bloginfo("home");?>">← Till startsidan</a>
 				<?php endif;?>
-				<a id="main-nav-toggle" class="show-for-small">≣</a>
+				<a id="main-nav-toggle" class="show-for-small">≡</a>
 
 				<ul class="header-controls horizontal-list">
 				<?php if(is_user_logged_in()) : ?>
