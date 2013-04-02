@@ -1,5 +1,23 @@
 // Custom mixins
 
+@mixin respond-to($media) {
+	@if $media == xsmall {
+		@include media-query($screenXSmall) {@content};
+	}
+	@else if $media == small {
+		@include media-query($screenSmall) {@content};
+	}
+	@else if $media == medium {
+		@include media-query($screenMedium) {@content};
+	}
+}
+
+@mixin media-query($size) {
+	@media only screen and (max-width: $size) {
+		@content;
+	}
+}
+
 @mixin wrapper {
 	@include clearfix;
 	max-width: $page-max-width;
