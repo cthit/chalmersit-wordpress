@@ -22,6 +22,12 @@
 		h1 {
 			font-size: 2.8em;
 			font-weight: normal;
+
+			@include media-query(1250px) {
+				font-size: 2.1em;
+				position: relative;
+				top: .4em;
+			}
 		}
 
 		& > .box {

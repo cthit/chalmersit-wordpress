@@ -1,11 +1,3 @@
-/*
-  Theme Name: Chalmers.it
-  Theme URI: http://chalmers.it
-  Author: Johan Brook (digIT 11/12)
-  Author URI: http://johanbrook.com
-  Version: 1.0
-*/
-
 @charset "UTF-8";
 /*
 Theme Name: Chalmers.it
@@ -3565,6 +3557,13 @@ li.widget {
   font-size: 2.8em;
   font-weight: normal;
 }
+@media only screen and (max-width: 1250px) {
+  .home .front-title h1 {
+    font-size: 2.1em;
+    position: relative;
+    top: .4em;
+  }
+}
 .home .front-title > .box {
   margin-top: -5em;
   height: 11em;
@@ -4335,6 +4334,11 @@ li.widget {
   margin: 1.5em 0 0;
 }
 
+/*
+	RESPONSIVE VIEWPORT STYLING
+	-----------------------------------
+ */
+/* Pre-defined viewports (see variables in settings.scss) */
 /*	=MEDIUM SIZED SCREENS
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 959px) {
@@ -4398,6 +4402,7 @@ li.widget {
 }
 /*	= EXTRA SMALL SCREENS
 -------------------------------------------- */
+/* Adjustments */
 ::selection {
   text-shadow: none;
   background-color: #002224;
