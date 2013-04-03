@@ -2,6 +2,10 @@
 ----------------------------------------------------------------------*/
 
 @media only screen and (max-width: $screenSmall) {
+
+	.home .social-sharing {
+		display: none;
+	}
 	
 	.home .front-title {
 		$gutter: $page-margin*2;

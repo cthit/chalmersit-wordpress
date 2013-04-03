@@ -84,6 +84,30 @@
 
 <?php wp_footer(); ?>
 
+<?php if(is_front_page()) : ?>
+<!-- Add Facebook Like button code -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=121673811358935";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Add Twitter Follow button code -->
+<script>!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];
+	if(!d.getElementById(id)){
+		js=d.createElement(s);
+		js.id=id;
+		js.src="//platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js,fjs);
+	}}(document,"script","twitter-wjs");</script>
+
+<?php endif;?>
+
+
 <?php if(is_production()) : ?>
 
 <script src="<?php javascript_path("all.min");?>"></script>
