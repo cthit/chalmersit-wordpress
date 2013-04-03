@@ -23,17 +23,6 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<input type="hidden" name="from" value="profile" />
 		<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
 
-		<?php if ( !$theme_my_login->options->get_option( array( 'themed_profiles', $user_role, 'restrict_admin' ) ) && !has_action( 'personal_options' ) ): ?>
-
-		<!--
-		<h2>Inställningar</h2>
-
-		<table class="form-table">
-		<?php #do_action( 'personal_options', $profileuser ); ?>
-		</table>
-		<?php endif; // restrict admin ?>
-		-->
-
 		<h2>Namn</h2>
 
 		<table class="form-table">
