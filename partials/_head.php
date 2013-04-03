@@ -1,11 +1,37 @@
 <?php
 	global $current_user;
 	get_currentuserinfo();
-	#$userdata = get_userdatabylogin(get_query_var('author_name'));
-
-	#Debug($current_user);
 ?>
 <!doctype html>
+<!--
+
+       _____  _             _                                 _  _   
+      / ____|| |           | |                               (_)| |  
+     | |     | |__    __ _ | | _ __ ___    ___  _ __  ___     _ | |_ 
+     | |     | '_ \  / _` || || '_ ` _ \  / _ \| '__|/ __|   | || __|
+     | |____ | | | || (_| || || | | | | ||  __/| |   \__ \ _ | || |_ 
+      \_____||_| |_| \__,_||_||_| |_| |_| \___||_|   |___/(_)|_| \__|
+
+      								by                
+
+						    _ _       _____ _______ 
+						    | (_)     |_   _|__   __|
+						  __| |_  __ _  | |    | |   
+						 / _` | |/ _` | | |    | |   
+						| (_| | | (_| |_| |_   | |   
+						 \__,_|_|\__, |_____|  |_|   
+						          __/ |              
+						         |___/
+						         
+
+Information Technology at Chalmers University of Technology
+
+# Questions, bug reports or suggestions: 
+
+* digit@chalmers.it
+* #digit@irc.chalmers.it
+
+-->
 <html>
 <head>
 	<title><?php wp_title("|", true, "right"); bloginfo("name");?></title>
