@@ -231,13 +231,13 @@ $(function() {
 
 	// Add support for touch devices for the 'Tools' main nav menu
 	if("ontouchstart" in document) {
-		$("#tools-menu-trigger").on("click", function(evt) {
+		$("#tools-menu-trigger").on("touchstart", function(evt) {
 			var dropdown = $(this).find(".dropdown-sub");
 			if(dropdown.hasClass("open")) {
-				dropdown.removeClass("open").hide();
+				dropdown.removeClass("open").slideUp(100);
 			}
 			else {
-				dropdown.addClass("open").show();
+				dropdown.addClass("open").slideDown(200);
 			}
 		});
 	}
