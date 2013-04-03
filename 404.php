@@ -7,13 +7,19 @@
 	</hgroup>
 
 	<div class="article-content">
-		<p><strong>Lorem ipsum dolor sit amet,</strong> consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.</p>
+		<p>
+			<strong>Vi hittade inte sidan du kanske sökte.</strong> Det kan bero på
+		</p>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua.</p>
+		<ul>
+			<li>att du följde en bruten länk</li>
+			<li>att du skrev in fel adress i adressfältet</li>
+			<li>att vi har klantat oss med något</li>
+		</ul>
+
+		<p>När du dubbelkollat adressen, och det ändå inte fungerar, får du jättegärna kontakta oss om felet:
+			<a href="mailto:digit@chalmers.it">digit@chalmers.it</a>. Du kan även prova att söka efter innehållet
+			nedan.</p>
 
 		<?php get_template_part("searchform");?>
 
