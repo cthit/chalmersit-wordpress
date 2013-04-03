@@ -1,5 +1,14 @@
 // Custom mixins
 
+@mixin limit-text($size: 300px) {
+	display: inline-block;
+	max-width: $size;
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 @mixin respond-to($media) {
 	@if $media == xsmall {
 		@include media-query($screenXSmall) {@content};

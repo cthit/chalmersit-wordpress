@@ -2818,6 +2818,9 @@ body.logged-in [role="banner"] .header-controls .user-details {
   font-size: .9em;
   margin: 1.5em 0;
 }
+[role="article"] .article-content {
+  /* Adjust non-wrapping links in post content */
+}
 [role="article"] .article-content p {
   margin-bottom: 1.5em;
 }
@@ -2825,6 +2828,14 @@ body.logged-in [role="banner"] .header-controls .user-details {
   display: block;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+}
+[role="article"] .article-content p a {
+  display: inline-block;
+  max-width: 500px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 [role="article"] footer nav {
   margin: 1.5em 0;
