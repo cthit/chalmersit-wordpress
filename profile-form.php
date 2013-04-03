@@ -62,6 +62,11 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 					if ( !empty( $profileuser->first_name ) && !empty( $profileuser->last_name ) ) {
 						$public_display['display_firstlast'] = $profileuser->first_name . ' ' . $profileuser->last_name;
 						$public_display['display_lastfirst'] = $profileuser->last_name . ' ' . $profileuser->first_name;
+						
+						$public_display['display_firstnicklast'] = sprintf('%1$s \'%2$s\' %3$s', 
+							$profileuser->first_name, 
+							$profileuser->nickname, 
+							$profileuser->last_name);
 					}
 					if ( !in_array( $profileuser->display_name, $public_display ) )// Only add this if it isn't duplicated elsewhere
 						$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
