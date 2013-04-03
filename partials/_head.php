@@ -55,6 +55,9 @@ Information Technology at Chalmers University of Technology
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="<?php img_url("favicon.png");?>" />
 	<link rel="apple-touch-icon-precomposed" href="<?php img_url("apple-touch-icon.png");?>" />
+
+	<!-- iOS Homescreen specials -->
+	<meta name="apple-mobile-web-app-title" content="Chalmers.it">
 	
 	<!-- Viewport setting -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
