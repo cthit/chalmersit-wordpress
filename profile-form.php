@@ -83,12 +83,12 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<table class="form-table">
 		<tr>
 			<th><label for="email">E-mail <small>(obligatoriskt)</small></label></th>
-			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
+			<td><input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
 		</tr>
 
 		<tr>
 			<th><label for="url">Hemsida</label></th>
-			<td><input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
+			<td><input type="url" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
 		</tr>
 		</table>
 
