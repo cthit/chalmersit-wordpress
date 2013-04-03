@@ -50,8 +50,8 @@
 						<?php echo get_avatar(wp_get_current_user()->ID, 32); ?>
 						<strong><?php user_fullname(wp_get_current_user());?></strong>
 					</li>
-					<li id="tools-menu-trigger" class="dropdown">
-						<span class="dropdown-trigger icon-cog">Verktyg</span>
+					<li class="dropdown">
+						<span id="tools-menu-trigger" class="dropdown-trigger icon-cog">Verktyg</span>
 
 						<ul class="dropdown-sub">
 							<li><a href="<?php link_to("skrivut");?>">Skriv ut</a></li>

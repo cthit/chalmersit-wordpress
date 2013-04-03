@@ -232,7 +232,7 @@ $(function() {
 	// Add support for touch devices for the 'Tools' main nav menu
 	if("ontouchstart" in document) {
 		$("#tools-menu-trigger").on("touchstart", function(evt) {
-			var dropdown = $(this).find(".dropdown-sub");
+			var dropdown = $(this).next(".dropdown-sub");
 			if(dropdown.hasClass("open")) {
 				dropdown.removeClass("open").slideUp(100);
 			}
