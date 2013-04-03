@@ -3,21 +3,6 @@
 
 .home {
 
-	.social-sharing {
-		position: absolute;
-		left: 34%;
-		bottom: 0;
-		padding: .5em;
-
-		@include background(linear-gradient(transparent, rgba(#000, .7)));
-		
-		& > div, 
-		& > iframe {
-			vertical-align: middle;
-			margin: 0 10px;
-		}
-	}
-
 	.panel-header {
 		margin-bottom: 0;
 	}
@@ -25,6 +10,15 @@
 	[role="banner"] {
 		position: relative;
 		height: 28em;
+
+		.social-sharing {
+			position: absolute;
+			left: 34%;
+			bottom: 0;
+			padding: .5em;
+
+			@include background(linear-gradient(transparent, rgba(#000, .7)));
+		}
 
 		.logo {
 			-webkit-animation: dropDown .6s ease-out;

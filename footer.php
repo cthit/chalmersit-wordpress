@@ -76,10 +76,24 @@
 		</section>
 	</div>
 
-	<p class="wrapper">
-		<small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
+	<div class="footer-foot wrapper">
+		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
 			Made on a Mac.</small>
-	</p>
+		</p>
+
+		<div class="social-sharing">
+		<div class="fb-like" 
+			data-href="http://www.facebook.com/chalmers.it" 
+			data-send="false" 
+			data-layout="button_count"
+			data-width="200" 
+			data-colorscheme="dark"
+			data-show-faces="true"></div>
+
+
+			<a href="https://twitter.com/chalmersit" class="twitter-follow-button" data-show-count="false" data-lang="sv" data-size="small" data-dnt="true">Följ @chalmersit</a>
+		</div>
+	</div>
 </footer>
 
 <?php wp_footer(); ?>
