@@ -4608,6 +4608,23 @@ li.widget {
 }
 /*	= EXTRA SMALL SCREENS
 -------------------------------------------- */
+@media only screen and (max-width: 500px) {
+  #your-profile .form-table {
+    width: 100%;
+  }
+  #your-profile .form-table th {
+    padding: 0 !important;
+  }
+  #your-profile .form-table th, #your-profile .form-table td {
+    display: block;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #your-profile .form-table input, #your-profile .form-table textarea {
+    width: 100%;
+  }
+}
 /* Adjustments */
 @media only screen and (min-width: 768px) {
   .inner-bar [role="search"] {
