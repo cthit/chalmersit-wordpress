@@ -23,17 +23,6 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<input type="hidden" name="from" value="profile" />
 		<input type="hidden" name="checkuser_id" value="<?php echo $current_user->ID; ?>" />
 
-		<?php if ( !$theme_my_login->options->get_option( array( 'themed_profiles', $user_role, 'restrict_admin' ) ) && !has_action( 'personal_options' ) ): ?>
-
-		<!--
-		<h2>Inställningar</h2>
-
-		<table class="form-table">
-		<?php #do_action( 'personal_options', $profileuser ); ?>
-		</table>
-		<?php endif; // restrict admin ?>
-		-->
-
 		<h2>Namn</h2>
 
 		<table class="form-table">
@@ -73,6 +62,11 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 					if ( !empty( $profileuser->first_name ) && !empty( $profileuser->last_name ) ) {
 						$public_display['display_firstlast'] = $profileuser->first_name . ' ' . $profileuser->last_name;
 						$public_display['display_lastfirst'] = $profileuser->last_name . ' ' . $profileuser->first_name;
+						
+						$public_display['display_firstnicklast'] = sprintf('%1$s \'%2$s\' %3$s', 
+							$profileuser->first_name, 
+							$profileuser->nickname, 
+							$profileuser->last_name);
 					}
 					if ( !in_array( $profileuser->display_name, $public_display ) )// Only add this if it isn't duplicated elsewhere
 						$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
@@ -94,12 +88,12 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 		<table class="form-table">
 		<tr>
 			<th><label for="email">E-mail <small>(obligatoriskt)</small></label></th>
-			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
+			<td><input type="email" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ) ?>" class="regular-text" /></td>
 		</tr>
 
 		<tr>
 			<th><label for="url">Hemsida</label></th>
-			<td><input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
+			<td><input type="url" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ) ?>" class="regular-text code" /></td>
 		</tr>
 		</table>
 
