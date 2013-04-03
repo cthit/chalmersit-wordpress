@@ -50,7 +50,7 @@
 						<?php echo get_avatar(wp_get_current_user()->ID, 32); ?>
 						<strong><?php user_fullname(wp_get_current_user());?></strong>
 					</li>
-					<li class="dropdown">
+					<li id="tools-menu-trigger" class="dropdown">
 						<span class="dropdown-trigger icon-cog">Verktyg</span>
 
 						<ul class="dropdown-sub">
