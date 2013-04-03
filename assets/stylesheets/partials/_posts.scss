@@ -16,6 +16,11 @@
 			margin-top: $lineheight / 2;
 			margin-bottom: $lineheight / 2;
 		}
+
+		/* Adjust non-wrapping links in post content */
+		p a {
+			@include limit-text(500px);
+		}
 	}
 
 	footer {

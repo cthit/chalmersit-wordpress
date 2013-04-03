@@ -27,6 +27,16 @@ body {
 	width: auto;
 }
 
+/* Always vertically align social buttons */
+
+.social-sharing {
+	& > div, 
+	& > iframe {
+		vertical-align: middle;
+		margin: 0 10px;
+	}
+}
+
 
 // ELEMENTS
 // Include stuff like headings, links, buttons, forms, element styling ..

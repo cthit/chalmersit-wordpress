@@ -69,6 +69,14 @@
 	}
 }
 
+.footer-foot {
+	& > p,
+	& > div {
+		display: inline-block;
+		margin-right: 10px;
+	}
+}
+
 .footer-nav {
 	@include column-count(2);
 }

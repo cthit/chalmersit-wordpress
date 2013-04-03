@@ -76,13 +76,51 @@
 		</section>
 	</div>
 
-	<p class="wrapper">
-		<small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
+	<div class="footer-foot wrapper">
+		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
 			Made on a Mac.</small>
-	</p>
+		</p>
+
+		<div class="social-sharing">
+		<div class="fb-like" 
+			data-href="http://www.facebook.com/chalmers.it" 
+			data-send="false" 
+			data-layout="button_count"
+			data-width="200" 
+			data-colorscheme="dark"
+			data-show-faces="true"></div>
+
+
+			<a href="https://twitter.com/chalmersit" class="twitter-follow-button" data-show-count="false" data-lang="sv" data-size="small" data-dnt="true">Följ @chalmersit</a>
+		</div>
+	</div>
 </footer>
 
 <?php wp_footer(); ?>
+
+<?php if(is_front_page()) : ?>
+<!-- Add Facebook Like button code -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=121673811358935";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Add Twitter Follow button code -->
+<script>!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];
+	if(!d.getElementById(id)){
+		js=d.createElement(s);
+		js.id=id;
+		js.src="//platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js,fjs);
+	}}(document,"script","twitter-wjs");</script>
+
+<?php endif;?>
+
 
 <?php if(is_production()) : ?>
 

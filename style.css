@@ -1808,6 +1808,12 @@ body {
   width: auto;
 }
 
+/* Always vertically align social buttons */
+.social-sharing > div, .social-sharing > iframe {
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
 /*	=HEADINGS
 ----------------------------------------------------------------------*/
 .huge, .page-title h1 {
@@ -2795,6 +2801,11 @@ body.logged-in [role="banner"] .header-controls .user-details {
   margin-bottom: 0;
 }
 
+.footer-foot > p, .footer-foot > div {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .footer-nav {
   -webkit-column-count: 2;
   -moz-column-count: 2;
@@ -2807,6 +2818,9 @@ body.logged-in [role="banner"] .header-controls .user-details {
   font-size: .9em;
   margin: 1.5em 0;
 }
+[role="article"] .article-content {
+  /* Adjust non-wrapping links in post content */
+}
 [role="article"] .article-content p {
   margin-bottom: 1.5em;
 }
@@ -2814,6 +2828,14 @@ body.logged-in [role="banner"] .header-controls .user-details {
   display: block;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+}
+[role="article"] .article-content p a {
+  display: inline-block;
+  max-width: 500px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 [role="article"] footer nav {
   margin: 1.5em 0;
@@ -3554,7 +3576,19 @@ li.widget {
   margin-bottom: 0;
 }
 .home [role="banner"] {
+  position: relative;
   height: 28em;
+}
+.home [role="banner"] .social-sharing {
+  position: absolute;
+  left: 34%;
+  bottom: 0;
+  padding: .5em;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.7)));
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  background: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
 }
 .home [role="banner"] .logo {
   -webkit-animation: dropDown 0.6s ease-out;
@@ -4503,6 +4537,9 @@ li.widget {
 
   body.home [role="banner"] {
     height: 15em;
+  }
+  body.home [role="banner"] .social-sharing {
+    display: none;
   }
   [role="banner"] h1 {
     display: none;

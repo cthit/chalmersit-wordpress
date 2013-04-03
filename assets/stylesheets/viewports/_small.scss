@@ -2,7 +2,7 @@
 ----------------------------------------------------------------------*/
 
 @media only screen and (max-width: $screenSmall) {
-	
+
 	.home .front-title {
 		$gutter: $page-margin*2;
 		margin-top: -10.2em;
@@ -42,6 +42,10 @@
 
 		body.home & {
 			height: 15em;
+
+			.social-sharing {
+				display: none;
+			}
 		}
 
 		h1 {

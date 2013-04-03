@@ -79,6 +79,19 @@
 			</div>
 		</div>
 		
+		<?php if(is_front_page()) : ?>
+		<div class="social-sharing">
+			<div class="fb-like" 
+				data-href="http://www.facebook.com/chalmers.it" 
+				data-send="false" 
+				data-layout="button_count"
+				data-width="200" 
+				data-show-faces="true"></div>
+
+
+			<a href="https://twitter.com/chalmersit" class="twitter-follow-button" data-show-count="false" data-lang="sv" data-size="large" data-dnt="true">Följ @chalmersit</a>
+		</div>
+		<?php endif;?>
 		
 	</header>
 
