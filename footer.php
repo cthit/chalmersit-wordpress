@@ -75,6 +75,11 @@
 			</dl>
 		</section>
 	</div>
+
+	<p class="wrapper">
+		<small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
+			Made on a Mac.</small>
+	</p>
 </footer>
 
 <?php wp_footer(); ?>

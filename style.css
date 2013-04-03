@@ -2743,6 +2743,9 @@ body.logged-in [role="banner"] .header-controls .user-details {
   color: #fff;
   font-size: .9em;
 }
+[role="contentinfo"] small {
+  color: #3c5c5e;
+}
 [role="contentinfo"] a {
   color: #fff;
 }
