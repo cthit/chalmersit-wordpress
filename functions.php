@@ -103,8 +103,7 @@ function setup_chalmers() {
 
 function it_custom_scripts() {
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? 
-		"s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", false, null, true);
+	wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", false, null, true);
 
 	wp_enqueue_script('jquery');
 }
