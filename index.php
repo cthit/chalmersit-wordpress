@@ -138,7 +138,7 @@
 			
 			<h2 class="section-heading">Evenemang</h2>
 			
-			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="3"]' ); ?>
+			<?php echo do_shortcode('[google-calendar-events id="1" type="list" max="3"]' ); ?>
 		</section>
 
 		<?php if(is_active_sidebar("index-right")) : ?>
