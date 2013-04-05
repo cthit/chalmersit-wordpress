@@ -33,7 +33,7 @@
 		<?php else : ?>
 
 		<section class="current-user-info media-block">
-			<?php echo do_shortcode('[google-calendar-events id="2" type="list" max="1"]' ); ?>
+			<?php echo do_shortcode('[google-calendar-events id="1" type="list" max="1"]' ); ?>
 		</section>
 
 		<?php endif;?>
