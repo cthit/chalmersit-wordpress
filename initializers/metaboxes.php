@@ -72,7 +72,13 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Datum",
 				"id" => IT_PREFIX."event_date",
-				"type" => "text"
+				"type" => "date"
+			),
+			array(
+				"name" => "Heldag",
+				"id" => IT_PREFIX."full_day_event",
+				"type" => "checkbox",
+				"desc" => "Arrangemanget sträcker sig över hela dagen. Om valt ignoreras tiderna nedan."
 			),
 			array(
 				"name" => "Starttid",
@@ -83,7 +89,8 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Sluttid",
 				"id" => IT_PREFIX."event_end_time",
-				"type" => "text"
+				"type" => "select",
+				"options" => $timestamps
 			),
 			array(
 				"name" => "Plats",

@@ -1,6 +1,7 @@
 <?php 
 	global $post;
 	$host_id = get_post_meta($post->ID, IT_PREFIX."event_host", true);
+	$is_full_day = get_post_meta($post->ID, IT_PREFIX."full_day_event", true);
 
 	if($host_id && $host_id != -1) {
 		$host = get_post($host_id);
@@ -14,9 +15,12 @@
 
 <ul class="meta event-meta">
 	<li class="icon-clock">
-		<?php echo date("j F", strtotime(get_post_meta($post->ID, IT_PREFIX."event_date", true)));?>,
+		<?php echo date("j F", strtotime(get_post_meta($post->ID, IT_PREFIX."event_date", true)));?>
+	<?php if($is_full_day != "on") : ?>,
 		<?php echo get_post_meta($post->ID, IT_PREFIX."event_start_time", true);?>
-	-<?php echo get_post_meta($post->ID, IT_PREFIX."event_end_time", true);?></li>
+	-<?php echo get_post_meta($post->ID, IT_PREFIX."event_end_time", true);?>
+	<?php endif;?>
+	</li>
 	
 	<?php if($location) : ?>
 	<li class="icon-map-pin-fill"><?php echo $location;?></li>
