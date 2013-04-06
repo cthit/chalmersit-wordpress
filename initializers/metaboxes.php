@@ -17,6 +17,16 @@ function register_chalmers_metaboxes() {
 	}
 
 
+	# Create an array of timestamps, since the 'time' field
+	# type produces a JS error -.-
+	$timestamps = array();
+	for($i = 0; $i <= 24; $i++) :
+		$hour = ($i < 10 ? "0".$i : $i) . ":00";
+		$timestamps[$hour] = $hour;
+	endfor;
+
+
+
 	$metaboxes["details"] = array(
 		"id" => "details",
 		"title" => __("Detaljer"),
@@ -67,7 +77,8 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Starttid",
 				"id" => IT_PREFIX."event_start_time",
-				"type" => "text"
+				"type" => "select",
+				"options" => $timestamps
 			),
 			array(
 				"name" => "Sluttid",
