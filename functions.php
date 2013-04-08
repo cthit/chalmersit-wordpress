@@ -66,6 +66,9 @@ function setup_chalmers() {
 	add_action("init", "it_register_sidebars");
 	add_action('init', 'remove_head_links');
 
+	# Don't allow direct access to wp-login.php
+	add_action('init', 'chalmers_redirect_login');
+
 	# Admin
 	if(is_admin()) {
 		add_action("init", "register_chalmers_metaboxes");
