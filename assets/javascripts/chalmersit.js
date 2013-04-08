@@ -262,6 +262,12 @@ $(function() {
 	});
 
 
+	// Pressing 'Esc' when in search field in header should blur the field
+	$("[role='search'] input").on("keyup", function(evt) {
+		if(evt.which == 27)
+			this.blur();
+	});
+
 	// Show Twitter timeline on frontpage
 
 	$.getJSON("https://api.twitter.com/1/statuses/user_timeline/chalmersit.json?callback=?", function(json, status, xhr) {
