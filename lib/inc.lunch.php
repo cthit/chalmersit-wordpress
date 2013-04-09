@@ -14,22 +14,25 @@ function get_todays_meals() {
 
 function parse_feed() {
 	$feed = fetch_rss(RSS_URL);
-	var_dump($feed->items);
-	$week = array();
-	foreach ($feed->items as $day) {
-		$week[] = format_date($day['pubdate'], "j F");
+	$week = cache_week($feed);
+
+	$index = 0;
+	if (isset($week[date("j")])) {
+		$index = date("j");
+	} else if (isset($week[date("j")+1])) {
+		$index = date("j")+1;
+	} else if (isset($week[date("j")+2])) {
+		$index = date("j")+2;
 	}
-	unset($day);
-	var_dump($week);
+	return clean_menu($week[$index]);;
+}
 
-	$today = $feed->items[count($feed->items)-1];
-	var_dump($today);
-	$today = array_slice($feed->items, 0, 1);
-	$today = $today[0];
-
-	$data = clean_menu($today);
-
-	return $data;
+function cache_week($data) {
+	$week = array();
+	foreach ($data as $day) {
+		$week[format_date($day['pubdate'], "j")] = clean_menu($day);
+	}
+	return $week;
 }
 
 
