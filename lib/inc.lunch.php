@@ -14,6 +14,16 @@ function get_todays_meals() {
 
 function parse_feed() {
 	$feed = fetch_rss(RSS_URL);
+	var_dump($feed->items);
+	$week = array();
+	foreach ($feed->items as $day) {
+		$week[] = format_date($day['pubdate'], "j F");
+	}
+	unset($day);
+	var_dump($week);
+
+	$today = $feed->items[count($feed->items)-1];
+	var_dump($today);
 	$today = array_slice($feed->items, 0, 1);
 	$today = $today[0];
 
