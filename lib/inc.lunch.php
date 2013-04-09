@@ -24,7 +24,8 @@ function parse_feed() {
 	} else if (isset($week[date("j")+2])) {
 		$index = date("j")+2;
 	}
-	return clean_menu($week[$index]);;
+	var_dump($week[$index]);
+	return clean_menu($week[$index]);
 }
 
 function cache_week($data) {
