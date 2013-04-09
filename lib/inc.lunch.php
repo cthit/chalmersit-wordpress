@@ -15,7 +15,7 @@ function get_todays_meals() {
 function parse_feed() {
 	$feed = fetch_rss(RSS_URL);
 	$week = cache_week($feed);
-
+	var_dump($week);
 	$index = 0;
 	if (isset($week[date("j")])) {
 		$index = date("j");
