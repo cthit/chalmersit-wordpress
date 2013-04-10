@@ -77,8 +77,7 @@
 	</div>
 
 	<div class="footer-foot wrapper">
-		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
-			Made on a Mac.</small>
+		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.</small>
 		</p>
 
 		<div class="social-sharing">
@@ -144,7 +143,7 @@
 </script>
 <?php endif;?>
 
-<!-- Created by digIT 12/13. Designed by Johan on a Mac -->
+<!-- Designed and built by Johan Brook on a Mac. digIT 12/13.  -->
 
 </body>
 </html>
