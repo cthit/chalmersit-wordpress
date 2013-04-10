@@ -71,6 +71,18 @@ if(is_admin()) {
 		"desc" => "Visas bl.a. i sidfoten"
 	) + $_std);
 
+	$options->add_setting("booking_email", array(
+		"title" => "Mail för bokningar",
+		"std" => "prit@chalmers.it",
+		"desc" => "Dit alla e-mail från bokningar ska gå (separera flera e-mails med kommatecken)"
+	) + $_std);
+
+	$options->add_setting("booking_party_email", array(
+		"title" => "Mail för festanmälningar",
+		"std" => "vo@chalmers.it",
+		"desc" => "Dit alla e-mail för festanmälningar ska gå (separera flera e-mails med kommatecken)"
+	) + $_std);
+
 	$options->add_setting("contact_official_name", array(
 		"title" => "Kontaktnamn",
 		"std" => "Teknologsektionen Informationsteknik"
