@@ -77,7 +77,8 @@
 	</div>
 
 	<div class="footer-foot wrapper">
-		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.</small>
+		<p><small>Design och kodbas av <a href="http://johanbrook.com" title="digIT 12/13, sexIT '13">Johan Brook</a> och digIT.
+			<a href="/humans.txt">Colophon/team →</a></small>
 		</p>
 
 		<div class="social-sharing">
