@@ -46,11 +46,14 @@ function register_widgets(){
 
 function setup_chalmers() {
 	if(class_exists("Booking")) {
+		set_booking_emails(_parse_email_from_option("booking_email"));
+		set_party_booking_emails(_parse_email_from_option("booking_party_email"));
+
 		Booking::addLocations(array("Hubben", "Grupprummet"));
 		Booking::setSuperGroup(get_it_option("booking_supergroup"));
 		Booking::setConstraintsForRooms(array(
 			"Hubben" => get_it_option("booking_hubben_groups"),
-			"Grupprummet" => array(1)
+			"Grupprummet" => array(1)	#TODO Check how RS handles a 'Generic' group for all users
 		));
 	}
 	
@@ -102,6 +105,12 @@ function setup_chalmers() {
 	/* Thumbnails */
 
 	add_image_size("banner", 9999, 525, true);
+}
+
+function _parse_email_from_option($key) {
+	return array_map(function($email) {
+		return trim($email);
+	}, explode(",", get_it_option($key)));
 }
 
 function it_custom_scripts() {
