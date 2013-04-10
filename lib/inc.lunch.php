@@ -6,40 +6,48 @@
 
 include_once ABSPATH . WPINC.'/rss.php';
 
-define("RSS_URL", "http://cm.lskitchen.se/johanneberg/rss");
+define("KAR_URL", "http://cm.lskitchen.se/johanneberg/karrestaurangen/sv.rss");
+define("LIN_URL", "http://cm.lskitchen.se/johanneberg/linsen/sv.rss");
 
 function get_todays_meals() {
 	return parse_feed();
 }
 
 function parse_feed() {
-	$feed = fetch_rss(RSS_URL);
-	$week = cache_week($feed);
-	var_dump($week);
-	$index = 0;
-	if (isset($week[date("j")])) {
-		$index = date("j");
-	} else if (isset($week[date("j")+1])) {
-		$index = date("j")+1;
-	} else if (isset($week[date("j")+2])) {
-		$index = date("j")+2;
-	}
-	var_dump($week[$index]);
-	return clean_menu($week[$index]);
+	$karfeed = fetch_rss(KAR_URL);
+	$linfeed = fetch_rss(LIN_URL);
+	$kartoday = get_today($karfeed->items);
+	$lintoday = get_today($linfeed->items);
+	$date = format_date($kartoday['pubdate'], "j F");
+
+	return array(
+		"date" => $date,
+		"places" => array(
+			clean_menu($lintoday, "Linsen"),
+			clean_menu($kartoday, "Kårrestaurangen"),
+		)
+
+	);
 }
 
-function cache_week($data) {
+function get_today($data) {
+	$date = date("j");
 	$week = array();
 	foreach ($data as $day) {
-		$week[format_date($day['pubdate'], "j")] = clean_menu($day);
+		$week[format_date($day['pubdate'], "j")] = $day;
 	}
-	return $week;
+	$today = null;
+	if (isset($week[$date])) {
+		$today = $week[$date];
+	} else if (isset($week[$date + 1])) {
+		$today = $week[$date + 1];
+	} else if (isset($week[$date + 2])) {
+		$today = $week[$date + 2];
+	}
+	return $today;
 }
 
-
-function clean_menu($menu) {
-
-	$date = format_date($menu['pubdate'], "j F");
+function clean_menu($menu, $resname) {
 
 	// Clean description
 	$dishes = strip_tags($menu['description'], "<tr>");
@@ -51,14 +59,8 @@ function clean_menu($menu) {
 	$dishes_array = array_filter($dishes_array);
 	// Remove 'dagen lunch', etc.
 	$dishes_array = array_map("_remove_strings", $dishes_array);
-	$places = format_places($dishes_array);
 
-	$ret = array(
-		"date" => $date,
-		"places" => $places
-	);
-
-	return $ret;
+	return format_places($dishes_array, $resname);
 }
 
 
@@ -68,28 +70,16 @@ function format_date($datestring, $format) {
 }
 
 
-function format_places($dishes) {
-	$map = array(
-		array(
-			"name" => "Linsen",
-			"dishes" => array(
-				$dishes[1], $dishes[2]
-			)
-		),
-		array(
-			"name" => "Kårrestaurangen",
-			"dishes" => array(
-				$dishes[3],$dishes[4], $dishes[5]
-			)
-		)
+function format_places($dishes, $name) {
+	return array(
+		"name" => $name,
+		"dishes" => $dishes
 	);
-
-	return $map;
 }
 
 function _remove_strings($input) {
 
-	$strings_to_remove = array("Dagens Lunch", "Veckans soppa", "Classic Kött", "Classic Fisk", "Xpress");
+	$strings_to_remove = array("Dagens Lunch", "Veckans soppa", "Classic Kött", "Classic Fisk", "Xpress", "Gröna väggen");
 	$func = function($elem) {
 		return "<strong>".$elem."</strong>";
 	};
