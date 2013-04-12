@@ -37,12 +37,16 @@ function get_today($data) {
 		$week[format_date($day['pubdate'], "j")] = $day;
 	}
 	$today = null;
-	if (isset($week[$date])) {
-		$today = $week[$date];
-	} else if (isset($week[$date + 1])) {
-		$today = $week[$date + 1];
-	} else if (isset($week[$date + 2])) {
-		$today = $week[$date + 2];
+
+	for ($i = 0; $i < 4; $i++) {
+		$testDay = $week[$date + $i];
+		if (isset($testDay)) {
+			$today = $testDay;
+			break;
+		}
+	}
+	if ($today == null) {
+		return;
 	}
 	return $today;
 }
