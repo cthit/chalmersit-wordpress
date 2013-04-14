@@ -53,7 +53,7 @@ function setup_chalmers() {
 		Booking::setSuperGroup(get_it_option("booking_supergroup"));
 		Booking::setConstraintsForRooms(array(
 			"Hubben" => get_it_option("booking_hubben_groups"),
-			"Grupprummet" => array(1)	#TODO Check how RS handles a 'Generic' group for all users
+			"Grupprummet" => -1
 		));
 	}
 	
