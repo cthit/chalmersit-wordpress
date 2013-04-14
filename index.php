@@ -30,9 +30,11 @@
 	<div class="user-area three columns">
 		<?php if(! is_user_logged_in()) : ?>
 			<?php partial("signinform");?>
+
 		<?php else : ?>
 
-		<section class="current-user-info media-block">
+		<section class="current-event box">
+			<h2>Nästa evenemang</h2>
 			<?php echo do_shortcode('[google-calendar-events id="1" type="list" max="1"]' ); ?>
 		</section>
 

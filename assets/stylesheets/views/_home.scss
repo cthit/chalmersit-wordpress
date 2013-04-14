@@ -108,12 +108,39 @@
 		}
 	}
 
-	.current-user-info {
-		@include box;
-
+	.current-event {
 		h2 {
-			font-size: to_em(18);
-			font-weight: normal;
+			font-size: .9em;
+			margin: 0;
+			color: $grey;
+		}
+
+		.event-title {
+			font-size: 1.1em;
+			font-weight: bolder;
+			margin-bottom: 5px;
+		}
+
+		.meta li {
+			display: inline;
+			font-size: .9em;
+
+			&::after {
+				display: inline-block;
+				margin: 0 2px;
+				content: "∙";
+			}
+
+			/* Hide location info - no vertical space! */
+			&:nth-child(2) {
+				display: none;
+			}
+
+			&:last-child {
+				&::after {
+					content: "";
+				}
+			}
 		}
 	}
 	
