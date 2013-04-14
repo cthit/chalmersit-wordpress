@@ -2787,7 +2787,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 [role="contentinfo"] dt {
   clear: left;
-  min-width: 25%;
+  min-width: 30%;
   margin-right: 5%;
   color: #3c5c5e;
   text-transform: uppercase;
