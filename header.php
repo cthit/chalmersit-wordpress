@@ -70,6 +70,7 @@
 				<?php else : ?>
 
 					<li><a class="btn-round small" id="login-btn" href="<?php echo wp_login_url();?>">Logga in</a></li>
+					<li><a href="<?php echo wp_lostpassword_url();?>">Glömt lösenord</a></li>
 
 				<?php endif;?>
 					<li>

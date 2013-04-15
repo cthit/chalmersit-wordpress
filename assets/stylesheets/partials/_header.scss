@@ -36,6 +36,12 @@
 	& > li {
 		margin: 0 0 0 1em;
 	}
+
+	a:not(.btn-round) {
+		color: #fff;
+		font-size: .8em;
+		font-weight: bolder;
+	}
 }
 
 .header-toolbar {
