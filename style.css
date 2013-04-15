@@ -2649,7 +2649,7 @@ nav ol {
 .header-controls > li {
   margin: 0 0 0 1em;
 }
-.header-controls a:not(.btn-round) {
+.header-controls > li > a:not(.btn-round) {
   color: #fff;
   font-size: .8em;
   font-weight: bolder;
