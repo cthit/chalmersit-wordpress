@@ -21,7 +21,8 @@ if(is_admin()) {
 	}
 	
 	$options = new Theme_Options("chalmersit", array(
-		array("handle" => "general", "title" => __("Allmänna inställningar") )
+		array("handle" => "general", "title" => __("Allmänna inställningar")),
+		array("handle" => "it_booking", "title" => __("Inställningar för bokningssystemet")) 
 	));
 
 	$_std = array(
@@ -48,39 +49,10 @@ if(is_admin()) {
 		"choices" => $choices
 	));
 
-	$options->add_setting("booking_supergroup", array(
-		"title" => "Admingrupp för bokningar",
-		"desc" => "Den grupp som ska kunna overrida bokningar",
-		"section" => "general",
-		"type" => "select",
-		"choices" => $groups
-	));
-
-	$options->add_setting("booking_hubben_groups", array(
-		"title" => "Grupper för Hubben",
-		"desc" => "Välj de grupper som kan boka hubben (håll inne CMD/CTRL för att välja flera)",
-		"section" => "general",
-		"type" => "select",
-		"multiple" => true,
-		"choices" => $groups
-	));
-
 	$options->add_setting("main_contact_email", array(
 		"title" => "Mail till huvudkontakt",
 		"std" => "styrit@chalmers.it",
 		"desc" => "Visas bl.a. i sidfoten"
-	) + $_std);
-
-	$options->add_setting("booking_email", array(
-		"title" => "Mail för bokningar",
-		"std" => "prit@chalmers.it",
-		"desc" => "Dit alla e-mail från bokningar ska gå (separera flera e-mails med kommatecken)"
-	) + $_std);
-
-	$options->add_setting("booking_party_email", array(
-		"title" => "Mail för festanmälningar",
-		"std" => "vo@chalmers.it",
-		"desc" => "Dit alla e-mail för festanmälningar ska gå (separera flera e-mails med kommatecken)"
 	) + $_std);
 
 	$options->add_setting("contact_official_name", array(
@@ -101,6 +73,39 @@ if(is_admin()) {
 	$options->add_setting("locality", array(
 		"title" => "Ort",
 		"std" => "Göteborg"
+	) + $_std);
+
+	/* Booking settings */
+
+	$options->add_setting("booking_supergroup", array(
+		"title" => "Admingrupp för bokningar",
+		"desc" => "Den grupp som ska kunna overrida bokningar",
+		"section" => "it_booking",
+		"type" => "select",
+		"choices" => $groups
+	));
+
+	$options->add_setting("booking_hubben_groups", array(
+		"title" => "Grupper för Hubben",
+		"desc" => "Välj de grupper som kan boka hubben (håll inne CMD/CTRL för att välja flera)",
+		"section" => "it_booking",
+		"type" => "select",
+		"multiple" => true,
+		"choices" => $groups
+	));
+
+	$options->add_setting("booking_email", array(
+		"title" => "Mail för bokningar",
+		"std" => "prit@chalmers.it",
+		"desc" => "Dit alla e-mail från bokningar ska gå (separera flera e-mails med kommatecken)",
+		"section" => "it_booking"
+	) + $_std);
+
+	$options->add_setting("booking_party_email", array(
+		"title" => "Mail för festanmälningar",
+		"std" => "vo@chalmers.it",
+		"desc" => "Dit alla e-mail för festanmälningar ska gå (separera flera e-mails med kommatecken)",
+		"section" => "it_booking"
 	) + $_std);
 
 }
