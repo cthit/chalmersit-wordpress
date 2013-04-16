@@ -3540,8 +3540,9 @@ li.widget {
   background-color: #2ca0d1;
 }
 .modal iframe {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 90%;
+  height: 90%;
   border: 0;
 }
 .modal.in {
