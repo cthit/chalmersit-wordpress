@@ -19,7 +19,7 @@
 
 		/* Adjust non-wrapping links in post content */
 		p a {
-			@include limit-text(500px);
+			@include limit-text;
 		}
 	}
 

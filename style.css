@@ -2836,8 +2836,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 [role="article"] .article-content p a {
   display: inline-block;
-  max-width: 500px;
-  width: 100%;
+  max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
