@@ -177,18 +177,25 @@ $(function() {
 		});
 
 		$("#avatar-modal").append(iframe).modal("show");
+
+
+		// When clicking the 'close' link in the last step,
+		// make sure to hide the modal correctly.
+
+		iframe.on("load", function(evt) {
+			$(this).contents().find("#user-avatar-step3-close")
+				.removeAttr("onclick")
+				.on("click", function(evt){
+					evt.preventDefault();
+					$("#avatar-modal").modal("hide");
+				});
+		});
 	});
+
 
 	// Wipe avatar modal on hide
 	$("#avatar-modal").on("hidden", function() {
 		$(this).find("iframe").remove();
-	});
-
-	$("#avatar-iframe").contents().find("#user-avatar-step3-close")
-	.removeAttr("onclick")
-	.live("click", function(evt) {
-		evt.preventDefault();
-		$("#avatar-modal").hide();
 	});
 
 	// Set up smooth scrolling links

@@ -172,7 +172,6 @@
 
           this.$backdrop.addClass('in')
 
-          console.log("hejs")
 
           if (!callback) return
 
