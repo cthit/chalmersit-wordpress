@@ -29,9 +29,9 @@
 			</div>
 			<?php endif;?>
 
-			<p>
+			<p id="drop">
 				<label for="upload">Fil</label>
-				<input type="file" name="upload" id="upload" />
+				<input type="file" name="upload[]" id="upload" multiple />
 				<small>(godkända format är bilder, ren text och PDF)</small>
 			</p>
 
