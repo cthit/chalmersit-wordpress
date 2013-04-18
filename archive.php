@@ -11,7 +11,8 @@
 	}
 	else if(is_author()) {
 		$object = $wp_query->query['author_name'];
-		$title = "Nyheter av <strong>". $object . "</strong>";
+		$author = get_user_by("login", $object);
+		$title = "Nyheter av <strong>$author->display_name</strong>";
 	}
 	else {
 		$title = "Nyhetsarkiv";
@@ -63,7 +64,7 @@
 		<h2>RSS</h2>
 
 		<ul class="list">
-			<li><a class="rss-link" href="feed">RSS-flöde för '<?php echo $object;?>'</a></li>
+			<li><a class="rss-link" href="feed">RSS-flöde för <?php echo $author->first_name;?></a></li>
 		</ul>
 
 		<footer class="center">

@@ -31,10 +31,12 @@ Information Technology at Chalmers University of Technology
 * digit@chalmers.it
 * #digit@irc.chalmers.it
 
+See more in /humans.txt
+
 -->
 <html>
 <head>
-	<title><?php wp_title("|", true, "right"); bloginfo("name");?></title>
+	<title><?php wp_title("|", true, "right");?></title>
 	<meta charset="utf-8" />
 	
 	<!-- Load up the Ubuntu fonts -->
@@ -61,6 +63,9 @@ Information Technology at Chalmers University of Technology
 	
 	<!-- Viewport setting -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- Humanstxt.org -->
+	<link type="text/plain" rel="author" href="/humans.txt" />
 	
 	<?php if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ):?>
 	<?php wp_enqueue_script( 'comment-reply' ); ?>
