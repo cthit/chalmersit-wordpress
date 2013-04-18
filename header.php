@@ -54,6 +54,9 @@
 						<span id="tools-menu-trigger" class="dropdown-trigger icon-cog">Verktyg</span>
 
 						<ul class="dropdown-sub">
+							<?php if(current_user_can("publish_posts")) : ?>
+							<li><a href="<?php echo admin_url("post-new.php");?>">Posta nyhet</a></li>
+							<?php endif;?>
 							<li><a href="<?php link_to("skrivut");?>">Skriv ut</a></li>
 							<li><a href="<?php link_to("bokning");?>">Boka rum</a></li>
 							<li><a target="_blank" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=https%3A%2F%2Fweb.timeedit.se%2Fchalmers_se%2Fdb1%2Ftimeedit%2Fp%2Fpublic%2Fr.html%3Fsid%3D3%26h%3Dt&ei=gQcQUaniD8XStQbS2oGYBQ&usg=AFQjCNHcE_uBpOwpal6Bm0dqzmt1c48-0Q&sig2=64mqoqh8_Nf2dwIzyjmJ4A&bvm=bv.41867550,d.Yms">Schema</a></li>
