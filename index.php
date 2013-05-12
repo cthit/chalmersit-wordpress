@@ -152,8 +152,10 @@
 				<h1>Twitter</h1>
 				<a class="header-more" href="http://twitter.com/chalmersit">@chalmersit</a>
 			</header>
-
-			<div id="tweet-list">
+			<meta name="twitter-type" content="user" />
+			<meta name="twitter-content" content="chalmersit" />
+			<meta name="twitter-count" content="8" />
+			<div id="tweet-list">	
 			</div>
 		</section>
 
