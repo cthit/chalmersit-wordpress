@@ -134,18 +134,6 @@
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
 
-		<section class="box">
-			<header class="panel-header">
-				<h1>Twitter</h1>
-				<a class="header-more" href="http://twitter.com/chalmersit">@chalmersit</a>
-			</header>
-			<meta name="twitter-type" content="user" />
-			<meta name="twitter-content" content="chalmersit" />
-			<meta name="twitter-count" content="8" />
-			<div id="tweet-list">	
-			</div>
-		</section>
-
 	</div>
 </section>
 
