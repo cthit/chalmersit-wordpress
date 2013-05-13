@@ -61,22 +61,9 @@
 
 	
 	<div class="three columns">
-		<?php $menu = get_todays_meals();?>
-		<?php if($menu) : ?>
-		<section class="lunch box">
-			<header>
-				<h3>Lunch <small>(<?php echo $menu['date'];?>)</small></h3>
-			</header>
-
-			<?php foreach($menu['places'] as $place) : ?>
-			<h2 class="section-heading"><?php echo $place['name'];?></h2>
-			<ul class="simple-list">
-				<?php foreach($place['dishes'] as $dish) : ?>
-				<li><?php echo $dish;?></li>
-				<?php endforeach;?>
-			</ul>
-			<?php endforeach;?>
-		</section>
+		
+		<?php if(is_active_sidebar("index-mid")) : ?>
+			<?php dynamic_sidebar("index-mid"); ?>
 		<?php endif;?>
 
 		<?php $comments = get_comments(array("status" => "approve", "number" => 10)); ?>
@@ -146,16 +133,6 @@
 		<?php if(is_active_sidebar("index-right")) : ?>
 			<?php dynamic_sidebar("index-right"); ?>
 		<?php endif;?>
-
-		<section class="box">
-			<header class="panel-header">
-				<h1>Twitter</h1>
-				<a class="header-more" href="http://twitter.com/chalmersit">@chalmersit</a>
-			</header>
-
-			<div id="tweet-list">
-			</div>
-		</section>
 
 	</div>
 </section>
