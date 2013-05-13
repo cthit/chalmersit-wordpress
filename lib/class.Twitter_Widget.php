@@ -16,7 +16,7 @@ class Twitter_Widget extends WP_widget {
 		wp_cache_delete('it_twitter_widget', 'widget');
 	}
 
-	function widget($args, $instance) {
+	function widget( $args, $instance ) {
 		extract( $args );
 		
 		$cache = wp_cache_get('it_twitter_widget', 'widget');
@@ -29,7 +29,7 @@ class Twitter_Widget extends WP_widget {
 			return;
 		}
 
-		$user = $instance['user'];
+		$user = $instance['twUser'];
 		$type = $instance['type'];
 		$count = $instance['count'];
 
@@ -58,14 +58,14 @@ class Twitter_Widget extends WP_widget {
 
 	}
 
-	function update() {
+	function update($new_instance, $old_instance) {
 		$new_instance = (array) $new_instance;
 		$instance = array();
 		foreach ( $instance as $field => $val ) {
 			if ( isset($new_instance[$field]) )
 				$instance[$field] = 1;
 		}
-		$instance['user'] = $new_instance['user'];
+		$instance['twUser'] = $new_instance['twUser'];
 		$instance['type'] = $new_instance['type'];
 		$instance['count'] = $new_instance['count'];
 		
@@ -93,8 +93,8 @@ class Twitter_Widget extends WP_widget {
 		$instance = wp_parse_args( (array) $instance, $defaults); ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('user');?>"><?php _e("Användare"); ?>:</label>
-			<input id="<?php echo $this->get_field_id('user');?>" name="<?php echo $this->get_field_name('user');?>" value="<?php echo $instance['user']; ?>" class="widefat" />
+			<label for="<?php echo $this->get_field_id('twUser');?>"><?php _e("Användare"); ?>:</label>
+			<input id="<?php echo $this->get_field_id('twUser');?>" name="<?php echo $this->get_field_name('twUser');?>" value="<?php echo $instance['twUser']; ?>" class="widefat" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('count');?>"><?php _e("Antal tweets"); ?>:</label>
