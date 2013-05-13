@@ -29,7 +29,8 @@ class Twitter_Widget extends WP_widget {
 			return;
 		}
 
-		$user = $instance['twUser'];
+		$niceUser = apply_filters('widget_title', $instance['twUser']);
+		$user = strtolower($niceUser);
 		$type = $instance['type'];
 		$count = $instance['count'];
 
@@ -40,7 +41,7 @@ class Twitter_Widget extends WP_widget {
 
 		<header class="panel-header">
 			<h1>Twitter</h1>
-			<a class="header-more" href="http://twitter.com/<?php echo $user; ?>">@<?php echo $user; ?></a>
+			<a class="header-more" href="http://twitter.com/<?php echo $user; ?>">@<?php echo $niceUser; ?></a>
 		</header>
 		<meta name="twitter-type" content="<?php echo $type ?>" />
 		<meta name="twitter-content" content="<?php echo $user; ?>" />
