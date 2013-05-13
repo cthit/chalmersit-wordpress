@@ -1316,43 +1316,48 @@ $(function() {
 			this.blur();
 	});
 
+
 	// Show Twitter timeline on frontpage
 
-	var twQContent = $('meta[name=twitter-content]').attr("content");
-	var twQType = $('meta[name=twitter-type]').attr("content");
-	var twQSize = $('meta[name=twitter-count]').attr("content");
-	var twitterUrl = "https://";
-	if(twQType === "user"){
-		twitterUrl += "api.twitter.com/1/statuses/user_timeline/";
-	} // Add hashtag support here
+	$('.it_twitter').each(function(){
+		var that = this;
+		var twQContent = $(this).children('meta[name=twitter-content]').attr("content");
+		var twQType = $(this).children('meta[name=twitter-type]').attr("content");
+		var twQSize = $(this).children('meta[name=twitter-count]').attr("content");
+		var twitterUrl = "https://";
+		if(twQType === "user"){
+			twitterUrl += "api.twitter.com/1/statuses/user_timeline/";
+		} // Add hashtag support here
 
-	twitterUrl += twQContent+".json?callback=?";
-
-
-	$.getJSON(twitterUrl, function(json, status, xhr) {
-		var $list = $("<ul />", {
-			"class": "list"
-		});
-
-		if(json != null) {
-			$.each(json, function(i) {
-				var date = new Date(this.created_at),
-					text = "<p>" + Chalmers.linkify(this.text) + "</p><time>"+ date.toDateString() +"</time>";
-
-				var element = $("<li />", {
-					"html": text
-				});
-
-				$list.append(element);
-
-				return i<(twQSize -1);
+		twitterUrl += twQContent+".json?callback=?";
+		console.log(twitterUrl);
+		$.getJSON(twitterUrl, function(json, status, xhr) {
+			var $list = $("<ul />", {
+				"class": "list"
 			});
 
-			$("#tweet-list").append($list);
-		}
-		else {
-			$list.html("<li>Kunde inte hämta tweets från Twitter</li>")
-		}
+			if(json != null) {
+				$.each(json, function(i) {
+					var date = new Date(this.created_at),
+						text = "<p>" + Chalmers.linkify(this.text) + "</p><time>"+ date.toDateString() +"</time>";
+					var element = $("<li />", {
+						"html": text
+					});
+
+					$list.append(element);
+
+					return i<(twQSize -1);
+				});
+
+
+			}
+			else {
+				$list.html("<li>Kunde inte hämta tweets från Twitter</li>")
+			}
+
+			$(that).find('#tweet-list').append($list);
+
+		});
 	});
 
 });
