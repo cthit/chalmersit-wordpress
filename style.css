@@ -2960,6 +2960,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  vertical-align: top;
 }
 .event-meta li:last-child {
   border: 0;
