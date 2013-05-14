@@ -10,23 +10,20 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
     $pass=stripcslashes($pass);
 	if($con = ssh2_connect("remote1.studat.chalmers.se", 22)){
 		if(ssh2_auth_password($con, $user, $pass)){
-			ssh2_exec($con, "mkdir -p .print");
-			ssh2_scp_send($con, $file, ".print/chalmersit.dat", 0644);
-			$sides = (!$one_sided ? "one-sided" : "two-sided-long-edge");
-			$range = (empty($range) ? "" : "-o page-ranges=$range");
+            try {
+			    ssh_exec($con, "mkdir -p .print");
+			    ssh2_scp_send($con, $file, ".print/chalmersit.dat", 0644);
+			    $sides = (!$one_sided ? "one-sided" : "two-sided-long-edge");
+			    $range = (empty($range) ? "" : "-o page-ranges=$range");
 
-            // The environment variable CUPS_GSSSERVICENAME=HTTP must be set, othewise kerberos throws unauthorized
-			$stream = ssh2_exec($con, "CUPS_GSSSERVICENAME=HTTP;lpr -P $printer -# $copies -o sides=$sides $range .print/chalmersit.dat");
-            $errorStream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-            stream_set_blocking($errorStream, true);
-            $outputError = stream_get_contents($errorStream);
-            fclose($stream);
-            fclose($errorStream);
-
-            if(strlen($outputError) > 0) {
-                log_to_file($outputError, 50, $user);
-                return "Printservern rapporterade: " . str_replace("lpr:", "", $outputError);
+                // The environment variable CUPS_GSSSERVICENAME=HTTP must be set, othewise kerberos throws unauthorized
+			    ssh_exec($con, "lpr -P $printer -# $copies -o sides=$sides $range .print/chalmersit.dat");
             }
+            catch(Exception $e) {
+                log_to_file($e->getMessage(), $e->getCode(), $user);
+                return "Printservern rapporterade: " . str_replace("lpr:", "", $e->getMessag());
+            }
+
 			return ""; // Everything went alright
 		}
 		else {
@@ -79,6 +76,33 @@ if(isset($_POST['print'])) {
 	else {
 		$errors[] = "Kunde inte skriva ut filen. Kontrollera filtyp och storlek";
 	}
+}
+
+// Shamelessly stolen from http://stackoverflow.com/a/10939967 (With minor mods)
+function ssh_exec($con, $command )
+{
+    $command = 'export CUPS_GSSSERVICENAME=HTTP;' . $command;
+    $result = rawExec($con, $command.';echo -en "\n$?"' );
+    if( ! preg_match( "/^(.*)\n(0|-?[1-9][0-9]*)$/s", $result[0], $matches ) ) {
+        throw new RuntimeException( "output didn't contain return status" );
+    }
+    if( $matches[2] !== "0" ) {
+        throw new RuntimeException( $result[1], (int)$matches[2] );
+    }
+    return $matches[1];
+}
+
+function rawExec($con, $command )
+{
+    $stream = ssh2_exec( $con, $command, $env);
+    $error_stream = ssh2_fetch_stream( $stream, SSH2_STREAM_STDERR );
+    stream_set_blocking( $stream, TRUE );
+    stream_set_blocking( $error_stream, TRUE );
+    $output = stream_get_contents( $stream );
+    $error_output = stream_get_contents( $error_stream );
+    fclose( $stream );
+    fclose( $error_stream );
+    return array( $output, $error_output );
 }
 
 function log_to_file($msg, $code, $cid, $extra = "")
