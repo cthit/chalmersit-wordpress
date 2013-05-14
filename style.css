@@ -3462,9 +3462,6 @@ nav.side-nav ul {
 .widget header {
   text-align: left;
 }
-.widget h2, .widget h3 {
-  color: #999;
-}
 
 .widget img {
   display: block;
