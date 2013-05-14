@@ -21,7 +21,7 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
             }
             catch(Exception $e) {
                 log_to_file($e->getMessage(), $e->getCode(), $user);
-                return "Printservern rapporterade: " . str_replace("lpr:", "", $e->getMessag());
+                return "Printservern rapporterade: " . str_replace("lpr:", "", $e->getMessage());
             }
 
 			return ""; // Everything went alright
