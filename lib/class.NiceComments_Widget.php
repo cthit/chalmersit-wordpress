@@ -42,7 +42,7 @@ class NiceComments_Widget extends WP_Widget {
 
 
 		ob_start();
-		if($comments) :
+		
 		echo $before_widget;
 
 		if($title) { ?> 
@@ -51,28 +51,35 @@ class NiceComments_Widget extends WP_Widget {
 			</header>
 			<?php
 		}
+		if($comments) :
+			?>
 
-		?>
+				<ul class="simple-list">
+					<?php foreach($comments as $comment) : ?>
+					<?php $p = get_post($comment->comment_post_ID);?>
 
-			<ul class="simple-list">
-				<?php foreach($comments as $comment) : ?>
-				<?php $p = get_post($comment->comment_post_ID);?>
+					<li>
+						<p class="comment-author">
+							<?php echo get_avatar($comment->user_id, 32);?>
+							<strong><?php echo $comment->comment_author;?></strong>
+						</p>
+						på <a href="<?php echo get_permalink($p->ID);?>#comment-<?php echo $comment->comment_ID;?>"><?php echo $p->post_title;?></a>
+						<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
+					</li>
+					<?php endforeach;?>
+				</ul>
 
-				<li>
-					<p class="comment-author">
-						<?php echo get_avatar($comment->user_id, 32);?>
-						<strong><?php echo $comment->comment_author;?></strong>
-					</p>
-					på <a href="<?php echo get_permalink($p->ID);?>#comment-<?php echo $comment->comment_ID;?>"><?php echo $p->post_title;?></a>
-					<time><?php echo human_time_diff(strtotime($comment->comment_date));?> ago</time>
-				</li>
-				<?php endforeach;?>
-			</ul>
+			<?php
+		
+		else :
+			?>
+				<p>Inga kommentarer</p>
 
-		<?php
-		echo $after_widget;
 
+			<?php
 		endif;
+
+		echo $after_widget;	
 		$cache[$args['widget_id']] = ob_get_flush();
 		wp_cache_set('it_nicecomments_widget', $cache, 'widget');
 
