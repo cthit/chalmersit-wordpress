@@ -18,7 +18,8 @@ function parse_feed() {
 	$linfeed = fetch_rss(LIN_URL);
 	$kartoday = get_today($karfeed->items);
 	$lintoday = get_today($linfeed->items);
-	$date = format_date($kartoday['pubdate'], "j F");
+	setlocale(LC_TIME, "sv_SE");
+	$date = strftime("%e %B", strtotime($kartoday['pubdate']));
 
 	return array(
 		"date" => $date,
