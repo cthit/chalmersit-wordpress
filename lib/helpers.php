@@ -403,7 +403,7 @@ function get_user_role($user) {
 -------------------------- */
 
 function get_groups($ids = array(), $skip_registered = true) {
-	if(!defined("GROUPS_FILE")) {
+	if(!defined("SCOPER_VERSION")) {
 		return null;
 	}
 
@@ -434,7 +434,7 @@ function is_user_committee_member($user_id) {
 }
 
 function get_group_ids_for_user($user_id) {
-	if(!defined("GROUPS_FILE")) {
+	if(!defined('SCOPER_VERSION')) {
 		return null;
 	}
 
