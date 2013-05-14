@@ -66,10 +66,9 @@ class Twitter_Widget extends WP_widget {
 			if ( isset($new_instance[$field]) )
 				$instance[$field] = 1;
 		}
-		$instance['twUser'] = $new_instance['twUser'];
-		$instance['type'] = $new_instance['type'];
-		$instance['count'] = $new_instance['count'];
-		
+		foreach($new_instance as $field => $val) {
+			$instance[$field] = $val;
+		}
 		$this->flush_widget_cache();
 
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
@@ -91,7 +90,9 @@ class Twitter_Widget extends WP_widget {
 			"hide_empty" => false 
 		);
 
-		$instance = wp_parse_args( (array) $instance, $defaults); ?>
+
+		$instance = wp_parse_args( (array) $instance, $defaults); 
+		?>
 
 		<p>
 			<label for="<?php echo $this->get_field_id('twUser');?>"><?php _e("Användare"); ?>:</label>
