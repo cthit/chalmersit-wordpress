@@ -40,7 +40,7 @@ See more in /humans.txt
 	<meta charset="utf-8" />
 	
 	<!-- Load up the Ubuntu fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic" type="text/css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic" type="text/css">
 
 	<!-- HTML5 shim -->
 	<!--[if lt IE 9]>
