@@ -3,7 +3,6 @@
 
 	# If this partial *is not* called via XHR fetch the 
 	# courses from the $period and $year variables	
-	# 
 
 ?>
 
@@ -39,7 +38,6 @@
 
 		<?php if($courses) : ?>
 		<h3><?php echo $period->name;?></h3>
-		
 		<ul class="simple-list course-listing">
 		<?php foreach($courses as $course) : ?>
 			<?php
@@ -62,4 +60,10 @@
 
 	<?php endforeach; endif;?>
 
-<?php endforeach; endif; ?>
+<?php endforeach; ?>
+
+<?php else : ?>
+	
+	<p class="no-content">Kunde inte hämta kurser</p>
+
+<?php endif;?>
