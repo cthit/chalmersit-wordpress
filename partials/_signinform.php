@@ -1,4 +1,4 @@
-<form name="loginform" action="/loggain?redirect_to=<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
+<form name="loginform" action="<?php echo wp_login_url($_SERVER['REQUEST_URI']);?>" method="post">
 	<input type="hidden" name="redirect_to" value="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" />
 	<input type="hidden" name="user-cookie" value="1" />
 	
