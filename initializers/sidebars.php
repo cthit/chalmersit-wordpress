@@ -10,6 +10,11 @@ function it_register_sidebars() {
 
 	$zones = array(
 		array(
+			"name" => "Förstasida mitten",
+			"id" => "index-mid"
+		) + $global,
+
+		array(
 			"name" => "Förstasida till höger",
 			"id" => "index-right"
 		) + $global,

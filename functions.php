@@ -13,6 +13,10 @@ require_once "lib/constants.php";
 require_once "lib/helpers.php";
 require_once "lib/class.Comittee_Walker.php";
 require_once "lib/class.Sponsor_Widget.php";
+require_once "lib/class.Lunch_Widget.php";
+require_once "lib/class.Twitter_Widget.php";
+require_once "lib/class.Upcoming_Widget.php";
+require_once "lib/class.NiceComments_Widget.php";
 require_once "lib/class.Metabox.php";
 require_once "lib/class.Options.php";
 require_once "lib/inc.lunch.php";
@@ -42,6 +46,10 @@ if(! is_admin()) {
 add_action("widgets_init", "register_widgets");
 function register_widgets(){
 	register_widget("Sponsor_Widget");
+	register_widget("Lunch_Widget");
+	register_widget("Twitter_Widget");
+	register_widget("Upcoming_Widget");
+	register_widget("NiceComments_Widget");
 }
 
 function setup_chalmers() {
