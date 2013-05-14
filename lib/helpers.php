@@ -430,7 +430,7 @@ function get_groups($ids = array(), $skip_registered = true) {
 
 function is_user_committee_member($user_id) {
 	$groups = get_group_ids_for_user($user_id);
-	return count(array_slice($groups, 1)) > 0;
+	return count($groups) > 0;
 }
 
 function get_group_ids_for_user($user_id) {
