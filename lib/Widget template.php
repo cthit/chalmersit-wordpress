@@ -83,6 +83,7 @@ class X_Widget extends WP_Widget {
 			"title" => ""
 			// Define default key-value pairs
 		);
+		$instance = wp_parse_args( (array) $instance, $defaults );
 
 		// Get any external data needed for the form
 		?>
