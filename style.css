@@ -2940,6 +2940,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  vertical-align: top;
 }
 .event-meta li:last-child {
   border: 0;
@@ -4286,7 +4287,7 @@ li.widget {
 
 /* =LOGIN
 ------------------------------------ */
-.page-login .main-col h1 {
+.page-loggain .main-col h1 {
   text-align: center;
 }
 
@@ -4427,15 +4428,15 @@ li.widget {
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 959px) and (min-width: 768px) {
   /* Global layout changes */
-  .three.columns.pull-six, .row .columns.pull-six.three {
+  .three.columns.pull-six {
     right: 75%;
   }
 
-  .six.columns.push-three.main-col, .row .columns.push-three.main-col.six {
+  .six.columns.push-three.main-col {
     width: 75%;
   }
 
-  .three.columns.sidebar, .row .columns.sidebar.three {
+  .three.columns.sidebar {
     float: none;
     width: 75%;
     position: relative;
