@@ -65,9 +65,9 @@ class Sponsor_Widget extends WP_Widget {
 			if ( isset($new_instance[$field]) )
 				$instance[$field] = 1;
 		}
-		$instance['sponsor'] = $new_instance['sponsor'];
-		$instance['title'] = $new_instance['title'];
-		$instance['orderby'] = $new_instance['orderby'];
+		foreach($new_instance as $field => $val) {
+			$instance[$field] = $val;
+		}
 		
 		$this->flush_widget_cache();
 
