@@ -2840,6 +2840,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  vertical-align: top;
 }
 [role="article"] footer nav {
   margin: 1.5em 0;
@@ -2941,7 +2942,6 @@ body.logged-in [role="banner"] .header-controls .user-details {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  vertical-align: top;
 }
 .event-meta li:last-child {
   border: 0;
