@@ -440,7 +440,7 @@ function get_group_ids_for_user($user_id) {
 
 	global $wpdb;
 
-	$sql = "SELECT group_id FROM it_groups_user_group WHERE user_id = ".$user_id;
+	$sql = "SELECT group_id FROM it_user2group_rs WHERE user_id = ".$user_id;
 	$res = $wpdb->get_results($sql);
 	$map = array();
 	$cb = function($item) {
