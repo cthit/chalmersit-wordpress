@@ -88,10 +88,9 @@
 	</section>
 
 	<?php
-		$user_groups = get_group_ids_for_user($current_user->ID);
-
 	# Only show for users members in a committée (apart from the default one).
 	if(is_user_committee_member($current_user->ID)) :
+		$user_groups = get_group_ids_for_user($current_user->ID);
 		$future_group_bookings = get_future_bookings_for_group($user_groups);
 		$past_group_bookings = get_past_bookings_for_group($user_groups);
 	?>
