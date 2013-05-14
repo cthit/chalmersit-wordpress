@@ -859,7 +859,6 @@
 
           this.$backdrop.addClass('in')
 
-          console.log("hejs")
 
           if (!callback) return
 
@@ -1219,18 +1218,25 @@ $(function() {
 		});
 
 		$("#avatar-modal").append(iframe).modal("show");
+
+
+		// When clicking the 'close' link in the last step,
+		// make sure to hide the modal correctly.
+
+		iframe.on("load", function(evt) {
+			$(this).contents().find("#user-avatar-step3-close")
+				.removeAttr("onclick")
+				.on("click", function(evt){
+					evt.preventDefault();
+					$("#avatar-modal").modal("hide");
+				});
+		});
 	});
+
 
 	// Wipe avatar modal on hide
 	$("#avatar-modal").on("hidden", function() {
 		$(this).find("iframe").remove();
-	});
-
-	$("#avatar-iframe").contents().find("#user-avatar-step3-close")
-	.removeAttr("onclick")
-	.live("click", function(evt) {
-		evt.preventDefault();
-		$("#avatar-modal").hide();
 	});
 
 	// Set up smooth scrolling links
@@ -1304,30 +1310,54 @@ $(function() {
 	});
 
 
+	// Pressing 'Esc' when in search field in header should blur the field
+	$("[role='search'] input").on("keyup", function(evt) {
+		if(evt.which == 27)
+			this.blur();
+	});
+
+
 	// Show Twitter timeline on frontpage
 
-	$.getJSON("https://api.twitter.com/1/statuses/user_timeline/chalmersit.json?callback=?", function(json, status, xhr) {
-		var $list = $("<ul />", {
-			"class": "list"
-		});
+	$('.it_twitter').each(function(){
+		var that = this;
+		var twQContent = $(this).children('meta[name=twitter-content]').attr("content");
+		var twQType = $(this).children('meta[name=twitter-type]').attr("content");
+		var twQSize = $(this).children('meta[name=twitter-count]').attr("content");
+		var twitterUrl = "https://";
+		if(twQType === "user"){
+			twitterUrl += "api.twitter.com/1/statuses/user_timeline/";
+		} // Add hashtag support here
 
-		if(json != null) {
-			$.each(json, function() {
-				var date = new Date(this.created_at),
-					text = "<p>" + Chalmers.linkify(this.text) + "</p><time>"+ date.toDateString() +"</time>";
-
-				var element = $("<li />", {
-					"html": text
-				});
-
-				$list.append(element);
+		twitterUrl += twQContent+".json?callback=?";
+		console.log(twitterUrl);
+		$.getJSON(twitterUrl, function(json, status, xhr) {
+			var $list = $("<ul />", {
+				"class": "list"
 			});
 
-			$("#tweet-list").append($list);
-		}
-		else {
-			$list.html("<li>Kunde inte hämta tweets från Twitter</li>")
-		}
+			if(json != null) {
+				$.each(json, function(i) {
+					var date = new Date(this.created_at),
+						text = "<p>" + Chalmers.linkify(this.text) + "</p><time>"+ date.toDateString() +"</time>";
+					var element = $("<li />", {
+						"html": text
+					});
+
+					$list.append(element);
+
+					return i<(twQSize -1);
+				});
+
+
+			}
+			else {
+				$list.html("<li>Kunde inte hämta tweets från Twitter</li>")
+			}
+
+			$(that).find('#tweet-list').append($list);
+
+		});
 	});
 
 });
