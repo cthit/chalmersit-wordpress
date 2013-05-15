@@ -83,7 +83,7 @@
 		<?php endforeach;?>
 		</ul>
 		<?php else : ?>
-		<p class="no-content">Inga kommande bokningar</p>
+		<p class="no-content">Inga tidigare bokningar</p>
 		<?php endif;?>
 	</section>
 
