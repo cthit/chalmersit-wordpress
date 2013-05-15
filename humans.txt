@@ -9,13 +9,18 @@
 
 /* TEAM */
 
-Design and development, backend and frontend: Johan Brook
-Contact: johan@johanbrook.com
-Twitter: @johanbrook
-digIT 12/13
+Initial design and development (front/backend)
 
-Deployment, enhancements and maintenance: digIT 13/14
-Contact: digit@chalmers.it
+	Johan Brook
+	Contact: johan@johanbrook.com
+	Twitter: @johanbrook
+	digIT 12/13
+
+Deployment, enhancements and maintenance
+	
+	digIT 13/14
+	Tech lead: Pontus Malm
+	Contact: digit@chalmers.it
 
 Hardware sponsored by: Gussoh
 
