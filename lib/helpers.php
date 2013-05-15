@@ -181,7 +181,7 @@ function link_to($page, $echo = true){
 
 		if(!$id){
 
-			$link = (strrpos($page, "http://") === false) ? get_bloginfo("url")."/".$page : $page;
+			$link = ((strrpos($page, "http://") === false) && (strrpos($page, "https://") === false)) ? get_bloginfo("url")."/".$page : $page;
 			
 		}else{
 			$link = get_permalink($id);
