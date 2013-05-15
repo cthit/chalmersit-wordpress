@@ -47,7 +47,11 @@
 		</dl>
 
 		<p>
-			P.R.I.T. reserverar sig för att ta bort eller ändra bokningar.
+			P.R.I.T. förbehåller sig rätten att ta bort eller ändra bokningar.
+		</p>
+		<p>
+			Ett nytt, mer robust bokningssystem är under utveckling. Alla bokningar
+			som görs här kommer kopieras när det nya träder i kraft.
 		</p>
 	</div>
 </aside>
