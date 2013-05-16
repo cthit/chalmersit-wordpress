@@ -3,7 +3,7 @@
 	<input type="hidden" name="user-cookie" value="1" />
 	
 	<p>
-	<input type="text" name="log" placeholder="E-postadress eller nick"
+	<input type="text" name="log" placeholder="CID eller e-postadress"
 		<?php if(isset($_POST['user_email'])) echo 'value="'. $_POST['user_email'] .'" autofocus' ?>
 		 />
 
