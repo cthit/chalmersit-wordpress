@@ -52,7 +52,7 @@ function clean_item($item) {
 function title_date($datestring) {
 	$formatted_date = date_parse($datestring);
 	$months = array("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "november", "december");
-	return $formatted_date["day"] . " " . $months[$formatted_date["month"]];
+	return $formatted_date["day"] . " " . $months[$formatted_date["month"]-1];
 }
 
 
