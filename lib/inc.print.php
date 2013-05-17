@@ -8,7 +8,7 @@ ini_set("post_max_file", "100M");
 
 function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='') {
     $pass=stripcslashes($pass);
-	if($con = ssh2_connect("remote1.studat.chalmers.se", 22)){
+	if($con = ssh2_connect("remote2.student.chalmers.se", 22)){
 		if(ssh2_auth_password($con, $user, $pass)){
             try {
 			    ssh_exec($con, "mkdir -p .print");
