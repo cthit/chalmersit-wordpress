@@ -17,6 +17,13 @@ class Upcoming_Widget extends WP_Widget {
 		wp_cache_delete('it_upcoming_widget', 'widget');
 	}
 
+    function filter_where($where = '') {
+      //posts in the future
+      $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);
+      $where .= " AND post_date >= '" . date('Y-m-d') . "'";
+      return $where;
+    }
+
 	function widget( $args, $instance) {
 		extract($args);
 
@@ -33,13 +40,6 @@ class Upcoming_Widget extends WP_Widget {
 
 		$lunchCount = $instance['lunchCount'];
 		$eventCount = $instance['eventCount'];
-
-		$lunch_lectures = get_posts(array(
-			"category" => get_it_option("lunch_category"),
-			"posts_per_page" => $lunchCount
-		));
-
-
 		/*
 			Get parameters by
 			$Variable = $instance['param_name'];
@@ -55,16 +55,33 @@ class Upcoming_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
+        $post_query = array(
+            "suppress_filters" => false,
+			"category"         => get_it_option("lunch_category"),
+			"posts_per_page"   => $lunchCount,
+            "meta_query"       => array(
+                array( // Only get future lunch lectures
+                    "key"     => IT_PREFIX."event_date",
+                    "value"   => date("Y-m-d"),
+                    "compare" => ">",
+                )
+            )
+		);
+        $lunch_lectures = new WP_Query($post_query);
 		?>
 
 		<?php if($lunch_lectures) : ?>
 			<h2 class="section-heading">Lunchföreläsningar</h2>
 			<ul class="list lunch-lectures">
+                <?php if($lunch_lectures->post_count == 0) : ?>
+                <li>Inga planerade lunchföreläsningar</li>
+                <?php endif; ?>
 
-				<?php foreach($lunch_lectures as $lecture) : ?>
-				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);?>
+				<?php while($lunch_lectures->have_posts()) : $lunch_lectures->the_post(); ?>
+                <?php $lecture = $lunch_lectures->post ?>
+                <?php $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);?>
 				<li>
-					<h3><?php echo $lecture->post_title;?></h3>
+					<h3><?php echo the_title();?></h3>
 					<ul class="meta">
 						<li><time datetime="<?php echo $date;?>">
 							<?php echo date("j F", strtotime($date));?>,
@@ -79,7 +96,7 @@ class Upcoming_Widget extends WP_Widget {
 						</li>
 					</ul>
 				</li>
-				<?php endforeach;?>
+				<?php endwhile;?>
 
 			</ul>
 			<?php endif;?>
