@@ -62,16 +62,16 @@ class Upcoming_Widget extends WP_Widget {
 			<ul class="list lunch-lectures">
 
 				<?php foreach($lunch_lectures as $lecture) : ?>
-				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_date", true);?>
+				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);?>
 				<li>
 					<h3><?php echo $lecture->post_title;?></h3>
 					<ul class="meta">
 						<li><time datetime="<?php echo $date;?>">
 							<?php echo date("j F", strtotime($date));?>,
-							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_start_time", true);?></time>
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."event_start_time", true);?></time>
 						</li>
 						<li>
-							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_location", true);?>
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."event_location", true);?>
 						</li>
 						<li><?php the_author_posts_link(); ?></li>
 						<li>
