@@ -41,7 +41,7 @@ function chalmers_comment( $comment, $args, $depth ) {
 					<p class="comment-meta"><?php printf( '<time title="%2$s" datetime="%1$s" pubdate>%3$s</time>',
 						get_comment_time('c'),
 						get_comment_time('j F Y, H:i'),
-						sprintf('%s ago', human_time_diff(strtotime($comment->comment_date_gmt))));?>
+						sprintf('%s sedan', human_time_diff(strtotime($comment->comment_date_gmt))));?>
 						
 						<?php comment_reply_link(array_merge( $args, array( 
 								'reply_text' => get_sep().' Skriv ett svar', 
