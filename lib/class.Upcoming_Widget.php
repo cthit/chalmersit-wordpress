@@ -49,8 +49,7 @@ class Upcoming_Widget extends WP_Widget {
 		}
 
         $post_query = array(
-            "suppress_filters" => false,
-			"category"         => get_it_option("lunch_category"),
+			"cat"              => get_category_by_slug("lunchforelasningar")->term_id,
 			"posts_per_page"   => $lunchCount,
             "meta_query"       => array(
                 array( // Only get future lunch lectures
