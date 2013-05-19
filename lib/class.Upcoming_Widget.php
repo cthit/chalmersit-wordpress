@@ -56,7 +56,7 @@ class Upcoming_Widget extends WP_Widget {
                 array( // Only get future lunch lectures
                     "key"     => IT_PREFIX."event_date",
                     "value"   => date("Y-m-d"),
-                    "compare" => ">",
+                    "compare" => ">=",
                 )
             )
 		);
