@@ -1767,6 +1767,16 @@ a.subtle-border {
   float: none;
 }
 
+/* Gnäll-Anno */
+.sexit {
+  text-transform: uppercase;
+  font-size: .9em;
+}
+.sexit strong {
+  font-weight: 500;
+  font-size: 1.4em;
+}
+
 /*	=MAIN SITE STYLES
 ----------------------------------------------------------------------*/
 html {
