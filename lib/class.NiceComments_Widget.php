@@ -64,7 +64,7 @@ class NiceComments_Widget extends WP_Widget {
 							<strong><?php echo $comment->comment_author;?></strong>
 						</p>
 						på <a href="<?php echo get_permalink($p->ID);?>#comment-<?php echo $comment->comment_ID;?>"><?php echo $p->post_title;?></a>
-						<time><?php echo human_time_diff(strtotime($comment->comment_date));?> sedan</time>
+						<time><?php echo human_time_diff(strtotime($comment->comment_date_gmt));?> sedan</time>
 					</li>
 					<?php endforeach;?>
 				</ul>
