@@ -17,13 +17,6 @@ class Upcoming_Widget extends WP_Widget {
 		wp_cache_delete('it_upcoming_widget', 'widget');
 	}
 
-    function filter_where($where = '') {
-      //posts in the future
-      $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);
-      $where .= " AND post_date >= '" . date('Y-m-d') . "'";
-      return $where;
-    }
-
 	function widget( $args, $instance) {
 		extract($args);
 
