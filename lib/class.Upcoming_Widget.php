@@ -33,13 +33,6 @@ class Upcoming_Widget extends WP_Widget {
 
 		$lunchCount = $instance['lunchCount'];
 		$eventCount = $instance['eventCount'];
-
-		$lunch_lectures = get_posts(array(
-			"category" => get_it_option("lunch_category"),
-			"posts_per_page" => $lunchCount
-		));
-
-
 		/*
 			Get parameters by
 			$Variable = $instance['param_name'];
@@ -55,23 +48,39 @@ class Upcoming_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
+        $post_query = array(
+			"cat"              => get_category_by_slug("lunchforelasningar")->term_id,
+			"posts_per_page"   => $lunchCount,
+            "meta_query"       => array(
+                array( // Only get future lunch lectures
+                    "key"     => IT_PREFIX."event_date",
+                    "value"   => date("Y-m-d"),
+                    "compare" => ">=",
+                )
+            )
+		);
+        $lunch_lectures = new WP_Query($post_query);
 		?>
 
 		<?php if($lunch_lectures) : ?>
 			<h2 class="section-heading">Lunchföreläsningar</h2>
 			<ul class="list lunch-lectures">
+                <?php if($lunch_lectures->post_count == 0) : ?>
+                <li>Inga planerade lunchföreläsningar</li>
+                <?php endif; ?>
 
-				<?php foreach($lunch_lectures as $lecture) : ?>
-				<?php $date = get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_date", true);?>
+				<?php while($lunch_lectures->have_posts()) : $lunch_lectures->the_post(); ?>
+                <?php $lecture = $lunch_lectures->post ?>
+                <?php $date = get_post_meta($lecture->ID, IT_PREFIX."event_date", true);?>
 				<li>
-					<h3><?php echo $lecture->post_title;?></h3>
+					<h3><?php echo the_title();?></h3>
 					<ul class="meta">
 						<li><time datetime="<?php echo $date;?>">
 							<?php echo date("j F", strtotime($date));?>,
-							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_start_time", true);?></time>
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."event_start_time", true);?></time>
 						</li>
 						<li>
-							<?php echo get_post_meta($lecture->ID, IT_PREFIX."lunch_lecture_location", true);?>
+							<?php echo get_post_meta($lecture->ID, IT_PREFIX."event_location", true);?>
 						</li>
 						<li><?php the_author_posts_link(); ?></li>
 						<li>
@@ -79,7 +88,7 @@ class Upcoming_Widget extends WP_Widget {
 						</li>
 					</ul>
 				</li>
-				<?php endforeach;?>
+				<?php endwhile;?>
 
 			</ul>
 			<?php endif;?>
