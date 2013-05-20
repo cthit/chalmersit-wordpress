@@ -6,16 +6,21 @@
 
 include_once ABSPATH . WPINC.'/rss.php';
 
-define("KAR_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/4");
-define("LIN_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/7");
+// define("KAR_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/4");
+// define("LIN_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/7");
+
+$todaysDate = date("Y-m-d");
+
+define("KAR_URL", "http://cm.lskitchen.se/johanneberg/karrestaurangen/sv/$todaysDate.rss");
+define("LIN_URL", "http://cm.lskitchen.se/johanneberg/linsen/sv/$todaysDate.rss");
 
 function get_todays_meals() {
 	return parse_feed();
 }
 
 function parse_feed() {
-	$kartoday = get_feed(KAR_URL);
-	$lintoday = get_feed(LIN_URL);
+	$kartoday = get_items(KAR_URL);
+	$lintoday = get_items(LIN_URL);
 
 	return array(
 		"date" => title_date($kartoday[0]['pubdate']),
@@ -27,7 +32,7 @@ function parse_feed() {
 }
 
 
-function get_feed($url) {
+function get_items($url) {
 	$items = fetch_rss($url)->items;
 	return $items;
 }
