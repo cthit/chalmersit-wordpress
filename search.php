@@ -1,9 +1,33 @@
 <?php
 	/* Search template */
 
+    $q = $_GET['s'];
 	$user_query = new WP_User_Query(array(
-		"search_columns" => array('user_login', 'user_email', 'user_nicename' ),
-		"search" => "*". $_GET['s'] ."*"
+		//"search_columns" => array('user_login', 'user_email'),
+		//"search" => "*". $_GET['s'] ."*",
+        "meta_query"     => array(
+            'relation' => 'OR',
+            array( 
+                "key"     => "first_name",
+                "value"   => $q,
+                "compare" => "LIKE"
+            ),
+            array (
+                "key"     => "last_name",
+                "value"   => $q,
+                "compare" => "LIKE"
+
+            ),
+            array( 
+                "key"     => "nickname",
+                "value"   => $q,
+                "compare" => "LIKE"
+            ),
+            array(
+                "key"     => "it_year",
+                "value"   => $q
+            )
+        )
 	));
 
 	get_header();
@@ -46,18 +70,24 @@
 
 			<ul class="list user-search-results">
 			<?php if($user_query->results) : ?>
-				<?php foreach($user_query->results as $user) : ?>
-				<?php $meta = get_user_meta($user->ID);?>
+                <?php 
+                    $counter = 0;
+                    foreach($user_query->results as $user) : 
+                ?>
+                <?php 
+                    $meta = get_user_meta($user->ID);
+                    $counter++;
+                ?>
 
 				<li>
 					<?php echo get_avatar($user->ID, 64);?>
 
 					<dl>
 						<dt>Namn</dt>
-						<dd><?php user_fullname($user);?></dd>
+                        <dd><a href="/author/<?php echo $user->user_login; echo "\">"; user_fullname($user);?></a></dd>
 
-						<dt>E-post</dt>
-						<dd><a href="mailto:<?php echo $user->user_email;?>"><?php echo $user->user_email;?></a></dd>
+                        <!--<dt>E-post</dt>
+						<dd><a href="mailto:<?php // echo $user->user_email;?>"><?php //echo $user->user_email;?></a></dd>-->
 
 						<?php if($meta['it_year'][0]) : ?>
 						<dt>Antagningsår</dt>
@@ -70,7 +100,9 @@
 						<?php endif;?>
 					</dl>
 				</li>
-
+            <?php if($counter > 20 ) : ?>
+			      <p class="no-content">Hittade för många användare. Vänligen förfina din söksträng</p>
+            <?php break; endif; ?>
 			<?php endforeach; ?>
 
 			<?php else : ?>
