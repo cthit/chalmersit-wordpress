@@ -3,9 +3,9 @@
 
     $q = $_GET['s'];
 	$user_query = new WP_User_Query(array(
-		//"search_columns" => array('user_login', 'user_email'),
-		//"search" => "*". $_GET['s'] ."*",
-        "meta_query"     => array(
+		"search_columns" => array('user_login', 'user_email'),
+		"search" => "*". $_GET['s'] ."*",
+        /*"meta_query"     => array(
             'relation' => 'OR',
             array( 
                 "key"     => "first_name",
@@ -27,7 +27,7 @@
                 "key"     => "it_year",
                 "value"   => $q
             )
-        )
+        )*/
 	));
 
 	get_header();
