@@ -62,6 +62,7 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Datum",
 				"id" => IT_PREFIX."event_date",
+				"desc" => "Anges i format y-m-d",
 				"type" => "date"
 			),
 			array(
