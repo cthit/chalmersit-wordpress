@@ -5,8 +5,11 @@
 	# Uses a $content variable if available, otherwise the meta description of the actual member.
 
 	$year = $meta['it_year'];
+	$userdata = get_userdata($id);
 	$description = ($content != null) ? $content : $meta['description'];
 	$avatar_size = ($args != null) ? $args['avatar_size'] : 96;
+	# Shown email may be overriden in the shortcode attribute 'contact'
+	$user_contact = ($contact != null) ? $contact : $userdata->data->user_email;
 ?>
 
 <section class="member row">
@@ -17,17 +20,23 @@
 	<div class="member-details nine columns">
 		<?php if($role) : ?>
 		<hgroup>
-			<h2><?php user_fullname(get_userdata($id));?></h2>
+			<h2><?php user_fullname($userdata);?></h2>
 			<h3 class="sub"><?php echo $role;?></h3>
 		</hgroup>
 		<?php else : ?>
 
-		<h2><?php user_fullname(get_userdata($id));?></h2>
+		<h2><?php user_fullname($userdata);?></h2>
 		
 		<?php endif;?>
 		
 		<p class="description">
 			<?php echo strip_tags($description);?>
 		</p>
+
+		<footer>
+			<?php if($user_contact && is_user_logged_in()) : ?>
+			<strong>Kontakt:</strong> <a href="mailto:<?php echo $user_contact;?>"><?php echo $user_contact;?></a>
+			<?php endif;?>
+		</footer>
 	</div>
 </section>

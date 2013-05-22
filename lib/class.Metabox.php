@@ -677,7 +677,7 @@ class RW_Meta_Box {
 	function get_jqueryui_ver() {
 		global $wp_version;
 		if (version_compare($wp_version, '3.1', '>=')) {
-			return '1.8.10';
+			return '1.10.1';
 		}
 		
 		return '1.7.3';

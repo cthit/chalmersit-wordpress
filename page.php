@@ -5,8 +5,8 @@
 	$subtitle = get_post_meta($post->ID, IT_PREFIX."subtitle", true);
 ?>
 
-<?php if(is_page("login")) : ?>
-
+<?php if(is_page("loggain") || is_page("profil")) : ?>
+	
 <?php partial("profile-template");?>
 
 <?php else : ?>

@@ -1,9 +1,9 @@
-<form name="loginform" action="<?php bloginfo("wpurl");?>/wp-login.php" method="post">
+<form name="loginform" action="<?php echo wp_login_url($_SERVER['REQUEST_URI']);?>" method="post">
 	<input type="hidden" name="redirect_to" value="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" />
 	<input type="hidden" name="user-cookie" value="1" />
 	
 	<p>
-	<input type="text" name="log" placeholder="E-postadress eller nick"
+	<input type="text" name="log" placeholder="CID eller e-postadress"
 		<?php if(isset($_POST['user_email'])) echo 'value="'. $_POST['user_email'] .'" autofocus' ?>
 		 />
 

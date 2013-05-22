@@ -10,6 +10,13 @@ function remove_head_links() {
 	remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 }
 
+function chalmers_redirect_login() {
+	global $pagenow;
+	if( 'wp-login.php' == $pagenow ) {
+		wp_redirect(link_to("login", false));
+		exit();
+	}
+}
 
 /**
 *	Use the actual short URL in shortlinks.

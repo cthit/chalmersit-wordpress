@@ -181,7 +181,7 @@ function link_to($page, $echo = true){
 
 		if(!$id){
 
-			$link = (strrpos($page, "http://") === false) ? get_bloginfo("url")."/".$page : $page;
+			$link = ((strrpos($page, "http://") === false) && (strrpos($page, "https://") === false)) ? get_bloginfo("url")."/".$page : $page;
 			
 		}else{
 			$link = get_permalink($id);
@@ -403,7 +403,7 @@ function get_user_role($user) {
 -------------------------- */
 
 function get_groups($ids = array(), $skip_registered = true) {
-	if(!defined("GROUPS_FILE")) {
+	if(!defined("SCOPER_VERSION")) {
 		return null;
 	}
 
@@ -430,17 +430,17 @@ function get_groups($ids = array(), $skip_registered = true) {
 
 function is_user_committee_member($user_id) {
 	$groups = get_group_ids_for_user($user_id);
-	return count(array_slice($groups, 1)) > 0;
+	return count($groups) > 0;
 }
 
 function get_group_ids_for_user($user_id) {
-	if(!defined("GROUPS_FILE")) {
+	if(!defined('SCOPER_VERSION')) {
 		return null;
 	}
 
 	global $wpdb;
 
-	$sql = "SELECT group_id FROM it_groups_user_group WHERE user_id = ".$user_id;
+	$sql = "SELECT group_id FROM it_user2group_rs WHERE user_id = ".$user_id;
 	$res = $wpdb->get_results($sql);
 	$map = array();
 	$cb = function($item) {

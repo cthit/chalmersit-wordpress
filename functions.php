@@ -13,6 +13,10 @@ require_once "lib/constants.php";
 require_once "lib/helpers.php";
 require_once "lib/class.Comittee_Walker.php";
 require_once "lib/class.Sponsor_Widget.php";
+require_once "lib/class.Lunch_Widget.php";
+require_once "lib/class.Twitter_Widget.php";
+require_once "lib/class.Upcoming_Widget.php";
+require_once "lib/class.NiceComments_Widget.php";
 require_once "lib/class.Metabox.php";
 require_once "lib/class.Options.php";
 require_once "lib/inc.lunch.php";
@@ -42,15 +46,22 @@ if(! is_admin()) {
 add_action("widgets_init", "register_widgets");
 function register_widgets(){
 	register_widget("Sponsor_Widget");
+	register_widget("Lunch_Widget");
+	register_widget("Twitter_Widget");
+	register_widget("Upcoming_Widget");
+	register_widget("NiceComments_Widget");
 }
 
 function setup_chalmers() {
 	if(class_exists("Booking")) {
+		set_booking_emails(_parse_email_from_option("booking_email"));
+		set_party_booking_emails(_parse_email_from_option("booking_party_email"));
+
 		Booking::addLocations(array("Hubben", "Grupprummet"));
 		Booking::setSuperGroup(get_it_option("booking_supergroup"));
 		Booking::setConstraintsForRooms(array(
 			"Hubben" => get_it_option("booking_hubben_groups"),
-			"Grupprummet" => array(1)
+			"Grupprummet" => -1
 		));
 	}
 	
@@ -65,6 +76,9 @@ function setup_chalmers() {
 	add_action("init", "register_chalmers_taxonomies");
 	add_action("init", "it_register_sidebars");
 	add_action('init', 'remove_head_links');
+
+	# Don't allow direct access to wp-login.php
+	add_action('init', 'chalmers_redirect_login');
 
 	# Admin
 	if(is_admin()) {
@@ -99,6 +113,12 @@ function setup_chalmers() {
 	/* Thumbnails */
 
 	add_image_size("banner", 9999, 525, true);
+}
+
+function _parse_email_from_option($key) {
+	return array_map(function($email) {
+		return trim($email);
+	}, explode(",", get_it_option($key)));
 }
 
 function it_custom_scripts() {

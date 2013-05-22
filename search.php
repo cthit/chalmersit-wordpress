@@ -1,11 +1,78 @@
 <?php
 	/* Search template */
 
-	$user_query = new WP_User_Query(array(
-		"search_columns" => array('user_login', 'user_email', 'user_nicename' ),
-		"search" => "*". $_GET['s'] ."*"
-	));
+/*
+ * This functions builds a query similar to the below dynamically:
+ * SELECT *
+    FROM it_usermeta t1 
+    INNER JOIN it_usermeta t2
+    on t1.user_id = t2.user_id
+    INNER JOIN it_usermeta t3
+    on t1.user_id = t3.user_id
+    WHERE 
+    ((t1.meta_key = 'nickname' OR t1.meta_key = 'first_name' OR t1.meta_key = 'last_name' OR t1.meta_key = 'it_year') AND t1.meta_value LIKE '%horv%')
+    AND
+    ((t2.meta_key = 'nickname' OR t2.meta_key = 'first_name' OR t2.meta_key = 'last_name' OR t2.meta_key = 'it_year') AND t2.meta_value LIKE '%%')
+    AND
+    ((t3.meta_key = 'nickname' OR t3.meta_key = 'first_name' OR t3.meta_key = 'last_name' OR t3.meta_key = 'it_year') AND t3.meta_value LIKE '%%');
+ */
+    function dyn_build_query($pieces) {
+       $dynquery = "SELECT user_id FROM it_usermeta";
 
+       if(count($pieces) == 1) {
+            $dynquery .= " WHERE ((meta_key = 'it_year' OR meta_key = 'nickname' OR meta_key = 'first_name' OR meta_key = 'last_name') 
+            AND meta_value LIKE '%%%s%%') LIMIT 21";
+        return $dynquery;
+       }
+       else {
+            $i=1;
+            $dynquery = "SELECT * FROM it_usermeta t1 \n";
+            $join = " "; 
+            $where;
+            foreach($pieces as $piece) {
+                if( $i <= count($pieces)-1) {
+                    $join .=  "INNER JOIN it_usermeta " . " t" . ($i+1) . " \n";
+                    $join .= " on t" . $i . ".user_id = t" . ($i+1) . ".user_id \n";
+                }
+                $where .= "((t" . $i . ".meta_key = 'nickname' OR t" . $i . ".meta_key = 'first_name' OR t" . $i . ".meta_key = 'last_name' OR t" . $i . ".meta_key = 'it_year') AND t" . $i . ".meta_value LIKE '%%%s%%') \nAND\n ";
+                $i ++; 
+            }
+            
+            return $dynquery . $join . "WHERE\n" . substr($where, 0, -5);
+       }
+    }
+
+    $q = trim($_GET['s']);
+    $splitted = explode(" ", $q); 
+    $users;
+    // Reduce the number of searchable words. 
+    if(count($splitted) <= 8) {  
+        // This a performance hack since wordpress makes poor queries.
+        $users = $wpdb->get_results( $wpdb->prepare( 
+            dyn_build_query($splitted)
+	        /*"
+                SELECT user_id FROM it_usermeta  
+                WHERE ((meta_key = 'it_year' OR meta_key = 'nickname' OR meta_key = 'first_name' OR meta_key = 'last_name') 
+                AND meta_value LIKE '%%%s%%') LIMIT 21*/
+            , $splitted
+        )); 
+    }
+
+    // Convert the above results to a format used in WP_User_Query.
+    $userids = array();
+    foreach($users as $user) {
+        $userids[] = $user->user_id;
+    }
+    $userids = array_unique($userids);
+
+    // "Refetch" the users..."
+    if(count($userids) == 0) {
+        // If the query doesnt return anything... haxx a bit...
+        $userids[] = 0;
+    } 
+	$user_query = new WP_User_Query(array(
+        "include" => $userids
+    ));
 	get_header();
 ?>
 
@@ -46,31 +113,41 @@
 
 			<ul class="list user-search-results">
 			<?php if($user_query->results) : ?>
-				<?php foreach($user_query->results as $user) : ?>
-				<?php $meta = get_user_meta($user->ID);?>
+                <?php 
+                    $counter = 0;
+                    foreach($user_query->results as $user) : 
+                ?>
+                <?php 
+                    $meta = get_user_meta($user->ID);
+                    $counter++;
+                ?>
 
 				<li>
 					<?php echo get_avatar($user->ID, 64);?>
 
 					<dl>
 						<dt>Namn</dt>
-						<dd><?php user_fullname($user);?></dd>
+                        <dd><a href="/author/<?php echo $user->user_login; echo "\">"; user_fullname($user);?></a></dd>
 
-						<dt>E-post</dt>
+                        <?php if(is_user_logged_in()) : ?>
+                        <dt>E-post</dt>
 						<dd><a href="mailto:<?php echo $user->user_email;?>"><?php echo $user->user_email;?></a></dd>
+                        <?php endif; ?>
+                        
+						<?php if($meta['it_phone'][0] && is_user_logged_in()) : ?>
+						<dt>Telefon</dt>
+						<dd><?php echo $meta['it_phone'][0];?></dd>
+						<?php endif;?>
 
 						<?php if($meta['it_year'][0]) : ?>
 						<dt>Antagningsår</dt>
 						<dd><?php echo $meta['it_year'][0];?></dd>
 						<?php endif;?>
-
-						<?php if($meta['it_phone'][0]) : ?>
-						<dt>Telefon</dt>
-						<dd><?php echo $meta['it_phone'][0];?></dd>
-						<?php endif;?>
 					</dl>
 				</li>
-
+            <?php if($counter > 20 ) : ?>
+			      <p class="no-content">Hittade för många användare. Vänligen förfina din söksträng</p>
+            <?php break; endif; ?>
 			<?php endforeach; ?>
 
 			<?php else : ?>

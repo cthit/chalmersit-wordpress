@@ -62,17 +62,26 @@ function register_chalmers_metaboxes() {
 			array(
 				"name" => "Datum",
 				"id" => IT_PREFIX."event_date",
-				"type" => "text"
+				"desc" => "Anges i format y-m-d",
+				"type" => "date"
+			),
+			array(
+				"name" => "Heldag",
+				"id" => IT_PREFIX."full_day_event",
+				"type" => "checkbox",
+				"desc" => "Arrangemanget sträcker sig över hela dagen. Om valt ignoreras tiderna nedan."
 			),
 			array(
 				"name" => "Starttid",
 				"id" => IT_PREFIX."event_start_time",
-				"type" => "text"
+				"type" => "time",
+				"format" => "HH:mm"
 			),
 			array(
 				"name" => "Sluttid",
 				"id" => IT_PREFIX."event_end_time",
-				"type" => "text"
+				"type" => "time",
+				"format" => "HH:mm"
 			),
 			array(
 				"name" => "Plats",

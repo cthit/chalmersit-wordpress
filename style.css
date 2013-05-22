@@ -1767,6 +1767,16 @@ a.subtle-border {
   float: none;
 }
 
+/* Gnäll-Anno */
+.sexit {
+  text-transform: uppercase;
+  font-size: .9em;
+}
+.sexit strong {
+  font-weight: 500;
+  font-size: 1.4em;
+}
+
 /*	=MAIN SITE STYLES
 ----------------------------------------------------------------------*/
 html {
@@ -2649,6 +2659,11 @@ nav ol {
 .header-controls > li {
   margin: 0 0 0 1em;
 }
+.header-controls > li > a:not(.btn-round) {
+  color: #fff;
+  font-size: .8em;
+  font-weight: bolder;
+}
 
 .header-toolbar {
   padding: 0.75em 1%;
@@ -2787,7 +2802,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 [role="contentinfo"] dt {
   clear: left;
-  min-width: 25%;
+  min-width: 30%;
   margin-right: 5%;
   color: #3c5c5e;
   text-transform: uppercase;
@@ -2831,11 +2846,11 @@ body.logged-in [role="banner"] .header-controls .user-details {
 }
 [role="article"] .article-content p a {
   display: inline-block;
-  max-width: 500px;
-  width: 100%;
+  max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  vertical-align: top;
 }
 [role="article"] footer nav {
   margin: 1.5em 0;
@@ -3164,6 +3179,10 @@ nav.side-nav ul {
   color: #fff;
   padding: .5em;
 }
+.gce-qtip-content .gce-event-info .event-title {
+  font-weight: bolder;
+  font-size: 1.1em;
+}
 .gce-qtip-content .gce-event-info a {
   color: #fff;
   font-weight: bold;
@@ -3453,8 +3472,10 @@ nav.side-nav ul {
 .widget header {
   text-align: left;
 }
-.widget h2, .widget h3 {
-  color: #999;
+
+.widget img {
+  display: block;
+  margin: 0 auto;
 }
 
 li.widget {
@@ -3531,8 +3552,9 @@ li.widget {
   background-color: #2ca0d1;
 }
 .modal iframe {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 90%;
+  height: 90%;
   border: 0;
 }
 .modal.in {
@@ -3669,17 +3691,31 @@ li.widget {
   opacity: 1.0;
   top: -5px;
 }
-.home .current-user-info {
-  background-color: #fff;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  padding: 0.75em 0.75em;
-  margin-bottom: 1.5em;
+.home .current-event h2 {
+  font-size: .9em;
+  margin: 0;
+  color: #697273;
 }
-.home .current-user-info h2 {
-  font-size: 1.28571em;
-  font-weight: normal;
+.home .current-event .event-title {
+  font-size: 1.1em;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+.home .current-event .meta li {
+  display: inline;
+  font-size: .9em;
+  /* Hide location info - no vertical space! */
+}
+.home .current-event .meta li::after {
+  display: inline-block;
+  margin: 0 2px;
+  content: "∙";
+}
+.home .current-event .meta li:nth-child(2) {
+  display: none;
+}
+.home .current-event .meta li:last-child::after {
+  content: "";
 }
 .home .user-area form {
   background-color: #fff;
@@ -4162,9 +4198,6 @@ li.widget {
 .page-skrivut article p {
   margin-bottom: 1.5em;
 }
-.page-skrivut article label {
-  display: block;
-}
 .page-skrivut .cid-area {
   text-align: center;
 }
@@ -4174,6 +4207,45 @@ li.widget {
 }
 .page-skrivut .cid-area .description {
   margin: 1.5em 20%;
+}
+.page-skrivut .dropzone input[type="file"] {
+  display: block;
+  width: 100%;
+}
+.page-skrivut .dropzone input[type="file"]::before {
+  position: absolute;
+  opacity: 0;
+  content: "Släpp filen här!";
+  -webkit-transition: font-size 0.3s ease-out;
+  -moz-transition: font-size 0.3s ease-out;
+  -o-transition: font-size 0.3s ease-out;
+  transition: font-size 0.3s ease-out;
+}
+.page-skrivut .dropzone input[type="file"].hover {
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 95%;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+.page-skrivut .dropzone input[type="file"].hover::before {
+  opacity: 1;
+  font-size: 3em;
+  width: 100%;
+  text-align: center;
+  margin-top: 180px;
+}
+.page-skrivut .dropzone input[type="file"].hover::after {
+  content: " ";
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
 }
 
 /* =PROFILE */
@@ -4259,7 +4331,7 @@ li.widget {
 
 /* =LOGIN
 ------------------------------------ */
-.page-login .main-col h1 {
+.page-loggain .main-col h1 {
   text-align: center;
 }
 
