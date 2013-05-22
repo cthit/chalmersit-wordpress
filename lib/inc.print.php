@@ -73,14 +73,14 @@ if(isset($_POST['print'])) {
 			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
         	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
         	$notice = "Din fil är utskriven!";
-        	$jsCmd = "UNSET";
+        	$jsCmd = "'UNSET'";
         	@unlink($_FILES["upload"]["tmp_name"]);
 		} catch (BadLoginException $ble) {
 			$errors[] = $preErrorMsg . $ble->getMessage();
 			$jsCmd = '"'.$fileName.'"';
 		} catch (Exception $e) {
 			$errors[] = $preErrorMsg . $e->getMessage();
-			$jsCmd = "UNSET";
+			$jsCmd = "'UNSET'";
 			@unlink($_FILES["upload"]["tmp_name"]);
 		}
 	}
