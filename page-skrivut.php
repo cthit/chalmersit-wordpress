@@ -101,6 +101,7 @@
 </section>
 <script type="text/javascript">
 	(function(command) {
+		console.log(command);
 		if (command !== undefined) {
 			if (command === "UNSET") {
 				window.sessionStorage && window.sessionStorage.removeItem('tmp_name');
