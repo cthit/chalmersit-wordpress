@@ -34,7 +34,7 @@
 		</p>
 
 		<footer>
-			<?php if($user_contact) : ?>
+			<?php if($user_contact && is_user_logged_in()) : ?>
 			<strong>Kontakt:</strong> <a href="mailto:<?php echo $user_contact;?>"><?php echo $user_contact;?></a>
 			<?php endif;?>
 		</footer>
