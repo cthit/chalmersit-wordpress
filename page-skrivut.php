@@ -1,7 +1,7 @@
 <?php
 	require_once "lib/inc.print.php";
 
-	global $errors, $notice;
+	global $errors, $notice, $jsCmd;
 
 	get_header();
 	the_post();
@@ -29,9 +29,10 @@
 			</div>
 			<?php endif;?>
 
-			<p>
-				<label for="upload">Fil</label>
+			<p class="dropzone">
+				<label id="drophere" for="upload">Fil</label>
 				<input type="file" name="upload" id="upload" />
+				<input type="hidden" name="sessionStorage" id="sessionStorage" />
 				<small>(godkända format är bilder, ren text och PDF)</small>
 			</p>
 
@@ -98,6 +99,17 @@
 		</form>
 	</article>
 </section>
+<script type="text/javascript">
+	(function(command) {
+		if (command !== undefined) {
+			if (command === "UNSET") {
+				window.sessionStorage && window.sessionStorage.removeItem('tmp_name');
+			} else {
+				window.sessionStorage && window.sessionStorage.setItem('tmp_name', command);
+			}
+		}
+	}(<?=$jsCmd?>));
+</script>
 
 
 <?php get_footer();?>

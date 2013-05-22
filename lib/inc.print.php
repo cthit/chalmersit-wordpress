@@ -6,6 +6,12 @@ require_once "Snoopy/Snoopy.class.php";
 ini_set("upload_max_filesize", "100M");
 ini_set("post_max_file", "100M");
 
+class BadLoginException extends Exception {
+	public function __construct() {
+		parent::__construct("Fel cid eller lösenord");
+	}
+}
+
 function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='') {
     $pass=stripcslashes($pass);
 	if($con = ssh2_connect("remote2.student.chalmers.se", 22)){
@@ -21,19 +27,19 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
             }
             catch(Exception $e) {
                 log_to_file($e->getMessage(), $e->getCode(), $user);
-                return "Printservern rapporterade: " . str_replace("lpr:", "", $e->getMessage());
+                throw new Exception("Printservern rapporterade: " . str_replace("lpr:", "", $e->getMessage()));
             }
 
-			return ""; // Everything went alright
+			return; // Everything went alright
 		}
 		else {
             log_to_file("bad cid/pass", 100, $user);
-			return "Fel cid eller lösenord";
+			throw new BadLoginException("Fel cid eller lösenord");
         }
 	}
 	else {
         log_to_file("connection to remote server error/timeout", 200, $user);
-		return "Det gick inte att ansluta till printerservern. Försök igen om en liten stund";
+		throw new Exception("Det gick inte att ansluta till printerservern. Försök igen om en liten stund");
     }
 }
 
@@ -56,25 +62,30 @@ $file_types = array(
 
 global $errors, $notice;
 $errors = array();
-$preErrorMsg = "Kunde inte skriva ut din fil. ";
+$preErrorMsg = "Kunde inte skriva ut filen. ";
+$jsCmd = "undefined";
 
 if(isset($_POST['print'])) {
 
-	if(!empty($_FILES) && in_array($_FILES["upload"]["type"], $file_types) && $_FILES["upload"]["size"] < 100500000) {
+	if((!empty($_FILES) && in_array($_FILES["upload"]["type"], $file_types) && $_FILES["upload"]["size"] < 100500000) || !empty($_POST["sessionStorage"])) {
 
-        $printerError = printer($_POST["user"], $_POST["pass"], $_POST["printer"], $_FILES["upload"]["tmp_name"], $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
-		if(empty($printerError)) {
-
-			$notice = "Din fil är utskriven!";
-			@unlink($_FILES["upload"]["tmp_name"]);
-		}
-		else {
-			$errors[] = "Kunde inte skriva ut din fil. " . $printerError;
+		try {
+			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
+        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
+        	$notice = "Din fil är utskriven!";
+        	$jsCmd = "UNSET";
+        	@unlink($_FILES["upload"]["tmp_name"]);
+		} catch (BadLoginException $ble) {
+			$errors[] = $preErrorMsg . $ble->getMessage();
+			$jsCmd = $_FILES["upload"]["tmp_name"];
+		} catch (Exception $e) {
+			$errors[] = $preErrorMsg . $e->getMessage();
+			$jsCmd = "UNSET";
 			@unlink($_FILES["upload"]["tmp_name"]);
 		}
 	}
 	else {
-		$errors[] = "Kunde inte skriva ut filen. Kontrollera filtyp och storlek";
+		$errors[] = $preErrorMsg . "Kontrollera filtyp och storlek";
 	}
 }
 

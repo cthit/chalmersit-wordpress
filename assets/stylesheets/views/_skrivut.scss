@@ -2,14 +2,9 @@
 ------------------------- */
 
 .page-skrivut {
-	
 	article {
 		p {
 			margin-bottom: $lineheight;
-		}
-
-		label {
-			display: block;
 		}
 	}
 
@@ -23,6 +18,48 @@
 
 		.description {
 			margin: $lineheight 20%;
+		}
+	}
+
+	.dropzone {
+		input[type="file"] {
+			display: block;
+			width: 100%;
+			&::before {
+				position: absolute;
+				opacity: 0;
+				content: "Släpp filen här!";
+				-webkit-transition: font-size .3s ease-out;
+				-moz-transition: font-size .3s ease-out;
+				-o-transition: font-size .3s ease-out;
+				transition: font-size .3s ease-out;
+			}
+			&.hover {
+				position: absolute;
+				z-index: 100;
+				height: 100%;
+				width: 95%;
+				top: 0;
+				left: 0;
+				background: #fff;
+				&::before {
+					opacity: 1;
+					font-size: 3em;
+					width: 100%;
+					text-align: center;
+					margin-top: 180px;
+				}
+				&::after {
+					content: " ";
+					width: 100%;
+					height: 60px;
+					background: #fff;
+					position: absolute;
+					z-index: 101;
+					top: 0;
+					left: 0;
+				}
+			}
 		}
 	}
 }
