@@ -129,17 +129,19 @@
 						<dt>Namn</dt>
                         <dd><a href="/author/<?php echo $user->user_login; echo "\">"; user_fullname($user);?></a></dd>
 
-                        <!--<dt>E-post</dt>
-						<dd><a href="mailto:<?php // echo $user->user_email;?>"><?php //echo $user->user_email;?></a></dd>-->
+                        <?php if(is_user_logged_in()) : ?>
+                        <dt>E-post</dt>
+						<dd><a href="mailto:<?php echo $user->user_email;?>"><?php echo $user->user_email;?></a></dd>
+                        <?php endif; ?>
+                        
+						<?php if($meta['it_phone'][0] && is_user_logged_in()) : ?>
+						<dt>Telefon</dt>
+						<dd><?php echo $meta['it_phone'][0];?></dd>
+						<?php endif;?>
 
 						<?php if($meta['it_year'][0]) : ?>
 						<dt>Antagningsår</dt>
 						<dd><?php echo $meta['it_year'][0];?></dd>
-						<?php endif;?>
-
-						<?php if($meta['it_phone'][0]) : ?>
-						<dt>Telefon</dt>
-						<dd><?php echo $meta['it_phone'][0];?></dd>
 						<?php endif;?>
 					</dl>
 				</li>
