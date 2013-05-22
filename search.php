@@ -1,35 +1,78 @@
 <?php
 	/* Search template */
 
+/*
+ * This functions builds a query similar to the below dynamically:
+ * SELECT *
+    FROM it_usermeta t1 
+    INNER JOIN it_usermeta t2
+    on t1.user_id = t2.user_id
+    INNER JOIN it_usermeta t3
+    on t1.user_id = t3.user_id
+    WHERE 
+    ((t1.meta_key = 'nickname' OR t1.meta_key = 'first_name' OR t1.meta_key = 'last_name' OR t1.meta_key = 'it_year') AND t1.meta_value LIKE '%horv%')
+    AND
+    ((t2.meta_key = 'nickname' OR t2.meta_key = 'first_name' OR t2.meta_key = 'last_name' OR t2.meta_key = 'it_year') AND t2.meta_value LIKE '%%')
+    AND
+    ((t3.meta_key = 'nickname' OR t3.meta_key = 'first_name' OR t3.meta_key = 'last_name' OR t3.meta_key = 'it_year') AND t3.meta_value LIKE '%%');
+ */
+    function dyn_build_query($pieces) {
+       $dynquery = "SELECT user_id FROM it_usermeta";
+
+       if(count($pieces) == 1) {
+            $dynquery .= " WHERE ((meta_key = 'it_year' OR meta_key = 'nickname' OR meta_key = 'first_name' OR meta_key = 'last_name') 
+            AND meta_value LIKE '%%%s%%') LIMIT 21";
+        return $dynquery;
+       }
+       else {
+            $i=1;
+            $dynquery = "SELECT * FROM it_usermeta t1 \n";
+            $join = " "; 
+            $where;
+            foreach($pieces as $piece) {
+                if( $i <= count($pieces)-1) {
+                    $join .=  "INNER JOIN it_usermeta " . " t" . ($i+1) . " \n";
+                    $join .= " on t" . $i . ".user_id = t" . ($i+1) . ".user_id \n";
+                }
+                $where .= "((t" . $i . ".meta_key = 'nickname' OR t" . $i . ".meta_key = 'first_name' OR t" . $i . ".meta_key = 'last_name' OR t" . $i . ".meta_key = 'it_year') AND t" . $i . ".meta_value LIKE '%%%s%%') \nAND\n ";
+                $i ++; 
+            }
+            
+            return $dynquery . $join . "WHERE\n" . substr($where, 0, -5);
+       }
+    }
+
     $q = $_GET['s'];
+    $splitted = explode(" ", $q); 
+    $users;
+    // Reduce the number of searchable words. 
+    if(count($splitted) <= 8) {  
+        // This a performance hack since wordpress makes poor queries.
+        $users = $wpdb->get_results( $wpdb->prepare( 
+            dyn_build_query($splitted)
+	        /*"
+                SELECT user_id FROM it_usermeta  
+                WHERE ((meta_key = 'it_year' OR meta_key = 'nickname' OR meta_key = 'first_name' OR meta_key = 'last_name') 
+                AND meta_value LIKE '%%%s%%') LIMIT 21*/
+            , $splitted
+        )); 
+    }
+
+    // Convert the above results to a format used in WP_User_Query.
+    $userids = array();
+    foreach($users as $user) {
+        $userids[] = $user->user_id;
+    }
+    $userids = array_unique($userids);
+
+    // "Refetch" the users..."
+    if(count($userids) == 0) {
+        // If the query doesnt return anything... haxx a bit...
+        $userids[] = 0;
+    } 
 	$user_query = new WP_User_Query(array(
-		"search_columns" => array('user_login', 'user_email'),
-		"search" => "*". $_GET['s'] ."*",
-        /*"meta_query"     => array(
-            'relation' => 'OR',
-            array( 
-                "key"     => "first_name",
-                "value"   => $q,
-                "compare" => "LIKE"
-            ),
-            array (
-                "key"     => "last_name",
-                "value"   => $q,
-                "compare" => "LIKE"
-
-            ),
-            array( 
-                "key"     => "nickname",
-                "value"   => $q,
-                "compare" => "LIKE"
-            ),
-            array(
-                "key"     => "it_year",
-                "value"   => $q
-            )
-        )*/
-	));
-
+        "include" => $userids
+    ));
 	get_header();
 ?>
 
