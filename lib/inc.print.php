@@ -77,7 +77,7 @@ if(isset($_POST['print'])) {
         	@unlink($_FILES["upload"]["tmp_name"]);
 		} catch (BadLoginException $ble) {
 			$errors[] = $preErrorMsg . $ble->getMessage();
-			$jsCmd = $fileName;
+			$jsCmd = '"'.$fileName.'"';
 		} catch (Exception $e) {
 			$errors[] = $preErrorMsg . $e->getMessage();
 			$jsCmd = "UNSET";
