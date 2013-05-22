@@ -64,6 +64,7 @@ global $errors, $notice;
 $errors = array();
 $preErrorMsg = "Kunde inte skriva ut filen. ";
 $jsCmd = "undefined";
+$fileName = "";
 
 if(isset($_POST['print'])) {
 
@@ -77,7 +78,7 @@ if(isset($_POST['print'])) {
         	@unlink($_FILES["upload"]["tmp_name"]);
 		} catch (BadLoginException $ble) {
 			$errors[] = $preErrorMsg . $ble->getMessage();
-			$jsCmd = $_FILES["upload"]["tmp_name"];
+			$jsCmd = $fileName;
 		} catch (Exception $e) {
 			$errors[] = $preErrorMsg . $e->getMessage();
 			$jsCmd = "UNSET";
