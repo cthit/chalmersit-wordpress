@@ -42,7 +42,7 @@
        }
     }
 
-    $q = $_GET['s'];
+    $q = trim($_GET['s']);
     $splitted = explode(" ", $q); 
     $users;
     // Reduce the number of searchable words. 
