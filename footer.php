@@ -133,6 +133,7 @@
 <script src="<?php javascript_path("jquery.modal");?>"></script>
 <script src="<?php javascript_path("chalmersit.courses");?>"></script>
 <script src="<?php javascript_path("chalmersit");?>"></script>
+<script src="<?php javascript_path("printerdrop");?>"></script>
 <?php endif;?>
 
 <?php if(is_home()):?>
