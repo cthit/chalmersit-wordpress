@@ -60,11 +60,10 @@ $file_types = array(
 	"application/octet-stream"
 );
 
-global $errors, $notice;
+global $errors, $notice, $fileName, $jsCmd;
 $errors = array();
 $preErrorMsg = "Kunde inte skriva ut filen. ";
 $jsCmd = "undefined";
-$fileName = "";
 
 if(isset($_POST['print'])) {
 
