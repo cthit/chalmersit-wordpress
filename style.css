@@ -3787,14 +3787,10 @@ li.widget {
 }
 .home [role="article"] {
   padding: 0 0.75em;
-  margin: 1.5em 0 3em;
+  margin: 1.5em 0 6em;
 }
 .home [role="article"] header {
   margin-bottom: 1.5em;
-}
-.home [role="article"] header h1 {
-  font-size: 1.71429em;
-  font-weight: 500;
 }
 .home [role="article"].sticky {
   padding-top: 1.5em;
