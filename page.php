@@ -8,10 +8,6 @@
 <?php if(is_page("loggain") || is_page("profil")) : ?>
 	
 <?php partial("profile-template");?>
-
-<aside class="three columns sidebar">
-	<?php get_sidebar("profile"); ?>
-</aside>
 <?php else : ?>
 
 <section class="six columns push-three main-col">
