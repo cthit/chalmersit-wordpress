@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
 Theme Name: Chalmers.it
 Theme URI: http://chalmers.it
@@ -4328,12 +4327,12 @@ li.widget {
   margin: 0 auto;
 }
 
-.it_newsmail_widget > input {
+#newsmail-widget-form > input {
   display: block;
   margin: 0 auto;
 }
 
-.it_newsmail_widget .scroll {
+#newsmail-widget-form .scroll {
   padding: 10px 0;
 }
 
@@ -4480,15 +4479,15 @@ li.widget {
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 959px) and (min-width: 768px) {
   /* Global layout changes */
-  .three.columns.pull-six {
+  .three.columns.pull-six, .row .columns.pull-six.three {
     right: 75%;
   }
 
-  .six.columns.push-three.main-col {
+  .six.columns.push-three.main-col, .row .columns.push-three.main-col.six {
     width: 75%;
   }
 
-  .three.columns.sidebar {
+  .three.columns.sidebar, .row .columns.sidebar.three {
     float: none;
     width: 75%;
     position: relative;

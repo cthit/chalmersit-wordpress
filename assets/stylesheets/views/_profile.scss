@@ -98,12 +98,12 @@
 	}
 }
 
-.it_newsmail_widget > input {
-	display:block;
+#newsmail-widget-form > input {
+	display: block;
 	margin: 0 auto;
 }
 
-.it_newsmail_widget {
+#newsmail-widget-form {
 	.scroll {
 		padding: 10px 0;
 	}
