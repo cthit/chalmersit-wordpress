@@ -9,6 +9,9 @@
 	
 <?php partial("profile-template");?>
 
+<aside class="three columns sidebar">
+	<?php get_sidebar("profile"); ?>
+</aside>
 <?php else : ?>
 
 <section class="six columns push-three main-col">
@@ -40,9 +43,6 @@
 <aside class="three columns sidebar">
 	<?php if(get_post_meta($post->ID, IT_PREFIX."is_committee", true)) : 
 			get_sidebar("committee");
-		endif;
-		if(is_page("profil")): 
-		  	get_sidebar("profile");
 		endif;
 		get_sidebar();?>
 </aside>
