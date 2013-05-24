@@ -5,5 +5,5 @@
 </section>
 <aside></aside>
 <aside class="three columns push-three sidebar">
-	<?php get_sidebar("profile"); ?>
+	<?php dynamic_sidebar("profile"); ?>
 </aside>
