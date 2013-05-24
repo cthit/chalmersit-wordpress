@@ -4328,6 +4328,15 @@ li.widget {
   margin: 0 auto;
 }
 
+.it_newsmail_widget > input {
+  display: block;
+  margin: 0 auto;
+}
+
+.it_newsmail_widget .scroll {
+  padding: 10px 0;
+}
+
 /* =LOGIN
 ------------------------------------ */
 .page-loggain .main-col h1 {
