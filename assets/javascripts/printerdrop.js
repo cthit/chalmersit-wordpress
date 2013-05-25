@@ -1,5 +1,6 @@
 if (printerpage) {
 	$(function() {
+		$('#printer').click(function(){this.select();});
 		$('#printer').autocomplete({source: function(req, callback) {
 			var re = $.ui.autocomplete.escapeRegex(req.term);
 			var matcher = new RegExp('^' + re, "i");
