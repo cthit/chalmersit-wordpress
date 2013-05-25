@@ -1,4 +1,4 @@
-<section class="seven columns alignmiddle main-col box">
+<section class="six columns push-three main-col box">
 	<h1 class="huge"><?php the_title();?></h1>
 
 	<?php the_content();?>
