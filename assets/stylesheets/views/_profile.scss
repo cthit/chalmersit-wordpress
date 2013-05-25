@@ -96,4 +96,15 @@
 			margin: 0 auto;
 		}
 	}
-} 
+}
+
+#newsmail-widget-form > input {
+	display: block;
+	margin: 0 auto;
+}
+
+#newsmail-widget-form {
+	.scroll {
+		padding: 10px 0;
+	}
+}
