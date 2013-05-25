@@ -53,6 +53,7 @@ See more in /humans.txt
 	<?php else : ?>
 	<link rel="stylesheet" href="<?php css_path("style");?>" />
 	<?php endif;?>
+	<link rel="stylesheet" href="<?php css_path("jquery-ui-1.10.3.custom.min");?>" />
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="<?php img_url("favicon.png");?>" />

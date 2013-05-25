@@ -1,7 +1,7 @@
 <?php
 	require_once "lib/inc.print.php";
 
-	global $errors, $notice, $jsCmd;
+	global $errors, $notice;
 
 	get_header();
 	the_post();
@@ -29,15 +29,17 @@
 			</div>
 			<?php endif;?>
 
-			<p class="dropzone">
-				<label id="drophere" for="upload">Fil</label>
+			<p>
+				<label for="upload">Fil</label>
 				<input type="file" name="upload" id="upload" />
-				<input type="hidden" name="sessionStorage" id="sessionStorage" />
 				<small>(godkända format är bilder, ren text och PDF)</small>
 			</p>
 
 			<p>
 				<label for="printer">Skrivare</label>
+				<input name="printer" id="printer" value="ed-2338-laser1" />
+				<?php
+				/*
 				<select name="printer" id="printer">
 					<option value="a-2234-color2">a-2234-color2</option>
 					<option value="a-2234-laser1">a-2234-laser1</option>
@@ -54,6 +56,8 @@
 					<option value="ituniv-pa-324-color1">ituniv-pa-324-color1 Lindholmen Ituniversitetet</option>
 					<option value="ituniv-pa-338b-laser1">ituniv-pa-338b-laser1 Lindholmen Ituniversetetet </option>
 				</select>
+				*/
+				?>
 			</p>
 
 			<p>
@@ -100,16 +104,7 @@
 	</article>
 </section>
 <script type="text/javascript">
-	(function(command) {
-		console.log(command);
-		if (command !== undefined) {
-			if (command === "UNSET") {
-				window.sessionStorage && window.sessionStorage.removeItem('tmp_name');
-			} else {
-				window.sessionStorage && window.sessionStorage.setItem('tmp_name', command);
-			}
-		}
-	}(<?=$jsCmd?>));
+	var printerpage = true;
 </script>
 
 
