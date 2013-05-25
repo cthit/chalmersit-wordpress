@@ -33,7 +33,12 @@ function it_register_sidebars() {
 			"id" => "footer",
 			"before_widget" => '<li id="%1$s" class="widget">',
 			"after_widget" => "</li>"
-		)
+		),
+
+		array(
+			"name" => "Profilsidan",
+			"id" => "profile"
+		) + $global
 	);
 
 	foreach($zones as $zone){
