@@ -37,7 +37,7 @@
 
 			<p>
 				<label for="printer">Skrivare</label>
-				<input name="printer" id="printer" value="ed-2338-laser1" />
+				<input name="printer" id="printer" placeholder="ed-2338-laser1" />
 				<?php
 				/*
 				<select name="printer" id="printer">
