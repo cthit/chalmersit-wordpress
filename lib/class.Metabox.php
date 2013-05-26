@@ -313,7 +313,7 @@ class RW_Meta_Box {
 			// add style and script, use proper jQuery UI version
 			wp_enqueue_style('rw-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/' . $this->get_jqueryui_ver() . '/themes/base/jquery-ui.css');
 			wp_enqueue_script('rw-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/' . $this->get_jqueryui_ver() . '/jquery-ui.min.js', array('jquery'));
-			wp_enqueue_script('rw-timepicker', 'https://github.com/trentrichardson/jQuery-Timepicker-Addon/raw/master/jquery-ui-timepicker-addon.js', array('rw-jquery-ui'));
+			wp_enqueue_script('rw-timepicker', ASSET_PATH . "/javascripts/jquery.ui-timepicker-addon.js", array('rw-jquery-ui'));
 			add_action('admin_head', array(&$this, 'add_script_time'));
 		}
 	}
