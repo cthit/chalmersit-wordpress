@@ -55,7 +55,6 @@ function register_chalmers_metaboxes() {
 	$metaboxes['event_details'] = array(
 		'id' => "event-details",
 		'title' => "Arrangemangsinformation",
-		"context" => "side",
 		"pages" => array("post"),
 		"priority" => "high",
 		"fields" => array(
