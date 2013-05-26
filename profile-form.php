@@ -71,6 +71,7 @@ foreach ( array( 'posts', 'pages' ) as $post_cap )
 					if ( !in_array( $profileuser->display_name, $public_display ) )// Only add this if it isn't duplicated elsewhere
 						$public_display = array( 'display_displayname' => $profileuser->display_name ) + $public_display;
 					$public_display = array_map( 'trim', $public_display );
+					$public_display = array_unique($public_display);
 					foreach ( $public_display as $id => $item ) {
 						$selected = ( $profileuser->display_name == $item ) ? ' selected="selected"' : '';
 				?>
