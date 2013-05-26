@@ -100,6 +100,12 @@ function register_chalmers_metaboxes() {
 				"id" => IT_PREFIX."event_host_other",
 				"type" => "text",
 				"desc" => "Annan arrangör (kommer att användas om inte lämnas tomt)"
+			),
+			array(
+				"name" => "URL till Facebook",
+				"id" => IT_PREFIX."fb_event_url",
+				"type" => "text",
+				"desc" => "Länk till arrangemangets Facebook-sida"
 			)
 		)
 	);
