@@ -29,6 +29,7 @@
 
 /* Use the following CSS code if you want to have a class per icon 
 [class^="icon-"]:before, [class*=" icon-"]:before { */
+.icon-facebook-sign:before,
 .icon-cog:before, 
 .icon-clock:before, 
 .icon-map-pin-fill:before, 
@@ -45,7 +46,9 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-
+.icon-facebook-sign:before {
+	content: "\f082";
+}
 .icon-cog:before {
 	content: "\e000";
 }

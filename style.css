@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: Chalmers.it
 Theme URI: http://chalmers.it
@@ -1259,6 +1260,7 @@ table {
 
 /* Use the following CSS code if you want to have a class per icon 
 [class^="icon-"]:before, [class*=" icon-"]:before { */
+.icon-facebook-sign:before,
 .icon-cog:before,
 .icon-clock:before,
 .icon-map-pin-fill:before,
@@ -1273,6 +1275,10 @@ table {
   line-height: 1;
   margin-right: .3em;
   -webkit-font-smoothing: antialiased;
+}
+
+.icon-facebook-sign:before {
+  content: "\f082";
 }
 
 .icon-cog:before {
@@ -4479,15 +4485,15 @@ li.widget {
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 959px) and (min-width: 768px) {
   /* Global layout changes */
-  .three.columns.pull-six, .row .columns.pull-six.three {
+  .three.columns.pull-six {
     right: 75%;
   }
 
-  .six.columns.push-three.main-col, .row .columns.push-three.main-col.six {
+  .six.columns.push-three.main-col {
     width: 75%;
   }
 
-  .three.columns.sidebar, .row .columns.sidebar.three {
+  .three.columns.sidebar {
     float: none;
     width: 75%;
     position: relative;
