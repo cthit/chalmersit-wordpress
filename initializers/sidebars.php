@@ -21,12 +21,8 @@ function it_register_sidebars() {
 
 		array(
 			"name" => "Global sidebar",
-			"id" => "global-sidebar",
-			"before_widget" => '<li id="%1$s" class="widget">',
-			"after_widget" => "</li>",
-			"before_title" => "<header><h3>",
-			"after_title" => "</h3></header>",
-		),
+			"id" => "global-sidebar"
+		) + $global,
 
 		array(
 			"name" => "Sidfot",
