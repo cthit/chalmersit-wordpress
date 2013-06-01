@@ -37,10 +37,13 @@
 </aside>
 
 <aside class="three columns sidebar">
-	<?php if(get_post_meta($post->ID, IT_PREFIX."is_committee", true)) : 
-			get_sidebar("committee");
-		endif;
-		get_sidebar();?>
+	<?php if(get_post_meta($post->ID, IT_PREFIX."is_committee", true)) : ?>
+	<?php get_sidebar("committee");?>
+	<?php endif;?>
+	<?php if(is_page("profil")){
+		dynamic_sidebar("profile");
+	}
+	get_sidebar();?>
 </aside>
 
 <?php endif; ?>
