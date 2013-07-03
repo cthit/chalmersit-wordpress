@@ -339,7 +339,13 @@ $(function() {
 
 	// Show Twitter timeline on frontpage
 
-	$('.it_twitter').each(function(){
+	$('.tweet-list time').each(function() {
+		var $this = $(this);
+		var time = new Date($this.text());
+		$this.text(time.toLocaleString());
+	});
+
+	/*$('.it_twitter').each(function(){
 		var that = this;
 		var twQContent = $(this).children('meta[name=twitter-content]').attr("content");
 		var twQType = $(this).children('meta[name=twitter-type]').attr("content");
@@ -378,6 +384,6 @@ $(function() {
 			$(that).find('#tweet-list').append($list);
 
 		});
-	});
+	});*/
 
 });

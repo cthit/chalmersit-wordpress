@@ -1,6 +1,8 @@
 <?php
 
 class Twitter_Widget extends WP_widget {
+
+	private $auth_key = null;
 	
 	function __construct() {
 		$widget_ops = array( 'classname' => 'it_twitter', 'description' => __("Visar en användares twitterfeed") );
@@ -43,11 +45,17 @@ class Twitter_Widget extends WP_widget {
 			<h1>Twitter</h1>
 			<a class="header-more" href="http://twitter.com/<?php echo $user; ?>">@<?php echo $niceUser; ?></a>
 		</header>
-		<meta name="twitter-type" content="<?php echo $type ?>" />
-		<meta name="twitter-content" content="<?php echo $user; ?>" />
-		<meta name="twitter-count" content="<?php echo $count; ?>" />
-
-		<div id="tweet-list">
+		<div class="tweet-list">
+			<ul class="list">
+				<?php /*foreach ($this->read_user($user) as $tweet) { ?>
+					<li>
+						<p>
+							<?= $this->fix_links($tweet->text, $tweet->entities) ?>
+						</p>
+						<time><?= $tweet->created_at ?></time>
+					</li>
+				<?php }*/ ?>
+			</ul>
 		</div>
 
 		<?php
@@ -57,6 +65,28 @@ class Twitter_Widget extends WP_widget {
 		$cache[$args['widget_id']] = ob_get_flush();
 		wp_cache_set('it_sponsor_widget', $cache, 'widget');
 
+	}
+
+	function single_link($text, $url, $display) {
+		return str_replace($url, sprintf("<a href='%s'>%s</a>", $url, $display), $text);
+	}
+
+	function fix_links($text, $entities) {
+		foreach ($entities->urls as $link) {
+			$text = $this->single_link($text, $link->url, $link->display_url);
+		}
+		foreach ($entities->media as $link) {
+			$text = $this->single_link($text, $link->url, $link->display_url);
+		}
+		foreach ($entities->hashtags as $tag) {
+			$t = "#" . $tag->text;
+			$text = str_replace($t, sprintf("<a href='http://twitter.com/search?q=%s&src=hash'>%s</a>", "%23" . $tag->text, $t), $text);
+		}
+		foreach ($entities->user_mentions as $user) {
+			$u = "@" . $user->screen_name;
+			$text = str_replace($u, sprintf("<a href='http://twitter.com/%s' title='%s'>%s</a>", $user->screen_name, $user->name, $u), $text);
+		}
+		return $text;
 	}
 
 	function update($new_instance, $old_instance) {
@@ -104,5 +134,44 @@ class Twitter_Widget extends WP_widget {
 
 		<?php
 	}
+
+	function read_user($username) {
+		$data = array("screen_name" => $username, "trim_user" => true, "include_rts" => false, "exclude_replies" => true);
+		$headers = array("Authorization: Bearer " . $this->get_auth_key());
+		$result = $this->send_request("https://api.twitter.com/1.1/statuses/user_timeline.json", $headers, $data);
+		//print_r(json_decode($result));
+		return json_decode($result);
+	}
+
+	function get_auth_key() {
+		if ($this->auth_key == null) {
+			$key = urlencode("bGQjHe4fWTsODxdYC9AcDw");
+			$secret = urlencode("VzfwDzLMTsMgMjuVUyf9vSY7oJ4xqb9jYcgtzeGvUc");
+			$whole_code = base64_encode(sprintf("%s:%s", $key, $secret));
+			$data = array('grant_type' => 'client_credentials');
+			$headers = array("Authorization: Basic " . $whole_code);
+			$result = json_decode($this->send_request("https://api.twitter.com/oauth2/token", $headers, $data, "POST"));
+			$this->auth_key = $result->access_token;
+		}
+		return $this->auth_key;
+	}
+
+	function send_request($url, $headers, $data, $method="GET") {
+		$headers = array_merge($headers, array("User-Agent: Chalmers.it", "Content-Type: application/x-www-form-urlencoded;charset=UTF-8"));
+		$options = array(
+			'http' => array(
+				'header' => join("\r\n", $headers),
+				'method' => $method
+			)
+		);
+		if ($method == "POST") {
+			$options['http']['content'] = http_build_query($data);
+		} else if ($method == "GET") {
+			$url .= "?" . http_build_query($data);
+		}
+		$context = stream_context_create($options);
+		return file_get_contents($url, false, $context);
+	}
+
 }
 ?>
