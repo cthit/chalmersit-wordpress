@@ -2,7 +2,7 @@
 
 class Twitter_Widget extends WP_widget {
 
-	private $auth_key = null;
+	private $widget_id;
 	
 	function __construct() {
 		$widget_ops = array( 'classname' => 'it_twitter', 'description' => __("Visar en användares twitterfeed") );
@@ -16,10 +16,12 @@ class Twitter_Widget extends WP_widget {
 
 	function flush_widget_cache() {
 		wp_cache_delete('it_twitter_widget', 'widget');
+		delete_transient($this->widget_id);
 	}
 
 	function widget( $args, $instance ) {
 		extract( $args );
+		$this->widget_id = $widget_id;
 		
 		$cache = wp_cache_get('it_twitter_widget', 'widget');
 		
@@ -47,14 +49,14 @@ class Twitter_Widget extends WP_widget {
 		</header>
 		<div class="tweet-list">
 			<ul class="list">
-				<?php /*foreach ($this->read_user($user) as $tweet) { ?>
+				<?php foreach ($this->read_user($user, $count) as $tweet) { ?>
 					<li>
 						<p>
 							<?= $this->fix_links($tweet->text, $tweet->entities) ?>
 						</p>
 						<time><?= $tweet->created_at ?></time>
 					</li>
-				<?php }*/ ?>
+				<?php } ?>
 			</ul>
 		</div>
 
@@ -123,55 +125,46 @@ class Twitter_Widget extends WP_widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('title');?>"><?php _e("Användare"); ?>:</label>
-			<input id="<?php echo $this->get_field_id('title');?>" name="<?php echo $this->get_field_name('title');?>" value="<?php echo $instance['title']; ?>" class="widefat" />
+			<label for="<?= $this->get_field_id('title');?>"><?php _e("Användare"); ?>:</label>
+			<input id="<?= $this->get_field_id('title');?>" name="<?= $this->get_field_name('title');?>" value="<?= $instance['title']; ?>" class="widefat" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('count');?>"><?php _e("Antal tweets"); ?>:</label>
-			<input id="<?php echo $this->get_field_id('count');?>" name="<?php echo $this->get_field_name('count');?>" type="number" min="0" value="<?php echo $instance['count']; ?>" />
+			<label for="<?= $this->get_field_id('count');?>"><?php _e("Antal tweets"); ?>:</label>
+			<input id="<?= $this->get_field_id('count');?>" name="<?= $this->get_field_name('count');?>" type="number" min="0" value="<?= $instance['count']; ?>" />
 		</p>
-		<input id="<?php echo $this->get_field_id('type');?>" type="hidden" name="<?php echo $this->get_field_name('type');?>" value="user" />
+		<input id="<?= $this->get_field_id('type');?>" type="hidden" name="<?= $this->get_field_name('type');?>" value="user" />
 
 		<?php
 	}
 
-	function read_user($username) {
-		$data = array("screen_name" => $username, "trim_user" => true, "include_rts" => false, "exclude_replies" => true);
-		$headers = array("Authorization: Bearer " . $this->get_auth_key());
-		$result = $this->send_request("https://api.twitter.com/1.1/statuses/user_timeline.json", $headers, $data);
-		//print_r(json_decode($result));
-		return json_decode($result);
-	}
-
-	function get_auth_key() {
-		if ($this->auth_key == null) {
-			$key = urlencode("bGQjHe4fWTsODxdYC9AcDw");
-			$secret = urlencode("VzfwDzLMTsMgMjuVUyf9vSY7oJ4xqb9jYcgtzeGvUc");
-			$whole_code = base64_encode(sprintf("%s:%s", $key, $secret));
-			$data = array('grant_type' => 'client_credentials');
-			$headers = array("Authorization: Basic " . $whole_code);
-			$result = json_decode($this->send_request("https://api.twitter.com/oauth2/token", $headers, $data, "POST"));
-			$this->auth_key = $result->access_token;
+	function read_user($username, $count) {
+		$trans_name = $this->widget_id;
+		$cache_time = 10;
+		$twitter_data = null;
+		if (false === ($twitter_data = get_transient($trans_name))) {
+			require_once "twitteroauth/twitteroauth.php";
+			$connection = new TwitterOAuth(
+				"bGQjHe4fWTsODxdYC9AcDw", // Consumer key
+				"VzfwDzLMTsMgMjuVUyf9vSY7oJ4xqb9jYcgtzeGvUc", // Consumer secret
+				"367123533-OVAdLEhTtHKdtlTFcCGIOhiCwCaB0E5xI62Sn8SG", // Access token
+				"mRzX38QKdf3ujNIONWTqXexSRsIeaUH97Pm6YCByk" // Access token secret
+				);
+			$twitter_data = $connection->get(
+				'statuses/user_timeline',
+				array(
+					'screen_name' => $username,
+					'count' => $count,
+					'exclude_replies' => true,
+					'trim_user' => true,
+					'include_rts' => false
+				)
+			);
+			if ($connection->http_code != 200) {
+				$twitter_data = get_transient($trans_name);
+			}
+			set_transient($trans_name, $twitter_data, 60 * $cache_time);
 		}
-		return $this->auth_key;
+		return $twitter_data;
 	}
-
-	function send_request($url, $headers, $data, $method="GET") {
-		$headers = array_merge($headers, array("User-Agent: Chalmers.it", "Content-Type: application/x-www-form-urlencoded;charset=UTF-8"));
-		$options = array(
-			'http' => array(
-				'header' => join("\r\n", $headers),
-				'method' => $method
-			)
-		);
-		if ($method == "POST") {
-			$options['http']['content'] = http_build_query($data);
-		} else if ($method == "GET") {
-			$url .= "?" . http_build_query($data);
-		}
-		$context = stream_context_create($options);
-		return file_get_contents($url, false, $context);
-	}
-
 }
 ?>

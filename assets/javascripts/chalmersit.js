@@ -342,7 +342,7 @@ $(function() {
 	$('.tweet-list time').each(function() {
 		var $this = $(this);
 		var time = new Date($this.text());
-		$this.text(time.toLocaleString());
+		$this.text(time.toDateString());
 	});
 
 	/*$('.it_twitter').each(function(){
