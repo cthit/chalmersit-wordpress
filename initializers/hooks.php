@@ -161,3 +161,29 @@ function attach_page_variables() {
 
 	<?php
 }
+
+function init_epic_sexit_hack() { ?>
+	<div class="sexitaegerfett">
+		<h1>V for Vendetta-sittning</h1>
+		<a href="http://sexit.chalmers.it">
+			<img src="http://sexit.chalmers.it/wp-core/wp-content/uploads/2013/08/v.jpg" alt="V for Vendetta" />
+		</a>	
+	</div>
+
+	<style type="text/css">
+
+		.sexitaegerfett {
+			-webkit-animation: fadeIn 3s 1s;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #0d0f0e;
+			text-indent: -999em;
+			text-align: center;
+			z-index: 9999;
+		}
+	</style>
+<?php
+}
