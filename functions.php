@@ -86,7 +86,7 @@ function setup_chalmers() {
 	}
 
 	add_action("wp_footer", "attach_page_variables");
-	add_action("wp_footer", "init_epic_sexit_hack");
+	add_action("wp_footer", "init_epic_sexit_hack", 40);
 
 	add_filter( 'excerpt_length', 'jb_excerpt_length' );
 	add_filter( 'get_the_excerpt', 'custom_excerpt' );
