@@ -166,12 +166,12 @@ function init_epic_sexit_hack() {
 	if(!is_front_page()) return;
 	?>
 	<script type="text/javascript">
-		$(function() {
-			$(".sexitaegerfett .close").on("click", function(evt) {
+		document.addEventListener("DOMContentLoaded", function() {
+			document.querySelector(".sexitaegerfett .close").addEventListener("click", function(evt) {
 				evt.preventDefault();
-				$(".sexitaegerfett").remove();
-			});
-		});
+				document.querySelector(".sexitaegerfett").remove();
+			}, false);
+		}, false);
 	</script>
 
 	<div class="sexitaegerfett">
