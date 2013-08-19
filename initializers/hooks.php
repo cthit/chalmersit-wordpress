@@ -162,7 +162,9 @@ function attach_page_variables() {
 	<?php
 }
 
-function init_epic_sexit_hack() { ?>
+function init_epic_sexit_hack() { 
+	if(!is_front_page()) return;
+	?>
 	<script type="text/javascript">
 		$(function() {
 			$(".sexitaegerfett .close").on("click", function(evt) {
@@ -183,7 +185,7 @@ function init_epic_sexit_hack() { ?>
 	<style type="text/css">
 
 		.sexitaegerfett {
-			-webkit-animation: fadeIn 2s .5s backwards;
+			-webkit-animation: fadeIn 1s 1s backwards;
 			position: fixed;
 			top: 0;
 			left: 0;
