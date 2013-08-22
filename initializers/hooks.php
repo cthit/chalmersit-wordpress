@@ -161,3 +161,53 @@ function attach_page_variables() {
 
 	<?php
 }
+
+function init_epic_sexit_hack() { 
+	if(!is_front_page()) return;
+	?>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+			document.querySelector(".sexitaegerfett .close").addEventListener("click", function(evt) {
+				evt.preventDefault();
+				document.querySelector(".sexitaegerfett").remove();
+			}, false);
+		}, false);
+	</script>
+
+	<div class="sexitaegerfett">
+		<a href="#" class="close">Till Chalmers.it →</a>
+		<h1>V for Vendetta-sittning</h1>
+		<a href="http://sexit.chalmers.it">
+			<img src="http://sexit.chalmers.it/wp-core/wp-content/uploads/2013/08/v.jpg" alt="V for Vendetta" />
+		</a>	
+	</div>
+
+	<style type="text/css">
+
+		.sexitaegerfett {
+			-webkit-animation: fadeIn 1s 1s backwards;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #0d0f0e;
+			text-align: center;
+			z-index: 9999;
+		}
+		.sexitaegerfett h1 {
+			text-indent: -999em;
+		}
+		.sexitaegerfett .close {
+			position: absolute;
+			display: inline-block;
+			top: 10px;
+			right: 20px;
+			color: #fff;
+			font-weight: bold;
+			text-decoration: none;
+			font-size: 1.5em;
+		}
+	</style>
+<?php
+}
