@@ -169,7 +169,10 @@ function init_epic_sexit_hack() {
 		document.addEventListener("DOMContentLoaded", function() {
 			document.querySelector(".sexitaegerfett .close").addEventListener("click", function(evt) {
 				evt.preventDefault();
-				document.querySelector(".sexitaegerfett").remove();
+				var el = document.querySelector(".sexitaegerfett");
+
+				el.parentElement.removeChild(el);
+
 			}, false);
 		}, false);
 	</script>
