@@ -129,7 +129,7 @@ namespace :javascript do
 	desc "Generate a minified version for distribution"
 	task :minify, [:filename, :minifier] do |task, args|
 		js_file = args[:filename].nil? ? "#{MASTER_JS_FILE}.js" : "#{args[:filename]}.js"
-		minifier = args[:minifier].nil? ? "closure" : args[:minifier]
+		minifier = args[:minifier].nil? ? "uglifier" : args[:minifier]
 
 		src, target = File.join(JS_DIR, js_file), File.join(JS_DIR, output_filename(js_file))
 		
