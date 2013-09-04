@@ -37,9 +37,6 @@
 
 			<p>
 				<label for="printer">Skrivare</label>
-				<input name="printer" id="printer" value="ed-2338-laser1" />
-				<?php
-				/*
 				<select name="printer" id="printer">
 					<option value="a-2234-color2">a-2234-color2</option>
 					<option value="a-2234-laser1">a-2234-laser1</option>
@@ -56,8 +53,6 @@
 					<option value="ituniv-pa-324-color1">ituniv-pa-324-color1 Lindholmen Ituniversitetet</option>
 					<option value="ituniv-pa-338b-laser1">ituniv-pa-338b-laser1 Lindholmen Ituniversetetet </option>
 				</select>
-				*/
-				?>
 			</p>
 
 			<p>
@@ -103,9 +98,5 @@
 		</form>
 	</article>
 </section>
-<script type="text/javascript">
-	var printerpage = true;
-</script>
-
 
 <?php get_footer();?>
