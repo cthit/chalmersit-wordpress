@@ -54,7 +54,7 @@ function register_widgets(){
 
 function setup_chalmers() {
 	if(class_exists("Booking")) {
-		set_booking_emails(_parse_email_from_option("booking_email"));
+		set_booking_emails(_parse_email_from_option("booking_hubben_email"), _parse_email_from_option("booking_grouproom_email"));
 		set_party_booking_emails(_parse_email_from_option("booking_party_email"));
 
 		Booking::addLocations(array("Hubben", "Grupprummet"));
