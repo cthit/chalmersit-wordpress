@@ -94,8 +94,15 @@ if(is_admin()) {
 		"choices" => $groups
 	));
 
-	$options->add_setting("booking_email", array(
-		"title" => "Mail för bokningar",
+	$options->add_setting("booking_hubben_email", array(
+		"title" => "Mail för bokningar av Hubben",
+		"std" => "prit@chalmers.it",
+		"desc" => "Dit alla e-mail från bokningar ska gå (separera flera e-mails med kommatecken)",
+		"section" => "it_booking"
+	) + $_std);
+
+	$options->add_setting("booking_grouproom_email", array(
+		"title" => "Mail för bokningar av grupprummet",
 		"std" => "prit@chalmers.it",
 		"desc" => "Dit alla e-mail från bokningar ska gå (separera flera e-mails med kommatecken)",
 		"section" => "it_booking"
