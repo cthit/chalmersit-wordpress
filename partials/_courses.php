@@ -47,7 +47,10 @@
 			<li>
 				<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
 
-				<a href="<?php echo get_permalink($course->ID);?>"><?php echo get_the_title($course->ID);?></a>
+				<?php $courseLink = get_post_meta($course->ID, it_course_link, true); ?>
+				<a href="<?php
+					echo empty($courseLink) ? get_permalink($course->ID) : $courseLink;
+				?>"><?php echo get_the_title($course->ID);?></a>
 
 				<?php if($mandatory == "on") : ?>	
 				<span class="mandatory-course" rel="tooltip" title="Obligatorisk kurs">⚑</span>
