@@ -59,7 +59,7 @@
 							<?php endif;?>
 							<li><a href="<?php link_to("skrivut");?>">Skriv ut</a></li>
 							<li><a href="<?php link_to("bokning");?>">Boka rum</a></li>
-							<li><a target="_blank" href="https://web.timeedit.se/chalmers_se/db1/public/r.html?sid=3&h=t">Schema</a></li>
+							<li><a target="_blank" href="https://se.timeedit.net/web/chalmers/db1/public/ri1Q7.html">Schema</a></li>
 							<li><a href="<?php link_to("profil");?>">Redigera profil</a></li>
 							<?php if(current_user_can("publish_posts")) : ?>
 							<li><a href="<?php echo admin_url();?>" target="_blank">Admin</a></li>
