@@ -39,7 +39,6 @@ class Lunch_Widget extends WP_Widget {
 			ob_start();
 			
 			echo $before_widget;
-			
 			$title = "Lunch <small>".$lunch_menu['date']."</small>";
 
 			echo $before_title . $title . $after_title;
@@ -47,9 +46,12 @@ class Lunch_Widget extends WP_Widget {
 			foreach($lunch_menu['places'] as $place) : ?>
 			<h2 class="section-heading"><?php echo $place['name'];?></h2>
 			<ul class="simple-list">
-				<?php foreach($place['dishes'] as $dish) : ?>
+				<?php if (count($place['dishes']) < 1) : ?>
+				<li><em>Ingen lunch idag</em></li>
+				<?php endif;
+				foreach($place['dishes'] as $dish) : ?>
 				<li><?php echo $dish;?></li>
-				<?php endforeach;?>
+				<?php endforeach; ?>
 			</ul>
 			
 			<?php endforeach;

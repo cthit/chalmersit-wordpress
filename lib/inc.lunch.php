@@ -9,25 +9,34 @@ include_once ABSPATH . WPINC.'/rss.php';
 // define("KAR_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/4");
 // define("LIN_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/7");
 
-$todaysDate = date("Y-m-d");
-
-define("KAR_URL", "http://cm.lskitchen.se/johanneberg/karrestaurangen/sv/$todaysDate.rss");
-define("LIN_URL", "http://cm.lskitchen.se/johanneberg/linsen/sv/$todaysDate.rss");
+define("TODAY", date("Y-m-d"));
 
 function get_todays_meals() {
-	return parse_feed();
+	$resturants = array(
+		array(
+			"name" => "Linsen",
+			"url" => "http://cm.lskitchen.se/johanneberg/linsen/sv/%date.rss"
+		),
+		array(
+			"name" => "Kårrestaurangen",
+			"url" => "http://cm.lskitchen.se/johanneberg/karrestaurangen/sv/%date.rss"
+		),
+		array(
+			"name" => "L's Kitchen",
+			"url" => "http://cm.lskitchen.se/lindholmen/foodcourt/sv/%date.rss"
+		)
+	);
+	return parse_feed($resturants);
 }
 
-function parse_feed() {
-	$kartoday = get_items(KAR_URL);
-	$lintoday = get_items(LIN_URL);
-
+function parse_feed($resturants) {
+	$menus = array();
+	foreach ($resturants as $res) {
+		$menus[] = clean_menu(get_items(str_replace('%date', TODAY, $res['url'])), $res['name']);
+	}
 	return array(
-		"date" => title_date($kartoday[0]['pubdate']),
-		"places" => array(
-			clean_menu($lintoday, "Linsen"),
-			clean_menu($kartoday, "Kårrestaurangen"),
-		)
+		"date" => title_date(),
+		"places" => $menus
 	);
 }
 
@@ -45,7 +54,10 @@ function clean_menu($list, $resname) {
 	foreach ($list as $item) {
 		$dishes_array[] = clean_item($item);
 	}
-	return format_places($dishes_array, $resname);
+	return array(
+		"name" => $resname,
+		"dishes" => $dishes_array
+	);
 }
 
 function clean_item($item) {
@@ -54,18 +66,9 @@ function clean_item($item) {
 	return "<strong>" . $item["title"] . "</strong>" . $desc[0];
 }
 
-function title_date($datestring) {
-	$formatted_date = date_parse($datestring);
-	$months = array("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "november", "december");
-	return $formatted_date["day"] . " " . $months[$formatted_date["month"]-1];
-}
-
-
-function format_places($dishes, $name) {
-	return array(
-		"name" => $name,
-		"dishes" => $dishes
-	);
+function title_date() {
+	$months = array("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december");
+	return date('d') . " " . $months[date('m')-1];
 }
 
 ?>
