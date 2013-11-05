@@ -7,7 +7,7 @@
 ?>
 
 <?php if($years) : foreach($years as $year) : ?>
-
+<div class="year <?php echo $year->slug ?>">
 	<h2><?php echo $year->name;?></h2>
 
 	<?php if($periods) : ?>
@@ -33,36 +33,37 @@
 					)
 				)
 			));
-
 		?>
 
 		<?php if($courses) : ?>
-		<h3><?php echo $period->name;?></h3>
-		<ul class="simple-list course-listing">
-		<?php foreach($courses as $course) : ?>
-			<?php
-				$course_code = get_post_meta($course->ID, IT_PREFIX."course_code", true);
-				$mandatory = get_post_meta($course->ID, IT_PREFIX."course_is_compulsory", true);
-			?>
-			<li>
-				<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
+		<div class="lp <?php echo $period->slug ?>">
+			<h3><?php echo $period->name;?></h3>
+			<ul class="simple-list course-listing">
+			<?php foreach($courses as $course) : ?>
+				<?php
+					$course_code = get_post_meta($course->ID, IT_PREFIX."course_code", true);
+					$mandatory = get_post_meta($course->ID, IT_PREFIX."course_is_compulsory", true);
+				?>
+				<li>
+					<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
 
-				<?php $courseLink = get_post_meta($course->ID, it_course_site, true); ?>
-				<a href="<?php
-					echo empty($courseLink) ? get_permalink($course->ID) : $courseLink;
-				?>"><?php echo get_the_title($course->ID);?></a>
+					<?php $courseLink = get_post_meta($course->ID, it_course_site, true); ?>
+					<a href="<?php
+						echo empty($courseLink) ? get_permalink($course->ID) : $courseLink;
+					?>"><?php echo get_the_title($course->ID);?></a>
 
-				<?php if($mandatory == "on") : ?>	
-				<span class="mandatory-course" rel="tooltip" title="Obligatorisk kurs">⚑</span>
-				<?php endif;?>
-			</li>
+					<?php if($mandatory == "on") : ?>
+					<span class="mandatory-course" rel="tooltip" title="Obligatorisk kurs">⚑</span>
+					<?php endif;?>
+				</li>
 
-		<?php endforeach; ?>
-		</ul>
+			<?php endforeach; ?>
+			</ul>
+		</div>
 		<?php endif; ?>
 
 	<?php endforeach; endif;?>
-
+</div>
 <?php endforeach; ?>
 
 <?php else : ?>

@@ -19,7 +19,7 @@
 				<?php foreach($periods as $period) : ?>
 				<li>
 					<label><input 
-							value="<?php echo $period->term_id;?>" 
+							value="<?php echo $period->slug;?>"
 							name="course_period" 
 							type="radio" /> <?php echo $period->name;?></label>
 				</li>
@@ -44,7 +44,7 @@
 				<?php foreach($years as $year) : ?>
 				<li>
 					<label><input 
-							value="<?php echo $year->term_id;?>" 
+							value="<?php echo $year->slug;?>"
 							name="course_year" 
 							type="radio" /> <?php echo $year->name;?></label>
 				</li>
