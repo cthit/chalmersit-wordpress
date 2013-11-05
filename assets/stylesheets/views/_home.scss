@@ -24,7 +24,17 @@
 			-webkit-animation: dropDown .6s ease-out;
 		}
 	}
-	
+
+	@include media-query($screenSmall+1) {
+		.dashboard {
+			display: flex;
+			flex-direction: column;
+		}
+		.dashboard .columns:first-child {
+			order: 1;
+		}
+	}
+
 	.front-title {
 		text-align: center;
 		margin-bottom: 0;
