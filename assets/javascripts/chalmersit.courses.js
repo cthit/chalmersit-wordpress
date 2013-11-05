@@ -21,6 +21,11 @@
 			var year = store.getItem("year"),
 				period = store.getItem("period");
 
+			if (year || period) {
+				$('#clear-config').attr("disabled", false);
+			}
+
+			// Sets the input boxes' values
 			opts.year.filter("[value='"+year+"']").attr("checked", true);
 			opts.period.filter("[value='"+period+"']").attr("checked", true);
 
@@ -50,8 +55,8 @@
 			save.on("click", function(evt) {
 				evt.preventDefault();
 				$.persist.save({
-					year: parseInt($year.filter(":checked").val()),
-					period: parseInt($period.filter(":checked").val())
+					year: $year.filter(":checked").val(),
+					period: $period.filter(":checked").val()
 				});
 
 				clear.attr("disabled", false);
@@ -61,16 +66,27 @@
 			clear.on("click", function(evt) {
 				evt.preventDefault();
 				$.persist.clear();
+				$year.val('-1');
+				$period.val('-1');
 				clear.attr("disabled", true);
 			});
 
 		});
 
-	}
+	};
 
 })(jQuery);
 
 $(function() {
+
+	function showHideClass(general, value) {
+		if (value != '-1') {
+			$('.' + general).hide();
+			$('.'+ value).show();
+		} else {
+			$('.' + general).show();
+		}
+	}
 
 	var $form = $("#courses-form"),
 		$inputs = $form.find("input"),
@@ -83,18 +99,11 @@ $(function() {
 		clear: "#clear-config",
 		callback: function(evt) {
 
-			$form.find(".loading").fadeIn();
+			var year = $form.find("#years-field input").filter(":checked").val(),
+				periods = $form.find("#periods-field input").filter(":checked").val();
 
-			var data = {
-				action: "it_courses_filter",
-				year: parseInt($form.find("#years-field input").filter(":checked").val()),
-				period: parseInt($form.find("#periods-field input").filter(":checked").val())
-			};
-
-			$.get(pageOptions.ajaxURL, data, function(response) {
-				$form.find(".loading").hide();
-				$container.html(response);
-			});
+			showHideClass('year', year);
+			showHideClass('lp', periods);
 
 	}
 	});
