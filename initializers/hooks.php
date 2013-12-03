@@ -48,7 +48,7 @@ function add_current_class_to_single($classes, $item) {
 		$classes[] = "current_page_item";	
 	}
 
-	return $classes;
+	return (array)$classes;
 }
 
 /**
