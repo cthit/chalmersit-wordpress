@@ -123,7 +123,7 @@ function _parse_email_from_option($key) {
 
 function it_custom_scripts() {
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", false, null, true);
+	wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null, true);
 
 	wp_enqueue_script('jquery');
 }
