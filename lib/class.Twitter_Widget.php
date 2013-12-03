@@ -74,17 +74,18 @@ class Twitter_Widget extends WP_widget {
 	}
 
 	function fix_links($text, $entities) {
-		foreach ($entities->urls as $link) {
+		// Cast to (array) to foreach through a empty array instead of null error
+		foreach ((array)$entities->urls as $link) {
 			$text = $this->single_link($text, $link->url, $link->display_url);
 		}
-		foreach ($entities->media as $link) {
+		foreach ((array)$entities->media as $link) {
 			$text = $this->single_link($text, $link->url, $link->display_url);
 		}
-		foreach ($entities->hashtags as $tag) {
+		foreach ((array)$entities->hashtags as $tag) {
 			$t = "#" . $tag->text;
 			$text = str_replace($t, sprintf("<a href='http://twitter.com/search?q=%s&src=hash'>%s</a>", "%23" . $tag->text, $t), $text);
 		}
-		foreach ($entities->user_mentions as $user) {
+		foreach ((array)$entities->user_mentions as $user) {
 			$u = "@" . $user->screen_name;
 			$text = str_replace($u, sprintf("<a href='http://twitter.com/%s' title='%s'>%s</a>", $user->screen_name, $user->name, $u), $text);
 		}
