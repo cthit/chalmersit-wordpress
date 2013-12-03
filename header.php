@@ -8,6 +8,8 @@
 		$header_image = $header_image[0];
 	}
 
+	$header_image = get_custom_header()->url;
+
 	partial("head");
 ?>
 

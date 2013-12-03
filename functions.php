@@ -68,6 +68,12 @@ function setup_chalmers() {
 
 	add_theme_support("menus");
 	add_theme_support("post-formats");
+	add_theme_support("custom-header", array(
+			"width" => 1280,
+			"height" => 400,
+			"uploads" => true,
+			"default-image" => get_template_directory_uri() . '/assets/images/header.jpg'
+	));
 	add_theme_support("post-thumbnails", array("post", "page", "course"));
 	add_theme_support("automatic-feed-links");
 
