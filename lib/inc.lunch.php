@@ -68,7 +68,7 @@ function clean_item($item) {
 
 function title_date() {
 	$months = array("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december");
-	return date('d') . " " . $months[date('m')-1];
+	return date('j') . " " . $months[date('m')-1];
 }
 
 ?>
