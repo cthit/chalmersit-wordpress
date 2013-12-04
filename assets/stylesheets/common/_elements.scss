@@ -80,6 +80,10 @@ ul, ol {
 	list-style-position: inside;
 }
 
+article li > ul, article li > ol {
+	padding-left: 1em;
+}
+
 nav ul,
 nav ol {
 	list-style: none;
