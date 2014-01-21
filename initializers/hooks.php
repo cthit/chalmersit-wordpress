@@ -33,21 +33,20 @@ function my_shortlink( $link, $shortlink, $text, $title ){
 function add_current_class_to_single($classes, $item) {
 	global $post;
 
-	if(is_front_page()) return;
+	if(!is_front_page()) {
+		$nav_object = get_page($item->object_id);
 
-	$nav_object = get_page($item->object_id);
+		if($nav_object->post_name == "nyheter" && 
+			(get_post_type($post) == "post" || is_post_type_archive("post") ) ) {
 
-	if($nav_object->post_name == "nyheter" && 
-		(get_post_type($post) == "post" || is_post_type_archive("post") ) ) {
+			$classes[] = "current_page_item";
+		}
+		else if($nav_object->post_name == "kurser" && 
+			(is_post_type_archive("course") )) {
 
-		$classes[] = "current_page_item";
+			$classes[] = "current_page_item";	
+		}
 	}
-	else if($nav_object->post_name == "kurser" && 
-		(is_post_type_archive("course") )) {
-
-		$classes[] = "current_page_item";	
-	}
-
 	return $classes;
 }
 

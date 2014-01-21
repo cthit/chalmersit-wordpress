@@ -1,9 +1,9 @@
 <?php
 	global $post;
-
-	$header_image = null;
 	
-	if(has_post_thumbnail($post->ID)) {
+	if (is_front_page()) {
+		$header_image = get_custom_header()->url;
+	} else if (has_post_thumbnail($post->ID)) {
 		$header_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'banner');
 		$header_image = $header_image[0];
 	}

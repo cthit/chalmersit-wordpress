@@ -68,6 +68,12 @@ function setup_chalmers() {
 
 	add_theme_support("menus");
 	add_theme_support("post-formats");
+	add_theme_support("custom-header", array(
+			"width" => 1280,
+			"height" => 400,
+			"uploads" => true,
+			"default-image" => get_template_directory_uri() . '/assets/images/header.jpg'
+	));
 	add_theme_support("post-thumbnails", array("post", "page", "course"));
 	add_theme_support("automatic-feed-links");
 
@@ -123,7 +129,7 @@ function _parse_email_from_option($key) {
 
 function it_custom_scripts() {
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js", false, null, true);
+	wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null, true);
 
 	wp_enqueue_script('jquery');
 }

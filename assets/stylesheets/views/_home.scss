@@ -8,14 +8,16 @@
 	}
 
 	[role="banner"] {
+		overflow: hidden;
 		position: relative;
 		height: 28em;
 
 		.social-sharing {
 			position: absolute;
-			left: 34%;
+			left: 33.5%;
 			bottom: 0;
 			padding: .5em;
+			width: 70%;
 
 			@include background(linear-gradient(transparent, rgba(#000, .7)));
 		}
