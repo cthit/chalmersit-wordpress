@@ -1,6 +1,6 @@
 <?php
 	global $post;
-	
+
 	if (is_front_page()) {
 		$header_image = get_custom_header()->url;
 	} else if (has_post_thumbnail($post->ID)) {
@@ -14,7 +14,7 @@
 <body <?php body_class();?>>
 
 	<header role="banner" <?php if($header_image) echo 'style="background-image: url('.$header_image.');"'; ?>>
-		
+
 
 		<div class="top-bar">
 			<div class="inner-bar">
@@ -24,7 +24,7 @@
 					</h1>
 
 					<nav role="navigation" class="main-nav">
-						
+
 
 						<?php wp_nav_menu(array(
 							"theme_location" => "main_navigation",
@@ -73,7 +73,7 @@
 				<?php else : ?>
 
 					<li><a class="btn-round small" id="login-btn" href="<?php echo wp_login_url();?>">Logga in</a></li>
-					<li><a href="<?php echo wp_lostpassword_url();?>">Glömt lösenord</a></li>
+					<li><a href="/auth/?page=reset">Glömt lösenord</a></li>
 
 				<?php endif;?>
 					<li>
@@ -82,21 +82,21 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<?php if(is_front_page()) : ?>
 		<div class="social-sharing">
-			<div class="fb-like" 
-				data-href="http://www.facebook.com/chalmers.it" 
-				data-send="false" 
+			<div class="fb-like"
+				data-href="http://www.facebook.com/chalmers.it"
+				data-send="false"
 				data-layout="button_count"
-				data-width="200" 
+				data-width="200"
 				data-show-faces="true"></div>
 
 
 			<a href="https://twitter.com/chalmersit" class="twitter-follow-button" data-show-count="false" data-lang="sv" data-size="large" data-dnt="true">Följ @chalmersit</a>
 		</div>
 		<?php endif;?>
-		
+
 	</header>
 
 	<section role="main" class="wrapper">
