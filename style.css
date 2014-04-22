@@ -225,7 +225,7 @@ img {
 }
 
 #map_canvas img, .map_canvas img {
-  max-width: none!important;
+  max-width: none !important;
 }
 
 /* Nicolas Gallagher's micro clearfix */
@@ -774,8 +774,90 @@ table.hide-for-medium {
     clear: both;
   }
 }
-/* normalize.css v2.0.1 | MIT License | git.io/normalize */
-/* Modified by Johan, 2012 */
+/* CSS for jQuery Reveal Plugin
+ * Maintained for Foundation. foundation.zurb.com
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+/* Reveal Modals ---------------------- */
+.reveal-modal-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 40;
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+.reveal-modal {
+  background: white;
+  visibility: hidden;
+  display: none;
+  top: 100px;
+  left: 50%;
+  margin-left: -260px;
+  width: 520px;
+  position: absolute;
+  z-index: 41;
+  padding: 30px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.reveal-modal .close-reveal-modal {
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: .5;
+  position: absolute;
+  top: 8px;
+  right: 11px;
+  color: #aaa;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  cursor: pointer;
+}
+.reveal-modal.small {
+  width: 30%;
+  margin-left: -15%;
+}
+.reveal-modal.medium {
+  width: 40%;
+  margin-left: -20%;
+}
+.reveal-modal.large {
+  width: 60%;
+  margin-left: -30%;
+}
+.reveal-modal.xlarge {
+  width: 70%;
+  margin-left: -35%;
+}
+.reveal-modal.expand {
+  width: 90%;
+  margin-left: -45%;
+}
+.reveal-modal .row {
+  min-width: 0;
+  margin-bottom: 10px;
+}
+.reveal-modal > :first-child {
+  margin-top: 0;
+}
+.reveal-modal > :last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+  .reveal-modal {
+    border: solid 1px #000;
+    background: white !important;
+  }
+}
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+/*! Modified by Johan, 2012 */
 /* Border-box everything! It's okay! */
 * {
   -moz-box-sizing: border-box;
@@ -998,7 +1080,7 @@ figure {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -1230,12 +1312,12 @@ table {
 }
 
 .shake {
-  -webkit-animation: shake 0.2s 3 ease-out;
-  animation: shake 0.2s 3 ease-out;
+  -webkit-animation: shake .2s 3 ease-out;
+  animation: shake .2s 3 ease-out;
 }
 
 .jiggle {
-  -webkit-animation: jiggle 0.2s 3 ease-out;
+  -webkit-animation: jiggle .2s 3 ease-out;
 }
 
 @font-face {
@@ -1345,7 +1427,7 @@ table {
   width: 0;
   height: 0;
   line-height: 0;
-  border: 5px dashed black;
+  border: 5px dashed #000;
 }
 
 /* Rules to colour arrows */
@@ -1454,7 +1536,7 @@ table {
 .tabs a,
 .bookingtabs a {
   display: block;
-  padding: 0.4em 1em;
+  padding: .4em 1em;
   text-align: center;
   font-weight: 500;
   text-transform: uppercase;
@@ -1466,7 +1548,7 @@ table {
   -moz-border-radius-topright: 3px;
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-width: 1px 1px 0;
 }
 .tabs a:hover,
@@ -1682,7 +1764,7 @@ a.subtle-border {
   color: #fff;
   background-color: #a4a4a4;
   margin: 1.5em 0;
-  padding: 0.5em 1%;
+  padding: .5em 1%;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -2031,7 +2113,7 @@ input[type="submit"] {
   -webkit-tap-highlight-color: transparent;
   position: relative;
   display: inline-block;
-  padding: 0.5em 1.5em;
+  padding: .5em 1.5em;
   color: #fff;
   font: bold 1em/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
@@ -2085,7 +2167,7 @@ button.wide,
 input[type="submit"].wide, .large.btn-alt, .large.btn-boring, .large.btn-dangerous,
 button.large,
 input[type="submit"].large {
-  padding: 0.6em 1.5em;
+  padding: .6em 1.5em;
   font-size: 1.42857em;
   font-weight: 500;
 }
@@ -2093,7 +2175,7 @@ input[type="submit"].large {
 button.small,
 input[type="submit"].small {
   font-size: 0.92857em;
-  padding: 0.4em 1em;
+  padding: .4em 1em;
 }
 .btn.wide, .wide.btn-alt, .wide.btn-boring, .wide.btn-dangerous,
 button.wide,
@@ -2106,7 +2188,7 @@ input[type="submit"][disabled] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   text-shadow: none;
   background-image: none;
   background-color: #eeeeee;
@@ -2262,8 +2344,8 @@ input[type="submit"][rel="next"]::after {
   font: bold 0.9em/1 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   display: inline-block;
-  border: 1px solid #999999;
-  padding: 0.3em 0.8em;
+  border: 1px solid #999;
+  padding: .3em .8em;
   text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
   color: #323232;
 }
@@ -2290,7 +2372,7 @@ blockquote {
   padding: 0 5%;
   font-weight: 500;
   font-size: 1.1em;
-  border-left: 2px solid #dddddd;
+  border-left: 2px solid #ddd;
 }
 
 /* Links */
@@ -2354,6 +2436,10 @@ ul, ol {
   list-style-position: inside;
 }
 
+article li > ul, article li > ol {
+  padding-left: 1em;
+}
+
 nav ul,
 nav ol {
   list-style: none;
@@ -2365,7 +2451,7 @@ nav ol {
 ------------------------------------ */
 .message-notice, .message, .message-warning {
   font-weight: bold;
-  padding: 0.5em 0.6em;
+  padding: .5em .6em;
   border: 1px solid;
   text-align: center;
   margin: 0.75em 0;
@@ -2458,8 +2544,8 @@ nav ol {
 }
 
 .simple-list li {
-  border-bottom: 1px solid #eeeeee;
-  padding: 0.3em 0;
+  border-bottom: 1px solid #eee;
+  padding: .3em 0;
 }
 .simple-list li:last-child {
   border-bottom: 0;
@@ -2614,7 +2700,7 @@ nav ol {
 .pagination a.page-numbers,
 .pagination .current {
   display: inline-block;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-left-width: 0;
   padding: 0.4em 1em;
   color: #666;
@@ -2695,7 +2781,7 @@ body.logged-in [role="banner"] .header-controls .avatar {
   box-shadow: black 0 0 5px;
 }
 body.logged-in [role="banner"] .header-controls .user-details {
-  text-shadow: black 0 1px 1px;
+  text-shadow: #000 0 1px 1px;
   position: relative;
 }
 
@@ -2732,7 +2818,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000;
   text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 1px;
   white-space: nowrap;
 }
@@ -2837,6 +2923,14 @@ body.logged-in [role="banner"] .header-controls .user-details {
   column-count: 2;
 }
 
+[role="article"] {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
 [role="article"] header .meta {
   font-size: .9em;
   margin: 1.5em 0;
@@ -2934,7 +3028,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   -ms-border-radius: 3em;
   -o-border-radius: 3em;
   border-radius: 3em;
-  padding: 0.35em 0.5em;
+  padding: 0.35em .5em;
 }
 [role="article"].category-arrangemang header h1::before {
   content: "\e004";
@@ -2954,7 +3048,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
 .event-meta li {
   display: table-cell;
   border-right: 1px solid #e2e2e2;
-  padding: 0.5em 0;
+  padding: .5em 0;
   /* Don't grow too large .. */
   max-width: 145px;
   overflow: hidden;
@@ -3020,7 +3114,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
   margin: 1.5em -0.75em -0.75em;
   padding: .6em;
   background-color: #f7f7f7;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
   font-size: 0.92857em;
   font-weight: 500;
 }
@@ -3066,7 +3160,7 @@ body.logged-in [role="banner"] .header-controls .user-details {
 .sidebar-committee .committee-events .date {
   display: inline-block;
   width: 56px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   text-align: center;
   padding: 0 1em;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
@@ -3095,7 +3189,7 @@ nav.side-nav li a {
   color: #000;
   font-weight: 500;
   display: block;
-  padding: 0.1em 5px;
+  padding: .1em 5px;
   -webkit-font-smoothing: antialiased;
 }
 nav.side-nav li a:hover {
@@ -3210,7 +3304,7 @@ nav.side-nav ul {
 .it-calendar .it-caption,
 .widget .gce-widget-grid .gce-calendar .gce-caption,
 .widget .gce-widget-grid .gce-calendar .it-caption {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-width: 1px 0;
   margin: 0 -0.75em 0.75em;
   overflow: hidden;
@@ -3224,7 +3318,7 @@ nav.side-nav ul {
 }
 .it-calendar td,
 .widget .gce-widget-grid .gce-calendar td {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   text-align: center;
   color: #ccc;
 }
@@ -3396,13 +3490,13 @@ nav.side-nav ul {
 
 .comments-bubble {
   display: inline-block;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  padding: 0 0.5em;
+  padding: 0 .5em;
 }
 .comments-bubble:hover {
   background-color: #f8f8f8;
@@ -3551,7 +3645,7 @@ li.widget {
   text-align: center;
   color: #fff;
   background-color: #000;
-  border: 2px solid white;
+  border: 2px solid #fff;
   width: 1em;
   height: 1em;
   line-height: .7;
@@ -3611,9 +3705,9 @@ li.widget {
 }
 .home [role="banner"] .social-sharing {
   position: absolute;
-  left: 34%;
+  padding: 0.5em 0.5em 0.5em 34%;
+  width: 100%;
   bottom: 0;
-  padding: .5em;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.7)));
   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   background: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.7));
@@ -3621,7 +3715,16 @@ li.widget {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
 }
 .home [role="banner"] .logo {
-  -webkit-animation: dropDown 0.6s ease-out;
+  -webkit-animation: dropDown .6s ease-out;
+}
+@media only screen and (max-width: 768px) {
+  .home .dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+  .home .dashboard .columns:first-child {
+    order: 1;
+  }
 }
 .home .front-title {
   text-align: center;
@@ -3668,6 +3771,7 @@ li.widget {
 .home .quick-buttons .box,
 .home .user-area .box {
   height: 6em;
+  overflow: hidden;
 }
 .home .quick-buttons ul {
   padding: 0.75em 0.75em;
@@ -3709,9 +3813,13 @@ li.widget {
   font-weight: bolder;
   margin-bottom: 5px;
 }
+.home .current-event .meta, .home .current-event .event-title {
+  display: inline;
+}
 .home .current-event .meta li {
   display: inline;
   font-size: .9em;
+  white-space: nowrap;
   /* Hide location info - no vertical space! */
 }
 .home .current-event .meta li::after {
@@ -3775,7 +3883,7 @@ li.widget {
 .home .upcoming > ul > li,
 .home .upcoming .gce-page-list > ul > li {
   border-bottom: 1px solid #e2e2e2;
-  padding: 0.3em 0 0;
+  padding: .3em 0 0;
   margin-bottom: .5em;
 }
 .home .upcoming .meta {
@@ -3929,7 +4037,7 @@ li.widget {
 }
 
 .archive .main-col > header {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
   margin-bottom: 1.5em;
 }
 .archive .main-col > header h2 {
@@ -3973,10 +4081,10 @@ li.widget {
   width: 100%;
 }
 .news-archive .post-list td {
-  padding: 0.4em 5px;
+  padding: .4em 5px;
 }
 .news-archive .post-list tr {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
 }
 .news-archive .post-list tr:hover {
   background-color: #f9f9f9;
@@ -4257,7 +4365,7 @@ li.widget {
   border-bottom: 1px solid #e2e2e2;
 }
 #your-profile .description {
-  margin: 0.5em 0;
+  margin: .5em 0;
 }
 #your-profile span.description {
   display: block;
@@ -4400,7 +4508,7 @@ li.widget {
 .page-bokning .booking-list li {
   cursor: pointer;
   padding: 5px;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
 }
 .page-bokning .booking-list li:nth-child(odd) {
   background-color: #f8f8f8;
@@ -4436,7 +4544,7 @@ li.widget {
 .page-bokning .phone-and-groups-container li,
 .page-bokning .party-info-container ul li {
   display: inline-block;
-  margin: 0 0.5em;
+  margin: 0 .5em;
 }
 .page-bokning #user-groups {
   width: 140px;
@@ -4461,7 +4569,7 @@ li.widget {
 /* Buddypress views */
 /* GROUP ADMIN */
 .groups .article-content {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 1.5em;
   padding-bottom: 1.5em;
 }
@@ -4485,15 +4593,15 @@ li.widget {
 ----------------------------------------------------------------------*/
 @media only screen and (max-width: 959px) and (min-width: 768px) {
   /* Global layout changes */
-  .three.columns.pull-six, .row .columns.pull-six.three {
+  .three.columns.pull-six {
     right: 75%;
   }
 
-  .six.columns.push-three.main-col, .row .columns.push-three.main-col.six {
+  .six.columns.push-three.main-col {
     width: 75%;
   }
 
-  .three.columns.sidebar, .row .columns.sidebar.three {
+  .three.columns.sidebar {
     float: none;
     width: 75%;
     position: relative;
@@ -4549,7 +4657,7 @@ li.widget {
   }
   .single [role="complementary"] .author-links li {
     display: inline-block;
-    margin: 0 0.5em;
+    margin: 0 .5em;
   }
 
   [role="banner"] h1 {
@@ -4571,7 +4679,7 @@ li.widget {
     height: 70px;
     background-size: contain;
     width: 300px;
-    margin: 0.3em auto 0;
+    margin: .3em auto 0;
   }
 
   [role="contentinfo"] .footer-contact dt,
@@ -4611,12 +4719,12 @@ li.widget {
     top: auto;
     bottom: 0;
     font-size: 2em;
-    text-shadow: black 0 0 5px;
+    text-shadow: #000 0 0 5px;
   }
   .home .front-title h1 .detail {
     display: block;
     font-weight: bold !important;
-    color: white !important;
+    color: #fff !important;
     font-style: normal !important;
   }
 
@@ -4683,7 +4791,7 @@ li.widget {
   .mobile-home-link {
     color: #ccc;
     display: block;
-    padding: 0.5em 0.5em 0;
+    padding: .5em .5em 0;
     -webkit-transition: background-color 0.15s ease-out;
     -moz-transition: background-color 0.15s ease-out;
     -o-transition: background-color 0.15s ease-out;
