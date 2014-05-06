@@ -36,7 +36,7 @@ See more in /humans.txt
 -->
 <html>
 <head>
-	<title><?php wp_title("|", true, "right");?></title>
+	<title><?= it_wp_title() ?></title>
 	<meta charset="utf-8" />
 	
 	<!-- Load up the Ubuntu fonts -->
