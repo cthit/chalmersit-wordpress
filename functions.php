@@ -54,7 +54,8 @@ function register_widgets(){
 
 function it_wp_title() {
 	if (is_home()) {
-		return get_bloginfo('name') . ' | ' . get_bloginfo('description');
+		$desc = get_bloginfo('description');
+		return get_bloginfo('name') . (!empty($desc) ? ' | ' . get_bloginfo('description') : '');
 	} else {
 		return wp_title("", false, "right")  .  ' | ' . get_bloginfo('name');
 	}
