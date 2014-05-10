@@ -4,7 +4,7 @@
 	- Parse the RSS feed from the restaurant and show today's lunch
 */
 
-include_once ABSPATH . WPINC.'/rss.php';
+require_once ABSPATH . WPINC.'/class-simplepie.php';
 
 // define("KAR_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/4");
 // define("LIN_URL", "http://cm.lskitchen.se/lskitchen/rss/sv/7");
@@ -42,8 +42,11 @@ function parse_feed($resturants) {
 
 
 function get_items($url) {
-	$items = fetch_rss($url)->items;
-	return $items;
+	$pie = new SimplePie();
+	$pie->set_feed_url($url);
+	$pie->set_cache_location('/tmp');
+	$pie->init();
+	return $pie->get_items();
 }
 
 
@@ -62,8 +65,8 @@ function clean_menu($list, $resname) {
 
 function clean_item($item) {
 	// Remove price that is after an @-sign
-	$desc = explode("@", $item["description"]);
-	return "<strong>" . $item["title"] . "</strong>" . $desc[0];
+	$desc = explode("@", $item->get_description());
+	return "<strong>" . $item->get_title() . "</strong>" . $desc[0];
 }
 
 function title_date() {
