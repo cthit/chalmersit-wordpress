@@ -13,8 +13,8 @@ class BadLoginException extends Exception {
 }
 
 function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='') {
-    $pass=stripcslashes($pass);
-	if($con = ssh2_connect("remote1.student.chalmers.se", 22)){
+  $pass=stripcslashes($pass);
+	if($con = ssh2_connect("remote.student.chalmers.se", 22)){
 		if(ssh2_auth_password($con, $user, $pass)){
             try {
 			    ssh_exec($con, "mkdir -p .print");
@@ -63,7 +63,6 @@ $file_types = array(
 global $errors, $notice, $fileName, $jsCmd;
 $errors = array();
 $preErrorMsg = "Kunde inte skriva ut filen. ";
-$jsCmd = "undefined";
 
 if(isset($_POST['print'])) {
 
@@ -71,20 +70,17 @@ if(isset($_POST['print'])) {
 
 		try {
 			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
-        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
+        	//printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
+			increment_printer($_POST["printer"]);
         	$notice = "Din fil är utskriven!";
-        	$jsCmd = "'UNSET'";
         	@unlink($_FILES["upload"]["tmp_name"]);
 		} catch (BadLoginException $ble) {
 			$errors[] = $preErrorMsg . $ble->getMessage();
-			$jsCmd = '"'.$fileName.'"';
 		} catch (Exception $e) {
 			$errors[] = $preErrorMsg . $e->getMessage();
-			$jsCmd = "'UNSET'";
 			@unlink($_FILES["upload"]["tmp_name"]);
 		}
-	}
-	else {
+	} else {
 		$errors[] = $preErrorMsg . "Kontrollera filtyp och storlek";
 	}
 }
@@ -121,10 +117,10 @@ function log_to_file($msg, $code, $cid, $extra = "")
     $f = fopen("/var/log/live.chalmers.it-printer", 'a');
     $time = strftime("%d/%b/%Y:%H:%M:%S %z");
     $client = $_SERVER['REMOTE_ADDR'];
-    
+
     $extra = (strlen($extra) > 0 ? " extra: " . $extra : "");
     $logLine = $client . " user-identifier " . $cid . " [" . $time . "] \"" . trim($msg) . "\" " . $code . $extra . "\n";
-    
+
     fwrite($f, $logLine);
     fclose($f);
 }

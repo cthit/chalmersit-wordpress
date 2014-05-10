@@ -1,11 +1,16 @@
 <?php
+	require_once "lib/inc.print_functions.php";
 	require_once "lib/inc.print.php";
 
 	global $errors, $notice;
 
 	get_header();
 	the_post();
+	//update_tables(file_get_contents(ASSET_PATH."/javascripts/printers.js"));
 ?>
+<script type="text/javascript">
+	var printers = JSON.parse('<?php printers_to_json(); ?>');
+</script>
 
 <section class="main-col six columns push-three">
 	<article class="box">
@@ -37,22 +42,25 @@
 
 			<p>
 				<label for="printer">Skrivare</label>
-				<select name="printer" id="printer">
-					<option value="a-2234-color2">a-2234-color2</option>
-					<option value="a-2234-laser1">a-2234-laser1</option>
-					<option value="a-2234-plot1">a-2234-plot1</option>
-					<option value="a-2234-plot2">a-2234-plot2</option>
-					<option value="ed-2338-laser1" selected alt="">ed-2338-laser1 Studion</option>
-					<option value="ed-3349a-laser1">ed-3349a-laser1</option>
-					<option value="ed-3507-laser1">ed-3507-laser1</option>
-					<option value="ed-5229-laser1">ed-5229-laser1</option>
-					<option value="ed-5232-color1">ed-5232-color1</option>
-					<option value="m-0158a-laser1">m-0158a-laser1</option>
-					<option value="m-0164a-color1">m-0164a-color1</option>
-					<option value="nc-2504-color1">nc-2504-color1</option>
-					<option value="ituniv-pa-324-color1">ituniv-pa-324-color1 Lindholmen Ituniversitetet</option>
-					<option value="ituniv-pa-338b-laser1">ituniv-pa-338b-laser1 Lindholmen Ituniversetetet </option>
-				</select>
+				<input name="printer" id="printer" value="ed-2338-laser1" />
+				<small>Skriv i rutan för att söka efter skrivare!</small>
+				<div class="quick-printers">
+					Förslag: <a href="javascript:;" class="show-more">(Visa fler)</a><br>
+						<a href="javascript:;" class="set-printer" data-value="ed-2338-laser1">ed-2338-laser1 Studion</a>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-color2">a-2234-color2</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-laser1">a-2234-laser1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-plot1">a-2234-plot1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-plot2">a-2234-plot2</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-3349a-laser1">ed-3349a-laser1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-3507-laser1">ed-3507-laser1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5229-laser1">ed-5229-laser1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5232-color1">ed-5232-color1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0158a-laser1">m-0158a-laser1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0164a-color1">m-0164a-color1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="nc-2504-color1">nc-2504-color1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ituniv-pa-324-color1">ituniv-pa-324-color1 Lindholmen Ituniversitetet</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ituniv-pa-338b-laser1">ituniv-pa-338b-laser1 Lindholmen Ituniversetetet</a></span>
+				</div>
 			</p>
 
 			<p>
@@ -98,5 +106,9 @@
 		</form>
 	</article>
 </section>
+<script type="text/javascript">
+	var printerpage = true;
+</script>
+
 
 <?php get_footer();?>
