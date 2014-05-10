@@ -1,18 +1,18 @@
-<?php 
-	get_header(); 
+<?php
+	get_header();
 ?>
 
 <header class="row">
 	<div class="front-title four columns">
 		<div class="box">
 			<h1>
-				<span class="detail">Teknologsektionen</span>
-				Informationsteknik
+				<span class="detail">Teknologsektionen</span><br>
+				Informationsteknik<br>
 				<span class="detail">Chalmers Studentkår</span>
 			</h1>
 		</div>
 	</div>
-	
+
 	<div class="quick-buttons five columns">
 		<ul class="box list">
 			<li><a rel="tooltip" data-tooltip-offset="10" title="TimeEdit" href="https://se.timeedit.net/web/chalmers/db1/public/ri1Q7.html" class="schedule-icon">Schema</a></li>
@@ -21,7 +21,7 @@
 			<li><a rel="tooltip" data-tooltip-offset="10" title="Skriv ut på Chalmers skrivare" href="<?php link_to("skrivut");?>" class="print-icon">Skriv ut</a></li>
 		</ul>
 	</div>
-	
+
 	<div class="user-area three columns">
 		<?php if(! is_user_logged_in()) : ?>
 			<?php partial("signinform");?>
@@ -43,9 +43,9 @@
 			<header class="panel-header">
 				<h1>Nyheter</h1>
 			</header>
-			
+
 			<?php if(have_posts()): while(have_posts()) : the_post(); ?>
-				<?php get_template_part("partials/_news_post"); ?>	
+				<?php get_template_part("partials/_news_post"); ?>
 			<?php endwhile; endif; ?>
 
 			<footer>
@@ -54,7 +54,7 @@
 		</section>
 	</div>
 
-	
+
 	<div class="three columns">
 		<?php if(is_active_sidebar("index-mid")) : ?>
 			<?php dynamic_sidebar("index-mid"); ?>
