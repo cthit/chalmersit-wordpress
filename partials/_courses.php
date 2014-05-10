@@ -1,8 +1,8 @@
 <?php
 	global $IS_AJAX, $courses, $years, $periods;
 
-	# If this partial *is not* called via XHR fetch the 
-	# courses from the $period and $year variables	
+	# If this partial *is not* called via XHR fetch the
+	# courses from the $period and $year variables
 
 ?>
 
@@ -47,7 +47,7 @@
 				<li>
 					<?php if($course_code):?><small><?php echo $course_code;?></small><?php endif;?>
 
-					<?php $courseLink = get_post_meta($course->ID, it_course_site, true); ?>
+					<?php $courseLink = get_post_meta($course->ID, "it_course_site", true); ?>
 					<a href="<?php
 						echo empty($courseLink) ? get_permalink($course->ID) : $courseLink;
 					?>"><?php echo get_the_title($course->ID);?></a>
@@ -67,7 +67,7 @@
 <?php endforeach; ?>
 
 <?php else : ?>
-	
+
 	<p class="no-content">Kunde inte hämta kurser</p>
 
 <?php endif;?>

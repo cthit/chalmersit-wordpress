@@ -3,7 +3,7 @@
 class Upcoming_Widget extends WP_Widget {
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'upcoming', 
+		$widget_ops = array( 'classname' => 'upcoming',
 			'description' => __("Visar lunchföreläsningar och events från kalendern"));
 
 		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
@@ -47,22 +47,25 @@ class Upcoming_Widget extends WP_Widget {
 		if($title) {
 			echo $before_title . $title . $after_title;
 		}
+		$forelasningar = get_category_by_slug("lunchforelasningar");
 
-        $post_query = array(
-			"cat"              => get_category_by_slug("lunchforelasningar")->term_id,
-			"posts_per_page"   => $lunchCount,
-            "meta_query"       => array(
-                array( // Only get future lunch lectures
-                    "key"     => IT_PREFIX."event_date",
-                    "value"   => date("Y-m-d"),
-                    "compare" => ">=",
-                )
+		if ($forelasningar) {
+    	$post_query = array(
+				"cat" => $forelasningar->term_id,
+				"posts_per_page" => $lunchCount,
+        "meta_query" => array(
+            array( // Only get future lunch lectures
+                "key"     => IT_PREFIX."event_date",
+                "value"   => date("Y-m-d"),
+                "compare" => ">=",
             )
-		);
-        $lunch_lectures = new WP_Query($post_query);
+        )
+			);
+    	$lunch_lectures = new WP_Query($post_query);
+		}
 		?>
 
-		<?php if($lunch_lectures) : ?>
+		<?php if(isset($lunch_lectures)) : ?>
 			<h2 class="section-heading">Lunchföreläsningar</h2>
 			<ul class="list lunch-lectures">
                 <?php if($lunch_lectures->post_count == 0) : ?>
@@ -94,7 +97,7 @@ class Upcoming_Widget extends WP_Widget {
 			<?php endif;?>
 
 			<h2 class="section-heading">Evenemang</h2>
-			
+
 			<?php echo do_shortcode('[google-calendar-events id="1" type="list" max="'.$eventCount.'"]' ); ?>
 
 
@@ -122,7 +125,7 @@ class Upcoming_Widget extends WP_Widget {
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['it_upcoming_widget']) )
 			delete_option('it_upcoming_widget');
-		
+
 		return $instance;
 	}
 

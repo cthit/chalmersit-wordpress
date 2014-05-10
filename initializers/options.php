@@ -9,20 +9,20 @@ if(is_admin()) {
 		$choices[$cat->cat_ID] = $cat->cat_name;
 	}
 
+	$groups = array();
 	if(defined("SCOPER_VERSION")) {
 		global $wpdb;
 		$sql = "SELECT ID AS group_id, group_name AS name FROM it_groups_rs WHERE group_name NOT LIKE '\[%\]'";
 		$all_groups = $wpdb->get_results($sql);
 
-		$groups = array();
 		foreach($all_groups as $g) {
 			$groups[$g->group_id] = $g->name;
 		}
 	}
-	
+
 	$options = new Theme_Options("chalmersit", array(
 		array("handle" => "general", "title" => __("Allmänna inställningar")),
-		array("handle" => "it_booking", "title" => __("Inställningar för bokningssystemet")) 
+		array("handle" => "it_booking", "title" => __("Inställningar för bokningssystemet"))
 	));
 
 	$_std = array(
@@ -34,7 +34,7 @@ if(is_admin()) {
 	$options->add_setting("event_category", array(
 		"title" => "Kategori för arrangemang",
 		"section" => "general",
-		"desc" => "Välj den kategori som innehåller nyheter om arrangemang och lunchföreläsningar. Tips: 
+		"desc" => "Välj den kategori som innehåller nyheter om arrangemang och lunchföreläsningar. Tips:
 					ha en allmän 'Arrangemangs'-kategori och lägg kategorier såsom 'Lunchföreläsningar' som
 					underkategorier",
 		"type" => "select",

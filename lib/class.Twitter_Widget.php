@@ -3,14 +3,14 @@
 class Twitter_Widget extends WP_widget {
 
 	private $widget_id;
-	
+
 	function __construct() {
 		$widget_ops = array( 'classname' => 'it_twitter', 'description' => __("Visar en användares twitterfeed") );
 
 		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
 		add_action( 'deleted_post', array(&$this, 'flush_widget_cache') );
 		add_action( 'switch_theme', array(&$this, 'flush_widget_cache') );
-		
+
 		parent::__construct( 'it_twitter_widget', __("Twitterwidget"), $widget_ops);
 	}
 
@@ -22,9 +22,9 @@ class Twitter_Widget extends WP_widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		$this->widget_id = $widget_id;
-		
+
 		$cache = wp_cache_get('it_twitter_widget', 'widget');
-		
+
 		if ( !is_array($cache) )
 			$cache = array();
 
@@ -75,20 +75,24 @@ class Twitter_Widget extends WP_widget {
 
 	function fix_links($text, $entities) {
 		// Cast to (array) to foreach through a empty array instead of null error
-		foreach ((array)$entities->urls as $link) {
-			$text = $this->single_link($text, $link->url, $link->display_url);
-		}
-		foreach ((array)$entities->media as $link) {
-			$text = $this->single_link($text, $link->url, $link->display_url);
-		}
-		foreach ((array)$entities->hashtags as $tag) {
-			$t = "#" . $tag->text;
-			$text = str_replace($t, sprintf("<a href='http://twitter.com/search?q=%s&src=hash'>%s</a>", "%23" . $tag->text, $t), $text);
-		}
-		foreach ((array)$entities->user_mentions as $user) {
-			$u = "@" . $user->screen_name;
-			$text = str_replace($u, sprintf("<a href='http://twitter.com/%s' title='%s'>%s</a>", $user->screen_name, $user->name, $u), $text);
-		}
+		if (isset($entities->urls))
+			foreach ($entities->urls as $link) {
+				$text = $this->single_link($text, $link->url, $link->display_url);
+			}
+		if (isset($entities->media))
+			foreach ($entities->media as $link) {
+				$text = $this->single_link($text, $link->url, $link->display_url);
+			}
+		if (isset($entities->hashtags))
+			foreach ($entities->hashtags as $tag) {
+				$t = "#" . $tag->text;
+				$text = str_replace($t, sprintf("<a href='http://twitter.com/search?q=%s&src=hash'>%s</a>", "%23" . $tag->text, $t), $text);
+			}
+		if (isset($entities->user_mentions))
+			foreach ($entities->user_mentions as $user) {
+				$u = "@" . $user->screen_name;
+				$text = str_replace($u, sprintf("<a href='http://twitter.com/%s' title='%s'>%s</a>", $user->screen_name, $user->name, $u), $text);
+			}
 		return $text;
 	}
 
@@ -107,7 +111,7 @@ class Twitter_Widget extends WP_widget {
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['it_twitter_widget']) )
 			delete_option('it_twitter_widget');
-		
+
 		return $instance;
 	}
 
@@ -120,9 +124,9 @@ class Twitter_Widget extends WP_widget {
 		);
 
 		$args = array(
-			"hide_empty" => false 
+			"hide_empty" => false
 		);
-		$instance = wp_parse_args( (array) $instance, $defaults); 
+		$instance = wp_parse_args( (array) $instance, $defaults);
 		?>
 
 		<p>
