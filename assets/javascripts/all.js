@@ -1380,7 +1380,13 @@ $(function() {
 
 	// Show Twitter timeline on frontpage
 
-	$('.it_twitter').each(function(){
+	$('.tweet-list time').each(function() {
+		var $this = $(this);
+		var time = new Date($this.text());
+		$this.text(time.toDateString());
+	});
+
+	/*$('.it_twitter').each(function(){
 		var that = this;
 		var twQContent = $(this).children('meta[name=twitter-content]').attr("content");
 		var twQType = $(this).children('meta[name=twitter-type]').attr("content");
@@ -1419,6 +1425,44 @@ $(function() {
 			$(that).find('#tweet-list').append($list);
 
 		});
+	});*/
+
+	// Printer autocomplete
+
+	$('#printer').on('click', function() {
+		$(this).select();
+	});
+	$('#printer').autocomplete({
+		source: function(req, callback) {
+			var re = req.term.trim();
+			var res = printers;
+			function eachItem(expr, item) {
+				return expr.test(item.label + item.desc);
+			}
+			$(re.split(' ')).each(function() {
+				var exp = new RegExp(this, 'i');
+				res = $.grep(res, function(item) {
+					return eachItem(exp, item);
+				});
+			});
+			var length = res.length;
+			var maxLength = 15;
+			if (length > maxLength) {
+				res.splice(maxLength-1, length - maxLength);
+			}
+			callback(res);
+		}
+	}).data('ui-autocomplete')._renderItem = function(ul, item) {
+		return $('<li>').append('<a>' + item.label + '<br><small>' + item.desc + '</small></a>').appendTo(ul);
+	};
+
+	$('.set-printer').on('click', function() {
+		$('#printer').val($(this).data('value'));
+	});
+
+	$('.show-more').on('click', function() {
+		$(this).remove();
+		$('.unusual').show();
 	});
 
 });
