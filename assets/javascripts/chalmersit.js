@@ -386,4 +386,42 @@ $(function() {
 		});
 	});*/
 
+	// Printer autocomplete
+
+	$('#printer').on('click', function() {
+		$(this).select();
+	});
+	$('#printer').autocomplete({
+		source: function(req, callback) {
+			var re = req.term.trim();
+			var res = printers;
+			function eachItem(expr, item) {
+				return expr.test(item.label + item.desc);
+			}
+			$(re.split(' ')).each(function() {
+				var exp = new RegExp(this, 'i');
+				res = $.grep(res, function(item) {
+					return eachItem(exp, item);
+				});
+			});
+			var length = res.length;
+			var maxLength = 15;
+			if (length > maxLength) {
+				res.splice(maxLength-1, length - maxLength);
+			}
+			callback(res);
+		}
+	}).data('ui-autocomplete')._renderItem = function(ul, item) {
+		return $('<li>').append('<a>' + item.label + '<br><small>' + item.desc + '</small></a>').appendTo(ul);
+	};
+
+	$('.set-printer').on('click', function() {
+		$('#printer').val($(this).data('value'));
+	});
+
+	$('.show-more').on('click', function() {
+		$(this).remove();
+		$('.unusual').show();
+	});
+
 });
