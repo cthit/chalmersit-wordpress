@@ -28,7 +28,7 @@ class Theme_Options{
 		$this->settings = array();
 		$this->prefix = $name;
 		#$this->get_settings();
-		
+
 		if(!empty($sections)){
 			// Loop through sections and add them
 			foreach($sections as $section){
@@ -62,7 +62,7 @@ class Theme_Options{
 
 	/* Register settings via the WP Settings API */
 	public function register_settings() {
-		
+
 		register_setting( $this->prefix.'_options', $this->prefix.'_options', array ( &$this, 'validate_settings' ) );
 
 		foreach ( $this->sections as $slug => $title )
@@ -87,12 +87,12 @@ class Theme_Options{
 			$this->prefix.'-options', 		// Unique identifier
 			array( &$this, 'display_page' ) // Callback
 		);
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 	/* Create settings field */
 	public function create_setting( $args = array() ) {
 
@@ -120,47 +120,49 @@ class Theme_Options{
 			'step'		=> $step,
 			'choices'   => $choices,
 			'label_for' => $id,
-			'multiple' => $multiple,
 			'class'     => $class
 		);
+    if (isset($multiple)) {
+      $field_args['multiple'] = $multiple;
+    }
 
 		if ( $type == 'checkbox' )
 			$this->checkboxes[] = $id;
 
 		add_settings_field( $id, $title, array( $this, 'display_setting' ), $this->prefix.'-options', $section, $field_args );
 
-	}	
-	
-	
+	}
+
+
 
 	/* HTML to display the theme options page */
 	public function display_page() {
 		?>
-		
+
 		<div class="wrap">
 			<div class="icon32" id="icon-options-chalmersit" style="background-image:url('<?php echo ASSET_PATH;?>/images/logo_notext.png')">
 			</div>
 			<h2><?php _e("Temainställningar för Chalmers.it");?></h2>
-			
+
 			<form action="options.php" method="POST">
 				<?php settings_fields($this->prefix."_options");?>
 
 				<?php if(count($this->sections) > 3 ) : ?>
 				<div class="ui-tabs">
 					<ul class="ui-tabs-nav subsubsub">
-						
+
 					<?php $count = 0; ?>
 				<?php foreach ( $this->sections as $section_slug => $section ):?>
 						<li><a href="#<?php echo $section_slug;?>"><?php echo $section;?></a> <?php if(!$count == count($this->sections)) echo "|"; ?></li>
 				<?php $count++; endforeach;?>
-				
+
 					</ul>
 				</div>
 				<?php endif;?>
-				
+
 				<?php do_settings_sections( $_GET['page'] ); ?>
-				
-				
+
+
 				<p class="submit">
 					<input name="Submit" type="submit" class="button-primary" value="<?php _e("Spara");?>" />
 				</p>
@@ -168,10 +170,10 @@ class Theme_Options{
 		</div>
 		<?php
 	}
-	
-	
-	
-	
+
+
+
+
 	/* HTML output for individual settings */
 	public function display_setting( $args = array() ) {
 		extract( $args );
@@ -182,7 +184,7 @@ class Theme_Options{
 			$options[$id] = $std;
 		elseif ( ! isset( $options[$id] ) )
 			$options[$id] = 0;
-		
+
 		$field_class = "";
 		if ( $class != '' )
 			$field_class = " " .$class;
@@ -191,15 +193,15 @@ class Theme_Options{
 			case 'heading':
 				echo '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
 			break;
-			
-			
+
+
 			case 'checkbox':
-				
+
 				echo '<input class="checkbox' . $field_class . '" type="checkbox" id="' . $id . '" name="'.$this->prefix.'_options[' . $id . ']" value="1" ' . checked( $options[$id], 1, false ) . ' /> <label for="' . $id . '">' . $desc . '</label>';
-				
+
 				break;
-			
-	
+
+
 			case 'select':
 				$multi = ($multiple) ? "multiple" : "";
 				$expect_array = ($multiple) ? "[]" : "";
@@ -220,8 +222,8 @@ class Theme_Options{
 					echo '<br /><span class="description">' . $desc . '</span>';
 
 				break;
-			
-			
+
+
 			case 'radio':
 				$i = 0;
 				foreach ( $choices as $value => $label ) {
@@ -246,18 +248,18 @@ class Theme_Options{
 
 
 			case 'password':
-			
+
 				echo '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="'.$this->prefix.'_options[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
 
 				if ( $desc != '' )
 					echo '<br /><span class="description">' . $desc . '</span>';
 
 			break;
-				
-				
-				
-	
-	
+
+
+
+
+
 			case 'text':
 			case 'number':
 			default:
@@ -265,18 +267,18 @@ class Theme_Options{
 			if($type == "number"){
 				$additional_attr = 'min="'. $min .'" max="20" step="'. $step .'"';
 			}
-			
+
 			echo '<input class="regular-text' . $field_class . '" type="'. $type .'" id="' . $id . '" name="'.$this->prefix.'_options[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '"'. $additional_attr .' />';
 
 			if ( $desc != '' )
 				echo '<br /><span class="description">' . $desc . '</span>';
 			break;
-		}	
-	
-			
-	}	
-	
-	
+		}
+
+
+	}
+
+
 	/**
 	*	Add a setting.
 	*
@@ -294,9 +296,9 @@ class Theme_Options{
 	public function add_setting($setting_id, $setting_fields = array()) {
 		$this->settings[$setting_id] = $setting_fields;
 	}
-	
-	
-	
+
+
+
 	/**
 	*	Add a section.
 	*
@@ -306,51 +308,51 @@ class Theme_Options{
 	public function add_section($section_id, $section_name){
 		$this->sections[$section_id] = $section_name;
 	}
-	
-	
-	
+
+
+
 	public function add_contextual_help(){
 		add_filter("contextual_help", array(&$this, "_context_help_handler"), 10, 3);
 	}
-	
+
 	public function _context_help_handler($html, $screen_id, $screen){
 		if($screen_id == $this->admin_page){
  			return "Temainställningar för Projektforum. Beskrivning finns under formulären. Tryck <strong>Spara</strong> för att spara dina ändringar.";
 		}
-		
+
 		return false;
 	}
-	
-	
 
 
-	
-	
 
-	
-	
+
+
+
+
+
+
 	/* Description for section */
 	public function display_section() {
 		// code
 	}
-	
-	
+
+
 
 
 	public function validate_settings( $input ) {
-		
+
 		if ( ! isset( $input['reset_theme'] ) ) {
 			$options = get_option( $this->prefix.'_options' );
-			
+
 			foreach ( $this->checkboxes as $id ) {
 				if ( isset( $options[$id] ) && ! isset( $input[$id] ) )
 					unset( $options[$id] );
 			}
-			
+
 			return $input;
 		}
 		return false;
-		
+
 	}
 
 
