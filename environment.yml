@@ -7,6 +7,7 @@ environments:
       - jquery.autosize
       - jquery.tipsy
       - jquery.modal
+      - jquery-ui-1.10.3.custom.min
       - chalmersit.courses
       - chalmersit
 
