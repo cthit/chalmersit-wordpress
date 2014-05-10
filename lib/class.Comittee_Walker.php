@@ -2,7 +2,7 @@
 class Comittee_Walker extends Walker_Nav_Menu {
 
 	/* @Override */
-	function start_el(&$output, $item, $depth = 0, $args = Array(), $curr_id = 0) {
+	function start_el(&$output, $item, $depth = 0, $args = array(), $curr_id = 0) {
 		global $wp_query;
 
 		$title = get_post_meta($item->object_id, IT_PREFIX."subtitle", true);
@@ -28,7 +28,7 @@ class Comittee_Walker extends Walker_Nav_Menu {
 		$output .= $item_output;
 	}
 
-	function end_el(&$output, $item, $depth = 0, $args = Array()) {
+	function end_el(&$output, $item, $depth = 0, $args = array()) {
 		$end = "</a></dd>";
 		$output .= apply_filters('walker_nav_menu_end_el', $end, $item, $depth, $args);
 	}
