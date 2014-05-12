@@ -70,7 +70,7 @@ if(isset($_POST['print'])) {
 
 		try {
 			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
-        	//printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
+        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
 			increment_printer($_POST["printer"]);
         	$notice = "Din fil är utskriven!";
         	@unlink($_FILES["upload"]["tmp_name"]);
