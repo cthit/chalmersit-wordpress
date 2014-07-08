@@ -48,11 +48,7 @@ See more in /humans.txt
 	<![endif]-->
 	
 	<!-- Main stylesheet -->
-	<?php if(is_development()) : ?>
 	<link rel="stylesheet" href="<?php bloginfo("stylesheet_url");?>" />
-	<?php else : ?>
-	<link rel="stylesheet" href="<?php css_path("style");?>" />
-	<?php endif;?>
 	<link rel="stylesheet" href="<?php css_path("jquery-ui-1.10.3.custom.min");?>" />
 
 	<!-- Favicons -->
