@@ -61,6 +61,9 @@ task :clean => ['css:clean', 'javascript:clean'] do
 	puts "* Cleaned all files".yellow
 end
 
+desc "Generate all js+css files"
+task :all => ['clean', 'javascript:all', 'css:all']
+
 namespace :css do
 
 	desc "Remove generated files"
@@ -82,9 +85,9 @@ namespace :css do
 
 	desc "Compile SCSS to minified CSS for production mode"
 	task :minify do
-		puts `compass compile -e production --force --css-dir assets/css`
+		puts `compass compile -e production --force`
 		puts "* SCSS minified to CSS".yellow
-		add_wp_header "assets/css/style.css"
+		add_wp_header "style.css"
 	end
 
 end
