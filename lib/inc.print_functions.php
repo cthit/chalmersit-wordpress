@@ -26,7 +26,6 @@ function increment_printer($printer_name) {
 	global $wpdb;
 	$weight_query = $wpdb->prepare("SELECT `Weight` FROM ".PRINTER_TABLE. " WHERE `Printer` = %s", $printer_name);
 	$weight = (int)$wpdb->get_var($weight_query);
-	var_dump($weight);
 	if ($weight < 100) {
 		$wpdb->update(
 			PRINTER_TABLE, 
