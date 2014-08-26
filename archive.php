@@ -23,14 +23,14 @@
 
 <section class="six columns push-three main-col">
 	<div class="box">
-	<header>	
+	<header>
 		<h2><?php echo $title;?></h2>
 		<p class="annotation"><?php pluralize($wp_query->post_count, "nyhet", "er");?></p>
 
 		<?php if(is_author()) : ?>
 
-		<?php 
-			$userdata = get_userdatabylogin(get_query_var('author_name'));
+		<?php
+			$userdata = get_user_by("login", get_query_var('author_name'));
 			show_person($userdata->ID, array("avatar_size" => 120));
 		?>
 
@@ -72,7 +72,7 @@
 		</footer>
 
 	</section>
-	<?php endif;?>	
+	<?php endif;?>
 
 	<?php get_sidebar();?>
 </aside>
