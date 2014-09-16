@@ -80,6 +80,14 @@
 				<label for="ranges">Intervall (ex. "3,6,8,11-54", lämna tom för att skriva ut alla sidor)</label>
 				<input type="text" name="ranges" size="10" id="ranges" />
 			</p>
+			
+			<p>
+				<label for="media">Pappersstorlek</label>
+				<select name="media" id="media">
+					<option value="A4">A4</option>
+					<option value="A3">A3</option>
+				</select>
+			</p>
 
 			<hr />
 
