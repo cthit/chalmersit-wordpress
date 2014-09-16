@@ -12,7 +12,7 @@ class BadLoginException extends Exception {
 	}
 }
 
-function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='') {
+function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, $range='', $media) {
   $pass=stripcslashes($pass);
 	if($con = ssh2_connect("remote1.student.chalmers.se", 22)){
 		if(ssh2_auth_password($con, $user, $pass)){
@@ -23,7 +23,7 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
 			    $range = (empty($range) ? "" : "-o page-ranges=$range");
 
                 // The environment variable CUPS_GSSSERVICENAME=HTTP must be set, othewise kerberos throws unauthorized
-			    ssh_exec($con, "lpr -P $printer -# $copies -o sides=$sides $range .print/chalmersit.dat");
+			    ssh_exec($con, "lpr -P $printer -# $copies -o sides=$sides -o -media=$media $range .print/chalmersit.dat");
             }
             catch(Exception $e) {
                 log_to_file($e->getMessage(), $e->getCode(), $user);
@@ -70,7 +70,7 @@ if(isset($_POST['print'])) {
 
 		try {
 			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
-        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges']);
+        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges'], $_POST['media']);
 			increment_printer($_POST["printer"]);
         	$notice = "Din fil är utskriven!";
         	@unlink($_FILES["upload"]["tmp_name"]);
