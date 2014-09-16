@@ -21,9 +21,10 @@ function printer($user, $pass, $printer, $file, $one_sided = true, $copies = 1, 
 			    ssh2_scp_send($con, $file, ".print/chalmersit.dat", 0644);
 			    $sides = (!$one_sided ? "one-sided" : "two-sided-long-edge");
 			    $range = (empty($range) ? "" : "-o page-ranges=$range");
+			    $ppi = ($ppi === "auto" ? "" : "-o ppi=$ppi");
 
                 // The environment variable CUPS_GSSSERVICENAME=HTTP must be set, othewise kerberos throws unauthorized
-			    ssh_exec($con, "lpr -P $printer -# $copies -o sides=$sides -o -media=$media $range .print/chalmersit.dat");
+			    ssh_exec($con, "lpr -P $printer -# $copies -o sides=$sides -o -media=$media $range $ppi .print/chalmersit.dat");
             }
             catch(Exception $e) {
                 log_to_file($e->getMessage(), $e->getCode(), $user);
@@ -70,7 +71,7 @@ if(isset($_POST['print'])) {
 
 		try {
 			$fileName = empty($_FILES) ? $_POST["sessionStorage"] : $_FILES["upload"]["tmp_name"];
-        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges'], $_POST['media']);
+        	printer($_POST["user"], $_POST["pass"], $_POST["printer"], $fileName, $_POST["oneSided"], intval($_POST['copies']), $_POST['ranges'], $_POST['media'], $_POST['ppi']);
 			increment_printer($_POST["printer"]);
         	$notice = "Din fil är utskriven!";
         	@unlink($_FILES["upload"]["tmp_name"]);
