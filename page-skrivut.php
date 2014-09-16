@@ -55,6 +55,7 @@
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-3507-laser1">ed-3507-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5229-laser1">ed-5229-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5232-color1">ed-5232-color1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-6229-color1">ed-6229-color1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0158a-laser1">m-0158a-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0164a-color1">m-0164a-color1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="nc-2504-color1">nc-2504-color1</a></span>
