@@ -89,6 +89,15 @@
 				</select>
 			</p>
 
+			<p>
+				<label for="ppi">Upplösning</label>
+				<select name="ppi" id="ppi">
+					<option value="auto">Auto</option>
+					<option value="600">600dpi</option>
+					<option value="1200">1200dpi</option>
+				</select>
+			</p>
+
 			<hr />
 
 			<section class="cid-area">
