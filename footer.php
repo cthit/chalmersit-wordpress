@@ -52,7 +52,7 @@
 				<dt>Besöksadress</dt>
 				<dd><a href="https://maps.google.se/maps?f=q&source=s_q&hl=sv&geocode=&q=H%C3%B6rsalsv%C3%A4gen+9,+412+58+G%C3%B6teborg,+V%C3%A4stra+G%C3%B6talands+l%C3%A4n&aq=&sll=57.688606,11.979255&sspn=0.001761,0.005059&vpsrc=0&ie=UTF8&hq=&hnear=H%C3%B6rsalsv%C3%A4gen+9,+412+58+G%C3%B6teborg&ll=57.688288,11.979454&spn=0.007042,0.020235&t=m&z=16&iwloc=A">
 					Hubben 2.1<br />
-					Hörsalsvägen 6<br />
+					Hörsalsvägen 9<br />
 					412 58 Göteborg
 				</a></dd>
 			</dl>
