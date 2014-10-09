@@ -45,4 +45,3 @@ function printers_to_json() {
 	$printers = list_printers();
 	echo json_encode($printers);
 }
-?>
