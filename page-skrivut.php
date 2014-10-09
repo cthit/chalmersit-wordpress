@@ -37,7 +37,7 @@
 			<p>
 				<label for="upload">Fil</label>
 				<input type="file" name="upload" id="upload" />
-				<small>(godkända format är bilder, ren text och PDF)</small>
+				<small>(godkända format är ren text och PDF)</small>
 			</p>
 
 			<p>
