@@ -21,8 +21,10 @@ class PrintJob {
 		$this->options = array_merge($this->default_options, $options);
 
 		$this->validateSides($this->options['sides']);
+		$this->validatePrinter($this->printer);
 
 		if (isset($this->options['page-ranges'])) {
+			$this->options['page-ranges'] = str_replace(' ', '', $this->options['page-ranges']);
 			$this->validateRange($this->options['page-ranges']);
 		}
 	}
@@ -51,7 +53,19 @@ class PrintJob {
 
 	private function validateSides($sides) {
 		if (!in_array($sides, $this->valid_sides)) {
-			throw new PrintJobException("Invalid side");			
+			throw new PrintJobException("Invalid side: $sides");
+		}
+	}
+
+	private function validateRange($range) {
+		if (preg_match("/^[-\d,]+$/", $range) !== 1) {
+			throw new PrintJobException("Range contains invalid characters: '$range', valid characters are: , - 0-9");
+		}
+	}
+
+	private function validatePrinter($printer) {
+		if (empty($printer)) {
+			throw new PrintJobException("Printer not set");
 		}
 	}
 }

@@ -71,7 +71,7 @@
 
 			<p>
 				<label>
-					<input type="checkbox" name="oneSided" id="oneSided" value="1" checked />
+					<input type="checkbox" name="duplex" id="oneSided" value="1" checked />
 					Dubbelsidigt
 				</label>
 			</p>

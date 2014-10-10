@@ -107,26 +107,30 @@ function log_to_file($msg, $code, $cid, $extra = "") {
 global $errors, $notice;
 $errors = array();
 
-if(post('print')) {
-
-	if(empty($_FILES) || !in_array($_FILES["upload"]["type"], $file_types) || $_FILES["upload"]["size"] > 100500000) {
-		throw new PrintException("Felaktig filtyp och/eller filstorlek");
-	}
-
-	$filename = $_FILES["upload"]["tmp_name"];
-	$printer = post("printer");
-	$copies = intval(post('copies'));
-	$options = array();
-
-	if (post("oneSided")) $options['sides'] = post('oneSided') ? 'one-sided' : 'two-sided-long-edge';
-	if (post('ranges')) $options['page-ranges'] = post('ranges');
-	if (post('ppi') && post('ppi') !== 'Auto') $options['ppi'] = post('ppi');
-	if (post('media')) $options['media'] = post('media');
-
-	$user = post('user');
-	$pass = post('pass');
+if(isset($_POST['print'])) {
 
 	try {
+		if($_FILES["upload"]["size"] == 0) {
+			throw new PrintException("Ingen fil angiven eller ogiltig fil");
+		}
+		if (!in_array($_FILES["upload"]["type"], $file_types) || $_FILES["upload"]["size"] > 100500000) {
+			throw new PrintException("Felaktig filtyp och/eller filstorlek");
+		}
+
+		$filename = $_FILES["upload"]["tmp_name"];
+		$printer = post("printer");
+		$copies = intval(post('copies'));
+		$options = array();
+
+		if (post("duplex")) $options['sides'] = post('duplex') ? 'two-sided-long-edge' : 'one-sided';
+		if (post('ranges')) $options['page-ranges'] = post('ranges');
+		if (post('ppi') && post('ppi') !== 'Auto') $options['ppi'] = post('ppi');
+		if (post('media')) $options['media'] = post('media');
+
+		$user = post('user');
+		$pass = post('pass');
+
+		// Validation of print job is done _before_ uploadning the document to the server!    - Great!
 		$print_job = new PrintJob(CHALMERS_SSH_FILENAME, $printer, $copies, $options);
 
 		$ssh = new SSHConnection($user, $pass);
