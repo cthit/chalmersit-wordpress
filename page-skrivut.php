@@ -18,26 +18,27 @@
 
 		<form name="print_form" id="print-form" enctype="multipart/form-data" action="" method="post">
 			<input type="hidden" name="print" />
-			<?php if($errors) : ?>
+			<?php if ($errors): ?>
 			<div class="message-warning">
+				Kunde inte skriva ut filen.
 				<ul>
-					<?php foreach($errors as $err) : ?>
-					<li><?php echo $err;?></li>
-					<?php endforeach;?>
+					<?php foreach ($errors as $err): ?>
+					<li><?= $err ?></li>
+					<?php endforeach ?>
 				</ul>
 			</div>
-			<?php endif;?>
+			<?php endif ?>
 
-			<?php if($notice) : ?>
+			<?php if ($notice): ?>
 			<div class="message-positive">
-				<p><?php echo $notice;?></p>
+				<p><?= $notice ?></p>
 			</div>
-			<?php endif;?>
+			<?php endif ?>
 
 			<p>
 				<label for="upload">Fil</label>
 				<input type="file" name="upload" id="upload" />
-				<small>(godkända format är bilder, ren text och PDF)</small>
+				<small>(godkända format är ren text och PDF)</small>
 			</p>
 
 			<p>
@@ -70,7 +71,7 @@
 
 			<p>
 				<label>
-					<input type="checkbox" name="oneSided" id="oneSided" value="1" checked />
+					<input type="checkbox" name="duplex" id="oneSided" value="1" checked />
 					Dubbelsidigt
 				</label>
 			</p>
