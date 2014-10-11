@@ -124,7 +124,7 @@ if(isset($_POST['print'])) {
 
 		if (post("duplex")) $options['sides'] = post('duplex') ? 'two-sided-long-edge' : 'one-sided';
 		if (post('ranges')) $options['page-ranges'] = post('ranges');
-		if (post('ppi') && post('ppi') !== 'Auto') $options['ppi'] = post('ppi');
+		if (post('ppi') && post('ppi') !== 'auto') $options['ppi'] = post('ppi');
 		if (post('media')) $options['media'] = post('media');
 
 		$user = post('user');
