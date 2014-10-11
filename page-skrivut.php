@@ -46,7 +46,7 @@
 				<input name="printer" id="printer" value="ed-2338-laser1" />
 				<small>Skriv i rutan för att söka efter skrivare!</small>
 				<div class="quick-printers">
-					Förslag: <a href="javascript:;" class="show-more">(Visa fler)</a><br>
+					Förslag: <a href="javascript:;" class="show-more" data-show=".unusual">(Visa fler)</a><br>
 						<a href="javascript:;" class="set-printer" data-value="ed-2338-laser1">ed-2338-laser1 Studion</a>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-color2">a-2234-color2</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="a-2234-laser1">a-2234-laser1</a></span>
@@ -56,6 +56,7 @@
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-3507-laser1">ed-3507-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5229-laser1">ed-5229-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-5232-color1">ed-5232-color1</a></span>
+						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="ed-6229-color1">ed-6229-color1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0158a-laser1">m-0158a-laser1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="m-0164a-color1">m-0164a-color1</a></span>
 						<span class="unusual"><a href="javascript:;" class="set-printer" data-value="nc-2504-color1">nc-2504-color1</a></span>
@@ -80,6 +81,26 @@
 				<label for="ranges">Intervall (ex. "3,6,8,11-54", lämna tom för att skriva ut alla sidor)</label>
 				<input type="text" name="ranges" size="10" id="ranges" />
 			</p>
+			
+			<p><a href="javascript:;" class="show-more" data-show=".advanced">+ Visa avancerade alternativ</a></p>
+			<div class="advanced">
+				<p>
+					<label for="media">Pappersstorlek</label>
+					<select name="media" id="media">
+						<option value="A4">A4</option>
+						<option value="A3">A3</option>
+					</select>
+				</p>
+
+				<p>
+					<label for="ppi">Upplösning</label>
+					<select name="ppi" id="ppi">
+						<option value="auto">Auto</option>
+						<option value="600">600dpi</option>
+						<option value="1200">1200dpi</option>
+					</select>
+				</p>
+			</div>
 
 			<hr />
 

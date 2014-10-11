@@ -424,8 +424,9 @@ $(function() {
 		});
 
 		$('.show-more').on('click', function() {
+			var showSelector = $(this).data('show');
 			$(this).remove();
-			$('.unusual').show();
+			$(showSelector).show(600);
 		});
 	}
 
