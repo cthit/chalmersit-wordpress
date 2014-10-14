@@ -77,13 +77,13 @@
 				</label>
 			</p>
 
-			<p>
-				<label for="ranges">Intervall (ex. "3,6,8,11-54", lämna tom för att skriva ut alla sidor)</label>
-				<input type="text" name="ranges" size="10" id="ranges" />
-			</p>
-			
 			<p><a href="javascript:;" class="show-more" data-show=".advanced">+ Visa avancerade alternativ</a></p>
 			<div class="advanced">
+				<p>
+					<label for="ranges">Intervall (ex. "3,6,8,11-54", lämna tom för att skriva ut alla sidor)</label>
+					<input type="text" name="ranges" size="10" id="ranges" />
+				</p>
+
 				<p>
 					<label for="media">Pappersstorlek</label>
 					<select name="media" id="media">
