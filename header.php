@@ -76,7 +76,7 @@
 				<?php else : ?>
 
 					<li><a class="btn-round small" id="login-btn" href="<?php echo wp_login_url(get_permalink());?>">Logga in</a></li>
-					<li><a href="/auth/?page=reset">Glömt lösenord</a></li>
+					<li><a href="//account.chalmers.it/?page=reset">Glömt lösenord</a></li>
 
 				<?php endif;?>
 					<li>
