@@ -81,14 +81,7 @@ function post($var, $default = false) {
 
 $file_types = array(
 	"application/pdf",
-	"text/plain",
-	"text/html",
-	"application/rtf",
-	"text/html",
-	"text/css",
-	"text/javascript",
-	"text/x-csrc",
-	"application/octet-stream"
+	"text/plain"
 );
 
 function log_to_file($msg, $code, $cid, $extra = "") {
