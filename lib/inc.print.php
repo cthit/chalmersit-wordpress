@@ -5,7 +5,7 @@ require "class.PrintJob.php";
 ini_set("upload_max_filesize", "100M");
 ini_set("post_max_file", "100M");
 
-define('CHALMERS_SSH_HOST', 'remote1.student.chalmers.se');
+define('CHALMERS_SSH_HOST', 'remote11.chalmers.se');
 define('CHALMERS_SSH_PORT', 22);
 define('CHALMERS_SSH_FILENAME', '.print/chalmersit.dat');
 
