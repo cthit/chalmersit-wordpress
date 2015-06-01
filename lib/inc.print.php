@@ -122,7 +122,7 @@ if(isset($_POST['print'])) {
 		$copies = intval(post('copies'));
 		$options = array();
 
-		if (post("duplex")) $options['sides'] = post('duplex') ? 'two-sided-long-edge' : 'one-sided';
+		if (post("duplex")) $options['sides'] = post('duplex') == '1' ? 'two-sided-long-edge' : 'one-sided';
 		if (post('ranges')) $options['page-ranges'] = post('ranges');
 		if (post('ppi') && post('ppi') !== 'auto') $options['ppi'] = post('ppi');
 		if (post('media')) $options['media'] = post('media');
