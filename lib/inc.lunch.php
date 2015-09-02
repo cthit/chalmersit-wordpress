@@ -15,15 +15,35 @@ function get_todays_meals() {
 	$resturants = array(
 		array(
 			"name" => "Linsen",
-			"url" => "http://cm.lskitchen.se/johanneberg/linsen/sv/%date.rss"
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/linsen/RSS%20Feed.rss?today=true"
 		),
 		array(
 			"name" => "Kårrestaurangen",
-			"url" => "http://cm.lskitchen.se/johanneberg/karrestaurangen/sv/%date.rss"
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/karrestaurangen/Veckomeny.rss?today=true"
 		),
 		array(
+			"name" => "Express",
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/express/V%C3%A4nster.rss?today=true"
+		),
+		array(
+			"name" => "J.A Pripps Pub & Café",
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/j-a-pripps-pub-cafe/RSS%20Feed.rss?today=true"
+		),
+		array(
+			"name" => "Restaurang Hyllan",
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/hyllan/RSS%20Feed.rss?today=true"
+ 		),
+		array(
 			"name" => "L's Kitchen",
-			"url" => "http://cm.lskitchen.se/lindholmen/foodcourt/sv/%date.rss"
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/l-s-kitchen/Projektor.rss?today=true"
+		),
+		array(
+			"name" => "L's Resto",
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/l-s-resto/RSS%20Feed.rss?today=true"
+		),
+		array(
+			"name" => "Kokboken",
+			"url" => "http://intern.chalmerskonferens.se/view/restaurant/kokboken/RSS%20Feed.rss?today=true"
 		)
 	);
 	return parse_feed($resturants);
