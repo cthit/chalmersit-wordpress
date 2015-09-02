@@ -5,7 +5,7 @@ require "class.PrintJob.php";
 ini_set("upload_max_filesize", "100M");
 ini_set("post_max_file", "100M");
 
-define('CHALMERS_SSH_HOST', 'remote1.student.chalmers.se');
+define('CHALMERS_SSH_HOST', 'remote11.chalmers.se');
 define('CHALMERS_SSH_PORT', 22);
 define('CHALMERS_SSH_FILENAME', '.print/chalmersit.dat');
 
@@ -81,14 +81,7 @@ function post($var, $default = false) {
 
 $file_types = array(
 	"application/pdf",
-	"text/plain",
-	"text/html",
-	"application/rtf",
-	"text/html",
-	"text/css",
-	"text/javascript",
-	"text/x-csrc",
-	"application/octet-stream"
+	"text/plain"
 );
 
 function log_to_file($msg, $code, $cid, $extra = "") {

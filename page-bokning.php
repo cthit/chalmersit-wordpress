@@ -36,6 +36,7 @@
 			<dd>Förening</dd>
 			<dt>Tid</dt>
 			<dd>17+ på vardagar. 00-24 på helger</dd>
+			<dd><i>Notera att du inte automatiskt bokar grupprummet ifall du bokar Hubben</i></dd>
 		</dl>
 
 		<h3>Grupprummet</h3>
@@ -48,10 +49,6 @@
 
 		<p>
 			P.R.I.T. förbehåller sig rätten att ta bort eller ändra bokningar.
-		</p>
-		<p>
-			Ett nytt, mer robust bokningssystem är under utveckling. Alla bokningar
-			som görs här kommer kopieras när det nya träder i kraft.
 		</p>
 	</div>
 </aside>
