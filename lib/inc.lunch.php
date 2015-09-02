@@ -26,10 +26,6 @@ function get_todays_meals() {
 			"url" => "http://intern.chalmerskonferens.se/view/restaurant/express/V%C3%A4nster.rss?today=true"
 		),
 		array(
-			"name" => "J.A Pripps Pub & Café",
-			"url" => "http://intern.chalmerskonferens.se/view/restaurant/j-a-pripps-pub-cafe/RSS%20Feed.rss?today=true"
-		),
-		array(
 			"name" => "Restaurang Hyllan",
 			"url" => "http://intern.chalmerskonferens.se/view/restaurant/hyllan/RSS%20Feed.rss?today=true"
  		),
