@@ -52,7 +52,7 @@ See more in /humans.txt
 	<link rel="stylesheet" href="<?php css_path("jquery-ui-1.10.3.custom.min");?>" />
 
 	<!-- Favicons -->
-	<link rel="icon" type="image/png" href="<?php img_url("favicon.png");?>" />
+	<link rel="icon" type="image/png" href="<?php img_url("fabicon.png");?>" />
 	<link rel="apple-touch-icon-precomposed" href="<?php img_url("apple-touch-icon.png");?>" />
 
 	<!-- iOS Homescreen specials -->
